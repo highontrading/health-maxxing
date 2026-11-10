@@ -16,6 +16,7 @@ and an autopilot that has Claude research and draft new articles.
 | Admin panel | Edit everything, moderate, manage members and subscribers, change site settings |
 | Autopilot | A topic queue that Claude researches with web search and drafts into articles |
 | Content API | Token-protected REST API, so scripts and AI agents can manage content |
+| Motion | Page transitions, menus and dialogs that open and close smoothly, scroll reveals and small touches throughout. Visitors who ask their device for reduced motion get none of it |
 
 Built with Next.js 16, React 19, Tailwind CSS 4 and a SQLite (libSQL) database. It needs no outside
 service to run.
@@ -205,7 +206,22 @@ runs the content validator, the type checker, the linter and the tests (calculat
 newsletter sending against a local mail server, the autopilot pipeline with canned Claude answers,
 and password-reset links).
 
-Browser tests for the public site, the community and the admin panel are in `scripts/e2e/`.
+Browser tests for the public site, the community, the admin panel and the page transitions are in
+`scripts/e2e/`.
+
+## Motion
+
+Pages cross-fade when you follow a link, menus and dialogs open and close with a short animation,
+content below the first screen rises in as you scroll, and stickers and buttons react to hover and
+press. Hovering a link fetches the page in the background, so most pages open at once.
+
+- Every speed and curve is a named value in `src/app/styles/motion/tokens.css`. Change a number
+  there and the whole site follows.
+- Visitors who switch on "reduce motion" on their device get instant page changes and no movement.
+- Page transitions use the browser's View Transitions API, which recent versions of Chrome, Edge,
+  Safari and Firefox have. A browser without it changes pages without the fade and everything
+  else still works. The transitions were tested in Chromium only, so look at them once in Safari
+  and Firefox.
 
 ## What still needs you
 
