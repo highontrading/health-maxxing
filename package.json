@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint",
     "content:check": "tsx scripts/validate-content.ts",
-    "content:plan": "tsx scripts/plan.ts"
+    "content:plan": "tsx scripts/plan.ts",
+    "content:sync": "tsx scripts/sync-content.ts",
+    "test:calc": "tsx scripts/test-calc.ts"
   },
   "dependencies": {
     "@libsql/client": "^0.18.0",

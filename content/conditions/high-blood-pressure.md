@@ -34,6 +34,7 @@ sources:
     publisher: "National Heart, Lung, and Blood Institute"
     year: 2024
     url: "https://www.nhlbi.nih.gov/health/high-blood-pressure"
+factCheck: pending
 ---
 
 ## What it is

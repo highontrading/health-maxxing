@@ -7,6 +7,11 @@ import { z } from "zod";
 
 export const ARTICLE_KINDS = ["guide", "explainer", "how-to", "list", "deep-dive"] as const;
 export const CALLOUT_TYPES = ["TIP", "NOTE", "WARNING", "DOCTOR", "STAT"] as const;
+/**
+ * verified: every figure and source URL was confirmed against the source in a live search.
+ * pending:  written from established knowledge; needs an independent source check.
+ */
+export const FACT_CHECK_STATES = ["verified", "pending"] as const;
 export const MYTH_VERDICTS = ["false", "misleading", "partly-true", "true"] as const;
 export const FOOD_GROUPS = [
   "vegetables",
@@ -102,6 +107,7 @@ export const articleFrontmatterSchema = z.object({
   faqs: z.array(faqSchema).min(2).max(5),
   sources: z.array(sourceSchema).min(4).max(12),
   related: z.array(slugSchema).max(4).optional(),
+  factCheck: z.enum(FACT_CHECK_STATES).optional(),
 });
 export type ArticleFrontmatter = z.infer<typeof articleFrontmatterSchema>;
 
@@ -114,6 +120,7 @@ export const conditionFrontmatterSchema = z.object({
   symptoms: z.array(z.string().min(3).max(90)).min(3).max(10),
   urgent: z.array(z.string().min(5).max(140)).max(6).optional(),
   sources: z.array(sourceSchema).min(3).max(8),
+  factCheck: z.enum(FACT_CHECK_STATES).optional(),
 });
 export type ConditionFrontmatter = z.infer<typeof conditionFrontmatterSchema>;
 

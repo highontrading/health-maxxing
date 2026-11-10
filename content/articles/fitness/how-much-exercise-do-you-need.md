@@ -46,7 +46,7 @@ sources:
   - title: "Muscle-strengthening activities are associated with lower risk and mortality in major non-communicable diseases: a systematic review and meta-analysis of cohort studies"
     publisher: "British Journal of Sports Medicine"
     year: 2022
-    url: "https://doi.org/10.1136/bjsports-2021-105061"
+    url: "https://pubmed.ncbi.nlm.nih.gov/?term=Muscle-strengthening+activities+are+associated+with+lower+risk+and+mortality+in+major+non-communicable+diseases"
   - title: "Association of wearable device-measured vigorous intermittent lifestyle physical activity with mortality"
     publisher: "Nature Medicine"
     year: 2022
@@ -56,6 +56,7 @@ sources:
     year: 2017
     url: "https://doi.org/10.1001/jamainternmed.2016.8014"
 related: [strength-training-for-beginners, how-many-steps-a-day, zone-2-and-vo2-max]
+factCheck: pending
 ---
 
 Ask ten people how much exercise you need and you will get ten answers, most of them involving guilt. The actual answer is refreshingly specific, backed by a mountain of evidence, and smaller than most people fear.

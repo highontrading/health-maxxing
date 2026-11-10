@@ -67,6 +67,40 @@ not medically trained. They want to know what is true, how sure we are, and what
    sentences are not.
 10. Do not add a generic medical disclaimer. The site template adds one to every page.
 
+### Fact-check status
+
+Every article and condition carries a `factCheck` field in its frontmatter:
+
+- `factCheck: verified` — you confirmed every figure, threshold and source URL against the source
+  in a live search during this session.
+- `factCheck: pending` — anything else. This is the default when the field is missing.
+
+Be honest about it. A `pending` piece is still published; the flag puts it in the admin's
+"needs fact check" queue so an editor can verify it later.
+
+### When live search is not available
+
+Web search is rate-limited and sometimes unavailable. If you cannot verify online, you may still
+write, but under stricter rules:
+
+1. State only what you are confident is established, mainstream guidance. If you are unsure of an
+   exact number, give the range you are sure of, say "about", or leave it out. Never guess.
+2. Prefer guideline-level facts (what WHO, national agencies and major societies recommend) over
+   single-study statistics. Name the organization and the year.
+3. Sources must be one of:
+   - a URL you saw in a search result earlier in the session;
+   - a stable landing page of an authoritative body that you are highly confident exists, such as
+     a WHO fact sheet (`https://www.who.int/news-room/fact-sheets/detail/<topic>`), an NHS
+     conditions page (`https://www.nhs.uk/conditions/<name>/`), a MedlinePlus topic, an NIH
+     institute health topic, an NIH Office of Dietary Supplements fact sheet, a USPSTF
+     recommendation page, or a major professional society's patient page;
+   - for a journal paper, a **PubMed title search link**:
+     `https://pubmed.ncbi.nlm.nih.gov/?term=<exact paper title, URL-encoded with + for spaces>`.
+     Do not write DOIs, PMIDs or PMC ids from memory: a wrong identifier points readers at the
+     wrong paper.
+4. Set `factCheck: pending` and list, in your hand-off report, the specific claims that most need
+   checking.
+
 ## 3. Articles
 
 Path: `content/articles/<category>/<slug>.md`. The slug and category come from `plan.json`.
@@ -92,6 +126,7 @@ sources:                                         # 4 to 12, numbered in this ord
     year: 2020
     url: "https://…"
 related: [slug-one, slug-two]                    # optional, up to 4 article slugs from plan.json
+factCheck: verified                              # verified | pending (see section 2)
 ---
 
 One or two intro paragraphs with no heading. Hook the reader, then say what the piece covers.
@@ -170,6 +205,7 @@ sources:                               # 3 to 8
     publisher: "…"
     year: 2025
     url: "https://…"
+factCheck: pending                     # verified | pending (see section 2)
 ---
 
 ## What it is
