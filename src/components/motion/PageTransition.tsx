@@ -72,3 +72,18 @@ export function Swap({ children }: { children: ReactNode }) {
     </ViewTransition>
   );
 }
+
+/**
+ * Wraps the root element of a layout. A page's own <PageTransition> does not
+ * play when the layout around it is added or removed in the same step (going
+ * from the public site into the admin panel, or signing in to it): then the
+ * layout is the outermost thing that changes, and this is what animates.
+ * While the visitor stays inside the layout it does nothing.
+ */
+export function LayoutTransition({ children }: { children: ReactNode }) {
+  return (
+    <ViewTransition enter="panel-enter" exit="panel-exit" default="none">
+      {children}
+    </ViewTransition>
+  );
+}
