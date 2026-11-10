@@ -125,13 +125,14 @@ export function ArticleBento({
           {article.dek}
         </p>
       )}
-      <span className={cn("mt-auto inline-flex items-center gap-1.5 pt-6 text-sm font-semibold", solid && !lightText && "text-ink")}>
+      {/* Medium cards leave room above the link so the corner sticker never sits on the summary. */}
+      <span className={cn("mt-auto inline-flex items-center gap-1.5 text-sm font-semibold", size === "md" ? "pt-12" : "pt-6", solid && !lightText && "text-ink")}>
         Read it <Icon name="arrow-right" size={16} className="transition-transform group-hover:translate-x-1" />
       </span>
       {size === "lg" && <span className="pointer-events-none absolute -bottom-[34%] -right-[16%] -z-10 aspect-square w-[62%] rounded-full bg-tone-solid opacity-25" aria-hidden="true" />}
       <Sticker
         name={article.sticker}
-        size={size === "lg" ? 250 : size === "md" ? 128 : 96}
+        size={size === "lg" ? 250 : size === "md" ? 112 : 96}
         rotate={size === "lg" ? -8 : 10}
         className={cn(
           "pointer-events-none absolute -z-0 transition-transform duration-300 group-hover:scale-110",
