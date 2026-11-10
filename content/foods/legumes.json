@@ -2,169 +2,518 @@
   {
     "name": "Lentils, cooked",
     "group": "legumes",
-    "fdcId": 172421,
-    "serving": { "label": "1/2 cup cooked", "grams": 99 },
-    "per100g": { "kcal": 116, "protein": 9, "carbs": 20.1, "fiber": 7.9, "sugars": 1.8, "fat": 0.4, "satFat": 0.1, "sodiumMg": 2 },
+    "serving": {
+      "label": "1/2 cup cooked",
+      "grams": 99
+    },
+    "per100g": {
+      "kcal": 116,
+      "protein": 9,
+      "carbs": 20.1,
+      "fiber": 7.9,
+      "sugars": 1.8,
+      "fat": 0.4,
+      "satFat": 0.1,
+      "sodiumMg": 2
+    },
     "micros": [
-      { "name": "Folate", "amount": 181, "unit": "mcg" },
-      { "name": "Iron", "amount": 3.3, "unit": "mg" },
-      { "name": "Potassium", "amount": 369, "unit": "mg" },
-      { "name": "Magnesium", "amount": 36, "unit": "mg" }
+      {
+        "name": "Folate",
+        "amount": 181,
+        "unit": "mcg"
+      },
+      {
+        "name": "Iron",
+        "amount": 3.3,
+        "unit": "mg"
+      },
+      {
+        "name": "Potassium",
+        "amount": 369,
+        "unit": "mg"
+      },
+      {
+        "name": "Magnesium",
+        "amount": 36,
+        "unit": "mg"
+      }
     ],
     "note": "Half a cup has about 9 g of protein and 8 g of fiber; the base of many dals, and no soaking needed."
   },
   {
     "name": "Chickpeas, cooked",
     "group": "legumes",
-    "fdcId": 173757,
-    "serving": { "label": "1/2 cup cooked", "grams": 82 },
-    "per100g": { "kcal": 164, "protein": 8.9, "carbs": 27.4, "fiber": 7.6, "sugars": 4.8, "fat": 2.6, "satFat": 0.3, "sodiumMg": 7 },
+    "serving": {
+      "label": "1/2 cup cooked",
+      "grams": 82
+    },
+    "per100g": {
+      "kcal": 164,
+      "protein": 8.9,
+      "carbs": 27.4,
+      "fiber": 7.6,
+      "sugars": 4.8,
+      "fat": 2.6,
+      "satFat": 0.3,
+      "sodiumMg": 7
+    },
     "micros": [
-      { "name": "Folate", "amount": 172, "unit": "mcg" },
-      { "name": "Iron", "amount": 2.9, "unit": "mg" },
-      { "name": "Manganese", "amount": 1, "unit": "mg" },
-      { "name": "Potassium", "amount": 291, "unit": "mg" }
+      {
+        "name": "Folate",
+        "amount": 172,
+        "unit": "mcg"
+      },
+      {
+        "name": "Iron",
+        "amount": 2.9,
+        "unit": "mg"
+      },
+      {
+        "name": "Manganese",
+        "amount": 1,
+        "unit": "mg"
+      },
+      {
+        "name": "Potassium",
+        "amount": 291,
+        "unit": "mg"
+      }
     ],
     "note": "Half a cup gives you about 7 g of protein and 6 g of fiber; canned chickpeas are saltier, so rinse them."
   },
   {
     "name": "Black beans, cooked",
     "group": "legumes",
-    "fdcId": 173735,
-    "serving": { "label": "1/2 cup cooked", "grams": 86 },
-    "per100g": { "kcal": 132, "protein": 8.9, "carbs": 23.7, "fiber": 8.7, "sugars": 0.3, "fat": 0.5, "satFat": 0.1, "sodiumMg": 1 },
+    "serving": {
+      "label": "1/2 cup cooked",
+      "grams": 86
+    },
+    "per100g": {
+      "kcal": 132,
+      "protein": 8.9,
+      "carbs": 23.7,
+      "fiber": 8.7,
+      "sugars": 0.3,
+      "fat": 0.5,
+      "satFat": 0.1,
+      "sodiumMg": 1
+    },
     "micros": [
-      { "name": "Folate", "amount": 149, "unit": "mcg" },
-      { "name": "Magnesium", "amount": 70, "unit": "mg" },
-      { "name": "Iron", "amount": 2.1, "unit": "mg" },
-      { "name": "Potassium", "amount": 355, "unit": "mg" }
+      {
+        "name": "Folate",
+        "amount": 149,
+        "unit": "mcg"
+      },
+      {
+        "name": "Magnesium",
+        "amount": 70,
+        "unit": "mg"
+      },
+      {
+        "name": "Iron",
+        "amount": 2.1,
+        "unit": "mg"
+      },
+      {
+        "name": "Potassium",
+        "amount": 355,
+        "unit": "mg"
+      }
     ],
     "note": "Nearly 9 g of fiber per 100 g, and barely any sodium when you cook them from dry."
   },
   {
     "name": "Kidney beans, red, cooked",
     "group": "legumes",
-    "serving": { "label": "1/2 cup cooked", "grams": 89 },
-    "per100g": { "kcal": 127, "protein": 8.7, "carbs": 22.8, "fiber": 7.4, "sugars": 0.3, "fat": 0.5, "satFat": 0.1, "sodiumMg": 2 },
+    "serving": {
+      "label": "1/2 cup cooked",
+      "grams": 89
+    },
+    "per100g": {
+      "kcal": 127,
+      "protein": 8.7,
+      "carbs": 22.8,
+      "fiber": 7.4,
+      "sugars": 0.3,
+      "fat": 0.5,
+      "satFat": 0.1,
+      "sodiumMg": 2
+    },
     "micros": [
-      { "name": "Folate", "amount": 130, "unit": "mcg" },
-      { "name": "Iron", "amount": 2.9, "unit": "mg" },
-      { "name": "Potassium", "amount": 403, "unit": "mg" }
+      {
+        "name": "Folate",
+        "amount": 130,
+        "unit": "mcg"
+      },
+      {
+        "name": "Iron",
+        "amount": 2.9,
+        "unit": "mg"
+      },
+      {
+        "name": "Potassium",
+        "amount": 403,
+        "unit": "mg"
+      }
     ],
     "note": "About 9 g of protein and 7 g of fiber per 100 g, which makes them an easy stand-in for some of the meat in chili and stews."
   },
   {
     "name": "Pinto beans, cooked",
     "group": "legumes",
-    "serving": { "label": "1/2 cup cooked", "grams": 86 },
-    "per100g": { "kcal": 143, "protein": 9, "carbs": 26.2, "fiber": 9, "sugars": 0.3, "fat": 0.7, "satFat": 0.1, "sodiumMg": 1 },
+    "serving": {
+      "label": "1/2 cup cooked",
+      "grams": 86
+    },
+    "per100g": {
+      "kcal": 143,
+      "protein": 9,
+      "carbs": 26.2,
+      "fiber": 9,
+      "sugars": 0.3,
+      "fat": 0.7,
+      "satFat": 0.1,
+      "sodiumMg": 1
+    },
     "micros": [
-      { "name": "Folate", "amount": 172, "unit": "mcg" },
-      { "name": "Potassium", "amount": 436, "unit": "mg" },
-      { "name": "Magnesium", "amount": 50, "unit": "mg" },
-      { "name": "Iron", "amount": 2.1, "unit": "mg" }
+      {
+        "name": "Folate",
+        "amount": 172,
+        "unit": "mcg"
+      },
+      {
+        "name": "Potassium",
+        "amount": 436,
+        "unit": "mg"
+      },
+      {
+        "name": "Magnesium",
+        "amount": 50,
+        "unit": "mg"
+      },
+      {
+        "name": "Iron",
+        "amount": 2.1,
+        "unit": "mg"
+      }
     ],
     "note": "The classic bean for refrying; cooked plain, it has 9 g each of protein and fiber per 100 g and almost no fat."
   },
   {
     "name": "Navy beans, cooked",
     "group": "legumes",
-    "serving": { "label": "1/2 cup cooked", "grams": 91 },
-    "per100g": { "kcal": 140, "protein": 8.2, "carbs": 26.1, "fiber": 10.5, "sugars": 0.4, "fat": 0.6, "satFat": 0.1, "sodiumMg": 0 },
+    "serving": {
+      "label": "1/2 cup cooked",
+      "grams": 91
+    },
+    "per100g": {
+      "kcal": 140,
+      "protein": 8.2,
+      "carbs": 26.1,
+      "fiber": 10.5,
+      "sugars": 0.4,
+      "fat": 0.6,
+      "satFat": 0.1,
+      "sodiumMg": 0
+    },
     "micros": [
-      { "name": "Folate", "amount": 140, "unit": "mcg" },
-      { "name": "Potassium", "amount": 389, "unit": "mg" },
-      { "name": "Magnesium", "amount": 53, "unit": "mg" },
-      { "name": "Iron", "amount": 2.4, "unit": "mg" }
+      {
+        "name": "Folate",
+        "amount": 140,
+        "unit": "mcg"
+      },
+      {
+        "name": "Potassium",
+        "amount": 389,
+        "unit": "mg"
+      },
+      {
+        "name": "Magnesium",
+        "amount": 53,
+        "unit": "mg"
+      },
+      {
+        "name": "Iron",
+        "amount": 2.4,
+        "unit": "mg"
+      }
     ],
     "note": "The small white bean used in baked beans, and the highest-fiber cooked bean on this list at 10.5 g per 100 g."
   },
   {
-    "name": "Soybeans, mature, cooked",
+    "name": "Fava beans (broad beans), cooked",
     "group": "legumes",
-    "serving": { "label": "1/2 cup cooked", "grams": 86 },
-    "per100g": { "kcal": 172, "protein": 18.2, "carbs": 8.4, "fiber": 6, "sugars": 3, "fat": 9, "satFat": 1.3, "sodiumMg": 1 },
+    "serving": {
+      "label": "1/2 cup cooked",
+      "grams": 85
+    },
+    "per100g": {
+      "kcal": 110,
+      "protein": 7.6,
+      "carbs": 19.7,
+      "fiber": 5.4,
+      "sugars": 1.8,
+      "fat": 0.4,
+      "satFat": 0.1,
+      "sodiumMg": 5
+    },
     "micros": [
-      { "name": "Iron", "amount": 5.1, "unit": "mg" },
-      { "name": "Potassium", "amount": 515, "unit": "mg" },
-      { "name": "Magnesium", "amount": 86, "unit": "mg" },
-      { "name": "Calcium", "amount": 102, "unit": "mg" }
+      {
+        "name": "Folate",
+        "amount": 104,
+        "unit": "mcg"
+      },
+      {
+        "name": "Potassium",
+        "amount": 268,
+        "unit": "mg"
+      },
+      {
+        "name": "Manganese",
+        "amount": 0.4,
+        "unit": "mg"
+      },
+      {
+        "name": "Iron",
+        "amount": 1.5,
+        "unit": "mg"
+      }
     ],
-    "note": "About 18 g of protein per 100 g, roughly double most other cooked beans, with more fat to match."
+    "note": "A staple across the Middle East and North Africa and the bean behind ful medames, with 7.6 g of protein and 5.4 g of fiber per 100 g cooked."
   },
   {
     "name": "Edamame, cooked from frozen",
     "group": "legumes",
-    "serving": { "label": "1/2 cup shelled", "grams": 78 },
-    "per100g": { "kcal": 121, "protein": 11.9, "carbs": 8.9, "fiber": 5.2, "sugars": 2.2, "fat": 5.2, "satFat": 0.6, "sodiumMg": 6 },
+    "serving": {
+      "label": "1/2 cup shelled",
+      "grams": 78
+    },
+    "per100g": {
+      "kcal": 121,
+      "protein": 11.9,
+      "carbs": 8.9,
+      "fiber": 5.2,
+      "sugars": 2.2,
+      "fat": 5.2,
+      "satFat": 0.6,
+      "sodiumMg": 6
+    },
     "micros": [
-      { "name": "Folate", "amount": 311, "unit": "mcg" },
-      { "name": "Vitamin K", "amount": 26.7, "unit": "mcg" },
-      { "name": "Iron", "amount": 2.3, "unit": "mg" },
-      { "name": "Potassium", "amount": 436, "unit": "mg" }
+      {
+        "name": "Folate",
+        "amount": 311,
+        "unit": "mcg"
+      },
+      {
+        "name": "Vitamin K",
+        "amount": 26.7,
+        "unit": "mcg"
+      },
+      {
+        "name": "Iron",
+        "amount": 2.3,
+        "unit": "mg"
+      },
+      {
+        "name": "Potassium",
+        "amount": 436,
+        "unit": "mg"
+      }
     ],
     "note": "Young green soybeans: half a cup shelled has about 9 g of protein and well over half a day's folate."
   },
   {
     "name": "Split peas, cooked",
     "group": "legumes",
-    "serving": { "label": "1/2 cup cooked", "grams": 98 },
-    "per100g": { "kcal": 118, "protein": 8.3, "carbs": 21.1, "fiber": 8.3, "sugars": 2.9, "fat": 0.4, "satFat": 0.1, "sodiumMg": 2 },
+    "serving": {
+      "label": "1/2 cup cooked",
+      "grams": 98
+    },
+    "per100g": {
+      "kcal": 118,
+      "protein": 8.3,
+      "carbs": 21.1,
+      "fiber": 8.3,
+      "sugars": 2.9,
+      "fat": 0.4,
+      "satFat": 0.1,
+      "sodiumMg": 2
+    },
     "micros": [
-      { "name": "Folate", "amount": 65, "unit": "mcg" },
-      { "name": "Potassium", "amount": 362, "unit": "mg" },
-      { "name": "Thiamin (B1)", "amount": 0.2, "unit": "mg" }
+      {
+        "name": "Folate",
+        "amount": 65,
+        "unit": "mcg"
+      },
+      {
+        "name": "Potassium",
+        "amount": 362,
+        "unit": "mg"
+      },
+      {
+        "name": "Thiamin (B1)",
+        "amount": 0.2,
+        "unit": "mg"
+      }
     ],
     "note": "They cook down into a thick soup without soaking and bring 8 g each of protein and fiber per 100 g."
   },
   {
     "name": "Green peas, cooked",
     "group": "legumes",
-    "serving": { "label": "1/2 cup", "grams": 80 },
-    "per100g": { "kcal": 84, "protein": 5.4, "carbs": 15.6, "fiber": 5.5, "sugars": 5.9, "fat": 0.2, "satFat": 0, "sodiumMg": 3 },
+    "serving": {
+      "label": "1/2 cup",
+      "grams": 80
+    },
+    "per100g": {
+      "kcal": 84,
+      "protein": 5.4,
+      "carbs": 15.6,
+      "fiber": 5.5,
+      "sugars": 5.9,
+      "fat": 0.2,
+      "satFat": 0,
+      "sodiumMg": 3
+    },
     "micros": [
-      { "name": "Vitamin C", "amount": 14.2, "unit": "mg" },
-      { "name": "Vitamin K", "amount": 25.9, "unit": "mcg" },
-      { "name": "Folate", "amount": 63, "unit": "mcg" },
-      { "name": "Potassium", "amount": 271, "unit": "mg" }
+      {
+        "name": "Vitamin C",
+        "amount": 14.2,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin K",
+        "amount": 25.9,
+        "unit": "mcg"
+      },
+      {
+        "name": "Folate",
+        "amount": 63,
+        "unit": "mcg"
+      },
+      {
+        "name": "Potassium",
+        "amount": 271,
+        "unit": "mg"
+      }
     ],
     "note": "Sweeter and lighter than dried pulses, yet half a cup still gives you about 4 g each of protein and fiber."
   },
   {
     "name": "Mung beans, cooked",
     "group": "legumes",
-    "serving": { "label": "1/2 cup cooked", "grams": 101 },
-    "per100g": { "kcal": 105, "protein": 7, "carbs": 19.2, "fiber": 7.6, "sugars": 2, "fat": 0.4, "satFat": 0.1, "sodiumMg": 2 },
+    "serving": {
+      "label": "1/2 cup cooked",
+      "grams": 101
+    },
+    "per100g": {
+      "kcal": 105,
+      "protein": 7,
+      "carbs": 19.2,
+      "fiber": 7.6,
+      "sugars": 2,
+      "fat": 0.4,
+      "satFat": 0.1,
+      "sodiumMg": 2
+    },
     "micros": [
-      { "name": "Folate", "amount": 159, "unit": "mcg" },
-      { "name": "Potassium", "amount": 266, "unit": "mg" },
-      { "name": "Magnesium", "amount": 48, "unit": "mg" }
+      {
+        "name": "Folate",
+        "amount": 159,
+        "unit": "mcg"
+      },
+      {
+        "name": "Potassium",
+        "amount": 266,
+        "unit": "mg"
+      },
+      {
+        "name": "Magnesium",
+        "amount": 48,
+        "unit": "mg"
+      }
     ],
     "note": "The small green bean behind moong dal and bean sprouts, with 7 g of protein and 7.6 g of fiber per 100 g cooked."
   },
   {
     "name": "Black-eyed peas, cooked",
     "group": "legumes",
-    "serving": { "label": "1/2 cup cooked", "grams": 86 },
-    "per100g": { "kcal": 116, "protein": 7.7, "carbs": 20.8, "fiber": 6.5, "sugars": 3.3, "fat": 0.5, "satFat": 0.1, "sodiumMg": 4 },
+    "serving": {
+      "label": "1/2 cup cooked",
+      "grams": 86
+    },
+    "per100g": {
+      "kcal": 116,
+      "protein": 7.7,
+      "carbs": 20.8,
+      "fiber": 6.5,
+      "sugars": 3.3,
+      "fat": 0.5,
+      "satFat": 0.1,
+      "sodiumMg": 4
+    },
     "micros": [
-      { "name": "Folate", "amount": 208, "unit": "mcg" },
-      { "name": "Iron", "amount": 2.5, "unit": "mg" },
-      { "name": "Potassium", "amount": 278, "unit": "mg" },
-      { "name": "Magnesium", "amount": 53, "unit": "mg" }
+      {
+        "name": "Folate",
+        "amount": 208,
+        "unit": "mcg"
+      },
+      {
+        "name": "Iron",
+        "amount": 2.5,
+        "unit": "mg"
+      },
+      {
+        "name": "Potassium",
+        "amount": 278,
+        "unit": "mg"
+      },
+      {
+        "name": "Magnesium",
+        "amount": 53,
+        "unit": "mg"
+      }
     ],
     "note": "Half a cup supplies about 45% of a day's folate, along with 5.6 g of fiber."
   },
   {
     "name": "Chickpea flour (besan)",
     "group": "legumes",
-    "serving": { "label": "1/4 cup", "grams": 23 },
-    "per100g": { "kcal": 387, "protein": 22.4, "carbs": 57.8, "fiber": 10.8, "sugars": 10.9, "fat": 6.7, "satFat": 0.7, "sodiumMg": 64 },
+    "serving": {
+      "label": "1/4 cup",
+      "grams": 23
+    },
+    "per100g": {
+      "kcal": 387,
+      "protein": 22.4,
+      "carbs": 57.8,
+      "fiber": 10.8,
+      "sugars": 10.9,
+      "fat": 6.7,
+      "satFat": 0.7,
+      "sodiumMg": 64
+    },
     "micros": [
-      { "name": "Folate", "amount": 437, "unit": "mcg" },
-      { "name": "Iron", "amount": 4.9, "unit": "mg" },
-      { "name": "Magnesium", "amount": 166, "unit": "mg" },
-      { "name": "Potassium", "amount": 846, "unit": "mg" }
+      {
+        "name": "Folate",
+        "amount": 437,
+        "unit": "mcg"
+      },
+      {
+        "name": "Iron",
+        "amount": 4.9,
+        "unit": "mg"
+      },
+      {
+        "name": "Magnesium",
+        "amount": 166,
+        "unit": "mg"
+      },
+      {
+        "name": "Potassium",
+        "amount": 846,
+        "unit": "mg"
+      }
     ],
     "note": "A dry flour, so the numbers are concentrated; a quarter-cup scoop (23 g) brings about 5 g of protein."
   }

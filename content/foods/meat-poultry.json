@@ -2,122 +2,365 @@
   {
     "name": "Chicken breast, roasted",
     "group": "meat-poultry",
-    "fdcId": 171477,
-    "serving": { "label": "1 small breast", "grams": 120 },
-    "per100g": { "kcal": 165, "protein": 31, "carbs": 0, "fiber": 0, "sugars": 0, "fat": 3.6, "satFat": 1, "sodiumMg": 74 },
+    "serving": {
+      "label": "1 small breast",
+      "grams": 120
+    },
+    "per100g": {
+      "kcal": 165,
+      "protein": 31,
+      "carbs": 0,
+      "fiber": 0,
+      "sugars": 0,
+      "fat": 3.6,
+      "satFat": 1,
+      "sodiumMg": 74
+    },
     "micros": [
-      { "name": "Niacin (B3)", "amount": 13.7, "unit": "mg" },
-      { "name": "Vitamin B6", "amount": 0.6, "unit": "mg" },
-      { "name": "Selenium", "amount": 27.6, "unit": "mcg" },
-      { "name": "Phosphorus", "amount": 228, "unit": "mg" }
+      {
+        "name": "Niacin (B3)",
+        "amount": 13.7,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B6",
+        "amount": 0.6,
+        "unit": "mg"
+      },
+      {
+        "name": "Selenium",
+        "amount": 27.6,
+        "unit": "mcg"
+      },
+      {
+        "name": "Phosphorus",
+        "amount": 228,
+        "unit": "mg"
+      }
     ],
     "note": "Skinless and lean: about 31 g of protein per 100 g with under 4 g of fat."
   },
   {
     "name": "Chicken, dark meat, roasted",
     "group": "meat-poultry",
-    "serving": { "label": "1 palm-size portion", "grams": 85 },
-    "per100g": { "kcal": 205, "protein": 27.4, "carbs": 0, "fiber": 0, "sugars": 0, "fat": 9.7, "satFat": 2.7, "sodiumMg": 93 },
+    "serving": {
+      "label": "1 palm-size portion",
+      "grams": 85
+    },
+    "per100g": {
+      "kcal": 205,
+      "protein": 27.4,
+      "carbs": 0,
+      "fiber": 0,
+      "sugars": 0,
+      "fat": 9.7,
+      "satFat": 2.7,
+      "sodiumMg": 93
+    },
     "micros": [
-      { "name": "Zinc", "amount": 2.8, "unit": "mg" },
-      { "name": "Niacin (B3)", "amount": 6.5, "unit": "mg" },
-      { "name": "Iron", "amount": 1.3, "unit": "mg" }
+      {
+        "name": "Zinc",
+        "amount": 2.8,
+        "unit": "mg"
+      },
+      {
+        "name": "Niacin (B3)",
+        "amount": 6.5,
+        "unit": "mg"
+      },
+      {
+        "name": "Iron",
+        "amount": 1.3,
+        "unit": "mg"
+      }
     ],
     "note": "Thigh and leg meat without the skin: a little less protein than breast and nearly three times the fat, which is why it stays juicier."
   },
   {
     "name": "Turkey breast, roasted",
     "group": "meat-poultry",
-    "serving": { "label": "3 thick slices", "grams": 85 },
-    "per100g": { "kcal": 147, "protein": 30.1, "carbs": 0, "fiber": 0, "sugars": 0, "fat": 2.1, "satFat": 0.6, "sodiumMg": 99 },
+    "serving": {
+      "label": "3 thick slices",
+      "grams": 85
+    },
+    "per100g": {
+      "kcal": 147,
+      "protein": 30.1,
+      "carbs": 0,
+      "fiber": 0,
+      "sugars": 0,
+      "fat": 2.1,
+      "satFat": 0.6,
+      "sodiumMg": 99
+    },
     "micros": [
-      { "name": "Niacin (B3)", "amount": 11.8, "unit": "mg" },
-      { "name": "Vitamin B6", "amount": 0.8, "unit": "mg" },
-      { "name": "Selenium", "amount": 30.2, "unit": "mcg" }
+      {
+        "name": "Niacin (B3)",
+        "amount": 11.8,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B6",
+        "amount": 0.8,
+        "unit": "mg"
+      },
+      {
+        "name": "Selenium",
+        "amount": 30.2,
+        "unit": "mcg"
+      }
     ],
     "note": "One of the leanest meats on this list, with about 30 g of protein and 2 g of fat per 100 g when you skip the skin."
   },
   {
     "name": "Beef, ground, 85% lean, broiled",
     "group": "meat-poultry",
-    "serving": { "label": "1 small patty", "grams": 85 },
-    "per100g": { "kcal": 250, "protein": 25.9, "carbs": 0, "fiber": 0, "sugars": 0, "fat": 15.4, "satFat": 5.9, "sodiumMg": 72 },
+    "serving": {
+      "label": "1 small patty",
+      "grams": 85
+    },
+    "per100g": {
+      "kcal": 250,
+      "protein": 25.9,
+      "carbs": 0,
+      "fiber": 0,
+      "sugars": 0,
+      "fat": 15.4,
+      "satFat": 5.9,
+      "sodiumMg": 72
+    },
     "micros": [
-      { "name": "Zinc", "amount": 6.3, "unit": "mg" },
-      { "name": "Iron", "amount": 2.6, "unit": "mg" },
-      { "name": "Niacin (B3)", "amount": 5.4, "unit": "mg" }
+      {
+        "name": "Zinc",
+        "amount": 6.3,
+        "unit": "mg"
+      },
+      {
+        "name": "Iron",
+        "amount": 2.6,
+        "unit": "mg"
+      },
+      {
+        "name": "Niacin (B3)",
+        "amount": 5.4,
+        "unit": "mg"
+      }
     ],
     "note": "A broiled patty of 85% lean ground beef has about 26 g of protein and 15 g of fat per 100 g; leaner blends trim the fat, not the protein."
   },
   {
     "name": "Beef liver, braised",
     "group": "meat-poultry",
-    "serving": { "label": "1 slice", "grams": 68 },
-    "per100g": { "kcal": 191, "protein": 29.1, "carbs": 5.1, "fiber": 0, "sugars": 0, "fat": 5.3, "satFat": 2.9, "sodiumMg": 79 },
+    "serving": {
+      "label": "1 slice",
+      "grams": 68
+    },
+    "per100g": {
+      "kcal": 191,
+      "protein": 29.1,
+      "carbs": 5.1,
+      "fiber": 0,
+      "sugars": 0,
+      "fat": 5.3,
+      "satFat": 2.9,
+      "sodiumMg": 79
+    },
     "micros": [
-      { "name": "Vitamin A (RAE)", "amount": 9442, "unit": "mcg" },
-      { "name": "Vitamin B12", "amount": 70.6, "unit": "mcg" },
-      { "name": "Iron", "amount": 6.5, "unit": "mg" },
-      { "name": "Folate", "amount": 253, "unit": "mcg" }
+      {
+        "name": "Vitamin A (RAE)",
+        "amount": 9442,
+        "unit": "mcg"
+      },
+      {
+        "name": "Vitamin B12",
+        "amount": 70.6,
+        "unit": "mcg"
+      },
+      {
+        "name": "Iron",
+        "amount": 6.5,
+        "unit": "mg"
+      },
+      {
+        "name": "Folate",
+        "amount": 253,
+        "unit": "mcg"
+      }
     ],
     "note": "So concentrated in vitamin A that one 68 g slice holds about seven times a day's requirement: an occasional food, not a daily one."
   },
   {
     "name": "Pork tenderloin, roasted",
     "group": "meat-poultry",
-    "serving": { "label": "1 palm-size portion", "grams": 85 },
-    "per100g": { "kcal": 143, "protein": 26.2, "carbs": 0, "fiber": 0, "sugars": 0, "fat": 3.5, "satFat": 1.2, "sodiumMg": 57 },
+    "serving": {
+      "label": "1 palm-size portion",
+      "grams": 85
+    },
+    "per100g": {
+      "kcal": 143,
+      "protein": 26.2,
+      "carbs": 0,
+      "fiber": 0,
+      "sugars": 0,
+      "fat": 3.5,
+      "satFat": 1.2,
+      "sodiumMg": 57
+    },
     "micros": [
-      { "name": "Thiamin (B1)", "amount": 0.9, "unit": "mg" },
-      { "name": "Vitamin B6", "amount": 0.7, "unit": "mg" },
-      { "name": "Zinc", "amount": 2.4, "unit": "mg" }
+      {
+        "name": "Thiamin (B1)",
+        "amount": 0.9,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B6",
+        "amount": 0.7,
+        "unit": "mg"
+      },
+      {
+        "name": "Zinc",
+        "amount": 2.4,
+        "unit": "mg"
+      }
     ],
     "note": "The leanest common cut of pork, on a par with skinless chicken breast at 3.5 g of fat per 100 g."
   },
   {
     "name": "Bacon, pork, pan-fried",
     "group": "meat-poultry",
-    "serving": { "label": "2 slices", "grams": 16 },
-    "per100g": { "kcal": 541, "protein": 37, "carbs": 1.4, "fiber": 0, "sugars": 0, "fat": 41.8, "satFat": 13.7, "sodiumMg": 1717 },
+    "serving": {
+      "label": "2 slices",
+      "grams": 16
+    },
+    "per100g": {
+      "kcal": 541,
+      "protein": 37,
+      "carbs": 1.4,
+      "fiber": 0,
+      "sugars": 0,
+      "fat": 41.8,
+      "satFat": 13.7,
+      "sodiumMg": 1717
+    },
     "micros": [
-      { "name": "Selenium", "amount": 62, "unit": "mcg" },
-      { "name": "Niacin (B3)", "amount": 11.1, "unit": "mg" }
+      {
+        "name": "Selenium",
+        "amount": 62,
+        "unit": "mcg"
+      },
+      {
+        "name": "Niacin (B3)",
+        "amount": 11.1,
+        "unit": "mg"
+      }
     ],
     "note": "Per 100 g it looks alarming, but two cooked slices weigh about 16 g: roughly 87 calories and 275 mg of sodium."
   },
   {
     "name": "Lamb, leg, lean, roasted",
     "group": "meat-poultry",
-    "serving": { "label": "1 palm-size portion", "grams": 85 },
-    "per100g": { "kcal": 191, "protein": 28.3, "carbs": 0, "fiber": 0, "sugars": 0, "fat": 7.7, "satFat": 2.8, "sodiumMg": 68 },
+    "serving": {
+      "label": "1 palm-size portion",
+      "grams": 85
+    },
+    "per100g": {
+      "kcal": 191,
+      "protein": 28.3,
+      "carbs": 0,
+      "fiber": 0,
+      "sugars": 0,
+      "fat": 7.7,
+      "satFat": 2.8,
+      "sodiumMg": 68
+    },
     "micros": [
-      { "name": "Zinc", "amount": 4.9, "unit": "mg" },
-      { "name": "Vitamin B12", "amount": 2.6, "unit": "mcg" },
-      { "name": "Iron", "amount": 2.1, "unit": "mg" }
+      {
+        "name": "Zinc",
+        "amount": 4.9,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B12",
+        "amount": 2.6,
+        "unit": "mcg"
+      },
+      {
+        "name": "Iron",
+        "amount": 2.1,
+        "unit": "mg"
+      }
     ],
     "note": "Trimmed leg is one of the leaner cuts of lamb, with about 28 g of protein and 8 g of fat per 100 g."
   },
   {
     "name": "Goat, roasted",
     "group": "meat-poultry",
-    "serving": { "label": "1 palm-size portion", "grams": 85 },
-    "per100g": { "kcal": 143, "protein": 27.1, "carbs": 0, "fiber": 0, "sugars": 0, "fat": 3, "satFat": 0.9, "sodiumMg": 86 },
+    "serving": {
+      "label": "1 palm-size portion",
+      "grams": 85
+    },
+    "per100g": {
+      "kcal": 143,
+      "protein": 27.1,
+      "carbs": 0,
+      "fiber": 0,
+      "sugars": 0,
+      "fat": 3,
+      "satFat": 0.9,
+      "sodiumMg": 86
+    },
     "micros": [
-      { "name": "Iron", "amount": 3.7, "unit": "mg" },
-      { "name": "Zinc", "amount": 5.3, "unit": "mg" },
-      { "name": "Vitamin B12", "amount": 1.2, "unit": "mcg" }
+      {
+        "name": "Iron",
+        "amount": 3.7,
+        "unit": "mg"
+      },
+      {
+        "name": "Zinc",
+        "amount": 5.3,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B12",
+        "amount": 1.2,
+        "unit": "mcg"
+      }
     ],
     "note": "Eaten widely across Africa, Asia and the Caribbean, and very lean: 3 g of fat per 100 g, with more iron than chicken."
   },
   {
     "name": "Duck, meat only, roasted",
     "group": "meat-poultry",
-    "serving": { "label": "1 palm-size portion", "grams": 85 },
-    "per100g": { "kcal": 201, "protein": 23.5, "carbs": 0, "fiber": 0, "sugars": 0, "fat": 11.2, "satFat": 4.2, "sodiumMg": 65 },
+    "serving": {
+      "label": "1 palm-size portion",
+      "grams": 85
+    },
+    "per100g": {
+      "kcal": 201,
+      "protein": 23.5,
+      "carbs": 0,
+      "fiber": 0,
+      "sugars": 0,
+      "fat": 11.2,
+      "satFat": 4.2,
+      "sodiumMg": 65
+    },
     "micros": [
-      { "name": "Iron", "amount": 2.7, "unit": "mg" },
-      { "name": "Zinc", "amount": 2.6, "unit": "mg" },
-      { "name": "Niacin (B3)", "amount": 5.1, "unit": "mg" }
+      {
+        "name": "Iron",
+        "amount": 2.7,
+        "unit": "mg"
+      },
+      {
+        "name": "Zinc",
+        "amount": 2.6,
+        "unit": "mg"
+      },
+      {
+        "name": "Niacin (B3)",
+        "amount": 5.1,
+        "unit": "mg"
+      }
     ],
     "note": "These numbers are for the meat alone; roast duck eaten with its skin carries far more fat."
   }

@@ -66,7 +66,7 @@ related: [home-first-aid-kit, emergency-or-not, heart-attack-and-stroke-warning-
 factCheck: pending
 ---
 
-Most emergencies do not happen in front of a doctor. They happen in kitchens, offices and car parks, in front of whoever is there. For the first few minutes, that person is the emergency service.
+Most emergencies do not happen in front of a doctor. They happen in kitchens, offices and parking lots, in front of whoever is there. For the first few minutes, that person is the emergency service.
 
 The good news is that the most useful first aid is simple. This guide covers what the American Heart Association, the Red Cross and the NHS advise in the situations where minutes matter. Treat it as a primer, not a qualification: a certified course with hands-on practice is the real training, and nothing here replaces one.
 
@@ -75,7 +75,7 @@ The good news is that the most useful first aid is simple. This guide covers wha
 Whatever has happened, start the same way.[^5]
 
 1. **Check for danger.** Traffic, fire, electricity, water. You cannot help if you become the second casualty.
-2. **Call for help.** Ring your local emergency number, or get someone else to do it. Put the phone on speaker so the call-taker can coach you.
+2. **Call for help.** Call your local emergency number, or get someone else to do it. Put the phone on speaker so the call-taker can coach you.
 3. **Check for a response and for breathing.** Tap the person's shoulders and shout. Look at the chest for normal breathing.
 
 ## Unresponsive and not breathing normally
@@ -140,7 +140,7 @@ A convulsive seizure looks frightening, but most stop by themselves within a few
 - Do not hold them down, and do not put anything in their mouth.
 - When the jerking stops, roll them into the recovery position and stay until they have fully recovered.
 
-Call your local emergency number if it is their first seizure, if it lasts more than 5 minutes, if another follows before the person has come round, or if they are badly hurt.[^8]
+Call your local emergency number if it is their first seizure, if it lasts more than 5 minutes, if another follows before the person has regained consciousness, or if they are badly hurt.[^8]
 
 ## Severe allergic reaction
 
@@ -168,4 +168,4 @@ Our guide to [heart attack and stroke warning signs](/articles/heart-attack-and-
 
 ## The bottom line
 
-Call early. Push hard and fast on the chest of someone who is not breathing normally, press on bleeding, cool burns with running water and never put anything in the mouth of someone having a seizure. Then book a course: reading this took five minutes, but a few hours of hands-on practice is what makes your hands remember it when it counts.
+Call early. Push hard and fast on the chest of anyone who is unresponsive and not breathing normally, press on bleeding, cool burns with running water and never put anything in the mouth of someone having a seizure. Then book a course: reading this took a few minutes, but a few hours of hands-on practice is what makes your hands remember it when it counts.

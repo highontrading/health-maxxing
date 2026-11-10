@@ -353,4 +353,32 @@ CREATE TABLE rate_limits (
 )
 `;
 
-export const MIGRATIONS: string[] = [V1];
+/**
+ * V2: remembers content rows an admin deleted, so the next content sync does
+ * not bring them back from their files.
+ */
+const V2 = `
+CREATE TABLE deleted_seeds (
+  table_name TEXT NOT NULL,
+  slug TEXT NOT NULL,
+  deleted_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY (table_name, slug)
+)
+`;
+
+/** V3: what an autopilot run did (model, searches, notes for the editor), as JSON. */
+const V3 = `
+ALTER TABLE autopilot_topics ADD COLUMN report TEXT NOT NULL DEFAULT ''
+`;
+
+/** V4: who has been sent which newsletter issue, so a resumed send never emails anyone twice. */
+const V4 = `
+CREATE TABLE newsletter_sends (
+  issue_id INTEGER NOT NULL,
+  subscriber_id INTEGER NOT NULL,
+  sent_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY (issue_id, subscriber_id)
+)
+`;
+
+export const MIGRATIONS: string[] = [V1, V2, V3, V4];

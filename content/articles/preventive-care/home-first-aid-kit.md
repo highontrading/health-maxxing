@@ -1,6 +1,6 @@
 ---
 title: "The Home First-Aid Kit: What to Keep and Why"
-dek: "Most home kits are a drawer of expired cough syrup and one novelty plaster. Here is what a useful one contains, where to keep it and what to throw out."
+dek: "Most home kits are a drawer of expired cough syrup and one cartoon bandage. Here is what a useful one contains, where to keep it and what to throw out."
 summary: "A practical checklist for a home first-aid kit: dressings, tools and medicines worth keeping, how to store and check them, and what to leave out."
 category: preventive-care
 tags: [first aid, first-aid kit, home safety, medicines, travel health]
@@ -64,7 +64,7 @@ related: [first-aid-basics, emergency-or-not, sprains-and-strains-first-aid, ant
 factCheck: pending
 ---
 
-Open the average household first-aid kit and you will find a bottle of cough syrup from two homes ago, a single plaster with a cartoon on it and a tube of something with the label worn off. It is a museum, not a kit.
+Open the average household first-aid kit and you will find a bottle of cough syrup from two homes ago, a single adhesive bandage with a cartoon on it and a tube of something with the label worn off. It is a museum, not a kit.
 
 A good one is cheap, small and a little boring. This checklist covers what to keep, based on the American Red Cross list for a family of four and current first-aid guidelines, along with where to store it, what to add for travel and what to throw away.[^1]
 

@@ -19,7 +19,7 @@ faqs:
   - q: "What if I have a family history of cancer or heart disease?"
     a: "Tell your clinician, because the standard schedule is written for people at average risk. A close relative with bowel, breast, ovarian or prostate cancer, or with heart disease at a young age, can mean starting earlier, testing more often or using a different test."
   - q: "Why do screening ages differ between countries?"
-    a: "Expert panels read the same trials but weigh benefits, harms, costs and capacity differently. US advice is to start mammograms at 40, for example, while the NHS in the UK invites women from 50. Follow the programme where you live, and ask about anything that differs from what you have read."
+    a: "Expert panels read the same trials but weigh benefits, harms, costs and capacity differently. US advice is to start mammograms at 40, for example, while the NHS in the UK invites women from 50. Follow the program where you live, and ask about anything that differs from what you have read."
   - q: "At what age can I stop screening?"
     a: "It depends on the test. US guidance ends routine cervical screening at 65 for people with adequate earlier results and makes colorectal screening an individual decision from 76 to 85. At older ages the likely benefit shrinks while the harms do not, so it becomes a conversation rather than an automatic invitation."
 sources:
@@ -97,7 +97,7 @@ Here is the headline schedule from the USPSTF. The sections below fill in the de
 | Aortic aneurysm | Men 65 to 75 who have ever smoked | Once |
 
 > [!NOTE] Where you live changes the dates
-> These are mostly US recommendations. National programmes in the UK, Canada, Australia and elsewhere use their own ages, tests and intervals, and all of them are revised as new evidence arrives. Your local programme is the one to follow.
+> These are mostly US recommendations. National programs in the UK, Canada, Australia and elsewhere use their own ages, tests and intervals, and all of them are revised as new evidence arrives. Your local program is the one to follow.
 
 ## Your 20s and 30s
 

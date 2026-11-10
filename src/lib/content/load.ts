@@ -123,6 +123,7 @@ const TRUSTED_HOSTS = [
   "health.gov",
   "dietaryguidelines.gov",
   "realfood.gov",
+  "ihi.org",
   "uspreventiveservicestaskforce.org",
   "ahrq.gov",
   "cancer.gov",
@@ -764,7 +765,9 @@ export function loadContent(root = path.join(process.cwd(), "content")): LoadedC
     (f) => f.name,
     (f, file, i) => {
       const p = f.per100g;
-      const macroKcal = p.protein * 4 + p.carbs * 4 + p.fat * 9;
+      // Alcohol carries 7 kcal per gram and is listed among the micros for drinks.
+      const alcohol = f.micros?.find((m) => m.name.toLowerCase() === "alcohol" && m.unit === "g")?.amount ?? 0;
+      const macroKcal = p.protein * 4 + p.carbs * 4 + p.fat * 9 + alcohol * 7;
       // Fibre and sugar alcohols make this approximate; flag only clear mismatches.
       if (p.kcal > 20 && Math.abs(macroKcal - p.kcal) / p.kcal > 0.25 && Math.abs(macroKcal - p.kcal) > 25) {
         issues.push({

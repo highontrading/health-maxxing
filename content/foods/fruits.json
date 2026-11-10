@@ -2,198 +2,571 @@
   {
     "name": "Apple, raw, with skin",
     "group": "fruits",
-    "fdcId": 171688,
-    "serving": { "label": "1 medium apple", "grams": 182 },
-    "per100g": { "kcal": 52, "protein": 0.3, "carbs": 13.8, "fiber": 2.4, "sugars": 10.4, "fat": 0.2, "satFat": 0, "sodiumMg": 1 },
+    "serving": {
+      "label": "1 medium apple",
+      "grams": 182
+    },
+    "per100g": {
+      "kcal": 52,
+      "protein": 0.3,
+      "carbs": 13.8,
+      "fiber": 2.4,
+      "sugars": 10.4,
+      "fat": 0.2,
+      "satFat": 0,
+      "sodiumMg": 1
+    },
     "micros": [
-      { "name": "Potassium", "amount": 107, "unit": "mg" },
-      { "name": "Vitamin C", "amount": 4.6, "unit": "mg" }
+      {
+        "name": "Potassium",
+        "amount": 107,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin C",
+        "amount": 4.6,
+        "unit": "mg"
+      }
     ],
     "note": "A medium apple has about 95 calories and 4 g of fiber, provided you eat the skin."
   },
   {
     "name": "Banana, raw",
     "group": "fruits",
-    "fdcId": 173944,
-    "serving": { "label": "1 medium banana", "grams": 118 },
-    "per100g": { "kcal": 89, "protein": 1.1, "carbs": 22.8, "fiber": 2.6, "sugars": 12.2, "fat": 0.3, "satFat": 0.1, "sodiumMg": 1 },
+    "serving": {
+      "label": "1 medium banana",
+      "grams": 118
+    },
+    "per100g": {
+      "kcal": 89,
+      "protein": 1.1,
+      "carbs": 22.8,
+      "fiber": 2.6,
+      "sugars": 12.2,
+      "fat": 0.3,
+      "satFat": 0.1,
+      "sodiumMg": 1
+    },
     "micros": [
-      { "name": "Potassium", "amount": 358, "unit": "mg" },
-      { "name": "Vitamin B6", "amount": 0.4, "unit": "mg" },
-      { "name": "Vitamin C", "amount": 8.7, "unit": "mg" },
-      { "name": "Magnesium", "amount": 27, "unit": "mg" }
+      {
+        "name": "Potassium",
+        "amount": 358,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B6",
+        "amount": 0.4,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin C",
+        "amount": 8.7,
+        "unit": "mg"
+      },
+      {
+        "name": "Magnesium",
+        "amount": 27,
+        "unit": "mg"
+      }
     ],
     "note": "A medium banana has about 105 calories and roughly 420 mg of potassium."
   },
   {
     "name": "Orange, raw",
     "group": "fruits",
-    "fdcId": 169097,
-    "serving": { "label": "1 medium orange", "grams": 131 },
-    "per100g": { "kcal": 47, "protein": 0.9, "carbs": 11.8, "fiber": 2.4, "sugars": 9.4, "fat": 0.1, "satFat": 0, "sodiumMg": 0 },
+    "serving": {
+      "label": "1 medium orange",
+      "grams": 131
+    },
+    "per100g": {
+      "kcal": 47,
+      "protein": 0.9,
+      "carbs": 11.8,
+      "fiber": 2.4,
+      "sugars": 9.4,
+      "fat": 0.1,
+      "satFat": 0,
+      "sodiumMg": 0
+    },
     "micros": [
-      { "name": "Vitamin C", "amount": 53.2, "unit": "mg" },
-      { "name": "Folate", "amount": 30, "unit": "mcg" },
-      { "name": "Potassium", "amount": 181, "unit": "mg" }
+      {
+        "name": "Vitamin C",
+        "amount": 53.2,
+        "unit": "mg"
+      },
+      {
+        "name": "Folate",
+        "amount": 30,
+        "unit": "mcg"
+      },
+      {
+        "name": "Potassium",
+        "amount": 181,
+        "unit": "mg"
+      }
     ],
     "note": "One medium orange covers most of a day's vitamin C and keeps the fiber that juicing strips out."
   },
   {
     "name": "Blueberries, raw",
     "group": "fruits",
-    "fdcId": 171711,
-    "serving": { "label": "1 cup", "grams": 148 },
-    "per100g": { "kcal": 57, "protein": 0.7, "carbs": 14.5, "fiber": 2.4, "sugars": 10, "fat": 0.3, "satFat": 0, "sodiumMg": 1 },
+    "serving": {
+      "label": "1 cup",
+      "grams": 148
+    },
+    "per100g": {
+      "kcal": 57,
+      "protein": 0.7,
+      "carbs": 14.5,
+      "fiber": 2.4,
+      "sugars": 10,
+      "fat": 0.3,
+      "satFat": 0,
+      "sodiumMg": 1
+    },
     "micros": [
-      { "name": "Vitamin K", "amount": 19.3, "unit": "mcg" },
-      { "name": "Vitamin C", "amount": 9.7, "unit": "mg" },
-      { "name": "Manganese", "amount": 0.3, "unit": "mg" }
+      {
+        "name": "Vitamin K",
+        "amount": 19.3,
+        "unit": "mcg"
+      },
+      {
+        "name": "Vitamin C",
+        "amount": 9.7,
+        "unit": "mg"
+      },
+      {
+        "name": "Manganese",
+        "amount": 0.3,
+        "unit": "mg"
+      }
     ],
     "note": "A cup has about 85 calories and 3.5 g of fiber; frozen berries work just as well in oatmeal or yogurt."
   },
   {
     "name": "Strawberries, raw",
     "group": "fruits",
-    "fdcId": 167762,
-    "serving": { "label": "1 cup halved", "grams": 152 },
-    "per100g": { "kcal": 32, "protein": 0.7, "carbs": 7.7, "fiber": 2, "sugars": 4.9, "fat": 0.3, "satFat": 0, "sodiumMg": 1 },
+    "serving": {
+      "label": "1 cup halved",
+      "grams": 152
+    },
+    "per100g": {
+      "kcal": 32,
+      "protein": 0.7,
+      "carbs": 7.7,
+      "fiber": 2,
+      "sugars": 4.9,
+      "fat": 0.3,
+      "satFat": 0,
+      "sodiumMg": 1
+    },
     "micros": [
-      { "name": "Vitamin C", "amount": 58.8, "unit": "mg" },
-      { "name": "Folate", "amount": 24, "unit": "mcg" },
-      { "name": "Manganese", "amount": 0.4, "unit": "mg" },
-      { "name": "Potassium", "amount": 153, "unit": "mg" }
+      {
+        "name": "Vitamin C",
+        "amount": 58.8,
+        "unit": "mg"
+      },
+      {
+        "name": "Folate",
+        "amount": 24,
+        "unit": "mcg"
+      },
+      {
+        "name": "Manganese",
+        "amount": 0.4,
+        "unit": "mg"
+      },
+      {
+        "name": "Potassium",
+        "amount": 153,
+        "unit": "mg"
+      }
     ],
     "note": "A cup of halved berries has about 50 calories and roughly a full day's vitamin C."
   },
   {
     "name": "Grapes, red or green, raw",
     "group": "fruits",
-    "serving": { "label": "1 cup", "grams": 151 },
-    "per100g": { "kcal": 69, "protein": 0.7, "carbs": 18.1, "fiber": 0.9, "sugars": 15.5, "fat": 0.2, "satFat": 0.1, "sodiumMg": 2 },
+    "serving": {
+      "label": "1 cup",
+      "grams": 151
+    },
+    "per100g": {
+      "kcal": 69,
+      "protein": 0.7,
+      "carbs": 18.1,
+      "fiber": 0.9,
+      "sugars": 15.5,
+      "fat": 0.2,
+      "satFat": 0.1,
+      "sodiumMg": 2
+    },
     "micros": [
-      { "name": "Potassium", "amount": 191, "unit": "mg" },
-      { "name": "Vitamin K", "amount": 14.6, "unit": "mcg" }
+      {
+        "name": "Potassium",
+        "amount": 191,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin K",
+        "amount": 14.6,
+        "unit": "mcg"
+      }
     ],
     "note": "Easy to eat by the handful: a cup has about 105 calories, nearly all of it from natural sugar."
   },
   {
     "name": "Mango, raw",
     "group": "fruits",
-    "serving": { "label": "1 cup pieces", "grams": 165 },
-    "per100g": { "kcal": 60, "protein": 0.8, "carbs": 15, "fiber": 1.6, "sugars": 13.7, "fat": 0.4, "satFat": 0.1, "sodiumMg": 1 },
+    "serving": {
+      "label": "1 cup pieces",
+      "grams": 165
+    },
+    "per100g": {
+      "kcal": 60,
+      "protein": 0.8,
+      "carbs": 15,
+      "fiber": 1.6,
+      "sugars": 13.7,
+      "fat": 0.4,
+      "satFat": 0.1,
+      "sodiumMg": 1
+    },
     "micros": [
-      { "name": "Vitamin C", "amount": 36.4, "unit": "mg" },
-      { "name": "Vitamin A (RAE)", "amount": 54, "unit": "mcg" },
-      { "name": "Folate", "amount": 43, "unit": "mcg" }
+      {
+        "name": "Vitamin C",
+        "amount": 36.4,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin A (RAE)",
+        "amount": 54,
+        "unit": "mcg"
+      },
+      {
+        "name": "Folate",
+        "amount": 43,
+        "unit": "mcg"
+      }
     ],
     "note": "A cup of pieces gives you about 100 calories and two thirds of a day's vitamin C."
   },
   {
     "name": "Pineapple, raw",
     "group": "fruits",
-    "serving": { "label": "1 cup chunks", "grams": 165 },
-    "per100g": { "kcal": 50, "protein": 0.5, "carbs": 13.1, "fiber": 1.4, "sugars": 9.9, "fat": 0.1, "satFat": 0, "sodiumMg": 1 },
+    "serving": {
+      "label": "1 cup chunks",
+      "grams": 165
+    },
+    "per100g": {
+      "kcal": 50,
+      "protein": 0.5,
+      "carbs": 13.1,
+      "fiber": 1.4,
+      "sugars": 9.9,
+      "fat": 0.1,
+      "satFat": 0,
+      "sodiumMg": 1
+    },
     "micros": [
-      { "name": "Vitamin C", "amount": 47.8, "unit": "mg" },
-      { "name": "Manganese", "amount": 0.9, "unit": "mg" }
+      {
+        "name": "Vitamin C",
+        "amount": 47.8,
+        "unit": "mg"
+      },
+      {
+        "name": "Manganese",
+        "amount": 0.9,
+        "unit": "mg"
+      }
     ],
     "note": "A cup of chunks has about 80 calories and close to a full day's vitamin C."
   },
   {
     "name": "Watermelon, raw",
     "group": "fruits",
-    "serving": { "label": "1 cup diced", "grams": 152 },
-    "per100g": { "kcal": 30, "protein": 0.6, "carbs": 7.6, "fiber": 0.4, "sugars": 6.2, "fat": 0.2, "satFat": 0, "sodiumMg": 1 },
+    "serving": {
+      "label": "1 cup diced",
+      "grams": 152
+    },
+    "per100g": {
+      "kcal": 30,
+      "protein": 0.6,
+      "carbs": 7.6,
+      "fiber": 0.4,
+      "sugars": 6.2,
+      "fat": 0.2,
+      "satFat": 0,
+      "sodiumMg": 1
+    },
     "micros": [
-      { "name": "Vitamin C", "amount": 8.1, "unit": "mg" },
-      { "name": "Vitamin A (RAE)", "amount": 28, "unit": "mcg" },
-      { "name": "Potassium", "amount": 112, "unit": "mg" }
+      {
+        "name": "Vitamin C",
+        "amount": 8.1,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin A (RAE)",
+        "amount": 28,
+        "unit": "mcg"
+      },
+      {
+        "name": "Potassium",
+        "amount": 112,
+        "unit": "mg"
+      }
     ],
     "note": "Over 90% water, so a big cup of cubes comes to only about 45 calories."
   },
   {
     "name": "Avocado, raw",
     "group": "fruits",
-    "fdcId": 171705,
-    "serving": { "label": "1/2 avocado", "grams": 100 },
-    "per100g": { "kcal": 160, "protein": 2, "carbs": 8.5, "fiber": 6.7, "sugars": 0.7, "fat": 14.7, "satFat": 2.1, "sodiumMg": 7 },
+    "serving": {
+      "label": "1/2 avocado",
+      "grams": 100
+    },
+    "per100g": {
+      "kcal": 160,
+      "protein": 2,
+      "carbs": 8.5,
+      "fiber": 6.7,
+      "sugars": 0.7,
+      "fat": 14.7,
+      "satFat": 2.1,
+      "sodiumMg": 7
+    },
     "micros": [
-      { "name": "Potassium", "amount": 485, "unit": "mg" },
-      { "name": "Folate", "amount": 81, "unit": "mcg" },
-      { "name": "Vitamin K", "amount": 21, "unit": "mcg" },
-      { "name": "Vitamin E", "amount": 2.1, "unit": "mg" }
+      {
+        "name": "Potassium",
+        "amount": 485,
+        "unit": "mg"
+      },
+      {
+        "name": "Folate",
+        "amount": 81,
+        "unit": "mcg"
+      },
+      {
+        "name": "Vitamin K",
+        "amount": 21,
+        "unit": "mcg"
+      },
+      {
+        "name": "Vitamin E",
+        "amount": 2.1,
+        "unit": "mg"
+      }
     ],
     "note": "Most of the calories come from fat, mainly the unsaturated kind, and half an avocado adds nearly 7 g of fiber."
   },
   {
     "name": "Kiwifruit, green, raw",
     "group": "fruits",
-    "serving": { "label": "1 kiwi", "grams": 69 },
-    "per100g": { "kcal": 61, "protein": 1.1, "carbs": 14.7, "fiber": 3, "sugars": 9, "fat": 0.5, "satFat": 0, "sodiumMg": 3 },
+    "serving": {
+      "label": "1 kiwi",
+      "grams": 69
+    },
+    "per100g": {
+      "kcal": 61,
+      "protein": 1.1,
+      "carbs": 14.7,
+      "fiber": 3,
+      "sugars": 9,
+      "fat": 0.5,
+      "satFat": 0,
+      "sodiumMg": 3
+    },
     "micros": [
-      { "name": "Vitamin C", "amount": 92.7, "unit": "mg" },
-      { "name": "Vitamin K", "amount": 40.3, "unit": "mcg" },
-      { "name": "Potassium", "amount": 312, "unit": "mg" }
+      {
+        "name": "Vitamin C",
+        "amount": 92.7,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin K",
+        "amount": 40.3,
+        "unit": "mcg"
+      },
+      {
+        "name": "Potassium",
+        "amount": 312,
+        "unit": "mg"
+      }
     ],
     "note": "One kiwi has about 42 calories and roughly 70% of a day's vitamin C."
   },
   {
     "name": "Papaya, raw",
     "group": "fruits",
-    "serving": { "label": "1 cup pieces", "grams": 145 },
-    "per100g": { "kcal": 43, "protein": 0.5, "carbs": 10.8, "fiber": 1.7, "sugars": 7.8, "fat": 0.3, "satFat": 0.1, "sodiumMg": 8 },
+    "serving": {
+      "label": "1 cup pieces",
+      "grams": 145
+    },
+    "per100g": {
+      "kcal": 43,
+      "protein": 0.5,
+      "carbs": 10.8,
+      "fiber": 1.7,
+      "sugars": 7.8,
+      "fat": 0.3,
+      "satFat": 0.1,
+      "sodiumMg": 8
+    },
     "micros": [
-      { "name": "Vitamin C", "amount": 60.9, "unit": "mg" },
-      { "name": "Folate", "amount": 37, "unit": "mcg" },
-      { "name": "Vitamin A (RAE)", "amount": 47, "unit": "mcg" }
+      {
+        "name": "Vitamin C",
+        "amount": 60.9,
+        "unit": "mg"
+      },
+      {
+        "name": "Folate",
+        "amount": 37,
+        "unit": "mcg"
+      },
+      {
+        "name": "Vitamin A (RAE)",
+        "amount": 47,
+        "unit": "mcg"
+      }
     ],
     "note": "A cup of pieces has about 60 calories and roughly a full day's vitamin C."
   },
   {
     "name": "Dates, Medjool",
     "group": "fruits",
-    "fdcId": 168191,
-    "serving": { "label": "1 date, pitted", "grams": 24 },
-    "per100g": { "kcal": 277, "protein": 1.8, "carbs": 75, "fiber": 6.7, "sugars": 66.5, "fat": 0.2, "satFat": 0, "sodiumMg": 1 },
+    "serving": {
+      "label": "1 date, pitted",
+      "grams": 24
+    },
+    "per100g": {
+      "kcal": 277,
+      "protein": 1.8,
+      "carbs": 75,
+      "fiber": 6.7,
+      "sugars": 66.5,
+      "fat": 0.2,
+      "satFat": 0,
+      "sodiumMg": 1
+    },
     "micros": [
-      { "name": "Potassium", "amount": 696, "unit": "mg" },
-      { "name": "Magnesium", "amount": 54, "unit": "mg" }
+      {
+        "name": "Potassium",
+        "amount": 696,
+        "unit": "mg"
+      },
+      {
+        "name": "Magnesium",
+        "amount": 54,
+        "unit": "mg"
+      }
     ],
     "note": "Concentrated sweetness: one date has about 66 calories and 16 g of sugar, along with some fiber and potassium."
   },
   {
     "name": "Pear, raw",
     "group": "fruits",
-    "serving": { "label": "1 medium pear", "grams": 178 },
-    "per100g": { "kcal": 57, "protein": 0.4, "carbs": 15.2, "fiber": 3.1, "sugars": 9.8, "fat": 0.1, "satFat": 0, "sodiumMg": 1 },
+    "serving": {
+      "label": "1 medium pear",
+      "grams": 178
+    },
+    "per100g": {
+      "kcal": 57,
+      "protein": 0.4,
+      "carbs": 15.2,
+      "fiber": 3.1,
+      "sugars": 9.8,
+      "fat": 0.1,
+      "satFat": 0,
+      "sodiumMg": 1
+    },
     "micros": [
-      { "name": "Potassium", "amount": 116, "unit": "mg" },
-      { "name": "Vitamin C", "amount": 4.3, "unit": "mg" }
+      {
+        "name": "Potassium",
+        "amount": 116,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin C",
+        "amount": 4.3,
+        "unit": "mg"
+      }
     ],
     "note": "A medium pear has about 100 calories and 5.5 g of fiber, a little more than an apple."
   },
   {
     "name": "Guava, raw",
     "group": "fruits",
-    "serving": { "label": "1 fruit", "grams": 55 },
-    "per100g": { "kcal": 68, "protein": 2.6, "carbs": 14.3, "fiber": 5.4, "sugars": 8.9, "fat": 1, "satFat": 0.3, "sodiumMg": 2 },
+    "serving": {
+      "label": "1 fruit",
+      "grams": 55
+    },
+    "per100g": {
+      "kcal": 68,
+      "protein": 2.6,
+      "carbs": 14.3,
+      "fiber": 5.4,
+      "sugars": 8.9,
+      "fat": 1,
+      "satFat": 0.3,
+      "sodiumMg": 2
+    },
     "micros": [
-      { "name": "Vitamin C", "amount": 228.3, "unit": "mg" },
-      { "name": "Folate", "amount": 49, "unit": "mcg" },
-      { "name": "Potassium", "amount": 417, "unit": "mg" }
+      {
+        "name": "Vitamin C",
+        "amount": 228.3,
+        "unit": "mg"
+      },
+      {
+        "name": "Folate",
+        "amount": 49,
+        "unit": "mcg"
+      },
+      {
+        "name": "Potassium",
+        "amount": 417,
+        "unit": "mg"
+      }
     ],
     "note": "Exceptionally rich in vitamin C: a single small guava has more than a medium orange."
   },
   {
     "name": "Pomegranate, raw",
     "group": "fruits",
-    "serving": { "label": "1/2 cup seeds", "grams": 87 },
-    "per100g": { "kcal": 83, "protein": 1.7, "carbs": 18.7, "fiber": 4, "sugars": 13.7, "fat": 1.2, "satFat": 0.1, "sodiumMg": 3 },
+    "serving": {
+      "label": "1/2 cup seeds",
+      "grams": 87
+    },
+    "per100g": {
+      "kcal": 83,
+      "protein": 1.7,
+      "carbs": 18.7,
+      "fiber": 4,
+      "sugars": 13.7,
+      "fat": 1.2,
+      "satFat": 0.1,
+      "sodiumMg": 3
+    },
     "micros": [
-      { "name": "Vitamin K", "amount": 16.4, "unit": "mcg" },
-      { "name": "Folate", "amount": 38, "unit": "mcg" },
-      { "name": "Potassium", "amount": 236, "unit": "mg" },
-      { "name": "Vitamin C", "amount": 10.2, "unit": "mg" }
+      {
+        "name": "Vitamin K",
+        "amount": 16.4,
+        "unit": "mcg"
+      },
+      {
+        "name": "Folate",
+        "amount": 38,
+        "unit": "mcg"
+      },
+      {
+        "name": "Potassium",
+        "amount": 236,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin C",
+        "amount": 10.2,
+        "unit": "mg"
+      }
     ],
     "note": "Half a cup of seeds has about 70 calories and 3.5 g of fiber, because you eat the crunchy seed inside each one."
   }

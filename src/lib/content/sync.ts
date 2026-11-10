@@ -7,6 +7,8 @@
  *   admin panel (edited = 1). Admin edits always win; pass force to override.
  * - Rows are never deleted here unless prune is set, and then only untouched
  *   seed rows whose file has gone.
+ * - A row deleted in the admin panel is remembered in deleted_seeds and is not
+ *   recreated from its file; pass force to restore it.
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -32,6 +34,10 @@ async function upsertTable(
   const existing = new Map(
     (await query<Existing>(`SELECT slug, seed_hash, edited, origin FROM ${table}`)).map((r) => [r.slug, r]),
   );
+  // Rows an admin deleted stay deleted unless the sync is forced.
+  const tombstones = new Set(
+    (await query<{ slug: string }>("SELECT slug FROM deleted_seeds WHERE table_name = ?", [table])).map((r) => r.slug),
+  );
   const statements: InStatement[] = [];
   const now = new Date().toISOString();
 
@@ -39,7 +45,12 @@ async function upsertTable(
     const updateCols = row.update ?? row.insert;
     const hash = sha1(JSON.stringify(updateCols));
     const current = existing.get(row.slug);
-    if (!current) {
+    if (!current && tombstones.has(row.slug) && !opts.force) {
+      stats.kept++;
+    } else if (!current) {
+      if (tombstones.has(row.slug)) {
+        statements.push({ sql: "DELETE FROM deleted_seeds WHERE table_name = ? AND slug = ?", args: [table, row.slug] });
+      }
       const cols = { slug: row.slug, ...row.insert, origin: "seed", seed_hash: hash, edited: 0 };
       const names = Object.keys(cols);
       statements.push({

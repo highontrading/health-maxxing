@@ -1,7 +1,7 @@
 ---
 title: "Cancer Screening, Explained: Benefits, Limits and Choices"
 dek: "Finding cancer early saves lives, but only for some cancers and some tests. Here is how screening works, where the evidence is strong and what the trade-offs look like in real numbers."
-summary: "How cancer screening works, which programmes have good evidence, what overdiagnosis and lead-time bias mean, and how to weigh your own choices."
+summary: "How cancer screening works, which programs have good evidence, what overdiagnosis and lead-time bias mean, and how to weigh your own choices."
 category: preventive-care
 tags: [cancer screening, overdiagnosis, mammogram, colonoscopy, psa test, shared decisions]
 sticker: ribbon
@@ -73,7 +73,7 @@ factCheck: pending
 
 "Catch it early" is some of the most intuitive advice in medicine. It is also only partly right. For a handful of cancers, testing people who feel well clearly prevents deaths. For many others it does not, and for a few it has done more harm than good.
 
-This explainer covers how screening works, why the statistics around it are slippery, which programmes have solid evidence and how to think about your own choices. The recommendations come mostly from the US Preventive Services Task Force (USPSTF). Other countries draw the lines differently, so check what your national programme offers.
+This explainer covers how screening works, why the statistics around it are slippery, which programs have solid evidence and how to think about your own choices. The recommendations come mostly from the US Preventive Services Task Force (USPSTF). Other countries draw the lines differently, so check what your national program offers.
 
 ## What screening is, and what it is not
 
@@ -81,7 +81,7 @@ Screening means testing people who have no symptoms, either to find cancer early
 
 Screening is not the same as testing someone who has a symptom. If you have found a lump or noticed blood in your stool, you need diagnostic tests, promptly, and the screening schedule no longer applies to you.
 
-For screening to be worthwhile, several things have to be true at once. The cancer needs an early stage that a test can detect. The test has to be accurate and safe enough to offer to large numbers of healthy people. And treating the cancer earlier has to lead to better outcomes than treating it when symptoms appear.[^1] Most cancers fail at least one of those conditions, which is why the list of screening programmes is short.
+For screening to be worthwhile, several things have to be true at once. The cancer needs an early stage that a test can detect. The test has to be accurate and safe enough to offer to large numbers of healthy people. And treating the cancer earlier has to lead to better outcomes than treating it when symptoms appear.[^1] Most cancers fail at least one of those conditions, which is why the list of screening programs is short.
 
 ## Why survival statistics can fool you
 
@@ -100,7 +100,7 @@ This is why researchers judge screening by one hard number from randomized trial
 > [!NOTE]
 > A false positive and overdiagnosis are different problems. A false positive is an alarm that further tests show was not cancer. Overdiagnosis is a real cancer, correctly identified, that would never have mattered.
 
-## The programmes with good evidence
+## The programs with good evidence
 
 ### Cervical
 
@@ -159,4 +159,4 @@ Then weigh the answers against what matters to you. Two well-informed people can
 
 ## The bottom line
 
-Take up the screening that has strong evidence when your programme offers it: cervical, colorectal, breast and, if you have a heavy smoking history, lung. Treat prostate screening as a real choice, and treat multi-cancer blood tests as research in progress. And never let a normal screening result talk you out of getting a symptom checked.
+Take up the screening that has strong evidence when your program offers it: cervical, colorectal, breast and, if you have a heavy smoking history, lung. Treat prostate screening as a real choice, and treat multi-cancer blood tests as research in progress. And never let a normal screening result talk you out of getting a symptom checked.

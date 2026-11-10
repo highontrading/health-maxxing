@@ -292,6 +292,42 @@ Pieces not listed here still need the standard check; they just had no special f
   and underwear figures; supplement review (90 trials); varicocele 15% and 40%.
 - `checkups-men-skip`: all USPSTF ages and intervals; CDC adult vaccine items.
 
+### preventive-care (all pending)
+- `first-aid-basics` (**highest stakes: check first**): choking sequence "5 back blows then 5
+  abdominal thrusts" for adults and children, attributed to the 2025 AHA guidelines and the NHS,
+  with chest thrusts in late pregnancy; burn cooling "NHS at least 20 minutes, US guidelines at
+  least 10"; the NHS list of burns needing assessment; aspirin for suspected heart attack and
+  tourniquets for life-threatening limb bleeding (2024 AHA/Red Cross first aid guidelines); CPR
+  depth "at least 5 cm (2 inches)" and "2 to 3 times" survival.
+- `emergency-or-not`: NHS fever thresholds (under 3 months 38 °C; 3 to 6 months 39 °C; 5 days),
+  sepsis signs and the "call 999" list wording.
+- `health-screenings-by-age`: USPSTF cervical advice is the 2018 version (a December 2024 draft
+  update may now be final); NHS England bowel screening "every two years, ages 50 to 74"; NEI
+  dilated-exam interval (every 1 to 2 years over 60); NICE dental recall of 3 months to 2 years.
+- `cancer-screening-explained`: multi-cancer blood tests "not known to reduce cancer deaths" (NCI;
+  2026 trial results or regulatory decisions could change this); NordICC (18% lower risk, 0.98% vs
+  1.20%, 42% attendance, ~31% among attenders); UK breast review (20% fewer deaths; 43 prevented
+  vs 129 overdiagnosed per 10,000); US lung trial (over 53,000 people, 20% fewer deaths, more than
+  9 in 10 positive scans false); Korea thyroid 15-fold; USPSTF prostate figures per 1,000 men.
+- `understanding-blood-tests`: blood count ranges cited to NHLBI; TSH range cited to a MedlinePlus
+  page that may not print one; ALT limits from the ACG guideline (29–33 and 19–25 U/L); NIH ODS
+  thresholds (ferritin below 30 µg/L; vitamin D 50, 30 and 125 nmol/L; B12 200–250 pg/mL);
+  "9 to 12 hours" fasting; the MedlinePlus cholesterol table.
+- `know-your-numbers`: NICE waist-to-height bands (0.4–0.49, 0.5–0.59, 0.6+) and the BMI under 35
+  condition; AHA fitness statement "10% to 30% fewer cardiovascular events".
+- `how-to-talk-to-your-doctor`: recorded-visits study (36% asked for the agenda, interrupted in
+  about two of three cases, median 11 seconds); "40% to 80% forgotten" (Kessels 2003); Cochrane
+  review "more than 30 randomized trials"; BRAN is cited to NICE NG197, which may not name it.
+- `home-first-aid-kit`: FDA statement on bathroom heat and humidity; the kit table is presented
+  as Red Cross-based (scissors may not be on that list); NHS advice against antiseptic on wounds;
+  the AAP 2003 ipecac wording.
+- Least-certain URLs: NEI dilated-eye-exam page; NCI multi-cancer detection page; IHI Ask Me 3;
+  NIA "prepare for a doctor's appointment"; AHRQ health-literacy tool 5; telehealth.hhs.gov;
+  NICE ng246 (number from memory); CDC STEADI and antibiotic-use pages; cpr.heart.org; NHLBI
+  blood-tests; two NHS urgent-care pages; NHS screening overview; the Red Cross first-aid course
+  page (a weak citation). Three PubMed title searches may not resolve cleanly ("Poison treatment
+  in the home", "Improving Diagnosis in Health Care", and the reference-intervals review).
+
 ## Glossary and myths (all pending; nothing was checked online)
 - Myth verdicts to review: "A glass of red wine a day is good for your heart" (misleading; the
   closest to a contested call); "Running ruins your knees" (misleading); "Coffee dehydrates you"
@@ -307,7 +343,24 @@ Pieces not listed here still need the standard check; they just had no special f
   screening start ages given as cross-country ranges; vitamin D fracture-trial line.
 
 ## Foods and exercises
-- Food values are reference figures from memory of USDA FoodData Central; spot-check against FDC.
+- **Foods (140 entries, none looked up):** values were written from memory of USDA SR Legacy
+  records and cross-checked only for internal consistency (energy against macros). The site labels
+  them "rounded reference values". Check each against FoodData Central when search is available.
+- USDA record IDs (`fdcId`) were recalled from memory for 42 foods and have been **removed**, so
+  the site never links to a wrong record. Add each ID back (in the file or under Admin > Foods)
+  once it has been confirmed on fdc.nal.usda.gov.
+- Least-sure entries, most doubtful first: cola, regular (every value; an older record has 37
+  kcal, 9.6 g carbs); red bell pepper (31 kcal vs 26 in older releases); potato chips (532 kcal,
+  sat fat 3.4 vs about 11 in an older record, sodium); chia seeds (sugars entered as 0 because
+  USDA lists none); butter cookies (sodium, sugars); chapati (whole record); sodium figures that
+  changed between USDA releases (sardines, mozzarella, cottage cheese, canned light tuna, salted
+  butter, peanut butter); cheddar carbs; turkey breast, shrimp, duck, pork tenderloin and bacon
+  details; unsweetened soy milk, silken tofu, fried tofu, natto, whole-milk Greek yogurt, maple
+  syrup, kimchi micros, coconut oil (892 kcal vs 862 in older releases).
+- Eight entries keep USDA's own figures where fiber plus sugars slightly exceed carbs (the three
+  milks, mango, red bell pepper, zucchini, okra, kimchi).
+- Left out on purpose for lack of a confident record: paneer, seitan, textured vegetable protein,
+  basmati rice, tempeh, firm tofu, raw kale, beef steak cuts. Worth adding once looked up.
 - Exercise instructions follow standard coaching practice and carry no citations.
 
 ## Conditions

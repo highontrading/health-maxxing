@@ -2,278 +2,802 @@
   {
     "name": "Broccoli, raw",
     "group": "vegetables",
-    "fdcId": 170379,
-    "serving": { "label": "1 cup chopped", "grams": 91 },
-    "per100g": { "kcal": 34, "protein": 2.8, "carbs": 6.6, "fiber": 2.6, "sugars": 1.7, "fat": 0.4, "satFat": 0.1, "sodiumMg": 33 },
+    "serving": {
+      "label": "1 cup chopped",
+      "grams": 91
+    },
+    "per100g": {
+      "kcal": 34,
+      "protein": 2.8,
+      "carbs": 6.6,
+      "fiber": 2.6,
+      "sugars": 1.7,
+      "fat": 0.4,
+      "satFat": 0.1,
+      "sodiumMg": 33
+    },
     "micros": [
-      { "name": "Vitamin C", "amount": 89.2, "unit": "mg" },
-      { "name": "Vitamin K", "amount": 101.6, "unit": "mcg" },
-      { "name": "Folate", "amount": 63, "unit": "mcg" },
-      { "name": "Potassium", "amount": 316, "unit": "mg" }
+      {
+        "name": "Vitamin C",
+        "amount": 89.2,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin K",
+        "amount": 101.6,
+        "unit": "mcg"
+      },
+      {
+        "name": "Folate",
+        "amount": 63,
+        "unit": "mcg"
+      },
+      {
+        "name": "Potassium",
+        "amount": 316,
+        "unit": "mg"
+      }
     ],
     "note": "A cup of raw florets has more vitamin C than a medium orange, for about 30 calories."
   },
   {
     "name": "Spinach, raw",
     "group": "vegetables",
-    "fdcId": 168462,
-    "serving": { "label": "2 cups", "grams": 60 },
-    "per100g": { "kcal": 23, "protein": 2.9, "carbs": 3.6, "fiber": 2.2, "sugars": 0.4, "fat": 0.4, "satFat": 0.1, "sodiumMg": 79 },
+    "serving": {
+      "label": "2 cups",
+      "grams": 60
+    },
+    "per100g": {
+      "kcal": 23,
+      "protein": 2.9,
+      "carbs": 3.6,
+      "fiber": 2.2,
+      "sugars": 0.4,
+      "fat": 0.4,
+      "satFat": 0.1,
+      "sodiumMg": 79
+    },
     "micros": [
-      { "name": "Vitamin K", "amount": 482.9, "unit": "mcg" },
-      { "name": "Vitamin A (RAE)", "amount": 469, "unit": "mcg" },
-      { "name": "Folate", "amount": 194, "unit": "mcg" },
-      { "name": "Iron", "amount": 2.7, "unit": "mg" }
+      {
+        "name": "Vitamin K",
+        "amount": 482.9,
+        "unit": "mcg"
+      },
+      {
+        "name": "Vitamin A (RAE)",
+        "amount": 469,
+        "unit": "mcg"
+      },
+      {
+        "name": "Folate",
+        "amount": 194,
+        "unit": "mcg"
+      },
+      {
+        "name": "Iron",
+        "amount": 2.7,
+        "unit": "mg"
+      }
     ],
     "note": "Raw leaves are mostly air and water, so two big handfuls come to about 14 calories; they wilt to a fraction of that volume when cooked."
   },
   {
     "name": "Bok choy, raw",
     "group": "vegetables",
-    "serving": { "label": "1 cup shredded", "grams": 70 },
-    "per100g": { "kcal": 13, "protein": 1.5, "carbs": 2.2, "fiber": 1, "sugars": 1.2, "fat": 0.2, "satFat": 0, "sodiumMg": 65 },
+    "serving": {
+      "label": "1 cup shredded",
+      "grams": 70
+    },
+    "per100g": {
+      "kcal": 13,
+      "protein": 1.5,
+      "carbs": 2.2,
+      "fiber": 1,
+      "sugars": 1.2,
+      "fat": 0.2,
+      "satFat": 0,
+      "sodiumMg": 65
+    },
     "micros": [
-      { "name": "Vitamin C", "amount": 45, "unit": "mg" },
-      { "name": "Vitamin A (RAE)", "amount": 223, "unit": "mcg" },
-      { "name": "Calcium", "amount": 105, "unit": "mg" },
-      { "name": "Vitamin K", "amount": 45.5, "unit": "mcg" }
+      {
+        "name": "Vitamin C",
+        "amount": 45,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin A (RAE)",
+        "amount": 223,
+        "unit": "mcg"
+      },
+      {
+        "name": "Calcium",
+        "amount": 105,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin K",
+        "amount": 45.5,
+        "unit": "mcg"
+      }
     ],
     "note": "A mild cabbage-family green with a useful amount of calcium for a leaf; it cooks in a couple of minutes in a stir-fry."
   },
   {
     "name": "Cabbage, raw",
     "group": "vegetables",
-    "fdcId": 169975,
-    "serving": { "label": "1 cup chopped", "grams": 89 },
-    "per100g": { "kcal": 25, "protein": 1.3, "carbs": 5.8, "fiber": 2.5, "sugars": 3.2, "fat": 0.1, "satFat": 0, "sodiumMg": 18 },
+    "serving": {
+      "label": "1 cup chopped",
+      "grams": 89
+    },
+    "per100g": {
+      "kcal": 25,
+      "protein": 1.3,
+      "carbs": 5.8,
+      "fiber": 2.5,
+      "sugars": 3.2,
+      "fat": 0.1,
+      "satFat": 0,
+      "sodiumMg": 18
+    },
     "micros": [
-      { "name": "Vitamin C", "amount": 36.6, "unit": "mg" },
-      { "name": "Vitamin K", "amount": 76, "unit": "mcg" },
-      { "name": "Folate", "amount": 43, "unit": "mcg" }
+      {
+        "name": "Vitamin C",
+        "amount": 36.6,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin K",
+        "amount": 76,
+        "unit": "mcg"
+      },
+      {
+        "name": "Folate",
+        "amount": 43,
+        "unit": "mcg"
+      }
     ],
     "note": "Cheap, keeps for weeks in the fridge, and a cup of shreds gives you about a third of a day's vitamin C."
   },
   {
     "name": "Cauliflower, raw",
     "group": "vegetables",
-    "fdcId": 169986,
-    "serving": { "label": "1 cup chopped", "grams": 107 },
-    "per100g": { "kcal": 25, "protein": 1.9, "carbs": 5, "fiber": 2, "sugars": 1.9, "fat": 0.3, "satFat": 0.1, "sodiumMg": 30 },
+    "serving": {
+      "label": "1 cup chopped",
+      "grams": 107
+    },
+    "per100g": {
+      "kcal": 25,
+      "protein": 1.9,
+      "carbs": 5,
+      "fiber": 2,
+      "sugars": 1.9,
+      "fat": 0.3,
+      "satFat": 0.1,
+      "sodiumMg": 30
+    },
     "micros": [
-      { "name": "Vitamin C", "amount": 48.2, "unit": "mg" },
-      { "name": "Folate", "amount": 57, "unit": "mcg" },
-      { "name": "Potassium", "amount": 299, "unit": "mg" }
+      {
+        "name": "Vitamin C",
+        "amount": 48.2,
+        "unit": "mg"
+      },
+      {
+        "name": "Folate",
+        "amount": 57,
+        "unit": "mcg"
+      },
+      {
+        "name": "Potassium",
+        "amount": 299,
+        "unit": "mg"
+      }
     ],
     "note": "At 25 calories per 100 g it is easy to see why it stands in for rice and mash; a cup also gives you over half a day's vitamin C."
   },
   {
     "name": "Lettuce, romaine, raw",
     "group": "vegetables",
-    "serving": { "label": "2 cups shredded", "grams": 94 },
-    "per100g": { "kcal": 17, "protein": 1.2, "carbs": 3.3, "fiber": 2.1, "sugars": 1.2, "fat": 0.3, "satFat": 0, "sodiumMg": 8 },
+    "serving": {
+      "label": "2 cups shredded",
+      "grams": 94
+    },
+    "per100g": {
+      "kcal": 17,
+      "protein": 1.2,
+      "carbs": 3.3,
+      "fiber": 2.1,
+      "sugars": 1.2,
+      "fat": 0.3,
+      "satFat": 0,
+      "sodiumMg": 8
+    },
     "micros": [
-      { "name": "Vitamin A (RAE)", "amount": 436, "unit": "mcg" },
-      { "name": "Vitamin K", "amount": 102.5, "unit": "mcg" },
-      { "name": "Folate", "amount": 136, "unit": "mcg" }
+      {
+        "name": "Vitamin A (RAE)",
+        "amount": 436,
+        "unit": "mcg"
+      },
+      {
+        "name": "Vitamin K",
+        "amount": 102.5,
+        "unit": "mcg"
+      },
+      {
+        "name": "Folate",
+        "amount": 136,
+        "unit": "mcg"
+      }
     ],
-    "note": "The darker the leaf, the more vitamin A and folate you get, so romaine gives you more than pale lettuces for the same crunch."
+    "note": "Darker than most salad leaves and richer for it: two cups give you close to half a day's vitamin A for about 16 calories."
   },
   {
     "name": "Carrots, raw",
     "group": "vegetables",
-    "fdcId": 170393,
-    "serving": { "label": "1 medium carrot", "grams": 61 },
-    "per100g": { "kcal": 41, "protein": 0.9, "carbs": 9.6, "fiber": 2.8, "sugars": 4.7, "fat": 0.2, "satFat": 0, "sodiumMg": 69 },
+    "serving": {
+      "label": "1 medium carrot",
+      "grams": 61
+    },
+    "per100g": {
+      "kcal": 41,
+      "protein": 0.9,
+      "carbs": 9.6,
+      "fiber": 2.8,
+      "sugars": 4.7,
+      "fat": 0.2,
+      "satFat": 0,
+      "sodiumMg": 69
+    },
     "micros": [
-      { "name": "Vitamin A (RAE)", "amount": 835, "unit": "mcg" },
-      { "name": "Potassium", "amount": 320, "unit": "mg" },
-      { "name": "Vitamin K", "amount": 13.2, "unit": "mcg" }
+      {
+        "name": "Vitamin A (RAE)",
+        "amount": 835,
+        "unit": "mcg"
+      },
+      {
+        "name": "Potassium",
+        "amount": 320,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin K",
+        "amount": 13.2,
+        "unit": "mcg"
+      }
     ],
     "note": "One medium carrot covers more than half a day's vitamin A, in the form of beta carotene."
   },
   {
     "name": "Beets, cooked (boiled)",
     "group": "vegetables",
-    "serving": { "label": "1/2 cup sliced", "grams": 85 },
-    "per100g": { "kcal": 44, "protein": 1.7, "carbs": 10, "fiber": 2, "sugars": 8, "fat": 0.2, "satFat": 0, "sodiumMg": 77 },
+    "serving": {
+      "label": "1/2 cup sliced",
+      "grams": 85
+    },
+    "per100g": {
+      "kcal": 44,
+      "protein": 1.7,
+      "carbs": 10,
+      "fiber": 2,
+      "sugars": 8,
+      "fat": 0.2,
+      "satFat": 0,
+      "sodiumMg": 77
+    },
     "micros": [
-      { "name": "Folate", "amount": 80, "unit": "mcg" },
-      { "name": "Potassium", "amount": 305, "unit": "mg" },
-      { "name": "Manganese", "amount": 0.3, "unit": "mg" }
+      {
+        "name": "Folate",
+        "amount": 80,
+        "unit": "mcg"
+      },
+      {
+        "name": "Potassium",
+        "amount": 305,
+        "unit": "mg"
+      },
+      {
+        "name": "Manganese",
+        "amount": 0.3,
+        "unit": "mg"
+      }
     ],
     "note": "Most of the carbohydrate here is natural sugar, about 8 g per 100 g, and it comes with a good amount of folate."
   },
   {
     "name": "Onion, raw",
     "group": "vegetables",
-    "fdcId": 170000,
-    "serving": { "label": "1 medium onion", "grams": 110 },
-    "per100g": { "kcal": 40, "protein": 1.1, "carbs": 9.3, "fiber": 1.7, "sugars": 4.2, "fat": 0.1, "satFat": 0, "sodiumMg": 4 },
+    "serving": {
+      "label": "1 medium onion",
+      "grams": 110
+    },
+    "per100g": {
+      "kcal": 40,
+      "protein": 1.1,
+      "carbs": 9.3,
+      "fiber": 1.7,
+      "sugars": 4.2,
+      "fat": 0.1,
+      "satFat": 0,
+      "sodiumMg": 4
+    },
     "micros": [
-      { "name": "Vitamin C", "amount": 7.4, "unit": "mg" },
-      { "name": "Potassium", "amount": 146, "unit": "mg" }
+      {
+        "name": "Vitamin C",
+        "amount": 7.4,
+        "unit": "mg"
+      },
+      {
+        "name": "Potassium",
+        "amount": 146,
+        "unit": "mg"
+      }
     ],
     "note": "Mostly water with a little natural sugar, so it adds a lot of flavor for very few calories."
   },
   {
     "name": "Garlic, raw",
     "group": "vegetables",
-    "fdcId": 169230,
-    "serving": { "label": "1 clove", "grams": 3 },
-    "per100g": { "kcal": 149, "protein": 6.4, "carbs": 33.1, "fiber": 2.1, "sugars": 1, "fat": 0.5, "satFat": 0.1, "sodiumMg": 17 },
+    "serving": {
+      "label": "1 clove",
+      "grams": 3
+    },
+    "per100g": {
+      "kcal": 149,
+      "protein": 6.4,
+      "carbs": 33.1,
+      "fiber": 2.1,
+      "sugars": 1,
+      "fat": 0.5,
+      "satFat": 0.1,
+      "sodiumMg": 17
+    },
     "micros": [
-      { "name": "Vitamin C", "amount": 31.2, "unit": "mg" },
-      { "name": "Vitamin B6", "amount": 1.2, "unit": "mg" },
-      { "name": "Manganese", "amount": 1.7, "unit": "mg" }
+      {
+        "name": "Vitamin C",
+        "amount": 31.2,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B6",
+        "amount": 1.2,
+        "unit": "mg"
+      },
+      {
+        "name": "Manganese",
+        "amount": 1.7,
+        "unit": "mg"
+      }
     ],
     "note": "The per-100 g numbers look big, but a clove weighs about 3 g, so it adds only 4 or 5 calories to a dish."
   },
   {
     "name": "Tomato, red, ripe, raw",
     "group": "vegetables",
-    "fdcId": 170457,
-    "serving": { "label": "1 medium tomato", "grams": 123 },
-    "per100g": { "kcal": 18, "protein": 0.9, "carbs": 3.9, "fiber": 1.2, "sugars": 2.6, "fat": 0.2, "satFat": 0, "sodiumMg": 5 },
+    "serving": {
+      "label": "1 medium tomato",
+      "grams": 123
+    },
+    "per100g": {
+      "kcal": 18,
+      "protein": 0.9,
+      "carbs": 3.9,
+      "fiber": 1.2,
+      "sugars": 2.6,
+      "fat": 0.2,
+      "satFat": 0,
+      "sodiumMg": 5
+    },
     "micros": [
-      { "name": "Vitamin C", "amount": 13.7, "unit": "mg" },
-      { "name": "Potassium", "amount": 237, "unit": "mg" },
-      { "name": "Vitamin A (RAE)", "amount": 42, "unit": "mcg" }
+      {
+        "name": "Vitamin C",
+        "amount": 13.7,
+        "unit": "mg"
+      },
+      {
+        "name": "Potassium",
+        "amount": 237,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin A (RAE)",
+        "amount": 42,
+        "unit": "mcg"
+      }
     ],
     "note": "About 95% water: a medium tomato has roughly 22 calories plus a little vitamin C and potassium."
   },
   {
     "name": "Bell pepper, red, raw",
     "group": "vegetables",
-    "fdcId": 170108,
-    "serving": { "label": "1 medium pepper", "grams": 119 },
-    "per100g": { "kcal": 31, "protein": 1, "carbs": 6, "fiber": 2.1, "sugars": 4.2, "fat": 0.3, "satFat": 0, "sodiumMg": 4 },
+    "serving": {
+      "label": "1 medium pepper",
+      "grams": 119
+    },
+    "per100g": {
+      "kcal": 31,
+      "protein": 1,
+      "carbs": 6,
+      "fiber": 2.1,
+      "sugars": 4.2,
+      "fat": 0.3,
+      "satFat": 0,
+      "sodiumMg": 4
+    },
     "micros": [
-      { "name": "Vitamin C", "amount": 127.7, "unit": "mg" },
-      { "name": "Vitamin A (RAE)", "amount": 157, "unit": "mcg" },
-      { "name": "Folate", "amount": 46, "unit": "mcg" },
-      { "name": "Potassium", "amount": 211, "unit": "mg" }
+      {
+        "name": "Vitamin C",
+        "amount": 127.7,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin A (RAE)",
+        "amount": 157,
+        "unit": "mcg"
+      },
+      {
+        "name": "Folate",
+        "amount": 46,
+        "unit": "mcg"
+      },
+      {
+        "name": "Potassium",
+        "amount": 211,
+        "unit": "mg"
+      }
     ],
     "note": "One medium red pepper has roughly twice the vitamin C of an orange."
   },
   {
     "name": "Cucumber, with peel, raw",
     "group": "vegetables",
-    "serving": { "label": "1/2 cup sliced", "grams": 52 },
-    "per100g": { "kcal": 15, "protein": 0.7, "carbs": 3.6, "fiber": 0.5, "sugars": 1.7, "fat": 0.1, "satFat": 0, "sodiumMg": 2 },
+    "serving": {
+      "label": "1/2 cup sliced",
+      "grams": 52
+    },
+    "per100g": {
+      "kcal": 15,
+      "protein": 0.7,
+      "carbs": 3.6,
+      "fiber": 0.5,
+      "sugars": 1.7,
+      "fat": 0.1,
+      "satFat": 0,
+      "sodiumMg": 2
+    },
     "micros": [
-      { "name": "Vitamin K", "amount": 16.4, "unit": "mcg" },
-      { "name": "Potassium", "amount": 147, "unit": "mg" }
+      {
+        "name": "Vitamin K",
+        "amount": 16.4,
+        "unit": "mcg"
+      },
+      {
+        "name": "Potassium",
+        "amount": 147,
+        "unit": "mg"
+      }
     ],
     "note": "About 95% water, so think crunch rather than nutrients; keeping the peel on keeps most of the vitamin K."
   },
   {
     "name": "Zucchini, with skin, raw",
     "group": "vegetables",
-    "fdcId": 169291,
-    "serving": { "label": "1 cup chopped", "grams": 124 },
-    "per100g": { "kcal": 17, "protein": 1.2, "carbs": 3.1, "fiber": 1, "sugars": 2.5, "fat": 0.3, "satFat": 0.1, "sodiumMg": 8 },
+    "serving": {
+      "label": "1 cup chopped",
+      "grams": 124
+    },
+    "per100g": {
+      "kcal": 17,
+      "protein": 1.2,
+      "carbs": 3.1,
+      "fiber": 1,
+      "sugars": 2.5,
+      "fat": 0.3,
+      "satFat": 0.1,
+      "sodiumMg": 8
+    },
     "micros": [
-      { "name": "Vitamin C", "amount": 17.9, "unit": "mg" },
-      { "name": "Potassium", "amount": 261, "unit": "mg" }
+      {
+        "name": "Vitamin C",
+        "amount": 17.9,
+        "unit": "mg"
+      },
+      {
+        "name": "Potassium",
+        "amount": 261,
+        "unit": "mg"
+      }
     ],
     "note": "So light, at 17 calories per 100 g, that the oil you cook it in will usually outweigh it."
   },
   {
     "name": "Mushrooms, white, raw",
     "group": "vegetables",
-    "fdcId": 169251,
-    "serving": { "label": "1 cup sliced", "grams": 70 },
-    "per100g": { "kcal": 22, "protein": 3.1, "carbs": 3.3, "fiber": 1, "sugars": 2, "fat": 0.3, "satFat": 0.1, "sodiumMg": 5 },
+    "serving": {
+      "label": "1 cup sliced",
+      "grams": 70
+    },
+    "per100g": {
+      "kcal": 22,
+      "protein": 3.1,
+      "carbs": 3.3,
+      "fiber": 1,
+      "sugars": 2,
+      "fat": 0.3,
+      "satFat": 0.1,
+      "sodiumMg": 5
+    },
     "micros": [
-      { "name": "Niacin (B3)", "amount": 3.6, "unit": "mg" },
-      { "name": "Riboflavin (B2)", "amount": 0.4, "unit": "mg" },
-      { "name": "Potassium", "amount": 318, "unit": "mg" },
-      { "name": "Selenium", "amount": 9.3, "unit": "mcg" }
+      {
+        "name": "Niacin (B3)",
+        "amount": 3.6,
+        "unit": "mg"
+      },
+      {
+        "name": "Riboflavin (B2)",
+        "amount": 0.4,
+        "unit": "mg"
+      },
+      {
+        "name": "Potassium",
+        "amount": 318,
+        "unit": "mg"
+      },
+      {
+        "name": "Selenium",
+        "amount": 9.3,
+        "unit": "mcg"
+      }
     ],
     "note": "Low in calories with a useful amount of B vitamins; they shrink a lot in the pan, so buy more than you think you need."
   },
   {
     "name": "Eggplant, cooked (boiled)",
     "group": "vegetables",
-    "serving": { "label": "1 cup cubed", "grams": 99 },
-    "per100g": { "kcal": 35, "protein": 0.8, "carbs": 8.7, "fiber": 2.5, "sugars": 3.2, "fat": 0.2, "satFat": 0, "sodiumMg": 1 },
+    "serving": {
+      "label": "1 cup cubed",
+      "grams": 99
+    },
+    "per100g": {
+      "kcal": 35,
+      "protein": 0.8,
+      "carbs": 8.7,
+      "fiber": 2.5,
+      "sugars": 3.2,
+      "fat": 0.2,
+      "satFat": 0,
+      "sodiumMg": 1
+    },
     "micros": [
-      { "name": "Potassium", "amount": 123, "unit": "mg" },
-      { "name": "Manganese", "amount": 0.1, "unit": "mg" }
+      {
+        "name": "Potassium",
+        "amount": 123,
+        "unit": "mg"
+      },
+      {
+        "name": "Manganese",
+        "amount": 0.1,
+        "unit": "mg"
+      }
     ],
     "note": "Light on its own, but it soaks up oil like a sponge, so how you cook it decides the calories."
   },
   {
     "name": "Okra, cooked (boiled)",
     "group": "vegetables",
-    "serving": { "label": "1/2 cup sliced", "grams": 80 },
-    "per100g": { "kcal": 22, "protein": 1.9, "carbs": 4.5, "fiber": 2.5, "sugars": 2.4, "fat": 0.2, "satFat": 0, "sodiumMg": 6 },
+    "serving": {
+      "label": "1/2 cup sliced",
+      "grams": 80
+    },
+    "per100g": {
+      "kcal": 22,
+      "protein": 1.9,
+      "carbs": 4.5,
+      "fiber": 2.5,
+      "sugars": 2.4,
+      "fat": 0.2,
+      "satFat": 0,
+      "sodiumMg": 6
+    },
     "micros": [
-      { "name": "Vitamin C", "amount": 16.3, "unit": "mg" },
-      { "name": "Vitamin K", "amount": 40, "unit": "mcg" },
-      { "name": "Folate", "amount": 46, "unit": "mcg" },
-      { "name": "Calcium", "amount": 77, "unit": "mg" }
+      {
+        "name": "Vitamin C",
+        "amount": 16.3,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin K",
+        "amount": 40,
+        "unit": "mcg"
+      },
+      {
+        "name": "Folate",
+        "amount": 46,
+        "unit": "mcg"
+      },
+      {
+        "name": "Calcium",
+        "amount": 77,
+        "unit": "mg"
+      }
     ],
     "note": "More than half of its carbohydrate is fiber, and it brings some folate and vitamin K along."
   },
   {
     "name": "Potato, baked, flesh and skin",
     "group": "vegetables",
-    "serving": { "label": "1 medium potato", "grams": 173 },
-    "per100g": { "kcal": 93, "protein": 2.5, "carbs": 21.2, "fiber": 2.2, "sugars": 1.2, "fat": 0.1, "satFat": 0, "sodiumMg": 10 },
+    "serving": {
+      "label": "1 medium potato",
+      "grams": 173
+    },
+    "per100g": {
+      "kcal": 93,
+      "protein": 2.5,
+      "carbs": 21.2,
+      "fiber": 2.2,
+      "sugars": 1.2,
+      "fat": 0.1,
+      "satFat": 0,
+      "sodiumMg": 10
+    },
     "micros": [
-      { "name": "Potassium", "amount": 535, "unit": "mg" },
-      { "name": "Vitamin C", "amount": 9.6, "unit": "mg" },
-      { "name": "Vitamin B6", "amount": 0.3, "unit": "mg" }
+      {
+        "name": "Potassium",
+        "amount": 535,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin C",
+        "amount": 9.6,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B6",
+        "amount": 0.3,
+        "unit": "mg"
+      }
     ],
     "note": "A medium baked potato, skin and all, has more potassium than two bananas and almost no fat until you add toppings."
   },
   {
     "name": "Sweet potato, baked in skin",
     "group": "vegetables",
-    "fdcId": 168483,
-    "serving": { "label": "1 medium sweet potato", "grams": 114 },
-    "per100g": { "kcal": 90, "protein": 2, "carbs": 20.7, "fiber": 3.3, "sugars": 6.5, "fat": 0.2, "satFat": 0.1, "sodiumMg": 36 },
+    "serving": {
+      "label": "1 medium sweet potato",
+      "grams": 114
+    },
+    "per100g": {
+      "kcal": 90,
+      "protein": 2,
+      "carbs": 20.7,
+      "fiber": 3.3,
+      "sugars": 6.5,
+      "fat": 0.2,
+      "satFat": 0.1,
+      "sodiumMg": 36
+    },
     "micros": [
-      { "name": "Vitamin A (RAE)", "amount": 961, "unit": "mcg" },
-      { "name": "Potassium", "amount": 475, "unit": "mg" },
-      { "name": "Vitamin C", "amount": 19.6, "unit": "mg" },
-      { "name": "Manganese", "amount": 0.5, "unit": "mg" }
+      {
+        "name": "Vitamin A (RAE)",
+        "amount": 961,
+        "unit": "mcg"
+      },
+      {
+        "name": "Potassium",
+        "amount": 475,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin C",
+        "amount": 19.6,
+        "unit": "mg"
+      },
+      {
+        "name": "Manganese",
+        "amount": 0.5,
+        "unit": "mg"
+      }
     ],
     "note": "One medium sweet potato delivers more than a full day's vitamin A as beta carotene."
   },
   {
     "name": "Corn, sweet, yellow, cooked (boiled)",
     "group": "vegetables",
-    "serving": { "label": "1 medium ear", "grams": 103 },
-    "per100g": { "kcal": 96, "protein": 3.4, "carbs": 21, "fiber": 2.4, "sugars": 4.5, "fat": 1.5, "satFat": 0.2, "sodiumMg": 1 },
+    "serving": {
+      "label": "1 medium ear",
+      "grams": 103
+    },
+    "per100g": {
+      "kcal": 96,
+      "protein": 3.4,
+      "carbs": 21,
+      "fiber": 2.4,
+      "sugars": 4.5,
+      "fat": 1.5,
+      "satFat": 0.2,
+      "sodiumMg": 1
+    },
     "micros": [
-      { "name": "Potassium", "amount": 218, "unit": "mg" },
-      { "name": "Magnesium", "amount": 26, "unit": "mg" }
+      {
+        "name": "Potassium",
+        "amount": 218,
+        "unit": "mg"
+      },
+      {
+        "name": "Magnesium",
+        "amount": 26,
+        "unit": "mg"
+      }
     ],
     "note": "A medium ear has about 100 calories; nutritionally it sits closer to potato than to leafy greens."
   },
   {
     "name": "Plantain, cooked",
     "group": "vegetables",
-    "serving": { "label": "1 cup sliced", "grams": 154 },
-    "per100g": { "kcal": 116, "protein": 0.8, "carbs": 31.2, "fiber": 2.3, "sugars": 14, "fat": 0.2, "satFat": 0.1, "sodiumMg": 5 },
+    "serving": {
+      "label": "1 cup sliced",
+      "grams": 154
+    },
+    "per100g": {
+      "kcal": 116,
+      "protein": 0.8,
+      "carbs": 31.2,
+      "fiber": 2.3,
+      "sugars": 14,
+      "fat": 0.2,
+      "satFat": 0.1,
+      "sodiumMg": 5
+    },
     "micros": [
-      { "name": "Potassium", "amount": 465, "unit": "mg" },
-      { "name": "Vitamin C", "amount": 10.9, "unit": "mg" },
-      { "name": "Vitamin A (RAE)", "amount": 45, "unit": "mcg" }
+      {
+        "name": "Potassium",
+        "amount": 465,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin C",
+        "amount": 10.9,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin A (RAE)",
+        "amount": 45,
+        "unit": "mcg"
+      }
     ],
     "note": "Botanically a fruit but cooked like a potato; boiled it is almost fat-free, and frying changes that fast."
   },
   {
     "name": "Kimchi (cabbage)",
     "group": "vegetables",
-    "serving": { "label": "1/2 cup", "grams": 75 },
-    "per100g": { "kcal": 15, "protein": 1.1, "carbs": 2.4, "fiber": 1.6, "sugars": 1.1, "fat": 0.5, "satFat": 0.1, "sodiumMg": 498 },
+    "serving": {
+      "label": "1/2 cup",
+      "grams": 75
+    },
+    "per100g": {
+      "kcal": 15,
+      "protein": 1.1,
+      "carbs": 2.4,
+      "fiber": 1.6,
+      "sugars": 1.1,
+      "fat": 0.5,
+      "satFat": 0.1,
+      "sodiumMg": 498
+    },
     "micros": [
-      { "name": "Vitamin K", "amount": 43.6, "unit": "mcg" },
-      { "name": "Folate", "amount": 52, "unit": "mcg" },
-      { "name": "Iron", "amount": 2.5, "unit": "mg" }
+      {
+        "name": "Vitamin K",
+        "amount": 43.6,
+        "unit": "mcg"
+      },
+      {
+        "name": "Folate",
+        "amount": 52,
+        "unit": "mcg"
+      },
+      {
+        "name": "Iron",
+        "amount": 2.5,
+        "unit": "mg"
+      }
     ],
     "note": "Very low in calories but salty: half a cup carries about 370 mg of sodium."
   }

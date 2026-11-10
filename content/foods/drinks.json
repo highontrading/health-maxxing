@@ -2,7 +2,6 @@
   {
     "name": "Orange juice, fresh",
     "group": "drinks",
-    "fdcId": 169098,
     "serving": { "label": "1 cup (240 ml)", "grams": 248 },
     "per100g": { "kcal": 45, "protein": 0.7, "carbs": 10.4, "fiber": 0.2, "sugars": 8.4, "fat": 0.2, "satFat": 0, "sodiumMg": 1 },
     "micros": [
@@ -16,11 +15,11 @@
     "name": "Cola, regular",
     "group": "drinks",
     "serving": { "label": "1 can (355 ml)", "grams": 368 },
-    "per100g": { "kcal": 42, "protein": 0, "carbs": 10.6, "fiber": 0, "sugars": 10.6, "fat": 0.3, "satFat": 0, "sodiumMg": 3 },
+    "per100g": { "kcal": 42, "protein": 0, "carbs": 10.6, "fiber": 0, "sugars": 9.9, "fat": 0.3, "satFat": 0, "sodiumMg": 3 },
     "micros": [
       { "name": "Caffeine", "amount": 9, "unit": "mg" }
     ],
-    "note": "A 355 ml can has about 39 g of sugar, more than 9 teaspoons, and nothing else of note."
+    "note": "A 355 ml can has about 37 g of sugar, close to 9 teaspoons, and nothing else of note."
   },
   {
     "name": "Coffee, brewed, black",

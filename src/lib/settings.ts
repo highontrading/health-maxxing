@@ -17,7 +17,7 @@ export type SiteSettings = {
     ticker: string[];
   };
   community: { enabled: boolean; signupsOpen: boolean };
-  autopilot: { model: string; autoPublish: boolean; perRun: number; guidance: string };
+  autopilot: { model: string; research: boolean; autoTopics: boolean; autoPublish: boolean; perRun: number; guidance: string };
 };
 
 export const DEFAULT_SETTINGS: SiteSettings = {
@@ -60,11 +60,21 @@ export const DEFAULT_SETTINGS: SiteSettings = {
   community: { enabled: true, signupsOpen: true },
   autopilot: {
     model: "claude-opus-5-5",
+    research: true,
+    autoTopics: false,
     autoPublish: false,
     perRun: 1,
     guidance: "",
   },
 };
+
+/** Models the autopilot may use. The first is the default. */
+export const AUTOPILOT_MODELS = [
+  { id: "claude-opus-5-5", label: "Claude Opus 5.5 (recommended)" },
+  { id: "claude-fable-5-2", label: "Claude Fable 5.2 (most capable, costs more)" },
+  { id: "claude-sonnet-5-5", label: "Claude Sonnet 5.5 (faster, cheaper)" },
+  { id: "claude-haiku-5-5", label: "Claude Haiku 5.5 (cheapest)" },
+] as const;
 
 export type SettingsGroup = keyof SiteSettings;
 export const SETTINGS_GROUPS = Object.keys(DEFAULT_SETTINGS) as SettingsGroup[];

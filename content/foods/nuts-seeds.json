@@ -2,173 +2,518 @@
   {
     "name": "Almonds, raw",
     "group": "nuts-seeds",
-    "fdcId": 170567,
-    "serving": { "label": "1 small handful (23 nuts)", "grams": 28 },
-    "per100g": { "kcal": 579, "protein": 21.2, "carbs": 21.6, "fiber": 12.5, "sugars": 4.4, "fat": 49.9, "satFat": 3.8, "sodiumMg": 1 },
+    "serving": {
+      "label": "1 small handful (23 nuts)",
+      "grams": 28
+    },
+    "per100g": {
+      "kcal": 579,
+      "protein": 21.2,
+      "carbs": 21.6,
+      "fiber": 12.5,
+      "sugars": 4.4,
+      "fat": 49.9,
+      "satFat": 3.8,
+      "sodiumMg": 1
+    },
     "micros": [
-      { "name": "Vitamin E", "amount": 25.6, "unit": "mg" },
-      { "name": "Magnesium", "amount": 270, "unit": "mg" },
-      { "name": "Calcium", "amount": 269, "unit": "mg" },
-      { "name": "Riboflavin (B2)", "amount": 1.1, "unit": "mg" }
+      {
+        "name": "Vitamin E",
+        "amount": 25.6,
+        "unit": "mg"
+      },
+      {
+        "name": "Magnesium",
+        "amount": 270,
+        "unit": "mg"
+      },
+      {
+        "name": "Calcium",
+        "amount": 269,
+        "unit": "mg"
+      },
+      {
+        "name": "Riboflavin (B2)",
+        "amount": 1.1,
+        "unit": "mg"
+      }
     ],
     "note": "A small handful (28 g) has about 160 calories, 6 g of protein and nearly half a day's vitamin E."
   },
   {
     "name": "Walnuts, raw",
     "group": "nuts-seeds",
-    "fdcId": 170187,
-    "serving": { "label": "1 small handful (14 halves)", "grams": 28 },
-    "per100g": { "kcal": 654, "protein": 15.2, "carbs": 13.7, "fiber": 6.7, "sugars": 2.6, "fat": 65.2, "satFat": 6.1, "sodiumMg": 2 },
+    "serving": {
+      "label": "1 small handful (14 halves)",
+      "grams": 28
+    },
+    "per100g": {
+      "kcal": 654,
+      "protein": 15.2,
+      "carbs": 13.7,
+      "fiber": 6.7,
+      "sugars": 2.6,
+      "fat": 65.2,
+      "satFat": 6.1,
+      "sodiumMg": 2
+    },
     "micros": [
-      { "name": "Omega-3 (ALA)", "amount": 9.1, "unit": "g" },
-      { "name": "Manganese", "amount": 3.4, "unit": "mg" },
-      { "name": "Magnesium", "amount": 158, "unit": "mg" },
-      { "name": "Copper", "amount": 1.6, "unit": "mg" }
+      {
+        "name": "Omega-3 (ALA)",
+        "amount": 9.1,
+        "unit": "g"
+      },
+      {
+        "name": "Manganese",
+        "amount": 3.4,
+        "unit": "mg"
+      },
+      {
+        "name": "Magnesium",
+        "amount": 158,
+        "unit": "mg"
+      },
+      {
+        "name": "Copper",
+        "amount": 1.6,
+        "unit": "mg"
+      }
     ],
     "note": "Unusually rich in plant omega-3 (ALA) for a nut: about 2.5 g in a 28 g handful."
   },
   {
     "name": "Cashews, raw",
     "group": "nuts-seeds",
-    "fdcId": 170162,
-    "serving": { "label": "1 small handful", "grams": 28 },
-    "per100g": { "kcal": 553, "protein": 18.2, "carbs": 30.2, "fiber": 3.3, "sugars": 5.9, "fat": 43.9, "satFat": 7.8, "sodiumMg": 12 },
+    "serving": {
+      "label": "1 small handful",
+      "grams": 28
+    },
+    "per100g": {
+      "kcal": 553,
+      "protein": 18.2,
+      "carbs": 30.2,
+      "fiber": 3.3,
+      "sugars": 5.9,
+      "fat": 43.9,
+      "satFat": 7.8,
+      "sodiumMg": 12
+    },
     "micros": [
-      { "name": "Magnesium", "amount": 292, "unit": "mg" },
-      { "name": "Copper", "amount": 2.2, "unit": "mg" },
-      { "name": "Iron", "amount": 6.7, "unit": "mg" },
-      { "name": "Zinc", "amount": 5.8, "unit": "mg" }
+      {
+        "name": "Magnesium",
+        "amount": 292,
+        "unit": "mg"
+      },
+      {
+        "name": "Copper",
+        "amount": 2.2,
+        "unit": "mg"
+      },
+      {
+        "name": "Iron",
+        "amount": 6.7,
+        "unit": "mg"
+      },
+      {
+        "name": "Zinc",
+        "amount": 5.8,
+        "unit": "mg"
+      }
     ],
     "note": "Lower in fiber and higher in carbohydrate than most nuts; a 28 g handful is about 155 calories."
   },
   {
     "name": "Pistachios, raw",
     "group": "nuts-seeds",
-    "serving": { "label": "1 small handful (49 kernels)", "grams": 28 },
-    "per100g": { "kcal": 560, "protein": 20.2, "carbs": 27.2, "fiber": 10.6, "sugars": 7.7, "fat": 45.3, "satFat": 5.9, "sodiumMg": 1 },
+    "serving": {
+      "label": "1 small handful (49 kernels)",
+      "grams": 28
+    },
+    "per100g": {
+      "kcal": 560,
+      "protein": 20.2,
+      "carbs": 27.2,
+      "fiber": 10.6,
+      "sugars": 7.7,
+      "fat": 45.3,
+      "satFat": 5.9,
+      "sodiumMg": 1
+    },
     "micros": [
-      { "name": "Potassium", "amount": 1025, "unit": "mg" },
-      { "name": "Vitamin B6", "amount": 1.7, "unit": "mg" },
-      { "name": "Thiamin (B1)", "amount": 0.9, "unit": "mg" }
+      {
+        "name": "Potassium",
+        "amount": 1025,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B6",
+        "amount": 1.7,
+        "unit": "mg"
+      },
+      {
+        "name": "Thiamin (B1)",
+        "amount": 0.9,
+        "unit": "mg"
+      }
     ],
     "note": "About 49 kernels make a 28 g serving of roughly 157 calories, and shelling them yourself slows you down."
   },
   {
     "name": "Peanuts, raw",
     "group": "nuts-seeds",
-    "fdcId": 172430,
-    "serving": { "label": "1 small handful", "grams": 28 },
-    "per100g": { "kcal": 567, "protein": 25.8, "carbs": 16.1, "fiber": 8.5, "sugars": 4.7, "fat": 49.2, "satFat": 6.3, "sodiumMg": 18 },
+    "serving": {
+      "label": "1 small handful",
+      "grams": 28
+    },
+    "per100g": {
+      "kcal": 567,
+      "protein": 25.8,
+      "carbs": 16.1,
+      "fiber": 8.5,
+      "sugars": 4.7,
+      "fat": 49.2,
+      "satFat": 6.3,
+      "sodiumMg": 18
+    },
     "micros": [
-      { "name": "Niacin (B3)", "amount": 12.1, "unit": "mg" },
-      { "name": "Folate", "amount": 240, "unit": "mcg" },
-      { "name": "Magnesium", "amount": 168, "unit": "mg" },
-      { "name": "Vitamin E", "amount": 8.3, "unit": "mg" }
+      {
+        "name": "Niacin (B3)",
+        "amount": 12.1,
+        "unit": "mg"
+      },
+      {
+        "name": "Folate",
+        "amount": 240,
+        "unit": "mcg"
+      },
+      {
+        "name": "Magnesium",
+        "amount": 168,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin E",
+        "amount": 8.3,
+        "unit": "mg"
+      }
     ],
     "note": "Technically a legume, with more protein than any tree nut on this list: about 7 g per 28 g handful."
   },
   {
     "name": "Peanut butter, smooth, salted",
     "group": "nuts-seeds",
-    "serving": { "label": "2 tablespoons", "grams": 32 },
-    "per100g": { "kcal": 598, "protein": 22.2, "carbs": 22.3, "fiber": 5, "sugars": 10.5, "fat": 51.4, "satFat": 10.3, "sodiumMg": 426 },
+    "serving": {
+      "label": "2 tablespoons",
+      "grams": 32
+    },
+    "per100g": {
+      "kcal": 598,
+      "protein": 22.2,
+      "carbs": 22.3,
+      "fiber": 5,
+      "sugars": 10.5,
+      "fat": 51.4,
+      "satFat": 10.3,
+      "sodiumMg": 426
+    },
     "micros": [
-      { "name": "Niacin (B3)", "amount": 13.1, "unit": "mg" },
-      { "name": "Vitamin E", "amount": 9.1, "unit": "mg" },
-      { "name": "Magnesium", "amount": 168, "unit": "mg" }
+      {
+        "name": "Niacin (B3)",
+        "amount": 13.1,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin E",
+        "amount": 9.1,
+        "unit": "mg"
+      },
+      {
+        "name": "Magnesium",
+        "amount": 168,
+        "unit": "mg"
+      }
     ],
     "note": "Two tablespoons (32 g) come to about 190 calories and 7 g of protein; this is the regular salted kind."
   },
   {
     "name": "Chia seeds, dried",
     "group": "nuts-seeds",
-    "fdcId": 170554,
-    "serving": { "label": "1 tablespoon", "grams": 12 },
-    "per100g": { "kcal": 486, "protein": 16.5, "carbs": 42.1, "fiber": 34.4, "sugars": 0, "fat": 30.7, "satFat": 3.3, "sodiumMg": 16 },
+    "serving": {
+      "label": "1 tablespoon",
+      "grams": 12
+    },
+    "per100g": {
+      "kcal": 486,
+      "protein": 16.5,
+      "carbs": 42.1,
+      "fiber": 34.4,
+      "sugars": 0,
+      "fat": 30.7,
+      "satFat": 3.3,
+      "sodiumMg": 16
+    },
     "micros": [
-      { "name": "Omega-3 (ALA)", "amount": 17.8, "unit": "g" },
-      { "name": "Calcium", "amount": 631, "unit": "mg" },
-      { "name": "Magnesium", "amount": 335, "unit": "mg" },
-      { "name": "Iron", "amount": 7.7, "unit": "mg" }
+      {
+        "name": "Omega-3 (ALA)",
+        "amount": 17.8,
+        "unit": "g"
+      },
+      {
+        "name": "Calcium",
+        "amount": 631,
+        "unit": "mg"
+      },
+      {
+        "name": "Magnesium",
+        "amount": 335,
+        "unit": "mg"
+      },
+      {
+        "name": "Iron",
+        "amount": 7.7,
+        "unit": "mg"
+      }
     ],
     "note": "A tablespoon (12 g) has about 4 g of fiber and 2 g of plant omega-3 (ALA); the seeds swell into a gel in liquid."
   },
   {
     "name": "Flaxseed",
     "group": "nuts-seeds",
-    "fdcId": 169414,
-    "serving": { "label": "1 tablespoon, ground", "grams": 7 },
-    "per100g": { "kcal": 534, "protein": 18.3, "carbs": 28.9, "fiber": 27.3, "sugars": 1.6, "fat": 42.2, "satFat": 3.7, "sodiumMg": 30 },
+    "serving": {
+      "label": "1 tablespoon, ground",
+      "grams": 7
+    },
+    "per100g": {
+      "kcal": 534,
+      "protein": 18.3,
+      "carbs": 28.9,
+      "fiber": 27.3,
+      "sugars": 1.6,
+      "fat": 42.2,
+      "satFat": 3.7,
+      "sodiumMg": 30
+    },
     "micros": [
-      { "name": "Omega-3 (ALA)", "amount": 22.8, "unit": "g" },
-      { "name": "Magnesium", "amount": 392, "unit": "mg" },
-      { "name": "Thiamin (B1)", "amount": 1.6, "unit": "mg" },
-      { "name": "Manganese", "amount": 2.5, "unit": "mg" }
+      {
+        "name": "Omega-3 (ALA)",
+        "amount": 22.8,
+        "unit": "g"
+      },
+      {
+        "name": "Magnesium",
+        "amount": 392,
+        "unit": "mg"
+      },
+      {
+        "name": "Thiamin (B1)",
+        "amount": 1.6,
+        "unit": "mg"
+      },
+      {
+        "name": "Manganese",
+        "amount": 2.5,
+        "unit": "mg"
+      }
     ],
     "note": "A tablespoon of ground flaxseed (7 g) adds about 2 g of fiber and 1.6 g of plant omega-3 (ALA) to oatmeal or yogurt."
   },
   {
     "name": "Sunflower seed kernels, dried",
     "group": "nuts-seeds",
-    "fdcId": 170562,
-    "serving": { "label": "1/4 cup", "grams": 35 },
-    "per100g": { "kcal": 584, "protein": 20.8, "carbs": 20, "fiber": 8.6, "sugars": 2.6, "fat": 51.5, "satFat": 4.5, "sodiumMg": 9 },
+    "serving": {
+      "label": "1/4 cup",
+      "grams": 35
+    },
+    "per100g": {
+      "kcal": 584,
+      "protein": 20.8,
+      "carbs": 20,
+      "fiber": 8.6,
+      "sugars": 2.6,
+      "fat": 51.5,
+      "satFat": 4.5,
+      "sodiumMg": 9
+    },
     "micros": [
-      { "name": "Vitamin E", "amount": 35.2, "unit": "mg" },
-      { "name": "Magnesium", "amount": 325, "unit": "mg" },
-      { "name": "Selenium", "amount": 53, "unit": "mcg" },
-      { "name": "Folate", "amount": 227, "unit": "mcg" }
+      {
+        "name": "Vitamin E",
+        "amount": 35.2,
+        "unit": "mg"
+      },
+      {
+        "name": "Magnesium",
+        "amount": 325,
+        "unit": "mg"
+      },
+      {
+        "name": "Selenium",
+        "amount": 53,
+        "unit": "mcg"
+      },
+      {
+        "name": "Folate",
+        "amount": 227,
+        "unit": "mcg"
+      }
     ],
     "note": "A quarter cup (35 g) covers more than 80% of a day's vitamin E for about 205 calories."
   },
   {
     "name": "Pumpkin seeds (pepitas), dried",
     "group": "nuts-seeds",
-    "serving": { "label": "1 small handful", "grams": 28 },
-    "per100g": { "kcal": 559, "protein": 30.2, "carbs": 10.7, "fiber": 6, "sugars": 1.4, "fat": 49.1, "satFat": 8.7, "sodiumMg": 7 },
+    "serving": {
+      "label": "1 small handful",
+      "grams": 28
+    },
+    "per100g": {
+      "kcal": 559,
+      "protein": 30.2,
+      "carbs": 10.7,
+      "fiber": 6,
+      "sugars": 1.4,
+      "fat": 49.1,
+      "satFat": 8.7,
+      "sodiumMg": 7
+    },
     "micros": [
-      { "name": "Magnesium", "amount": 592, "unit": "mg" },
-      { "name": "Zinc", "amount": 7.8, "unit": "mg" },
-      { "name": "Iron", "amount": 8.8, "unit": "mg" },
-      { "name": "Phosphorus", "amount": 1233, "unit": "mg" }
+      {
+        "name": "Magnesium",
+        "amount": 592,
+        "unit": "mg"
+      },
+      {
+        "name": "Zinc",
+        "amount": 7.8,
+        "unit": "mg"
+      },
+      {
+        "name": "Iron",
+        "amount": 8.8,
+        "unit": "mg"
+      },
+      {
+        "name": "Phosphorus",
+        "amount": 1233,
+        "unit": "mg"
+      }
     ],
     "note": "The protein leader in this group at 30 g per 100 g; a 28 g handful also has about 40% of a day's magnesium."
   },
   {
     "name": "Sesame seeds, whole, dried",
     "group": "nuts-seeds",
-    "serving": { "label": "1 tablespoon", "grams": 9 },
-    "per100g": { "kcal": 573, "protein": 17.7, "carbs": 23.5, "fiber": 11.8, "sugars": 0.3, "fat": 49.7, "satFat": 7, "sodiumMg": 11 },
+    "serving": {
+      "label": "1 tablespoon",
+      "grams": 9
+    },
+    "per100g": {
+      "kcal": 573,
+      "protein": 17.7,
+      "carbs": 23.5,
+      "fiber": 11.8,
+      "sugars": 0.3,
+      "fat": 49.7,
+      "satFat": 7,
+      "sodiumMg": 11
+    },
     "micros": [
-      { "name": "Calcium", "amount": 975, "unit": "mg" },
-      { "name": "Iron", "amount": 14.6, "unit": "mg" },
-      { "name": "Magnesium", "amount": 351, "unit": "mg" },
-      { "name": "Copper", "amount": 4.1, "unit": "mg" }
+      {
+        "name": "Calcium",
+        "amount": 975,
+        "unit": "mg"
+      },
+      {
+        "name": "Iron",
+        "amount": 14.6,
+        "unit": "mg"
+      },
+      {
+        "name": "Magnesium",
+        "amount": 351,
+        "unit": "mg"
+      },
+      {
+        "name": "Copper",
+        "amount": 4.1,
+        "unit": "mg"
+      }
     ],
     "note": "A tablespoon (9 g) adds about 50 calories and 88 mg of calcium, as long as the seeds still have their hulls."
   },
   {
     "name": "Hazelnuts, raw",
     "group": "nuts-seeds",
-    "serving": { "label": "1 small handful (21 nuts)", "grams": 28 },
-    "per100g": { "kcal": 628, "protein": 15, "carbs": 16.7, "fiber": 9.7, "sugars": 4.3, "fat": 60.8, "satFat": 4.5, "sodiumMg": 0 },
+    "serving": {
+      "label": "1 small handful (21 nuts)",
+      "grams": 28
+    },
+    "per100g": {
+      "kcal": 628,
+      "protein": 15,
+      "carbs": 16.7,
+      "fiber": 9.7,
+      "sugars": 4.3,
+      "fat": 60.8,
+      "satFat": 4.5,
+      "sodiumMg": 0
+    },
     "micros": [
-      { "name": "Vitamin E", "amount": 15, "unit": "mg" },
-      { "name": "Manganese", "amount": 6.2, "unit": "mg" },
-      { "name": "Magnesium", "amount": 163, "unit": "mg" },
-      { "name": "Folate", "amount": 113, "unit": "mcg" }
+      {
+        "name": "Vitamin E",
+        "amount": 15,
+        "unit": "mg"
+      },
+      {
+        "name": "Manganese",
+        "amount": 6.2,
+        "unit": "mg"
+      },
+      {
+        "name": "Magnesium",
+        "amount": 163,
+        "unit": "mg"
+      },
+      {
+        "name": "Folate",
+        "amount": 113,
+        "unit": "mcg"
+      }
     ],
     "note": "About 21 nuts make a 28 g serving of roughly 175 calories, with more than a quarter of a day's vitamin E."
   },
   {
     "name": "Brazil nuts, dried",
     "group": "nuts-seeds",
-    "serving": { "label": "2 nuts", "grams": 10 },
-    "per100g": { "kcal": 659, "protein": 14.3, "carbs": 11.7, "fiber": 7.5, "sugars": 2.3, "fat": 67.1, "satFat": 16.1, "sodiumMg": 3 },
+    "serving": {
+      "label": "2 nuts",
+      "grams": 10
+    },
+    "per100g": {
+      "kcal": 659,
+      "protein": 14.3,
+      "carbs": 11.7,
+      "fiber": 7.5,
+      "sugars": 2.3,
+      "fat": 67.1,
+      "satFat": 16.1,
+      "sodiumMg": 3
+    },
     "micros": [
-      { "name": "Selenium", "amount": 1917, "unit": "mcg" },
-      { "name": "Magnesium", "amount": 376, "unit": "mg" },
-      { "name": "Phosphorus", "amount": 725, "unit": "mg" }
+      {
+        "name": "Selenium",
+        "amount": 1917,
+        "unit": "mcg"
+      },
+      {
+        "name": "Magnesium",
+        "amount": 376,
+        "unit": "mg"
+      },
+      {
+        "name": "Phosphorus",
+        "amount": 725,
+        "unit": "mg"
+      }
     ],
     "note": "Extremely high in selenium: one nut (about 5 g) has roughly 96 mcg, more than a day's requirement, so one or two is plenty."
   }
