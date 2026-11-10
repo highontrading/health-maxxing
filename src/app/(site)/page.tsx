@@ -38,7 +38,7 @@ export default async function HomePage() {
       {/* ------------------------------------------------ Hero */}
       <section className="relative overflow-hidden bg-paper">
         <div className="container-hm relative grid gap-14 pb-16 pt-10 md:pt-16 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:gap-10 lg:pb-24 lg:pt-20">
-          <div className="relative z-10">
+          <div className="relative z-10 min-w-0">
             <p className="eyebrow inline-flex items-center gap-2 rounded-full bg-sand px-3 py-2 text-ink-2">
               <span className="size-2 rounded-full bg-[var(--pink-solid)]" />
               {home.eyebrow}
@@ -76,7 +76,7 @@ export default async function HomePage() {
           </div>
 
           {/* Cover + loose stickers */}
-          <div className="relative mx-auto w-full max-w-[460px] lg:max-w-none">
+          <div className="relative mx-auto w-full min-w-0 max-w-[460px] lg:max-w-none">
             {cover && (
               <article
                 className={cn(
@@ -100,9 +100,9 @@ export default async function HomePage() {
                 {coverLines.length > 0 && (
                   <ul className="relative z-10 mt-4 space-y-1.5 border-t-[1.5px] border-ink/20 pt-3 text-[0.8125rem] font-medium">
                     {coverLines.map((a) => (
-                      <li key={a.slug} className="flex items-center gap-2">
-                        <Sticker name={a.sticker} size={18} flat />
-                        <Link href={`/articles/${a.slug}`} className="truncate underline-offset-2 hover:underline">
+                      <li key={a.slug} className="flex min-w-0 items-center gap-2">
+                        <Sticker name={a.sticker} size={18} flat className="flex-none" />
+                        <Link href={`/articles/${a.slug}`} className="min-w-0 truncate underline-offset-2 hover:underline">
                           {a.title}
                         </Link>
                       </li>
@@ -111,17 +111,18 @@ export default async function HomePage() {
                 )}
               </article>
             )}
-            <Draggable className="absolute -left-2 top-[2%] sm:-left-8 lg:-left-10" style={{ animation: "floaty 7s ease-in-out infinite" }}>
-              <Sticker name="avocado" size={104} rotate={-14} className="max-sm:size-20!" />
+            {/* On phones the loose stickers sit on the card's edges, clear of its text. */}
+            <Draggable className="absolute -left-3 -top-12 sm:-left-8 sm:top-[2%] lg:-left-10" style={{ animation: "floaty 7s ease-in-out infinite" }}>
+              <Sticker name="avocado" size={104} rotate={-14} className="max-sm:size-[68px]!" />
             </Draggable>
-            <Draggable className="absolute -right-1 top-[-3%] sm:-right-6" style={{ animation: "floaty 8s ease-in-out -2s infinite" }}>
-              <Sticker name="dumbbell" size={112} rotate={10} className="max-sm:size-20!" />
+            <Draggable className="absolute -right-2 -top-12 sm:-right-6 sm:top-[-3%]" style={{ animation: "floaty 8s ease-in-out -2s infinite" }}>
+              <Sticker name="dumbbell" size={112} rotate={10} className="max-sm:size-[72px]!" />
             </Draggable>
-            <Draggable className="absolute -left-3 bottom-[20%] sm:-left-12 lg:-left-16" style={{ animation: "floaty 6.5s ease-in-out -1s infinite" }}>
-              <Sticker name="moon" size={92} rotate={-8} className="max-sm:size-[72px]!" />
+            <Draggable className="absolute -left-4 top-[30%] sm:-left-12 sm:bottom-[20%] sm:top-auto lg:-left-16" style={{ animation: "floaty 6.5s ease-in-out -1s infinite" }}>
+              <Sticker name="moon" size={92} rotate={-8} className="max-sm:size-[60px]!" />
             </Draggable>
-            <Draggable className="absolute -right-2 bottom-[6%] sm:-right-8" style={{ animation: "floaty 7.5s ease-in-out -3s infinite" }}>
-              <Sticker name="brain" size={104} rotate={12} className="max-sm:size-20!" />
+            <Draggable className="absolute -right-4 top-[36%] sm:-right-8 sm:bottom-[6%] sm:top-auto" style={{ animation: "floaty 7.5s ease-in-out -3s infinite" }}>
+              <Sticker name="brain" size={104} rotate={12} className="max-sm:size-[64px]!" />
             </Draggable>
             <Draggable className="absolute right-[2%] top-[34%] hidden sm:block lg:-right-4">
               <LabelSticker rotate={9} className="text-sm">8 hrs or bust</LabelSticker>

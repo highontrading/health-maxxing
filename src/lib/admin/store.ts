@@ -18,7 +18,7 @@ const PER_PAGE = 40;
 /** Top-level routes a standing page must not shadow. */
 const RESERVED_PAGE_SLUGS = new Set([
   "admin", "api", "articles", "topics", "conditions", "body", "tools", "exercises", "foods", "myths", "glossary",
-  "search", "saved", "contact", "newsletter", "community", "login", "signup", "account", "stickers", "media",
+  "search", "saved", "contact", "newsletter", "community", "login", "signup", "forgot-password", "reset-password", "account", "stickers", "media",
   "rss.xml", "sitemap.xml", "robots.txt", "feed",
 ]);
 

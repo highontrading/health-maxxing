@@ -411,6 +411,16 @@ export const STICKER_ART: Record<string, () => ReactNode> = {
       <path className="ln" d="M38 42 V48 M38 62 V78" stroke="#fff" strokeWidth="3.6" strokeLinecap="round" fill="none" opacity="0.85" />
     </>
   ),
+  wine: () => (
+    <>
+      <ellipse cx="50" cy="85" rx="19" ry="5" fill={C.ice} {...sk} />
+      <rect x="46.5" y="58" width="7" height="27" fill={C.ice} {...sk} />
+      <path d="M29 13 H71 C73 36 68 62 50 62 C32 62 27 36 29 13 Z" fill={C.ice} {...sk} />
+      <path d="M30 34 H70 C68.5 50 62 59.5 50 59.5 C38 59.5 31.5 50 30 34 Z" fill="#b0264f" />
+      <path className="ln" d="M30 34 H70" stroke={K} strokeWidth="2.6" fill="none" />
+      <path className="ln" d="M37 19 V27" {...shine} />
+    </>
+  ),
   coffee: () => (
     <>
       <path className="ln" d="M36 29 C31 23 41 20 36 12 M52 29 C47 23 57 20 52 12" {...thin} strokeWidth="3.2" />

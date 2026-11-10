@@ -4,7 +4,7 @@ dek: "The 'glass of red for your heart' story has not aged well. Here is what cu
 summary: "What the evidence says about alcohol and your health, how drinking guidelines compare across countries, and where to get help with cutting down."
 category: lifestyle
 tags: [alcohol, cancer risk, drinking guidelines, heart health, alcohol use disorder]
-sticker: bottle
+sticker: wine
 kind: explainer
 featured: true
 takeaways:

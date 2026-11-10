@@ -6,6 +6,8 @@ import { z } from "zod";
 import { createSession, destroySession, getSessionUser, destroyAllSessions } from "@/lib/auth";
 import { getSettings } from "@/lib/data";
 import { queryOne, run } from "@/lib/db";
+import { emailConfigured } from "@/lib/email";
+import { emailResetLink, resetPassword } from "@/lib/password-reset";
 import { limitByClient, rateLimit } from "@/lib/rate-limit";
 import { hashPassword, verifyPassword } from "@/lib/security";
 import { echo, type FormState } from "./types";
@@ -150,4 +152,33 @@ export async function changePasswordAction(_prev: FormState, formData: FormData)
   await destroyAllSessions(user.id);
   await createSession(user.id, (await headers()).get("user-agent") ?? "");
   return { ok: true, message: "Password changed. Other devices have been signed out." };
+}
+
+/* ------------------------------------------------------------------ */
+/* Forgotten passwords                                                 */
+/* ------------------------------------------------------------------ */
+
+export async function requestPasswordResetAction(_prev: FormState, formData: FormData): Promise<FormState> {
+  const email = String(formData.get("email") ?? "").trim().toLowerCase();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return { errors: { email: "Enter the email address you signed up with." }, values: { email } };
+  if (!emailConfigured()) {
+    return { message: "This site cannot send email yet, so resets are done by hand. Please use the contact page and we will send you a reset link.", values: { email } };
+  }
+  if (!(await limitByClient("pwreset", 5, 3600)) || !(await rateLimit(`pwreset:${email}`, 3, 3600))) {
+    return { message: "Too many reset requests. Please wait an hour and try again.", values: { email } };
+  }
+  try {
+    await emailResetLink(email);
+  } catch {
+    return { message: "The reset email could not be sent. Please try again in a few minutes.", values: { email } };
+  }
+  // The same answer whether or not the address has an account.
+  return { ok: true, message: "If that address has an account, a reset link is on its way. It works for one hour." };
+}
+
+export async function resetPasswordAction(_prev: FormState, formData: FormData): Promise<FormState> {
+  if (!(await limitByClient("pwreset-use", 10, 3600))) return { message: "Too many attempts. Please wait an hour and try again." };
+  const res = await resetPassword(String(formData.get("token") ?? ""), String(formData.get("password") ?? ""));
+  if (!res.ok) return { message: res.message };
+  redirect("/login?reset=1");
 }

@@ -49,7 +49,7 @@ async function IssueView({ params }: Pick<Props, "params">) {
           <Icon name="arrow-left" size={15} /> {settings.newsletter.name}
         </Link>
         <article className="relative mt-6 rounded-[30px] border-[1.5px] border-ink bg-paper p-6 shadow-[0_8px_0_var(--ink)] md:p-12">
-          <Sticker name={issue.sticker} size={84} rotate={10} className="absolute -right-3 -top-6 md:-right-6" />
+          <Sticker name={issue.sticker} size={84} rotate={10} className="absolute -right-1 -top-6 md:-right-6" />
           <p className="flex flex-wrap items-center gap-3 text-sm text-ink-3">
             <span className="pixel-tag">No. {String(issue.number).padStart(3, "0")}</span>
             {formatDate(issue.publishedAt)}

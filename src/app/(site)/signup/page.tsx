@@ -10,7 +10,7 @@ export default function SignUpPage() {
     <main className="bg-sand">
       <div className="container-hm flex justify-center py-12 md:py-20">
         <div className="relative w-full max-w-lg rounded-[30px] border-[1.5px] border-ink bg-paper p-7 shadow-[0_8px_0_var(--ink)] md:p-9">
-          <Sticker name="star" size={76} rotate={-10} className="absolute -right-4 -top-7" />
+          <Sticker name="star" size={76} rotate={-10} className="absolute -right-2 -top-7 sm:-right-4" />
           <p className="eyebrow text-ink-3">Join the community</p>
           <h1 className="display display-md mt-3">
             Create an <span className="serif-accent">account.</span>

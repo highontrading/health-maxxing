@@ -10,7 +10,7 @@ export default function LoginPage() {
     <main className="bg-sand">
       <div className="container-hm flex justify-center py-12 md:py-20">
         <div className="relative w-full max-w-md rounded-[30px] border-[1.5px] border-ink bg-paper p-7 shadow-[0_8px_0_var(--ink)] md:p-9">
-          <Sticker name="smile" size={76} rotate={10} className="absolute -right-4 -top-7" />
+          <Sticker name="smile" size={76} rotate={10} className="absolute -right-2 -top-7 sm:-right-4" />
           <p className="eyebrow text-ink-3">Welcome back</p>
           <h1 className="display display-md mt-3">
             Sign <span className="serif-accent">in.</span>
@@ -26,10 +26,10 @@ export default function LoginPage() {
           </p>
           <p className="mt-2 text-sm text-ink-3">
             Forgotten your password?{" "}
-            <Link href="/contact" className="underline underline-offset-4">
-              Contact us
-            </Link>{" "}
-            and we will help you back in.
+            <Link href="/forgot-password" className="underline underline-offset-4">
+              Reset it
+            </Link>
+            .
           </p>
         </div>
       </div>

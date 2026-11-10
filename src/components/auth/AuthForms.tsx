@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useActionState, useState } from "react";
-import { changePasswordAction, signInAction, signUpAction, updateProfileAction } from "@/app/actions/auth";
+import { changePasswordAction, requestPasswordResetAction, resetPasswordAction, signInAction, signUpAction, updateProfileAction } from "@/app/actions/auth";
 import { EMPTY } from "@/app/actions/types";
 import { Sticker } from "@/components/stickers/Sticker";
 import { cn } from "@/lib/cn";
@@ -16,8 +16,14 @@ function useNext(): string {
 export function SignInForm({ area = "site" }: { area?: "site" | "admin" }) {
   const [state, action, pending] = useActionState(signInAction, EMPTY);
   const next = useNext();
+  const justReset = useQueryParam("reset") === "1";
   return (
     <form action={action} className="space-y-4" noValidate>
+      {justReset && !state.message && (
+        <p role="status" className="rounded-2xl bg-[var(--lime-soft)] px-4 py-3 text-sm font-semibold text-[var(--lime-ink)]">
+          Your password has been changed. Sign in with the new one.
+        </p>
+      )}
       <input type="hidden" name="next" value={next} />
       <input type="hidden" name="area" value={area} />
       <div>
@@ -203,6 +209,76 @@ export function PasswordForm({ minLength = 8 }: { minLength?: number }) {
       )}
       <button type="submit" className="btn btn-outline" disabled={pending}>
         {pending ? "Updating…" : "Change password"}
+      </button>
+    </form>
+  );
+}
+
+export function ForgotPasswordForm() {
+  const [state, action, pending] = useActionState(requestPasswordResetAction, EMPTY);
+  if (state.ok) {
+    return (
+      <p role="status" className="rounded-2xl bg-[var(--lime-soft)] px-4 py-4 font-medium text-[var(--lime-ink)]">
+        {state.message}
+      </p>
+    );
+  }
+  return (
+    <form action={action} className="space-y-4" noValidate>
+      <div>
+        <label htmlFor="fp-email" className="field-label">
+          Email
+        </label>
+        <input id="fp-email" name="email" type="email" autoComplete="email" className="input" required defaultValue={state.values?.email} aria-invalid={!!state.errors?.email || undefined} />
+        {state.errors?.email && <p className="field-error">{state.errors.email}</p>}
+      </div>
+      {state.message && (
+        <p role="alert" className="field-error">
+          {state.message}
+        </p>
+      )}
+      <button type="submit" className="btn btn-primary btn-lg w-full" disabled={pending}>
+        {pending ? "Sending…" : "Email me a reset link"}
+      </button>
+    </form>
+  );
+}
+
+export function ResetPasswordForm() {
+  const [state, action, pending] = useActionState(resetPasswordAction, EMPTY);
+  const token = useQueryParam("token");
+  if (token === null) return <p className="text-ink-3">Loading…</p>;
+  if (!token) {
+    return (
+      <p className="text-ink-2">
+        This page needs the link from a password reset email.{" "}
+        <Link href="/forgot-password" className="font-semibold text-ink underline underline-offset-4">
+          Ask for a new link
+        </Link>
+        .
+      </p>
+    );
+  }
+  return (
+    <form action={action} className="space-y-4" noValidate>
+      <input type="hidden" name="token" value={token} />
+      <div>
+        <label htmlFor="rp-password" className="field-label">
+          New password
+        </label>
+        <input id="rp-password" name="password" type="password" autoComplete="new-password" className="input" required minLength={8} />
+        <p className="field-help">At least 8 characters. Staff accounts need 10.</p>
+      </div>
+      {state.message && (
+        <p role="alert" className="field-error">
+          {state.message}{" "}
+          <Link href="/forgot-password" className="underline underline-offset-4">
+            Get a new link
+          </Link>
+        </p>
+      )}
+      <button type="submit" className="btn btn-primary btn-lg w-full" disabled={pending}>
+        {pending ? "Saving…" : "Set new password"}
       </button>
     </form>
   );

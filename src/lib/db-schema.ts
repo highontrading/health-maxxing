@@ -381,4 +381,15 @@ CREATE TABLE newsletter_sends (
 )
 `;
 
-export const MIGRATIONS: string[] = [V1, V2, V3, V4];
+/** V5: one-time password reset links. Only the hash of each token is stored. */
+const V5 = `
+CREATE TABLE password_resets (
+  token_hash TEXT PRIMARY KEY,
+  user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  expires_at TEXT NOT NULL,
+  used_at TEXT,
+  created_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now'))
+)
+`;
+
+export const MIGRATIONS: string[] = [V1, V2, V3, V4, V5];

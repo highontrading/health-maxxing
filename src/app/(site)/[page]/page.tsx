@@ -59,7 +59,7 @@ async function PageView({ params }: Pick<Props, "params">) {
     <main>
       <PageHero color="sand" title={page.title} lede={page.description} stickers={STICKERS[page.slug] ?? ["sparkle"]} crumbs={[{ href: "/", label: "Home" }, { label: page.title }]} />
       <div className="container-hm grid gap-10 py-10 md:py-14 lg:grid-cols-[220px_minmax(0,720px)] lg:gap-14">
-        <nav aria-label="About and policies" className="lg:sticky lg:top-[calc(var(--header-h)+24px)] lg:self-start">
+        <nav aria-label="About and policies" className="min-w-0 lg:sticky lg:top-[calc(var(--header-h)+24px)] lg:self-start">
           <ul className="scrollbar-none -mx-[var(--gutter)] flex gap-1.5 overflow-x-auto px-[var(--gutter)] lg:mx-0 lg:flex-col lg:px-0">
             {SIBLINGS.map((s) => (
               <li key={s.slug} className="flex-none">
@@ -74,7 +74,7 @@ async function PageView({ params }: Pick<Props, "params">) {
             ))}
           </ul>
         </nav>
-        <article>
+        <article className="min-w-0">
           <Prose html={html} compact />
           <p className="mt-12 border-t border-line pt-5 text-sm text-ink-3">Last updated {formatDate(page.updatedAt)}</p>
         </article>

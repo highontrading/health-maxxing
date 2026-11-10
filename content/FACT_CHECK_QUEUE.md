@@ -407,8 +407,11 @@ Pieces not listed here still need the standard check; they just had no special f
   OCD (SSRIs 8–12 weeks); bipolar (lithium first choice, toxicity signs); ADHD (CDC "1 in 9"
   US children); osteoarthritis (topical NSAIDs first; no glucosamine); rheumatoid arthritis (DMARD
   within three months); back pain and sciatica "do not offer" lists; fibromyalgia (2–4%).
-- `osteoporosis` says "1 in 2 women, up to 1 in 4 men" while the article
-  `osteoporosis-and-bone-health` says "one in five men": **reconcile these.**
+- `osteoporosis` (condition) says "about one in two women and up to one in four men over 50" for
+  the US, cited to the Bone Health and Osteoporosis Foundation. The article
+  `osteoporosis-and-bone-health` used "one in five men"; both figures circulate, so the article
+  now says "from about one in five to one in four men over 50". Confirm which figure each cited
+  source gives and tighten the wording.
 - `multiple-sclerosis`: Epstein-Barr 32-fold risk in over 10 million personnel.
 - `alzheimers-disease`: 14 risk factors and ~45% (Lancet 2024); anti-amyloid drug approval status.
 - `plantar-fasciitis`, `carpal-tunnel-syndrome`, `sciatica`: AAOS/NINDS/NHS figures (over 90%

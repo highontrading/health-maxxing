@@ -13,6 +13,7 @@ import { invalidate, type ContentTag } from "@/lib/cache-tags";
 import { batch, queryOne, run } from "@/lib/db";
 import { renderMarkdown } from "@/lib/markdown";
 import { sendIssue, sendTestIssue } from "@/lib/newsletter-send";
+import { createResetLink } from "@/lib/password-reset";
 import { randomToken, sha256 } from "@/lib/security";
 import { AUTOPILOT_MODELS, DEFAULT_SETTINGS, SETTINGS_GROUPS, type SettingsGroup } from "@/lib/settings";
 
@@ -221,6 +222,11 @@ export async function userAction(formData: FormData): Promise<void> {
     await destroyAllSessions(id);
   } else if (op === "unban") {
     await run("UPDATE users SET banned = 0 WHERE id = ?", [id]);
+  } else if (op === "reset") {
+    // For members who cannot get into their account: a one-time link to pass on to them.
+    const link = await createResetLink(id);
+    await logActivity(actorOf(me), "created a password reset link", "user", id, `@${target.handle}`);
+    redirect(withNotice(back, `Send this link to @${target.handle}. It works once, for one hour: ${link}`));
   } else if (op === "role") {
     if (me.role !== "admin") redirect(withNotice(back, "Only an admin can change roles.", "error"));
     const role = String(formData.get("role") ?? "");

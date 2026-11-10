@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Plain Node scripts that drive a browser; they use require().
+    "scripts/e2e/**",
   ]),
 ]);
 

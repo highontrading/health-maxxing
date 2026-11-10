@@ -20,7 +20,7 @@ faqs:
   - q: "Is walking enough to protect my bones?"
     a: "Walking is weight-bearing, so it helps maintain bone, and it is better than swimming or cycling for that purpose. Adding resistance training loads the spine and hips more directly. If you already have osteoporosis, get advice on which movements to modify before starting."
   - q: "Do men need to worry about osteoporosis?"
-    a: "Yes. About one in five men will have a fracture related to osteoporosis in their lifetime, and men tend to do worse than women after a hip fracture. Long-term steroid treatment, low testosterone, heavy drinking and smoking are common contributors."
+    a: "Yes. Estimates run from about one in five to one in four men over 50 having a fracture related to osteoporosis, and men tend to do worse than women after a hip fracture. Long-term steroid treatment, low testosterone, heavy drinking and smoking are common contributors."
   - q: "Are osteoporosis medicines safe?"
     a: "For people at high risk of fracture, the benefits clearly outweigh the risks. Bisphosphonates, the usual first choice, substantially lower the risk of spine and hip fractures. Rare side effects include jaw bone problems and unusual thigh fractures after long-term use, which is why treatment is reviewed after a few years."
 sources:
@@ -158,7 +158,7 @@ Two things are worth knowing. Rare side effects of long-term bisphosphonate use 
 
 ## Men get it too
 
-Osteoporosis is often framed as a women's disease, and men pay for that with late diagnosis. About one in five men will have an osteoporosis-related fracture in their lifetime, and men are more likely than women to die in the year after a hip fracture.[^3] Long-term steroids, low testosterone, heavy drinking and smoking are common causes. A man who breaks a bone from a minor fall deserves the same work-up as a woman.
+Osteoporosis is often framed as a women's disease, and men pay for that with late diagnosis. Estimates run from about one in five to one in four men over 50 having an osteoporosis-related fracture, and men are more likely than women to die in the year after a hip fracture.[^3] Long-term steroids, low testosterone, heavy drinking and smoking are common causes. A man who breaks a bone from a minor fall deserves the same work-up as a woman.
 
 ## The bottom line
 
