@@ -5,6 +5,7 @@ import { PageHeader } from "@/components/admin/ui";
 import { getCollection } from "@/lib/admin/collections";
 import { blankEntry, loadOptions } from "@/lib/admin/store";
 import { requireStaff } from "@/lib/auth";
+import { PageTransition } from "@/components/motion/PageTransition";
 
 type Props = PageProps<"/admin/c/[collection]/new">;
 
@@ -16,9 +17,9 @@ export default async function NewEntryPage({ params }: Props) {
   if (!def) notFound();
   const options = await loadOptions();
   return (
-    <>
+    <PageTransition variant="panel">
       <PageHeader title={`New ${def.singular}`} back={{ href: `/admin/c/${def.key}`, label: def.plural }} description="It starts as a draft. Nothing is public until you set it to Published and save." />
       <EntryForm collectionKey={def.key} id={null} initial={blankEntry(def)} options={options} />
-    </>
+    </PageTransition>
   );
 }

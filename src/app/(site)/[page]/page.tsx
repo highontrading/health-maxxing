@@ -8,6 +8,7 @@ import { cn } from "@/lib/cn";
 import { getPage, getPageSlugs } from "@/lib/data";
 import { formatDate } from "@/lib/format";
 import { renderMarkdown } from "@/lib/markdown";
+import { PageTransition } from "@/components/motion/PageTransition";
 
 type Props = PageProps<"/[page]">;
 
@@ -43,8 +44,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default function StaticPage({ params }: Props) {
   return (
-    <Suspense fallback={<main className="min-h-[60vh] bg-sand" aria-busy="true" />}>
-      <PageView params={params} />
+    <Suspense
+      fallback={
+        <PageTransition variant="skeleton">
+          <main className="min-h-[60vh] bg-sand" aria-busy="true" />
+        </PageTransition>
+      }
+    >
+      <PageTransition>
+        <PageView params={params} />
+      </PageTransition>
     </Suspense>
   );
 }

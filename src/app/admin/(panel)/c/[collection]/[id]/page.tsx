@@ -7,6 +7,7 @@ import { SendIssuePanel } from "@/components/admin/SendIssuePanel";
 import { getRow, loadOptions, toEntry } from "@/lib/admin/store";
 import { requireStaff } from "@/lib/auth";
 import { sendStatus } from "@/lib/newsletter-send";
+import { PageTransition } from "@/components/motion/PageTransition";
 
 type Props = PageProps<"/admin/c/[collection]/[id]">;
 
@@ -41,11 +42,11 @@ export default async function EditEntryPage({ params, searchParams }: Props) {
   const mailing = def.key === "newsletter" && user.role === "admin" ? await sendStatus(Number(row.id)) : null;
 
   return (
-    <>
+    <PageTransition variant="panel">
       <PageHeader title={String(row[def.title] || `Untitled ${def.singular}`)} back={{ href: `/admin/c/${def.key}`, label: def.plural }} />
       <Notice query={query} />
       {mailing && <SendIssuePanel issueId={Number(row.id)} status={mailing} defaultTo={user.email} />}
       <EntryForm collectionKey={def.key} id={Number(row.id)} initial={entry} options={options} publicUrl={live} facts={facts} />
-    </>
+    </PageTransition>
   );
 }

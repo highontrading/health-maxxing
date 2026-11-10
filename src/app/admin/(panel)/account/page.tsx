@@ -3,13 +3,14 @@ import Link from "next/link";
 import { Card, PageHeader } from "@/components/admin/ui";
 import { PasswordForm } from "@/components/auth/AuthForms";
 import { requireStaff } from "@/lib/auth";
+import { PageTransition } from "@/components/motion/PageTransition";
 
 export const metadata: Metadata = { title: "Your account" };
 
 export default async function AdminAccountPage() {
   const user = await requireStaff();
   return (
-    <>
+    <PageTransition variant="panel">
       <PageHeader title="Your account" description={`Signed in as ${user.email} (${user.role}).`} />
       <div className="grid max-w-3xl gap-5">
         <Card title="Change your password">
@@ -23,6 +24,6 @@ export default async function AdminAccountPage() {
           </Link>
         </Card>
       </div>
-    </>
+    </PageTransition>
   );
 }

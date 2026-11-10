@@ -5,6 +5,7 @@ import { ThreadForm } from "@/components/forum/ForumClient";
 import { Icon } from "@/components/Icon";
 import { requireUser } from "@/lib/auth";
 import { listBoards } from "@/lib/forum";
+import { PageTransition } from "@/components/motion/PageTransition";
 
 export const metadata: Metadata = { title: "Start a thread", robots: { index: false } };
 
@@ -12,21 +13,23 @@ type Props = PageProps<"/community/new">;
 
 export default function NewThreadPage({ searchParams }: Props) {
   return (
-    <main className="bg-sand">
-      <div className="container-narrow py-10 md:py-16">
-        <Link href="/community" className="inline-flex items-center gap-1.5 text-sm font-semibold underline-offset-4 hover:underline">
-          <Icon name="arrow-left" size={15} /> Community
-        </Link>
-        <h1 className="display display-md mt-5">
-          Start a <span className="serif-accent">thread.</span>
-        </h1>
-        <div className="mt-8 rounded-[28px] border-[1.5px] border-ink bg-paper p-6 shadow-[0_8px_0_var(--ink)] md:p-9">
-          <Suspense fallback={<div className="h-80 animate-pulse rounded-2xl bg-sand" aria-busy="true" />}>
-            <NewThread searchParams={searchParams} />
-          </Suspense>
+    <PageTransition>
+      <main className="bg-sand">
+        <div className="container-narrow py-10 md:py-16">
+          <Link href="/community" className="inline-flex items-center gap-1.5 text-sm font-semibold underline-offset-4 hover:underline">
+            <Icon name="arrow-left" size={15} /> Community
+          </Link>
+          <h1 className="display display-md mt-5">
+            Start a <span className="serif-accent">thread.</span>
+          </h1>
+          <div className="mt-8 rounded-[28px] border-[1.5px] border-ink bg-paper p-6 shadow-[0_8px_0_var(--ink)] md:p-9">
+            <Suspense fallback={<div className="h-80 animate-pulse rounded-2xl bg-sand" aria-busy="true" />}>
+              <NewThread searchParams={searchParams} />
+            </Suspense>
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </PageTransition>
   );
 }
 

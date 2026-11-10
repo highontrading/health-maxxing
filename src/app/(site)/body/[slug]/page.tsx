@@ -8,6 +8,7 @@ import { PageHero } from "@/components/PageHero";
 import { Sticker } from "@/components/stickers/Sticker";
 import { cn } from "@/lib/cn";
 import { getBodySystems, getCategories, listArticles, listConditions } from "@/lib/data";
+import { PageTransition } from "@/components/motion/PageTransition";
 
 type Props = PageProps<"/body/[slug]">;
 
@@ -29,8 +30,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default function BodySystemPage({ params }: Props) {
   return (
-    <Suspense fallback={<main className="min-h-[60vh] bg-sand" aria-busy="true" />}>
-      <SystemView params={params} />
+    <Suspense
+      fallback={
+        <PageTransition variant="skeleton">
+          <main className="min-h-[60vh] bg-sand" aria-busy="true" />
+        </PageTransition>
+      }
+    >
+      <PageTransition>
+        <SystemView params={params} />
+      </PageTransition>
     </Suspense>
   );
 }

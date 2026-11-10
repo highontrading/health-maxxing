@@ -9,6 +9,7 @@ import { Sticker } from "@/components/stickers/Sticker";
 import { getNewsletterIssue, getSettings, listNewsletterIssues } from "@/lib/data";
 import { formatDate } from "@/lib/format";
 import { renderMarkdown } from "@/lib/markdown";
+import { PageTransition } from "@/components/motion/PageTransition";
 
 type Props = PageProps<"/newsletter/[slug]">;
 
@@ -26,8 +27,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default function IssuePage({ params }: Props) {
   return (
-    <Suspense fallback={<main className="min-h-[60vh] bg-sand" aria-busy="true" />}>
-      <IssueView params={params} />
+    <Suspense
+      fallback={
+        <PageTransition variant="skeleton">
+          <main className="min-h-[60vh] bg-sand" aria-busy="true" />
+        </PageTransition>
+      }
+    >
+      <PageTransition>
+        <IssueView params={params} />
+      </PageTransition>
     </Suspense>
   );
 }

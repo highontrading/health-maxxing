@@ -11,6 +11,7 @@ import { loadOptions } from "@/lib/admin/store";
 import { requireAdmin } from "@/lib/auth";
 import { autopilotConfigured, listTopics, type Topic } from "@/lib/autopilot";
 import { siteUrl } from "@/lib/site";
+import { PageTransition } from "@/components/motion/PageTransition";
 
 export const metadata: Metadata = { title: "Autopilot" };
 
@@ -112,7 +113,7 @@ export default async function AutopilotPage({ searchParams }: PageProps<"/admin/
   const cronUrl = `${siteUrl()}/api/cron/autopilot`;
 
   return (
-    <>
+    <PageTransition variant="panel">
       <PageHeader
         title="Autopilot"
         description="Queue topics and Claude researches and drafts the articles. Drafts wait for your review, marked as pending a fact check, unless you choose to publish them automatically."
@@ -178,6 +179,6 @@ export default async function AutopilotPage({ searchParams }: PageProps<"/admin/
           </Card>
         </div>
       </div>
-    </>
+    </PageTransition>
   );
 }

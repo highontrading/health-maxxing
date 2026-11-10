@@ -29,7 +29,12 @@ export async function Header() {
           </div>
         </div>
       )}
-      <header className="sticky top-0 z-40 border-b border-line bg-paper/90 backdrop-blur-md">
+      {/* Named so it holds still, above the pages, while one page fades into the next. */}
+      <header className="sticky top-0 z-40 border-b border-line" style={{ viewTransitionName: "site-header" }}>
+        {/* The frosted background is a layer of its own. A backdrop filter on the header itself makes the header the
+            box that its fixed children are laid out in, which squashed the phone menu to nothing and kept the search
+            scrim inside the header. */}
+        <div className="absolute inset-0 -z-10 bg-paper/90 backdrop-blur-md" aria-hidden="true" />
         <div className="container-hm flex h-[var(--header-h)] items-center gap-3">
           <Logo className="mr-2 flex-none" />
           <DesktopNav categories={nav} />

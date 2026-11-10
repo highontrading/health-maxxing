@@ -1,0 +1,83 @@
+/* ------------------------------------------------------------------
+   Shared keyframes
+   Every "in" keyframe only states where the element comes FROM, and
+   every "out" keyframe only where it goes TO, so they compose with
+   whatever the element looks like at rest. Use them with fill-mode
+   "both" ("forwards" for exits).
+------------------------------------------------------------------- */
+@keyframes fade-in {
+  from { opacity: 0; }
+}
+@keyframes fade-out {
+  to { opacity: 0; }
+}
+@keyframes rise-in {
+  from { opacity: 0; translate: 0 var(--rise); }
+}
+@keyframes drop-in {
+  from { opacity: 0; translate: 0 calc(var(--rise) * -1); }
+}
+@keyframes slide-in-left {
+  from { opacity: 0; translate: calc(var(--rise) * -1) 0; }
+}
+@keyframes slide-in-right {
+  from { opacity: 0; translate: var(--rise) 0; }
+}
+@keyframes pop-in {
+  from { opacity: 0; scale: 0.6; }
+}
+@keyframes scale-in {
+  from { opacity: 0; scale: 0.94; }
+}
+
+/* Menus, popovers and tooltips: grow from the control that opened them. */
+@keyframes menu-in {
+  from { opacity: 0; scale: 0.97; translate: 0 -6px; }
+}
+@keyframes menu-out {
+  to { opacity: 0; scale: 0.98; translate: 0 -4px; }
+}
+
+/* Dialogs: settle into the middle of the screen. */
+@keyframes dialog-in {
+  from { opacity: 0; scale: 0.96; translate: 0 10px; }
+}
+@keyframes dialog-out {
+  to { opacity: 0; scale: 0.98; translate: 0 6px; }
+}
+
+/* Sheets (full-height panels): slide from the side set by --sheet-from. */
+@keyframes sheet-in {
+  from { opacity: 0; translate: var(--sheet-from, 0 18px); }
+}
+@keyframes sheet-out {
+  to { opacity: 0; translate: var(--sheet-from, 0 18px); }
+}
+
+/* Feedback */
+@keyframes shake-x {
+  20% { translate: -5px 0; }
+  40% { translate: 4px 0; }
+  60% { translate: -3px 0; }
+  80% { translate: 2px 0; }
+}
+@keyframes bump {
+  40% { scale: 1.22; }
+  70% { scale: 0.94; }
+}
+@keyframes draw-check {
+  from { stroke-dashoffset: var(--dash, 24); }
+  to { stroke-dashoffset: 0; }
+}
+@keyframes shimmer {
+  from { background-position: 180% 0; }
+  to { background-position: -80% 0; }
+}
+
+/* Route progress bar: creeps towards the end but never arrives on its own. */
+@keyframes progress-creep {
+  0% { scale: 0 1; }
+  20% { scale: 0.35 1; }
+  60% { scale: 0.7 1; }
+  100% { scale: 0.92 1; }
+}

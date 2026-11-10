@@ -10,6 +10,7 @@ import { Sticker } from "@/components/stickers/Sticker";
 import { cn } from "@/lib/cn";
 import { getBodySystems, getCategories, getCategory, listArticles, listConditionsByCategory, listGlossary, listMyths } from "@/lib/data";
 import { TOOLS } from "@/lib/tools";
+import { PageTransition } from "@/components/motion/PageTransition";
 
 type Props = PageProps<"/topics/[slug]">;
 
@@ -32,8 +33,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default function TopicPage({ params }: Props) {
   return (
-    <Suspense fallback={<main className="min-h-[60vh] bg-sand" aria-busy="true" />}>
-      <TopicView params={params} />
+    <Suspense
+      fallback={
+        <PageTransition variant="skeleton">
+          <main className="min-h-[60vh] bg-sand" aria-busy="true" />
+        </PageTransition>
+      }
+    >
+      <PageTransition>
+        <TopicView params={params} />
+      </PageTransition>
     </Suspense>
   );
 }

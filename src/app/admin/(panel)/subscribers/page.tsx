@@ -6,6 +6,7 @@ import { day, EmptyState, FilterTabs, Notice, one, PageHeader, Pager } from "@/c
 import { Icon } from "@/components/Icon";
 import { listSubscribers } from "@/lib/admin/queries";
 import { requireAdmin } from "@/lib/auth";
+import { PageTransition } from "@/components/motion/PageTransition";
 
 export const metadata: Metadata = { title: "Subscribers" };
 
@@ -20,7 +21,7 @@ export default async function SubscribersPage({ searchParams }: PageProps<"/admi
   const back = backParams.size ? `/admin/subscribers?${backParams}` : "/admin/subscribers";
 
   return (
-    <>
+    <PageTransition variant="panel">
       <PageHeader
         title="Subscribers"
         description="People who signed up for the newsletter. Admins only: this list contains email addresses."
@@ -104,6 +105,6 @@ export default async function SubscribersPage({ searchParams }: PageProps<"/admi
         {total.toLocaleString("en-US")} shown. “Erase” deletes the address completely, which is what a data-removal request asks for.
       </p>
       <Pager base="/admin/subscribers" query={query} page={page} pages={pages} />
-    </>
+    </PageTransition>
   );
 }

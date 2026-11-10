@@ -1,0 +1,215 @@
+/* ------------------------------------------------------------------
+   Shared motion classes
+   In the components layer, so a Tailwind utility on the same element
+   still wins. Everything here is safe without JavaScript and under
+   prefers-reduced-motion (globals.css shortens every animation and
+   transition to nothing).
+------------------------------------------------------------------- */
+@layer components {
+  /* ---------- Reveal on scroll ----------
+     Add `reveal` to an element below the fold. It is visible by default;
+     RevealObserver adds .reveal-ready to <html> once it is running, hides
+     what has not been seen yet and shows each element as it scrolls into
+     view. Elements that are already on screen when they are found are
+     shown at once, without animation. The observer records what it has
+     shown in a data-revealed attribute, which React never rewrites.
+     Modifiers: reveal-fade (no movement), reveal-pop (stickers),
+     reveal-left, reveal-right. */
+  .reveal:not([data-revealed="done"]) {
+    transition:
+      opacity var(--dur-slower) ease-out,
+      translate var(--dur-slower) var(--ease-enter),
+      scale var(--dur-slower) var(--ease-enter);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .reveal.reveal-pop:not([data-revealed="done"]) {
+    transition-timing-function: ease-out, var(--ease-enter), var(--ease-pop);
+  }
+  .reveal-ready .reveal:not([data-revealed]) {
+    opacity: 0;
+    translate: 0 16px;
+  }
+  .reveal-ready .reveal.reveal-fade:not([data-revealed]) {
+    translate: none;
+  }
+  .reveal-ready .reveal.reveal-pop:not([data-revealed]) {
+    translate: none;
+    scale: 0.8;
+  }
+  .reveal-ready .reveal.reveal-left:not([data-revealed]) {
+    translate: -16px 0;
+  }
+  .reveal-ready .reveal.reveal-right:not([data-revealed]) {
+    translate: 16px 0;
+  }
+
+  /* ---------- Entrances ----------
+     Play once when the element appears: on first load, after a page change
+     and when a hidden parent is shown. For decoration and secondary content
+     (stickers, badges, cards), never for the main heading or body text,
+     which must be readable at once. Stagger siblings with style={{ "--i": n }}. */
+  .enter-fade,
+  .enter-rise,
+  .enter-drop,
+  .enter-left,
+  .enter-right,
+  .enter-pop,
+  .enter-scale {
+    animation-duration: var(--dur-slower);
+    animation-timing-function: var(--ease-enter);
+    animation-fill-mode: both;
+    animation-delay: calc(var(--i, 0) * var(--stagger) + var(--enter-delay, 0ms));
+  }
+  .enter-fade { animation-name: fade-in; animation-duration: var(--dur-slow); animation-timing-function: ease-out; }
+  .enter-rise { animation-name: rise-in; }
+  .enter-drop { animation-name: drop-in; }
+  .enter-left { animation-name: slide-in-left; }
+  .enter-right { animation-name: slide-in-right; }
+  .enter-pop { animation-name: pop-in; animation-duration: var(--dur-slow); animation-timing-function: var(--ease-pop); }
+  .enter-scale { animation-name: scale-in; animation-duration: var(--dur-slow); }
+
+  /* ---------- Open and close ----------
+     For anything that appears and disappears: pair with usePresence() and put
+     its `state` on data-state. "open" plays the way in; "closed" plays the way
+     out while the element is still mounted. */
+  .motion-menu[data-state="open"] {
+    animation: menu-in var(--dur-base) var(--ease-enter) both;
+    transform-origin: var(--origin, top center);
+  }
+  .motion-menu[data-state="closed"] {
+    animation: menu-out var(--dur-fast) var(--ease-exit) forwards;
+    transform-origin: var(--origin, top center);
+    pointer-events: none;
+  }
+  .motion-dialog[data-state="open"] {
+    animation: dialog-in var(--dur-base) var(--ease-enter) both;
+  }
+  .motion-dialog[data-state="closed"] {
+    animation: dialog-out var(--dur-fast) var(--ease-exit) forwards;
+    pointer-events: none;
+  }
+  .motion-fade[data-state="open"] {
+    animation: fade-in var(--dur-base) ease-out both;
+  }
+  .motion-fade[data-state="closed"] {
+    animation: fade-out var(--dur-fast) var(--ease-exit) forwards;
+    pointer-events: none;
+  }
+  /* Full-height panels. Set the side with style={{ "--sheet-from": "100% 0" }} (from the right),
+     "-100% 0" (left), "0 100%" (bottom) or a few pixels for a gentler arrival. */
+  .motion-sheet[data-state="open"] {
+    animation: sheet-in var(--dur-slow) var(--ease-enter) both;
+  }
+  .motion-sheet[data-state="closed"] {
+    animation: sheet-out var(--dur-base) var(--ease-exit) forwards;
+    pointer-events: none;
+  }
+
+  /* ---------- Collapse ----------
+     Animates height from nothing to "auto". Structure: an outer element with
+     `collapse-y` and data-open, and exactly one child that holds the content.
+     <Collapse> in src/components/motion does this for you. */
+  .collapse-y {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows var(--dur-slow) var(--ease-move);
+  }
+  .collapse-y[data-open="true"] {
+    grid-template-rows: 1fr;
+  }
+  .collapse-y > * {
+    min-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    transition: visibility 0s linear var(--dur-slow);
+  }
+  .collapse-y[data-open="true"] > * {
+    visibility: visible;
+    transition-delay: 0s;
+  }
+
+  /* ---------- Small touches ---------- */
+  /* Press feedback for chips, icon buttons and cards that act like buttons. */
+  .pressable {
+    transition: scale var(--dur-fast) var(--ease-enter);
+  }
+  .pressable:active {
+    scale: 0.96;
+  }
+
+  /* An underline that draws itself on hover and keyboard focus. */
+  .link-draw {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0 1.5px;
+    transition: background-size var(--dur-base) var(--ease-enter);
+  }
+  .link-draw:hover,
+  .link-draw:focus-visible,
+  .link-draw[aria-current="page"] {
+    background-size: 100% 1.5px;
+  }
+
+  /* An icon that leans the way its link is going. Put it on the icon; the
+     nearest link, button or .group is the trigger. */
+  .nudge-x,
+  .nudge-back {
+    transition: translate var(--dur-fast) var(--ease-enter);
+  }
+  :is(a, button, .group):is(:hover, :focus-visible) .nudge-x {
+    translate: 3px 0;
+  }
+  :is(a, button, .group):is(:hover, :focus-visible) .nudge-back {
+    translate: -3px 0;
+  }
+
+  /* One-shot feedback. Re-run by changing the element's React key. */
+  .shake {
+    animation: shake-x 380ms var(--ease-move) both;
+  }
+  .bump {
+    animation: bump 340ms var(--ease-pop) both;
+  }
+
+  /* Loading placeholder with a slow sheen. */
+  .skeleton {
+    background-color: var(--sand-2);
+    background-image: linear-gradient(100deg, transparent 35%, rgba(255, 255, 255, 0.65) 50%, transparent 65%);
+    background-size: 260% 100%;
+    background-repeat: no-repeat;
+    animation: shimmer 1.6s linear infinite;
+  }
+
+  /* ---------- Route progress ----------
+     A thin bar under the top edge while a page is being fetched. It waits a
+     moment before showing, so instant page changes never flash it. */
+  .route-progress {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 90;
+    height: 3px;
+    pointer-events: none;
+    background: var(--ink);
+    transform-origin: 0 50%;
+    scale: 0 1;
+    opacity: 0;
+  }
+  .route-progress[data-state="loading"] {
+    opacity: 1;
+    animation: progress-creep 8s cubic-bezier(0.1, 0.6, 0.2, 1) 180ms both;
+  }
+  .route-progress[data-state="done"] {
+    scale: 1 1;
+    animation: fade-out var(--dur-base) ease-out forwards;
+  }
+}
+
+/* Hover movement only where there is a real pointer: on touch screens a
+   "hover" sticks after a tap. */
+@media (hover: none) {
+  .nudge-x,
+  .nudge-back {
+    translate: none !important;
+  }
+}

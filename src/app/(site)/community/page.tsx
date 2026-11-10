@@ -10,6 +10,7 @@ import { cn } from "@/lib/cn";
 import { forumStats, listBoards, listThreads, timeAgo } from "@/lib/forum";
 import { formatNumber } from "@/lib/format";
 import { requestTime } from "@/lib/now";
+import { PageTransition } from "@/components/motion/PageTransition";
 
 export const metadata: Metadata = {
   title: "Community",
@@ -19,34 +20,36 @@ export const metadata: Metadata = {
 
 export default function CommunityPage() {
   return (
-    <main>
-      <PageHero
-        color="blue"
-        eyebrow="Community"
-        title={
-          <>
-            Compare notes. <span className="serif-accent">Be kind. Cite sources.</span>
-          </>
-        }
-        lede="A moderated place to ask questions, share what is working and make sense of the research together. Experience welcome; miracle cures not."
-        stickers={["chat", "smile", "medal"]}
-        crumbs={[{ href: "/", label: "Home" }, { label: "Community" }]}
-      >
-        <div className="flex flex-wrap gap-3">
-          <Link href="/community/new" className="btn btn-primary">
-            <Icon name="plus" size={16} /> Start a thread
-          </Link>
-          <Link href="/community-guidelines" className="btn btn-outline">
-            House rules
-          </Link>
+    <PageTransition>
+      <main>
+        <PageHero
+          color="blue"
+          eyebrow="Community"
+          title={
+            <>
+              Compare notes. <span className="serif-accent">Be kind. Cite sources.</span>
+            </>
+          }
+          lede="A moderated place to ask questions, share what is working and make sense of the research together. Experience welcome; miracle cures not."
+          stickers={["chat", "smile", "medal"]}
+          crumbs={[{ href: "/", label: "Home" }, { label: "Community" }]}
+        >
+          <div className="flex flex-wrap gap-3">
+            <Link href="/community/new" className="btn btn-primary">
+              <Icon name="plus" size={16} /> Start a thread
+            </Link>
+            <Link href="/community-guidelines" className="btn btn-outline">
+              House rules
+            </Link>
+          </div>
+        </PageHero>
+        <div className="container-hm py-10 md:py-14">
+          <Suspense fallback={<ForumSkeleton />}>
+            <CommunityHome />
+          </Suspense>
         </div>
-      </PageHero>
-      <div className="container-hm py-10 md:py-14">
-        <Suspense fallback={<ForumSkeleton />}>
-          <CommunityHome />
-        </Suspense>
-      </div>
-    </main>
+      </main>
+    </PageTransition>
   );
 }
 

@@ -12,6 +12,7 @@ import { getCollection } from "@/lib/admin/collections";
 import { listRows, loadOptions } from "@/lib/admin/store";
 import { requireStaff } from "@/lib/auth";
 import { requestTime } from "@/lib/now";
+import { PageTransition } from "@/components/motion/PageTransition";
 
 type Props = PageProps<"/admin/c/[collection]">;
 
@@ -47,7 +48,7 @@ export default async function CollectionListPage({ params, searchParams }: Props
   const filtered = !!(q || topic || one(query.status) || one(query.fact));
 
   return (
-    <>
+    <PageTransition variant="panel">
       <PageHeader
         title={def.plural}
         description={def.blurb}
@@ -215,6 +216,6 @@ export default async function CollectionListPage({ params, searchParams }: Props
         )}
       </form>
       <Pager base={base} query={query} page={result.page} pages={result.pages} />
-    </>
+    </PageTransition>
   );
 }

@@ -160,7 +160,7 @@ export function AdminFrame({ nav, children }: { nav: ReactNode; children: ReactN
       </aside>
 
       {/* Mobile bar */}
-      <div className="sticky top-0 z-40 flex h-14 items-center gap-2 border-b border-line bg-paper px-2 lg:hidden">
+      <div className="sticky top-0 z-40 flex h-14 items-center gap-2 border-b border-line bg-paper px-2 lg:hidden" style={{ viewTransitionName: "admin-bar" }}>
         <button
           type="button"
           className="inline-flex size-10 items-center justify-center rounded-full hover:bg-sand-2"

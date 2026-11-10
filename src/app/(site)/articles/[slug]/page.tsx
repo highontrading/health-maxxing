@@ -18,6 +18,7 @@ import { getArticle, getArticleSlugs, getCategories, getRelatedArticles, getSett
 import { formatMonthYear, KIND_LABEL } from "@/lib/format";
 import { renderMarkdown } from "@/lib/markdown";
 import { absoluteUrl, SITE_NAME } from "@/lib/site";
+import { PageTransition } from "@/components/motion/PageTransition";
 
 type Props = PageProps<"/articles/[slug]">;
 
@@ -51,8 +52,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default function ArticlePage({ params }: Props) {
   return (
-    <Suspense fallback={<ArticleSkeleton />}>
-      <ArticleView params={params} />
+    <Suspense
+      fallback={
+        <PageTransition variant="skeleton">
+          <ArticleSkeleton />
+        </PageTransition>
+      }
+    >
+      <PageTransition>
+        <ArticleView params={params} />
+      </PageTransition>
     </Suspense>
   );
 }

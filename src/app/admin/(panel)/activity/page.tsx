@@ -4,6 +4,7 @@ import { EmptyState, one, PageHeader, stamp } from "@/components/admin/ui";
 import { Icon } from "@/components/Icon";
 import { recentActivity } from "@/lib/activity";
 import { requireStaff } from "@/lib/auth";
+import { PageTransition } from "@/components/motion/PageTransition";
 
 export const metadata: Metadata = { title: "Activity" };
 
@@ -16,7 +17,7 @@ export default async function ActivityPage({ searchParams }: PageProps<"/admin/a
   const rows = await recentActivity(PER_PAGE + 1, (page - 1) * PER_PAGE);
   const more = rows.length > PER_PAGE;
   return (
-    <>
+    <PageTransition variant="panel">
       <PageHeader title="Activity" description="Who changed what: edits in this panel, moderation, API calls and autopilot runs. Times are in UTC." />
       <div className="admin-card overflow-hidden">
         {rows.length ? (
@@ -65,6 +66,6 @@ export default async function ActivityPage({ searchParams }: PageProps<"/admin/a
           )}
         </nav>
       )}
-    </>
+    </PageTransition>
   );
 }

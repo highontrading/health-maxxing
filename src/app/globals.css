@@ -1,4 +1,16 @@
 @import "tailwindcss";
+/* Motion: tokens and shared classes first, then one file per area of the site. */
+@import "./styles/motion/tokens.css";
+@import "./styles/motion/keyframes.css";
+@import "./styles/motion/page-transitions.css";
+@import "./styles/motion/utilities.css";
+@import "./styles/motion/chrome.css";
+@import "./styles/motion/home.css";
+@import "./styles/motion/reading.css";
+@import "./styles/motion/explore.css";
+@import "./styles/motion/tools.css";
+@import "./styles/motion/forms.css";
+@import "./styles/motion/admin.css";
 
 /* ------------------------------------------------------------------
    Health Maxxing design tokens
@@ -126,10 +138,18 @@
   --shadow-card: var(--shadow-card);
   --shadow-pop: var(--shadow-pop);
 
+  /* ease-enter, ease-exit, ease-move and ease-pop utilities (tokens in styles/motion/tokens.css). */
+  --ease-enter: var(--ease-enter);
+  --ease-exit: var(--ease-exit);
+  --ease-move: var(--ease-move);
+  --ease-pop: var(--ease-pop);
+
   --animate-marquee: marquee 38s linear infinite;
   --animate-wiggle: wiggle 0.5s ease-in-out;
   --animate-float: floaty 6s ease-in-out infinite;
-  --animate-pop: pop 0.35s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+  --animate-pop: pop var(--dur-slow) var(--ease-pop) both;
+  --animate-rise: rise var(--dur-slow) var(--ease-enter) both;
+  --animate-fade: fade-in var(--dur-base) ease-out both;
 }
 
 @keyframes marquee {
@@ -250,10 +270,11 @@
     line-height: 1;
     white-space: nowrap;
     border: 1.5px solid transparent;
-    transition: translate 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+    transition: translate var(--dur-fast) var(--ease-enter), scale var(--dur-fast) var(--ease-enter), box-shadow var(--dur-fast) var(--ease-enter), background-color var(--dur-fast) ease, border-color var(--dur-fast) ease, color var(--dur-fast) ease;
     cursor: pointer;
   }
   .btn:disabled, .btn[aria-disabled="true"] { opacity: 0.55; cursor: not-allowed; }
+  .btn:active:not(:disabled, [aria-disabled="true"]) { scale: 0.98; }
   .btn-primary { background: var(--ink); color: var(--paper); box-shadow: 0 3px 0 rgba(38, 36, 34, 0.25); }
   .btn-primary:hover:not(:disabled) { translate: 0 -2px; box-shadow: 0 5px 0 rgba(38, 36, 34, 0.25); }
   .btn-primary:active:not(:disabled) { translate: 0 1px; box-shadow: 0 1px 0 rgba(38, 36, 34, 0.25); }
@@ -314,8 +335,11 @@
     background: var(--tone-soft);
     color: var(--tone-ink);
   }
-  .card-lift { transition: translate 0.2s ease, box-shadow 0.2s ease; }
-  .card-lift:hover { translate: 0 -4px; box-shadow: var(--shadow-pop); }
+  .card-lift { transition: translate var(--dur-base) var(--ease-enter), box-shadow var(--dur-base) var(--ease-enter); }
+  @media (hover: hover) {
+    .card-lift:hover { translate: 0 -4px; box-shadow: var(--shadow-pop); }
+  }
+  .card-lift:active { translate: 0 -1px; }
 
   /* ---------- Forms ---------- */
   .field-label {
@@ -336,7 +360,7 @@
     padding: 0.65rem 0.9rem;
     font-size: 1rem;
     line-height: 1.4;
-    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    transition: border-color var(--dur-fast) ease, box-shadow var(--dur-fast) ease, background-color var(--dur-fast) ease;
   }
   .input::placeholder, .textarea::placeholder { color: #a39d95; }
   .input:hover, .textarea:hover, .select:hover { border-color: var(--ink-3); }
@@ -361,7 +385,7 @@
     line-height: 0;
     rotate: var(--r, 0deg);
     filter: var(--shadow-sticker);
-    transition: rotate 0.25s ease, scale 0.25s cubic-bezier(0.2, 1.6, 0.4, 1);
+    transition: rotate var(--dur-slow) var(--ease-enter), scale var(--dur-slow) var(--ease-pop);
   }
   .sticker svg { width: 100%; height: 100%; overflow: visible; }
   .sticker-cut, .sticker-cut * {
@@ -403,12 +427,6 @@
   }
   .marquee:hover .marquee-track { animation-play-state: paused; }
 
-  /* ---------- Reveal on scroll ---------- */
-  /* Content is visible by default. RevealObserver adds .reveal-ready to <html>
-     once it is running, so nothing stays hidden if scripts fail. */
-  .reveal { transition: opacity 0.6s ease, translate 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
-  .reveal-ready .reveal:not(.is-in) { opacity: 0; translate: 0 16px; }
-
   /* ---------- Article prose ---------- */
   .prose-hm {
     font-size: 1.125rem;
@@ -443,7 +461,7 @@
     text-decoration-thickness: 2px;
     text-underline-offset: 3px;
     font-weight: 500;
-    transition: background-color 0.15s ease;
+    transition: background-color var(--dur-fast) ease;
   }
   .prose-hm a:hover { background: var(--pink-soft); }
   .prose-hm strong { font-weight: 650; color: var(--ink); }
@@ -608,12 +626,12 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  .reveal-ready .reveal:not(.is-in) { opacity: 1; translate: 0 0; }
+  .reveal-ready .reveal:not([data-revealed]) { opacity: 1; translate: none; scale: none; }
 }
 
 /* Draggable stickers: only for precise pointers, so touch scrolling is untouched. */
 @media (pointer: fine) {
-  .draggable { cursor: grab; touch-action: none; transition: scale 0.2s ease; }
+  .draggable { cursor: grab; touch-action: none; transition: scale var(--dur-base) var(--ease-enter); }
 }
 
 /* ------------------------------------------------------------------

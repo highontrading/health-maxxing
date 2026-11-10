@@ -5,6 +5,7 @@ import { CopyButton, MediaUploader } from "@/components/admin/MediaClient";
 import { Card, day, EmptyState, Notice, PageHeader } from "@/components/admin/ui";
 import { listMedia } from "@/lib/admin/queries";
 import { requireStaff } from "@/lib/auth";
+import { PageTransition } from "@/components/motion/PageTransition";
 
 export const metadata: Metadata = { title: "Media" };
 
@@ -14,7 +15,7 @@ export default async function MediaPage({ searchParams }: PageProps<"/admin/medi
   await requireStaff();
   const [query, items] = await Promise.all([searchParams, listMedia()]);
   return (
-    <>
+    <PageTransition variant="panel">
       <PageHeader
         title="Media"
         description="Photos you can use as article covers or inside articles. Only upload images you have the right to publish, and say where a photo came from in the article’s photo credit."
@@ -55,6 +56,6 @@ export default async function MediaPage({ searchParams }: PageProps<"/admin/medi
           </EmptyState>
         </div>
       )}
-    </>
+    </PageTransition>
   );
 }

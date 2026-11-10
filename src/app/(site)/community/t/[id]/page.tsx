@@ -13,6 +13,7 @@ import { run } from "@/lib/db";
 import { getThread, hasLiked, listPosts, timeAgo } from "@/lib/forum";
 import { renderUserText } from "@/lib/markdown";
 import { requestTime } from "@/lib/now";
+import { PageTransition } from "@/components/motion/PageTransition";
 
 type Props = PageProps<"/community/t/[id]">;
 
@@ -20,11 +21,13 @@ export const metadata: Metadata = { title: "Community thread", robots: { index: 
 
 export default function ThreadPage({ params }: Props) {
   return (
-    <main>
-      <Suspense fallback={<div className="min-h-[60vh] animate-pulse bg-sand" aria-busy="true" />}>
-        <ThreadView params={params} />
-      </Suspense>
-    </main>
+    <PageTransition>
+      <main>
+        <Suspense fallback={<div className="min-h-[60vh] animate-pulse bg-sand" aria-busy="true" />}>
+          <ThreadView params={params} />
+        </Suspense>
+      </main>
+    </PageTransition>
   );
 }
 

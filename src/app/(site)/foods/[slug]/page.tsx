@@ -9,6 +9,7 @@ import { cn } from "@/lib/cn";
 import { getFood, listFoods } from "@/lib/data";
 import { FOOD_GROUPS } from "@/lib/labels";
 import type { Food } from "@/lib/types";
+import { PageTransition } from "@/components/motion/PageTransition";
 
 type Props = PageProps<"/foods/[slug]">;
 
@@ -30,8 +31,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default function FoodPage({ params }: Props) {
   return (
-    <Suspense fallback={<main className="min-h-[60vh] bg-sand" aria-busy="true" />}>
-      <FoodView params={params} />
+    <Suspense
+      fallback={
+        <PageTransition variant="skeleton">
+          <main className="min-h-[60vh] bg-sand" aria-busy="true" />
+        </PageTransition>
+      }
+    >
+      <PageTransition>
+        <FoodView params={params} />
+      </PageTransition>
     </Suspense>
   );
 }

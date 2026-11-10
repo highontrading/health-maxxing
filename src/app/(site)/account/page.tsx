@@ -7,19 +7,22 @@ import { Icon } from "@/components/Icon";
 import { isStaff, requireUser } from "@/lib/auth";
 import { query, queryOne } from "@/lib/db";
 import { formatDate } from "@/lib/format";
+import { PageTransition } from "@/components/motion/PageTransition";
 
 export const metadata: Metadata = { title: "Your account", robots: { index: false } };
 
 export default function AccountPage() {
   return (
-    <main className="bg-sand">
-      <div className="container-narrow py-10 md:py-16">
-        <p className="eyebrow text-ink-3">Your account</p>
-        <Suspense fallback={<div className="mt-6 h-96 animate-pulse rounded-[28px] bg-paper" aria-busy="true" />}>
-          <Account />
-        </Suspense>
-      </div>
-    </main>
+    <PageTransition>
+      <main className="bg-sand">
+        <div className="container-narrow py-10 md:py-16">
+          <p className="eyebrow text-ink-3">Your account</p>
+          <Suspense fallback={<div className="mt-6 h-96 animate-pulse rounded-[28px] bg-paper" aria-busy="true" />}>
+            <Account />
+          </Suspense>
+        </div>
+      </main>
+    </PageTransition>
   );
 }
 

@@ -14,6 +14,7 @@ import { getCategories, listArticles } from "@/lib/data";
 import { renderMarkdown } from "@/lib/markdown";
 import { absoluteUrl, SITE_NAME } from "@/lib/site";
 import { getTool, TOOLS } from "@/lib/tools";
+import { PageTransition } from "@/components/motion/PageTransition";
 
 type Props = PageProps<"/tools/[slug]">;
 
@@ -35,8 +36,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default function ToolPage({ params }: Props) {
   return (
-    <Suspense fallback={<main className="min-h-[60vh] bg-sand" aria-busy="true" />}>
-      <ToolView params={params} />
+    <Suspense
+      fallback={
+        <PageTransition variant="skeleton">
+          <main className="min-h-[60vh] bg-sand" aria-busy="true" />
+        </PageTransition>
+      }
+    >
+      <PageTransition>
+        <ToolView params={params} />
+      </PageTransition>
     </Suspense>
   );
 }

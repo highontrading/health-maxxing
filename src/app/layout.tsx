@@ -47,7 +47,15 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${figtree.variable} ${instrument.variable} ${pixelify.variable}`}>
+    // data-scroll-behavior: page changes jump to the top at once, while links within a page still scroll smoothly.
+    // viewTransitionName "root": keeps the page background and footer in every page transition, so they cross-fade
+    // instead of jumping (React leaves the root out unless it is named here).
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      style={{ viewTransitionName: "root" }}
+      className={`${figtree.variable} ${instrument.variable} ${pixelify.variable}`}
+    >
       <body className="min-h-dvh antialiased">{children}</body>
     </html>
   );

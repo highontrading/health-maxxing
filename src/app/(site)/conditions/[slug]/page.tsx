@@ -15,6 +15,7 @@ import { getBodySystems, getCategories, getCondition, getConditionSlugs, listArt
 import { formatMonthYear } from "@/lib/format";
 import { renderMarkdown } from "@/lib/markdown";
 import { absoluteUrl, SITE_NAME } from "@/lib/site";
+import { PageTransition } from "@/components/motion/PageTransition";
 
 type Props = PageProps<"/conditions/[slug]">;
 
@@ -37,8 +38,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default function ConditionPage({ params }: Props) {
   return (
-    <Suspense fallback={<main className="min-h-[60vh] bg-sand" aria-busy="true" />}>
-      <ConditionView params={params} />
+    <Suspense
+      fallback={
+        <PageTransition variant="skeleton">
+          <main className="min-h-[60vh] bg-sand" aria-busy="true" />
+        </PageTransition>
+      }
+    >
+      <PageTransition>
+        <ConditionView params={params} />
+      </PageTransition>
     </Suspense>
   );
 }

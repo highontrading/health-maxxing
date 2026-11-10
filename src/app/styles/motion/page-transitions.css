@@ -1,0 +1,116 @@
+/* ------------------------------------------------------------------
+   Page changes
+   React's <ViewTransition> (see src/components/motion/PageTransition.tsx)
+   hands each page to the browser's View Transitions API. The browser
+   takes a picture of the old page and of the new one; these rules say
+   how the two pictures swap. Browsers without the API change pages
+   instantly, as before.
+
+   Keep every animation here SHORT. While a transition runs the page
+   cannot be clicked, and React waits for it before showing whatever
+   loads next (for example the article behind a loading skeleton).
+------------------------------------------------------------------- */
+
+/* The overlay must never swallow clicks meant for the page. */
+::view-transition {
+  pointer-events: none;
+}
+
+/* Everything that is not a page (the page background, the footer, anything
+   named) cross-fades within the exit time instead of the browser's 250ms. */
+::view-transition-group(*),
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation-duration: var(--page-exit);
+}
+
+/* ---- Public pages: the old page fades out, the new one fades in and rises a little. */
+::view-transition-old(.page-exit) {
+  animation: var(--page-exit) var(--ease-exit) both fade-out;
+}
+::view-transition-new(.page-enter) {
+  animation:
+    var(--page-enter) ease-out var(--page-enter-delay) both fade-in,
+    calc(var(--page-enter) + var(--page-enter-delay)) var(--ease-enter) both page-rise;
+}
+
+/* ---- Links that go deeper or come back (transitionTypes "nav-forward" / "nav-back"). */
+::view-transition-old(.page-forward),
+::view-transition-old(.page-back) {
+  animation: var(--page-exit) var(--ease-exit) both fade-out;
+}
+::view-transition-new(.page-forward) {
+  animation:
+    var(--page-enter) ease-out var(--page-enter-delay) both fade-in,
+    calc(var(--page-enter) + var(--page-enter-delay)) var(--ease-enter) both page-from-right;
+}
+::view-transition-new(.page-back) {
+  animation:
+    var(--page-enter) ease-out var(--page-enter-delay) both fade-in,
+    calc(var(--page-enter) + var(--page-enter-delay)) var(--ease-enter) both page-from-left;
+}
+
+/* ---- Loading skeletons: appear and leave quietly, so the real page gets the entrance. */
+::view-transition-new(.skeleton-enter) {
+  animation: var(--page-exit) ease-out both fade-in;
+}
+::view-transition-old(.skeleton-exit) {
+  animation: 100ms var(--ease-exit) both fade-out;
+}
+
+/* ---- Admin pages: a plain, quick cross-fade. */
+::view-transition-old(.panel-exit) {
+  animation: 100ms var(--ease-exit) both fade-out;
+}
+::view-transition-new(.panel-enter) {
+  animation: 160ms ease-out 30ms both fade-in;
+}
+
+/* ---- Content that replaces a placeholder inside a page (see <Swap>). */
+::view-transition-old(.swap-exit) {
+  animation: 100ms var(--ease-exit) both fade-out;
+}
+::view-transition-new(.swap-enter) {
+  animation:
+    180ms ease-out 40ms both fade-in,
+    220ms var(--ease-enter) both swap-rise;
+}
+
+/* ---- Bars that stay put. Each is its own layer above the page pictures,
+   otherwise a scrolled page would be drawn over it while it fades. ---- */
+::view-transition-group(site-header),
+::view-transition-group(admin-bar) {
+  animation: none;
+  z-index: 100;
+}
+::view-transition-old(site-header),
+::view-transition-old(admin-bar) {
+  display: none;
+}
+::view-transition-new(site-header),
+::view-transition-new(admin-bar) {
+  animation: none;
+}
+
+@keyframes page-rise {
+  from { translate: 0 var(--page-rise); }
+}
+@keyframes page-from-right {
+  from { translate: 20px 0; }
+}
+@keyframes page-from-left {
+  from { translate: -20px 0; }
+}
+@keyframes swap-rise {
+  from { translate: 0 var(--rise-sm); }
+}
+
+/* Reduced motion: pages swap at once. */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}

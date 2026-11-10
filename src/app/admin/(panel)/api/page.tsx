@@ -7,6 +7,7 @@ import { COLLECTIONS } from "@/lib/admin/collections";
 import { listTokens } from "@/lib/admin/queries";
 import { requireAdmin } from "@/lib/auth";
 import { siteUrl } from "@/lib/site";
+import { PageTransition } from "@/components/motion/PageTransition";
 
 export const metadata: Metadata = { title: "API tokens" };
 
@@ -15,7 +16,7 @@ export default async function ApiTokensPage({ searchParams }: PageProps<"/admin/
   const [query, tokens] = await Promise.all([searchParams, listTokens()]);
   const base = `${siteUrl()}/api/v1`;
   return (
-    <>
+    <PageTransition variant="panel">
       <PageHeader
         title="API tokens"
         description="Tokens let a script or an AI agent read and change content without signing in. Anything a token creates starts as a draft unless it asks to publish."
@@ -107,6 +108,6 @@ export default async function ApiTokensPage({ searchParams }: PageProps<"/admin/
           </div>
         </Card>
       </div>
-    </>
+    </PageTransition>
   );
 }

@@ -8,6 +8,7 @@ import { Card, day, EmptyState, Notice, one, PageHeader } from "@/components/adm
 import { Icon } from "@/components/Icon";
 import { listOpenReports, listRecentPosts, listRecentThreads } from "@/lib/admin/queries";
 import { requireStaff } from "@/lib/auth";
+import { PageTransition } from "@/components/motion/PageTransition";
 
 export const metadata: Metadata = { title: "Moderation" };
 
@@ -38,7 +39,7 @@ export default async function CommunityPage({ searchParams }: PageProps<"/admin/
   const [reports, threads, posts] = await Promise.all([listOpenReports(), listRecentThreads(q), listRecentPosts(q)]);
 
   return (
-    <>
+    <PageTransition variant="panel">
       <PageHeader
         title="Moderation"
         description="Reports from members, plus the newest threads and replies. Hiding keeps a post in the database but out of sight; deleting is permanent."
@@ -227,6 +228,6 @@ export default async function CommunityPage({ searchParams }: PageProps<"/admin/
           <EmptyState title="No replies found." />
         )}
       </Card>
-    </>
+    </PageTransition>
   );
 }

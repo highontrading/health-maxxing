@@ -6,6 +6,7 @@ import { Icon } from "@/components/Icon";
 import { listMessages } from "@/lib/admin/queries";
 import { requireStaff } from "@/lib/auth";
 import { cn } from "@/lib/cn";
+import { PageTransition } from "@/components/motion/PageTransition";
 
 export const metadata: Metadata = { title: "Messages" };
 
@@ -17,7 +18,7 @@ export default async function MessagesPage({ searchParams }: PageProps<"/admin/m
   const back = status ? `/admin/messages?status=${encodeURIComponent(status)}` : "/admin/messages";
 
   return (
-    <>
+    <PageTransition variant="panel">
       <PageHeader title="Messages" description="What readers sent through the contact form. Replies go from your own email: the “Reply” button opens it with the address filled in." />
       <Notice query={query} />
       <div className="mb-4">
@@ -83,6 +84,6 @@ export default async function MessagesPage({ searchParams }: PageProps<"/admin/m
           </EmptyState>
         </div>
       )}
-    </>
+    </PageTransition>
   );
 }

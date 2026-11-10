@@ -10,6 +10,7 @@ import { cn } from "@/lib/cn";
 import { getExercise, listExercises } from "@/lib/data";
 import { EXERCISE_TYPES, LEVEL_LABEL } from "@/lib/labels";
 import { absoluteUrl } from "@/lib/site";
+import { PageTransition } from "@/components/motion/PageTransition";
 
 type Props = PageProps<"/exercises/[slug]">;
 
@@ -31,8 +32,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default function ExercisePage({ params }: Props) {
   return (
-    <Suspense fallback={<main className="min-h-[60vh] bg-sand" aria-busy="true" />}>
-      <ExerciseView params={params} />
+    <Suspense
+      fallback={
+        <PageTransition variant="skeleton">
+          <main className="min-h-[60vh] bg-sand" aria-busy="true" />
+        </PageTransition>
+      }
+    >
+      <PageTransition>
+        <ExerciseView params={params} />
+      </PageTransition>
     </Suspense>
   );
 }

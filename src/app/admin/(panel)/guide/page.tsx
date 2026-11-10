@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { PageHeader } from "@/components/admin/ui";
 import { requireStaff } from "@/lib/auth";
+import { PageTransition } from "@/components/motion/PageTransition";
 
 export const metadata: Metadata = { title: "How it works" };
 
@@ -20,7 +21,7 @@ function Topic({ title, children }: { title: string; children: ReactNode }) {
 export default async function GuidePage() {
   const user = await requireStaff();
   return (
-    <>
+    <PageTransition variant="panel">
       <PageHeader title="How it works" description="A short tour of the panel, for whoever looks after the site." />
       <div className="grid max-w-5xl gap-4 lg:grid-cols-2">
         <Topic title="Writing and publishing">
@@ -92,6 +93,6 @@ export default async function GuidePage() {
           </p>
         </Topic>
       </div>
-    </>
+    </PageTransition>
   );
 }

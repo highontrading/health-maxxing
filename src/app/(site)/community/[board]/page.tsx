@@ -10,6 +10,7 @@ import { Sticker } from "@/components/stickers/Sticker";
 import { getSessionUser, isStaff } from "@/lib/auth";
 import { getBoard, listThreads, THREADS_PER_PAGE } from "@/lib/forum";
 import { requestTime } from "@/lib/now";
+import { PageTransition } from "@/components/motion/PageTransition";
 
 type Props = PageProps<"/community/[board]">;
 
@@ -17,11 +18,13 @@ export const metadata: Metadata = { title: "Community board" };
 
 export default function BoardPage(props: Props) {
   return (
-    <main>
-      <Suspense fallback={<div className="min-h-[60vh] animate-pulse bg-sand" aria-busy="true" />}>
-        <BoardView {...props} />
-      </Suspense>
-    </main>
+    <PageTransition>
+      <main>
+        <Suspense fallback={<div className="min-h-[60vh] animate-pulse bg-sand" aria-busy="true" />}>
+          <BoardView {...props} />
+        </Suspense>
+      </main>
+    </PageTransition>
   );
 }
 

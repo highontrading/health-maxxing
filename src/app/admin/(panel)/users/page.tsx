@@ -8,6 +8,7 @@ import { Sticker } from "@/components/stickers/Sticker";
 import { listMembers } from "@/lib/admin/queries";
 import { requireStaff } from "@/lib/auth";
 import { cn } from "@/lib/cn";
+import { PageTransition } from "@/components/motion/PageTransition";
 
 export const metadata: Metadata = { title: "Members" };
 
@@ -24,7 +25,7 @@ export default async function UsersPage({ searchParams }: PageProps<"/admin/user
   const back = backParams.size ? `/admin/users?${backParams}` : "/admin/users";
 
   return (
-    <>
+    <PageTransition variant="panel">
       <PageHeader
         title="Members"
         description="Everyone with an account. Suspending signs a member out and stops them posting; their existing posts stay unless you also hide them."
@@ -159,6 +160,6 @@ export default async function UsersPage({ searchParams }: PageProps<"/admin/user
         {isAdmin ? ". Editors can write and moderate; admins can also change settings, roles, tokens and the autopilot." : ". Email addresses are shown to admins only."}
       </p>
       <Pager base="/admin/users" query={query} page={page} pages={pages} />
-    </>
+    </PageTransition>
   );
 }
