@@ -171,8 +171,24 @@ Pieces not listed here still need the standard check; they just had no special f
   estimates; current fact sheets may give ~359 million and ~332 million. Articles hedge; update.
 - `stress-and-your-body`: Cohen 1991 (colds 27% rising to 47%).
 - `understanding-anxiety`: NICE CG113 (12–15 sessions); Carpenter 2018 (41 trials); Klevebrant 2022.
-- `depression-signs-and-treatment`: Cuijpers 2020 (101 trials, ~25% more likely to respond); Dazzi
-  2014 (13 studies); NICE NG222 treatment ordering.
+- `depression-signs-and-treatment` (checked by search, still pending). Confirmed: WHO prevalence
+  (now "about 322 million people in 2023"), the two-week definition, the symptom list, the WHO and
+  MedlinePlus emergency advice, the NIMH points on antidepressants (4 to 8 weeks, the under-25
+  warning, options when treatment has not worked), the USPSTF screening advice and the COBRA
+  result. Not yet confirmed: the three NICE NG222 recommendations (continue at least six months
+  after feeling well; CBT plus an antidepressant first for more severe depression; no routine
+  first-line antidepressants for less severe depression) and its 2022 date; the address of the
+  APA "What Is Depression?" page and the claims cited to it (grief versus depression, thyroid and
+  vitamin problems as mimics, "most people do get better"); "more than one medicine before finding
+  the right fit"; withdrawal symptoms after stopping abruptly; the forms of depression (in
+  pregnancy and after childbirth, winter-pattern, a persistent form of "two years or more"); the
+  bipolar sentence; electroconvulsive therapy as an option; the study figures (Cipriani 2018: 522
+  trials, 116,477 participants, all 21 beat placebo; Cuijpers 2020: 101 trials, ~25% more likely
+  to respond; COBRA: 440 adults; Noetel 2024: 218 trials, about 14,000 people, and a BMJ
+  correction notice that was not read; Dazzi 2014: 13 studies), three of which are still PubMed
+  title-search links; the Find A Helpline link. "Low at best" for the exercise evidence is a hedge
+  the checker added, not a quotation. The MedlinePlus "Major depression" page was confirmed from a
+  search copy one to two years old, so its emergency wording deserves one look.
 - `burnout-how-to-recognize-and-recover`: Glise 2012 (232 patients; a third symptomatic at 18
   months); Panagioti 2017 effect sizes (0.45 vs 0.18).
 - `meditation-and-mindfulness`: Britton 2021 (96 people, 58%, 6%); Kuyken 2016 (31% lower

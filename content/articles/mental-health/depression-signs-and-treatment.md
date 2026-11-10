@@ -27,7 +27,7 @@ sources:
     url: "https://www.who.int/news-room/fact-sheets/detail/depression"
   - title: "Depression"
     publisher: "National Institute of Mental Health"
-    url: "https://www.nimh.nih.gov/health/topics/depression"
+    url: "https://www.nimh.nih.gov/health/publications/depression"
   - title: "What Is Depression?"
     publisher: "American Psychiatric Association"
     url: "https://www.psychiatry.org/patients-families/depression/what-is-depression"
@@ -42,7 +42,7 @@ sources:
   - title: "Cost and Outcome of Behavioural Activation versus Cognitive Behavioural Therapy for Depression (COBRA): a randomised, controlled, non-inferiority trial"
     publisher: "The Lancet"
     year: 2016
-    url: "https://pubmed.ncbi.nlm.nih.gov/?term=Cost+and+Outcome+of+Behavioural+Activation+versus+Cognitive+Behavioural+Therapy+for+Depression+%28COBRA%29%3A+a+randomised%2C+controlled%2C+non-inferiority+trial"
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC5007415/"
   - title: "Comparative efficacy and acceptability of 21 antidepressant drugs for the acute treatment of adults with major depressive disorder: a systematic review and network meta-analysis"
     publisher: "The Lancet"
     year: 2018
@@ -50,7 +50,7 @@ sources:
   - title: "Effect of exercise for depression: systematic review and network meta-analysis of randomised controlled trials"
     publisher: "The BMJ"
     year: 2024
-    url: "https://pubmed.ncbi.nlm.nih.gov/?term=Effect+of+exercise+for+depression%3A+systematic+review+and+network+meta-analysis+of+randomised+controlled+trials"
+    url: "https://pubmed.ncbi.nlm.nih.gov/38355154/"
   - title: "Depression and Suicide Risk in Adults: Screening"
     publisher: "US Preventive Services Task Force"
     year: 2023
@@ -59,9 +59,9 @@ sources:
     publisher: "Psychological Medicine"
     year: 2014
     url: "https://pubmed.ncbi.nlm.nih.gov/?term=Does+asking+about+suicide+and+related+behaviours+induce+suicidal+ideation%3F+What+is+the+evidence%3F"
-  - title: "Suicide (fact sheet)"
-    publisher: "World Health Organization"
-    url: "https://www.who.int/news-room/fact-sheets/detail/suicide"
+  - title: "Major depression"
+    publisher: "MedlinePlus Medical Encyclopedia, US National Library of Medicine"
+    url: "https://medlineplus.gov/ency/article/000945.htm"
   - title: "Find A Helpline: free emotional support in your country"
     publisher: "Find A Helpline"
     url: "https://findahelpline.com"
@@ -69,12 +69,12 @@ related: [understanding-anxiety, exercise-for-mental-health, stress-and-your-bod
 factCheck: pending
 ---
 
-Everyone feels low sometimes. Depression is something else: a health condition that drains mood, energy and interest for weeks on end. The World Health Organization (WHO) estimates that it affects roughly 280 to 330 million people, about 4% of the world's population.[^1]
+Everyone feels low sometimes. Depression is something else: a health condition that drains mood, energy and interest for weeks on end. The World Health Organization (WHO) estimates that it affected about 322 million people in 2023, roughly 4% of the world's population.[^1]
 
 It is also treatable. This guide explains how to recognize depression, why it happens, what the evidence says about therapy, medication and exercise, and how to help someone you are worried about.
 
 > [!NOTE]
-> If you are thinking about suicide or harming yourself, please do not wait. Contact your local emergency services or a crisis line now. Find A Helpline lists free, confidential services by country.[^12]
+> If you are thinking about suicide or harming yourself, please do not wait. Contact your local emergency services or a crisis line now.[^1] Find A Helpline lists free, confidential services by country.[^12]
 
 ## Sadness versus depression
 
@@ -94,7 +94,7 @@ Doctors look for those two core symptoms, low mood and loss of interest or pleas
 - hopelessness about the future
 - thoughts of death or suicide
 
-Depression does not always look like sadness. It can show up as irritability, restlessness, or aches, pains and digestive problems with no clear physical cause. Men in particular may come across as angry or irritable rather than sad, and may lean on alcohol or drugs.[^2] We cover that pattern in [men's mental health](/articles/mens-mental-health).
+Depression does not always look like sadness. It can show up as irritability, restlessness, or aches, pains and digestive problems with no clear physical cause. Men, as well as women, may come across as angry or irritable rather than sad, and men are more likely to lean on alcohol or drugs to cope.[^2] We cover that pattern in [men's mental health](/articles/mens-mental-health).
 
 It also comes in several forms, including depression during pregnancy or after childbirth, depression that returns each winter, and a milder but persistent form lasting two years or more.[^2] Low mood can also be one phase of [bipolar disorder](/conditions/bipolar-disorder), so tell your doctor if you have ever had spells of unusually high energy with little need for sleep.
 
@@ -114,7 +114,7 @@ There is more than one good option. WHO's summary is that psychological treatmen
 
 Cognitive behavioral therapy (CBT) helps you notice and change the thought patterns and habits that keep depression going. Behavioral activation takes a simpler route: it rebuilds, step by step, the activities that give life reward and meaning, which depression strips away.
 
-In a UK trial of 440 adults, behavioral activation delivered by junior mental health workers was no less effective than CBT delivered by experienced therapists, and it cost less.[^6]
+In a UK trial of 440 adults, behavioral activation delivered by junior mental health workers was no less effective than CBT delivered by qualified psychological therapists, and it cost less.[^6]
 
 ### Antidepressants
 
@@ -124,7 +124,7 @@ What to expect, according to the US National Institute of Mental Health:[^2]
 
 - **They take time.** Antidepressants usually need four to eight weeks to work. Sleep, appetite and concentration often improve before mood does.
 - **The first one may not suit you.** Some people try more than one medicine before finding the right fit.
-- **Do not stop suddenly.** Stopping abruptly can cause withdrawal symptoms. Come off them gradually with your prescriber.
+- **Do not stop suddenly.** Stopping abruptly can cause withdrawal symptoms. Come off them gradually with your prescriber.[^11]
 - **Younger people need closer follow-up.** In children, teenagers and adults under 25, antidepressants can occasionally increase suicidal thoughts in the first weeks or after a dose change.
 
 England's National Institute for Health and Care Excellence (NICE) advises continuing an antidepressant for at least six months after you feel well, to lower the risk of relapse.[^4]
@@ -137,11 +137,11 @@ Guidelines reflect this. For more severe depression, NICE lists individual CBT c
 
 ### Exercise
 
-A 2024 network meta-analysis of 218 trials and about 14,000 people found that walking or jogging, yoga and strength training each produced moderate reductions in depressive symptoms. The authors rated the certainty of the evidence as low, because many trials were small or at risk of bias.[^8] Exercise is best used alongside other treatment, as we explain in [exercise for mental health](/articles/exercise-for-mental-health).
+A 2024 network meta-analysis of 218 trials and about 14,000 people found that walking or jogging, yoga and strength training each produced moderate reductions in depressive symptoms. The authors rated the certainty of the evidence as low at best, because many trials were small or at risk of bias.[^8] Exercise is best used alongside other treatment, as we explain in [exercise for mental health](/articles/exercise-for-mental-health).
 
 ### If the first treatment does not work
 
-This is common and it does not mean nothing will. Options include changing or adding a medicine, changing the type of therapy, and, for severe or treatment-resistant depression, brain stimulation therapies such as electroconvulsive therapy and transcranial magnetic stimulation, or esketamine.[^2]
+This is common and it does not mean nothing will. Options include changing or adding a medicine, changing the type of therapy, and, for severe or treatment-resistant depression, brain stimulation therapies such as electroconvulsive therapy and transcranial magnetic stimulation, or esketamine.[^2][^11]
 
 ## How to support someone
 
@@ -156,10 +156,10 @@ This is common and it does not mean nothing will. Options include changing or ad
 Start with a primary care doctor. Expect a short questionnaire: the US Preventive Services Task Force recommends screening all adults for depression, including during and after pregnancy.[^9]
 
 > [!DOCTOR]
-> See a doctor if low mood or loss of interest has lasted two weeks or more, or if it is affecting your work, relationships, sleep or appetite. Do not wait for it to become unbearable before asking for help.
+> See a doctor if low mood or loss of interest has lasted two weeks or more, or if it is affecting your work, relationships, sleep or appetite. Do not wait for it to become unbearable before asking for help. If you are hearing voices or seeing things that are not there, contact a doctor right away.[^11]
 
 > [!WARNING]
-> Treat it as an emergency if you or someone else has thoughts of suicide, has made a plan, has self-harmed, or is seeing or hearing things that are not there. Call your local emergency number or a crisis line, and do not leave the person alone. More than 700,000 people die by suicide every year, and many of those deaths are preventable.[^11]
+> Treat it as an emergency if you or someone else has thoughts of suicide, has made a plan or has self-harmed. Call your local emergency number or a crisis line, and do not leave the person alone.[^1][^11] An estimated 727,000 people died by suicide in 2021.[^1]
 
 ## The bottom line
 
