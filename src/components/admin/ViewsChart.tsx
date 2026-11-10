@@ -132,7 +132,8 @@ export function ViewsChart({ series }: { series: DayPoint[] }) {
 
               {total === 0 && (
                 <p className="absolute inset-0 flex items-center justify-center px-6 text-center text-sm text-ink-3">
-                  No page views were recorded in this period. Views are counted on article and condition pages.
+                  {/* A surface-coloured pad keeps the gridline from running through the words. */}
+                  <span className="rounded-md bg-[var(--viz-surface)] px-2 py-1">No page views were recorded in this period. Views are counted on article and condition pages.</span>
                 </p>
               )}
 
