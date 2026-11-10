@@ -1,0 +1,1250 @@
+[
+  {
+    "name": "Bodyweight Squat",
+    "type": "strength",
+    "pattern": "squat",
+    "muscles": { "primary": ["Quadriceps", "Glutes"], "secondary": ["Hamstrings", "Core"] },
+    "equipment": ["bodyweight"],
+    "level": "beginner",
+    "summary": "The foundation of lower-body training. It builds the leg strength you use on stairs and getting out of chairs, and teaches the pattern every loaded squat depends on.",
+    "steps": [
+      "Stand with your feet about shoulder-width apart, toes turned out slightly, arms relaxed at your sides.",
+      "Take a breath, tighten your midsection and reach your arms forward for balance.",
+      "Bend your hips and knees together, sitting down and slightly back as if lowering onto a low chair. Let your knees travel in line with your toes.",
+      "Go as deep as you can while keeping your heels down and your chest up, aiming for thighs about parallel to the floor.",
+      "Push the floor away through your whole foot and stand tall, finishing with hips and knees straight."
+    ],
+    "cues": [
+      "Sit between your hips, not onto your toes",
+      "Knees track over toes",
+      "Whole foot stays planted",
+      "Chest proud, eyes forward"
+    ],
+    "mistakes": [
+      "Letting the knees cave inward as you stand up",
+      "Lifting the heels and tipping onto the toes",
+      "Rounding the lower back to reach extra depth",
+      "Dropping fast and bouncing out of the bottom"
+    ],
+    "easier": "Squat to a chair or box: touch down lightly and stand, or hold a doorframe for support.",
+    "harder": "Slow the lowering to three seconds, pause at the bottom, or hold a weight for a goblet squat."
+  },
+  {
+    "name": "Goblet Squat",
+    "type": "strength",
+    "pattern": "squat",
+    "muscles": { "primary": ["Quadriceps", "Glutes"], "secondary": ["Core", "Upper back"] },
+    "equipment": ["dumbbell"],
+    "level": "beginner",
+    "summary": "A front-loaded squat that almost coaches itself: the weight at your chest keeps you upright and makes good depth easier. A great first loaded squat.",
+    "steps": [
+      "Hold one dumbbell vertically against your chest, hands cupping the top end and elbows tucked under the weight.",
+      "Stand with feet shoulder-width apart or slightly wider, toes turned out a little. Breathe in and brace your midsection.",
+      "Sit down between your hips, keeping the weight in contact with your chest and your elbows pointing at the floor.",
+      "Lower until your thighs are at least parallel to the floor, if you can get there with heels down and back flat. Your elbows should pass just inside your knees.",
+      "Drive through your whole foot to stand, breathing out as you rise, and finish tall without leaning back."
+    ],
+    "cues": [
+      "Keep the weight glued to your chest",
+      "Elbows inside the knees at the bottom",
+      "Spread the floor with your feet",
+      "Stand tall, ribs down"
+    ],
+    "mistakes": [
+      "Letting the dumbbell drift away from the chest, which pulls you forward",
+      "Knees collapsing inward on the way up",
+      "Heels lifting off the floor",
+      "Rounding the upper back and dropping the elbows"
+    ],
+    "easier": "Use a lighter weight and squat to a box or bench set at a comfortable height.",
+    "harder": "Add a two-second pause at the bottom, use a heavier dumbbell, or move on to front squats."
+  },
+  {
+    "name": "Barbell Back Squat",
+    "type": "strength",
+    "pattern": "squat",
+    "muscles": { "primary": ["Quadriceps", "Glutes"], "secondary": ["Hamstrings", "Adductors", "Core", "Lower back"] },
+    "equipment": ["barbell"],
+    "level": "intermediate",
+    "summary": "The classic heavy lower-body lift, loading legs, hips and trunk together. Worth learning well: start with the empty bar and get a coach to check your form if you can.",
+    "steps": [
+      "Set the bar in a rack at mid-chest height, with the safety bars just below where the bar will be at the bottom of your squat. Grip the bar evenly, a little wider than your shoulders.",
+      "Step under and rest the bar across the muscles of your upper back, not on your neck. Squeeze your shoulder blades together, stand to lift the bar and take two or three small steps back.",
+      "Place your feet about shoulder-width apart, toes turned out slightly. Take a big breath into your belly and brace as if someone were about to poke you in the stomach.",
+      "Bend your hips and knees together and lower under control, knees tracking over your toes, back in its natural neutral curve and the bar over the middle of your feet.",
+      "Descend until your thighs are roughly parallel to the floor, or as low as you can go with a neutral back and flat feet.",
+      "Drive up through your whole foot, letting hips and chest rise at the same speed. Breathe out near the top, then brace again before the next rep.",
+      "After the last rep, walk forward until the bar touches the uprights, then bend your knees to set it down in the hooks."
+    ],
+    "cues": [
+      "Big breath, brace, then move",
+      "Bar over midfoot the whole way",
+      "Knees out over your toes",
+      "Hips and chest rise together"
+    ],
+    "mistakes": [
+      "Squatting heavy without safety bars or spotters",
+      "Losing the brace and rounding the lower back at the bottom",
+      "Knees caving in on the way up",
+      "Hips shooting up first, so the lift turns into a forward bend",
+      "Adding weight before every rep looks the same"
+    ],
+    "easier": "Build the pattern with goblet squats, then squat the empty bar to a box set at parallel depth.",
+    "harder": "Add load in small jumps, or use a lighter weight with a two-second pause at the bottom."
+  },
+  {
+    "name": "Front Squat",
+    "type": "strength",
+    "pattern": "squat",
+    "muscles": { "primary": ["Quadriceps", "Glutes"], "secondary": ["Core", "Upper back", "Adductors"] },
+    "equipment": ["barbell"],
+    "level": "advanced",
+    "summary": "A barbell squat with the bar across the front of your shoulders. It keeps your torso upright, works the quads and upper back hard, and demands good mobility. Learn it with an empty bar.",
+    "steps": [
+      "Set the bar in a rack at upper-chest height, with safety bars in place. Grip it just outside shoulder-width, then swing your elbows under and up so the bar rests on the front of your shoulders, close to your throat.",
+      "Lift your elbows until your upper arms are nearly parallel to the floor. The bar sits on your shoulders; your fingers only keep it in place.",
+      "Stand to unrack, step back and set your feet shoulder-width apart, toes slightly out. Breathe in deeply and brace your trunk.",
+      "Sit straight down between your hips, keeping your elbows up and your torso as upright as you can.",
+      "Lower to at least parallel if your mobility allows, with heels down and back neutral.",
+      "Drive up through your whole foot, leading with your elbows and chest. After the last rep, walk the bar forward into the rack and set it down."
+    ],
+    "cues": [
+      "Elbows high, all the way up",
+      "Bar rests on shoulders, not hands",
+      "Sit straight down",
+      "Chest up out of the bottom"
+    ],
+    "mistakes": [
+      "Dropping the elbows so the bar rolls forward and the upper back rounds",
+      "Holding the weight in the hands and wrists instead of on the shoulders",
+      "Heels lifting as the knees travel forward",
+      "Adding load before wrists, shoulders and upper back can hold the bar position"
+    ],
+    "easier": "Use goblet squats, or hold a light bar with a cross-arm grip while you build mobility.",
+    "harder": "Add load gradually, or pause for two seconds at the bottom while keeping the elbows high."
+  },
+  {
+    "name": "Split Squat",
+    "type": "strength",
+    "pattern": "squat",
+    "muscles": { "primary": ["Quadriceps", "Glutes"], "secondary": ["Hamstrings", "Adductors", "Core"] },
+    "equipment": ["bodyweight"],
+    "level": "beginner",
+    "summary": "A stationary lunge that trains one leg at a time. It evens out side-to-side differences and builds balance without the coordination a moving lunge needs.",
+    "steps": [
+      "Stand tall and take a long step forward into a split stance, feet hip-width apart side to side as if on train tracks. Lift your back heel.",
+      "Keep your torso upright with a slight forward lean and most of your weight on the front foot.",
+      "Bend both knees and lower straight down until your back knee hovers just above the floor.",
+      "Keep your front heel down and your front knee pointing the same way as your toes.",
+      "Push through the front foot to rise to the start. Finish all your reps, then switch legs."
+    ],
+    "cues": [
+      "Drop straight down, like an elevator",
+      "Front foot does the work",
+      "Train tracks, not a tightrope",
+      "Front heel stays heavy"
+    ],
+    "mistakes": [
+      "Standing with both feet on one line, which makes balance far harder",
+      "Pushing off the back leg instead of the front",
+      "Front knee collapsing inward",
+      "Slamming the back knee into the floor"
+    ],
+    "easier": "Hold a chair or wall for balance and lower only halfway.",
+    "harder": "Hold dumbbells at your sides, or raise the back foot on a bench for a Bulgarian split squat."
+  },
+  {
+    "name": "Bulgarian Split Squat",
+    "type": "strength",
+    "pattern": "squat",
+    "muscles": { "primary": ["Quadriceps", "Glutes"], "secondary": ["Hamstrings", "Adductors", "Core"] },
+    "equipment": ["bodyweight", "bench"],
+    "level": "intermediate",
+    "summary": "A split squat with the back foot raised on a bench. It loads one leg hard with little or no weight, building strength, hip mobility and balance at home or in the gym.",
+    "steps": [
+      "Stand about two foot-lengths in front of a knee-high bench, facing away from it. Reach one foot back and rest the top of that foot on the bench.",
+      "Hop your front foot forward until you can lower without the front heel lifting. Stand tall and brace your midsection.",
+      "Bend your front knee and lower your hips straight down, letting the back knee drop toward the floor.",
+      "Stop when your front thigh is about parallel to the floor, with the front knee tracking over your toes.",
+      "Drive through the front foot to stand. Complete your reps, then swap legs."
+    ],
+    "cues": [
+      "Front leg works, back leg balances",
+      "Lower straight down",
+      "Front heel stays down",
+      "Hips square to the front"
+    ],
+    "mistakes": [
+      "Standing too close to the bench, which crowds the front knee and lifts the heel",
+      "Pushing off the back foot",
+      "Letting the front knee wobble inward",
+      "Using a bench so high that it strains the back hip"
+    ],
+    "easier": "Do split squats with both feet on the floor, or hold a support with one hand.",
+    "harder": "Hold a dumbbell in each hand, or slow the lowering to three or four seconds."
+  },
+  {
+    "name": "Reverse Lunge",
+    "type": "strength",
+    "pattern": "lunge",
+    "muscles": { "primary": ["Quadriceps", "Glutes"], "secondary": ["Hamstrings", "Adductors", "Core"] },
+    "equipment": ["bodyweight"],
+    "level": "beginner",
+    "summary": "A lunge that steps backward, so the front foot stays planted. Many people find it easier to control and more comfortable on the knees than stepping forward.",
+    "steps": [
+      "Stand tall with feet hip-width apart, hands on your hips or held at your chest.",
+      "Take a long step straight back with one foot, landing on the ball of that foot.",
+      "Bend both knees and lower until your back knee is just above the floor and your front thigh is about parallel to it.",
+      "Keep your front heel down, your front knee in line with your toes and your torso tall with a slight forward lean.",
+      "Push through the front foot to return to standing, bringing the back foot forward. Alternate legs, or finish one side first."
+    ],
+    "cues": [
+      "Step back and sink down",
+      "Front heel stays heavy",
+      "Keep a hip-width stance",
+      "Stand up through the front leg"
+    ],
+    "mistakes": [
+      "Stepping back onto a tightrope, so you wobble sideways",
+      "Taking too short a step, which lifts the front heel and pushes the knee far forward",
+      "Folding the chest down onto the thigh",
+      "Banging the back knee on the floor"
+    ],
+    "easier": "Hold a chair or wall with one hand and use a shallower range.",
+    "harder": "Hold dumbbells at your sides or a single weight at your chest."
+  },
+  {
+    "name": "Walking Lunge",
+    "type": "strength",
+    "pattern": "lunge",
+    "muscles": { "primary": ["Quadriceps", "Glutes"], "secondary": ["Hamstrings", "Adductors", "Calves", "Core"] },
+    "equipment": ["bodyweight"],
+    "level": "intermediate",
+    "summary": "Lunges that travel forward step after step, adding balance and coordination to single-leg strength. They raise your heart rate nicely too.",
+    "steps": [
+      "Stand tall at one end of a clear path about 10 meters (33 feet) long, feet hip-width apart.",
+      "Step forward with one leg and plant the whole foot, heel first.",
+      "Bend both knees and lower until the back knee is just above the floor, keeping your torso tall.",
+      "Push through the front foot and bring the back leg through, stepping straight into the next lunge on the other side.",
+      "Continue for the planned number of steps, then stand with feet together to finish."
+    ],
+    "cues": [
+      "Long, steady strides",
+      "Front knee follows the toes",
+      "Tall chest, eyes ahead",
+      "Soft, controlled knee touch"
+    ],
+    "mistakes": [
+      "Short, rushed steps that tip you onto your toes",
+      "Front knee caving inward on landing",
+      "Feet crossing the midline, as if walking a tightrope",
+      "Using momentum instead of pushing through the front leg"
+    ],
+    "easier": "Pause with feet together between steps, or stay in place with reverse lunges.",
+    "harder": "Carry a dumbbell in each hand or hold a weight at your chest."
+  },
+  {
+    "name": "Step-Up",
+    "type": "strength",
+    "pattern": "lunge",
+    "muscles": { "primary": ["Quadriceps", "Glutes"], "secondary": ["Hamstrings", "Calves", "Core"] },
+    "equipment": ["bodyweight", "box"],
+    "level": "beginner",
+    "summary": "Climbing onto a box one leg at a time builds the strength you use on stairs and hills, with very little impact. Changing the height makes it easier or harder.",
+    "steps": [
+      "Stand facing a sturdy box or step that cannot slide, about 20 to 40 cm (8 to 16 inches) high.",
+      "Place one whole foot on the box, heel included, and lean your torso forward slightly.",
+      "Press through that foot to stand up on the box, straightening the hip and knee fully. Let the trailing foot tap the box lightly.",
+      "Lower the trailing foot back to the floor slowly, taking about two seconds and controlling the descent with the leg on the box.",
+      "Complete your reps on one leg, then switch sides."
+    ],
+    "cues": [
+      "Whole foot on the box",
+      "Push down through the top leg",
+      "Lower as if the floor were fragile",
+      "Knee stays over the toes"
+    ],
+    "mistakes": [
+      "Springing off the bottom foot, so the top leg does little work",
+      "Dropping down fast instead of lowering under control",
+      "Letting the knee on the box cave inward",
+      "Choosing a box so high that you have to lean and heave"
+    ],
+    "easier": "Use a lower step and hold a rail or wall for balance.",
+    "harder": "Raise the box height, hold dumbbells, or slow the lowering to four seconds."
+  },
+  {
+    "name": "Bodyweight Good Morning",
+    "type": "strength",
+    "pattern": "hinge",
+    "muscles": { "primary": ["Hamstrings", "Glutes"], "secondary": ["Lower back", "Core"] },
+    "equipment": ["bodyweight"],
+    "level": "beginner",
+    "summary": "The hip hinge drill: bending at the hips with a flat back. It teaches the movement behind deadlifts, swings and lifting things off the floor, before you add any weight.",
+    "steps": [
+      "Stand with feet hip-width apart, knees soft, hands crossed over your chest or resting on your hips.",
+      "Brace your midsection and keep your spine long from your tailbone to the back of your head.",
+      "Push your hips straight back, as if closing a car door with your backside, and let your torso tip forward. Your knees bend only slightly.",
+      "Stop when you feel a firm stretch in your hamstrings, or just before your back starts to round. For most people that is somewhere between 45 degrees and parallel to the floor.",
+      "Squeeze your glutes and drive your hips forward to stand tall again."
+    ],
+    "cues": [
+      "Hips back, not chest down",
+      "Long spine, proud chest",
+      "Soft knees, shins stay vertical",
+      "Feel the hamstrings load"
+    ],
+    "mistakes": [
+      "Bending the knees and squatting instead of sending the hips back",
+      "Rounding the lower back to reach further",
+      "Locking the knees stiff",
+      "Craning the neck up to look in a mirror"
+    ],
+    "easier": "Stand a foot-length from a wall and reach your hips back to tap it, or hold a broomstick along your spine as a guide.",
+    "harder": "Hold a light weight against your chest, or progress to the Romanian deadlift."
+  },
+  {
+    "name": "Romanian Deadlift",
+    "type": "strength",
+    "pattern": "hinge",
+    "muscles": { "primary": ["Hamstrings", "Glutes"], "secondary": ["Lower back", "Core", "Forearms"] },
+    "equipment": ["dumbbell"],
+    "level": "beginner",
+    "summary": "A hip hinge with weights that starts from standing. It strengthens the hamstrings, glutes and back while they lengthen under load, and makes every other hinge better.",
+    "steps": [
+      "Stand with feet hip-width apart, holding a dumbbell in each hand in front of your thighs, palms facing you.",
+      "Unlock your knees slightly, pull your shoulders back and down, and brace your midsection.",
+      "Push your hips back and let the weights slide down close to your thighs, keeping your back flat and your knees at the same slight bend.",
+      "Lower until you feel a strong stretch in your hamstrings, usually with the weights somewhere between knee and mid-shin height. Stop before your back rounds.",
+      "Drive your hips forward and squeeze your glutes to stand tall, keeping the weights close to your legs the whole way."
+    ],
+    "cues": [
+      "Hips back, weights close",
+      "Shave your legs with the dumbbells",
+      "Flat back, long neck",
+      "Stand up by squeezing the glutes"
+    ],
+    "mistakes": [
+      "Rounding the back to get the weights lower",
+      "Turning it into a squat by bending the knees more and more as you descend",
+      "Letting the weights drift away from the legs",
+      "Leaning back and overarching at the top"
+    ],
+    "easier": "Practice the bodyweight good morning first, or hold one light weight in both hands.",
+    "harder": "Use a barbell, heavier dumbbells, or a three-second lowering phase."
+  },
+  {
+    "name": "Conventional Deadlift",
+    "type": "strength",
+    "pattern": "hinge",
+    "muscles": { "primary": ["Glutes", "Hamstrings", "Lower back"], "secondary": ["Quadriceps", "Upper back", "Lats", "Forearms", "Core"] },
+    "equipment": ["barbell"],
+    "level": "intermediate",
+    "summary": "Lifting a barbell from the floor to standing trains nearly every muscle on the back of your body. Set up carefully, start light and consider a coach while you learn.",
+    "steps": [
+      "Stand with your feet hip-width apart and the bar over the middle of your feet, about 2 to 3 cm (1 inch) from your shins.",
+      "Hinge at the hips and bend your knees to grip the bar just outside your legs, arms straight. Your shins should now lightly touch the bar.",
+      "Lift your chest until your back is flat, with hips higher than knees and shoulders slightly in front of the bar. Tighten your lats by pulling your shoulders down, as if squeezing an orange in each armpit.",
+      "Take a big breath into your belly, brace hard and pull the slack out of the bar until you feel its weight in your hands.",
+      "Push the floor away with your legs, keeping the bar against your shins and thighs, and let hips and shoulders rise at the same rate.",
+      "As the bar passes your knees, drive your hips forward to stand tall. Finish with hips and knees straight, without leaning back.",
+      "Lower by pushing your hips back first, then bending your knees once the bar has passed them. Reset your breath and brace before every rep."
+    ],
+    "cues": [
+      "Bar over midfoot, touching the legs",
+      "Chest up, back flat, lats tight",
+      "Push the floor away",
+      "Brace before every rep"
+    ],
+    "mistakes": [
+      "Rounding the lower back, usually from a rushed setup or too much weight",
+      "Letting the bar swing away from the legs",
+      "Jerking the bar off the floor instead of squeezing it up",
+      "Hips shooting up first, so the back does all the lifting",
+      "Leaning back hard at the top"
+    ],
+    "easier": "Lift a kettlebell from between your feet, or raise a lightly loaded bar on blocks to mid-shin height.",
+    "harder": "Add weight in small steps while every rep looks identical, or pause for one second just off the floor."
+  },
+  {
+    "name": "Kettlebell Swing",
+    "type": "strength",
+    "pattern": "hinge",
+    "muscles": { "primary": ["Glutes", "Hamstrings"], "secondary": ["Core", "Lower back", "Lats", "Shoulders", "Forearms"] },
+    "equipment": ["kettlebell"],
+    "level": "intermediate",
+    "summary": "An explosive hip hinge that builds power in the glutes and hamstrings and doubles as tough conditioning. Master the basic hinge first and start with a light bell.",
+    "steps": [
+      "Stand with feet a little wider than shoulder-width and the kettlebell on the floor about a foot-length in front of you.",
+      "Hinge at the hips with a flat back and soft knees, grip the handle with both hands and tilt the bell toward you. Pull your shoulders down, away from your ears.",
+      "Brace your midsection and hike the bell back between your legs, high on your inner thighs, with your forearms against your thighs.",
+      "Snap your hips forward and stand up hard, squeezing your glutes. Let that drive float the bell to about chest height on relaxed, straight arms.",
+      "At the top, stand like a tall plank: knees and hips straight, abs tight, no leaning back.",
+      "Let the bell fall, and wait until your upper arms reconnect with your ribs before hinging back and guiding the bell high between your legs again.",
+      "After the last rep, let the bell swing back once more, then set it down on the floor in front of you with a flat back."
+    ],
+    "cues": [
+      "It is a hinge, not a squat",
+      "Hips do the lifting, arms are ropes",
+      "Stand tall and tight at the top",
+      "Wait for the bell before you hinge"
+    ],
+    "mistakes": [
+      "Squatting down and lifting the bell with the arms and shoulders",
+      "Rounding the back at the bottom of the swing",
+      "Leaning back at the top instead of standing tall",
+      "Hinging too early, so the bell drops below the knees and pulls on the lower back",
+      "Choosing a bell that is too heavy to control"
+    ],
+    "easier": "Practice kettlebell deadlifts and the bodyweight good morning until the hinge is automatic.",
+    "harder": "Use a heavier kettlebell, or progress to one-arm swings."
+  },
+  {
+    "name": "Hip Thrust",
+    "type": "strength",
+    "pattern": "hinge",
+    "muscles": { "primary": ["Glutes"], "secondary": ["Hamstrings", "Quadriceps", "Core"] },
+    "equipment": ["barbell", "bench"],
+    "level": "intermediate",
+    "summary": "One of the most direct ways to load the glutes: your upper back rests on a bench while your hips lift a barbell. It builds the hip strength behind sprinting, jumping and lifting.",
+    "steps": [
+      "Sit on the floor with the bottom of your shoulder blades against the long edge of a sturdy bench and a padded barbell across the crease of your hips. Make sure the bench cannot slide.",
+      "Plant your feet flat, about hip-width apart, close enough that your shins will be vertical at the top. Hold the bar with both hands.",
+      "Tuck your chin, keep your ribs down and brace your midsection.",
+      "Drive through your heels and lift your hips until your thighs and torso form a straight line, pivoting on your shoulder blades against the bench.",
+      "Squeeze your glutes hard at the top for a second without arching your lower back.",
+      "Lower your hips under control until they are just above the floor, then repeat."
+    ],
+    "cues": [
+      "Chin tucked, ribs down",
+      "Shins vertical at the top",
+      "Push through the heels",
+      "Finish with glutes, not your back"
+    ],
+    "mistakes": [
+      "Arching the lower back at the top instead of fully extending the hips",
+      "Placing the feet too far away, which shifts the work to the hamstrings",
+      "Throwing the head back and flaring the ribs",
+      "Bouncing the bar off the hips with no control"
+    ],
+    "easier": "Start with glute bridges on the floor, then hip thrusts with no load.",
+    "harder": "Add load, pause for two to three seconds at the top, or try a single-leg version with body weight."
+  },
+  {
+    "name": "Glute Bridge",
+    "type": "strength",
+    "pattern": "hinge",
+    "muscles": { "primary": ["Glutes"], "secondary": ["Hamstrings", "Core"] },
+    "equipment": ["bodyweight", "mat"],
+    "level": "beginner",
+    "summary": "A hip lift on the floor that strengthens the glutes with no equipment. A gentle starting point for hinge training and a solid warm-up before squats and deadlifts.",
+    "steps": [
+      "Lie on your back with knees bent and feet flat on the floor, hip-width apart, heels about a hand-length from your backside. Rest your arms at your sides.",
+      "Gently flatten your lower back toward the floor and tighten your midsection.",
+      "Press through your heels and lift your hips until your body forms a straight line from shoulders to knees.",
+      "Squeeze your glutes at the top for one to two seconds, keeping your ribs down.",
+      "Lower your hips slowly back to the floor and repeat."
+    ],
+    "cues": [
+      "Push the floor away with your heels",
+      "Squeeze your glutes at the top",
+      "Ribs down, no arching",
+      "Knees stay hip-width apart"
+    ],
+    "mistakes": [
+      "Pushing the hips so high that the lower back arches",
+      "Letting the knees fall inward or flare wide",
+      "Pushing through the toes, which often makes the hamstrings cramp",
+      "Rushing reps without a pause at the top"
+    ],
+    "easier": "Lift only partway, or hold the top position for a few seconds instead of doing reps.",
+    "harder": "Try single-leg bridges, rest a weight across your hips, or move on to hip thrusts on a bench."
+  },
+  {
+    "name": "Push-Up",
+    "type": "strength",
+    "pattern": "horizontal push",
+    "muscles": { "primary": ["Chest", "Triceps"], "secondary": ["Shoulders", "Core"] },
+    "equipment": ["bodyweight"],
+    "level": "intermediate",
+    "summary": "The benchmark upper-body push. It trains chest, shoulders and triceps while your trunk works to hold a rigid plank, and it needs nothing but a floor.",
+    "steps": [
+      "Place your hands on the floor slightly wider than your shoulders, fingers pointing forward. Step your feet back so your body forms a straight line from head to heels.",
+      "Tighten your abs and glutes so your hips neither sag nor stick up.",
+      "Bend your elbows and lower your whole body as one piece, elbows angled about 45 degrees from your sides.",
+      "Lower until your chest is just above the floor, keeping your neck in line with your spine.",
+      "Press the floor away until your arms are straight, holding the same rigid body line."
+    ],
+    "cues": [
+      "Move like a plank",
+      "Elbows make an arrow, not a T",
+      "Chest reaches the floor before your chin",
+      "Push the floor away"
+    ],
+    "mistakes": [
+      "Hips sagging toward the floor or sticking up in the air",
+      "Elbows flared straight out to the sides",
+      "Half reps that stop well short of the floor",
+      "Reaching the head forward to fake depth"
+    ],
+    "easier": "Do incline push-ups with your hands on a bench or counter, keeping your body straight.",
+    "harder": "Raise your feet on a bench, pause at the bottom, or slow the lowering to three seconds."
+  },
+  {
+    "name": "Incline Push-Up",
+    "type": "strength",
+    "pattern": "horizontal push",
+    "muscles": { "primary": ["Chest", "Triceps"], "secondary": ["Shoulders", "Core"] },
+    "equipment": ["bodyweight", "bench"],
+    "level": "beginner",
+    "summary": "A push-up with your hands raised on a bench or counter, which lightens the load while keeping the full movement. The most reliable route to a first floor push-up.",
+    "steps": [
+      "Place your hands on the edge of a sturdy bench, table or counter, slightly wider than your shoulders. Check that it cannot slide or tip.",
+      "Walk your feet back until your body is a straight line from head to heels, arms straight, weight on the balls of your feet.",
+      "Tighten your abs and glutes, then bend your elbows to lower your chest toward the edge, elbows about 45 degrees from your sides.",
+      "Touch your lower chest lightly to the edge, or get as close as you can with a straight body.",
+      "Press back to straight arms without letting your hips sag or lead the way."
+    ],
+    "cues": [
+      "Straight line from head to heels",
+      "Chest to the edge, not your chin",
+      "Elbows angle back, not out",
+      "Squeeze your glutes"
+    ],
+    "mistakes": [
+      "Bending at the hips so only the head and shoulders move",
+      "Flaring the elbows wide",
+      "Using a surface that slides or wobbles",
+      "Staying on a high surface long after it has become easy"
+    ],
+    "easier": "Use a higher surface, such as a kitchen counter or a wall.",
+    "harder": "Lower the surface step by step, for example from counter to bench to a low step, until you reach the floor."
+  },
+  {
+    "name": "Barbell Bench Press",
+    "type": "strength",
+    "pattern": "horizontal push",
+    "muscles": { "primary": ["Chest", "Triceps"], "secondary": ["Shoulders"] },
+    "equipment": ["barbell", "bench"],
+    "level": "intermediate",
+    "summary": "The standard heavy upper-body push, building chest, shoulder and triceps strength. Use a spotter or safety bars, and learn the setup with an empty bar first.",
+    "steps": [
+      "Set the safety bars just below the level of your chest when you lie on the bench, or ask a spotter to stand by. Lie down with your eyes under the bar and your feet flat on the floor.",
+      "Squeeze your shoulder blades together and down, keeping a small natural arch in your lower back. Grip the bar a little wider than shoulder-width with your thumbs wrapped fully around it.",
+      "Press the bar out of the hooks and bring it over your shoulders with arms straight. Take a breath and brace.",
+      "Lower the bar under control to your mid-chest, around the bottom of your breastbone, with elbows about 45 to 60 degrees from your sides and forearms vertical.",
+      "Touch your chest lightly without bouncing, then press the bar up and slightly back until it is over your shoulders with elbows straight.",
+      "After your last rep, guide the bar back until it touches the uprights, then lower it into the hooks."
+    ],
+    "cues": [
+      "Shoulder blades back and down",
+      "Feet planted, glutes on the bench",
+      "Wrists stacked over elbows",
+      "Touch, do not bounce"
+    ],
+    "mistakes": [
+      "Benching heavy alone, without safety bars or a spotter",
+      "Using a thumbless grip, which lets the bar roll out of the hands",
+      "Bouncing the bar off the chest",
+      "Flaring the elbows straight out to 90 degrees",
+      "Lifting the hips off the bench to finish a rep"
+    ],
+    "easier": "Start with the empty bar or dumbbells, or build pressing strength with push-ups.",
+    "harder": "Add weight in small steps, or pause the bar on your chest for one second each rep."
+  },
+  {
+    "name": "Dumbbell Bench Press",
+    "type": "strength",
+    "pattern": "horizontal push",
+    "muscles": { "primary": ["Chest", "Triceps"], "secondary": ["Shoulders"] },
+    "equipment": ["dumbbell", "bench"],
+    "level": "beginner",
+    "summary": "A bench press with a dumbbell in each hand. Each arm works on its own, the range of motion is generous, and you can set the weights down safely without a spotter.",
+    "steps": [
+      "Sit on the end of a flat bench with a dumbbell resting on each thigh. Lie back, using your knees to help bring the weights to the sides of your chest.",
+      "Plant your feet, squeeze your shoulder blades together and down, and press the dumbbells up until your arms are straight over your chest.",
+      "Lower the weights slowly toward the sides of your chest, elbows about 45 degrees from your torso, until your upper arms are about parallel to the floor or slightly below.",
+      "Press the dumbbells up and slightly together until your arms are straight over your shoulders, without clashing the weights.",
+      "When you finish, lower the weights to your chest, then sit up with them or set them down on the floor beside you."
+    ],
+    "cues": [
+      "Shoulder blades pinned to the bench",
+      "Elbows at 45 degrees",
+      "Wrists straight, knuckles to the ceiling",
+      "Control the way down"
+    ],
+    "mistakes": [
+      "Letting the elbows sink far below shoulder level, which strains the shoulders",
+      "Letting the dumbbells drift toward the face or the hips",
+      "Arching hard and lifting the hips",
+      "Dropping heavy dumbbells from arm's length instead of lowering them to the chest first"
+    ],
+    "easier": "Press from the floor (a floor press) to limit the range, or use lighter dumbbells.",
+    "harder": "Use heavier dumbbells, slow the lowering to three seconds, or set the bench to a slight incline."
+  },
+  {
+    "name": "Overhead Press",
+    "type": "strength",
+    "pattern": "vertical push",
+    "muscles": { "primary": ["Shoulders", "Triceps"], "secondary": ["Upper back", "Core"] },
+    "equipment": ["barbell"],
+    "level": "intermediate",
+    "summary": "Pressing a barbell from your shoulders to overhead while standing. It builds strong shoulders and triceps and trains your whole trunk to stay stiff under load. Start with the empty bar.",
+    "steps": [
+      "Set the bar in a rack at upper-chest height. Grip it just outside shoulder-width with thumbs wrapped, wrists straight and forearms vertical.",
+      "Step under so the bar rests on the front of your shoulders and collarbones. Unrack it and take a step or two back, feet between hip-width and shoulder-width apart.",
+      "Squeeze your glutes, brace your abs and take a breath. Keep your ribs down, not flared.",
+      "Press the bar straight up, moving your head back slightly to let it pass your face, then bring your head through as the bar clears your forehead.",
+      "Finish with arms straight and the bar over the middle of your feet, in line with your ears, shoulders shrugged up slightly.",
+      "Lower the bar under control to your shoulders, brace again and repeat. Walk it back into the rack when you are done."
+    ],
+    "cues": [
+      "Glutes and abs tight",
+      "Bar travels in a straight line",
+      "Head through at the top",
+      "Ribs down, no leaning back"
+    ],
+    "mistakes": [
+      "Leaning back and arching the lower back, which turns it into a standing incline press",
+      "Pressing the bar out in front in an arc instead of straight up",
+      "Bending the knees to bounce the weight up",
+      "Letting the wrists bend back under the bar",
+      "Starting too heavy to keep the trunk still"
+    ],
+    "easier": "Use light dumbbells or an empty bar, or press seated with back support.",
+    "harder": "Add weight in the smallest jumps available, or pause for a second at the shoulders on each rep."
+  },
+  {
+    "name": "Dumbbell Shoulder Press",
+    "type": "strength",
+    "pattern": "vertical push",
+    "muscles": { "primary": ["Shoulders", "Triceps"], "secondary": ["Upper back", "Core"] },
+    "equipment": ["dumbbell"],
+    "level": "beginner",
+    "summary": "An overhead press with dumbbells, done seated or standing. Each arm moves freely, which suits most shoulders and shows up any left-to-right strength gap.",
+    "steps": [
+      "Stand with feet hip-width apart, or sit tall on a bench with back support. Bring a dumbbell to each shoulder, palms facing forward or slightly inward, elbows a little in front of your body.",
+      "Tighten your abs and glutes so your ribs stay down and your lower back does not arch.",
+      "Press both dumbbells up until your arms are straight and the weights are over your shoulders, upper arms close to your ears.",
+      "Pause briefly at the top without hunching your shoulders up toward your ears.",
+      "Lower the weights slowly to shoulder height and repeat."
+    ],
+    "cues": [
+      "Ribs down, glutes tight",
+      "Press up, not forward",
+      "Forearms stay vertical",
+      "Slow on the way down"
+    ],
+    "mistakes": [
+      "Arching the lower back as the weights go up",
+      "Flaring the elbows straight out to the sides at the bottom",
+      "Cutting the range short at the top or the bottom",
+      "Using the legs to heave weights that are too heavy"
+    ],
+    "easier": "Sit with back support and use lighter weights.",
+    "harder": "Press standing, use heavier dumbbells, or press one arm at a time to challenge your trunk."
+  },
+  {
+    "name": "Pike Push-Up",
+    "type": "strength",
+    "pattern": "vertical push",
+    "muscles": { "primary": ["Shoulders", "Triceps"], "secondary": ["Upper back", "Chest", "Core"] },
+    "equipment": ["bodyweight"],
+    "level": "intermediate",
+    "summary": "A push-up with your hips high in the air, which shifts the load onto your shoulders. A reliable way to train overhead pressing strength at home with no equipment.",
+    "steps": [
+      "Start in a push-up position, then walk your feet toward your hands and lift your hips until your body forms an upside-down V.",
+      "Place your hands slightly wider than your shoulders with fingers spread, arms straight and head between your arms.",
+      "Bend your elbows and lower the top of your head toward the floor, aiming for a spot slightly in front of your hands so that head and hands form a triangle.",
+      "Keep your hips high and your elbows angled back at about 45 degrees, not flared wide.",
+      "Lower until your head lightly touches or hovers above the floor, then press back up until your arms are straight."
+    ],
+    "cues": [
+      "Hips high, like a mountain",
+      "Head lands ahead of your hands",
+      "Elbows back, not out",
+      "Push the floor away to finish"
+    ],
+    "mistakes": [
+      "Letting the hips drop, so it becomes a regular push-up",
+      "Lowering the head between the hands instead of in front of them",
+      "Flaring the elbows straight out",
+      "Crashing the head into the floor"
+    ],
+    "easier": "Shorten the range, or place your hands on a low step or bench.",
+    "harder": "Raise your feet on a bench or box to put more of your body weight over your shoulders."
+  },
+  {
+    "name": "Dumbbell Row",
+    "type": "strength",
+    "pattern": "horizontal pull",
+    "muscles": { "primary": ["Lats", "Upper back"], "secondary": ["Biceps", "Forearms", "Core"] },
+    "equipment": ["dumbbell", "bench"],
+    "level": "beginner",
+    "summary": "A one-arm row with your free hand and knee supported on a bench. It builds the lats and upper back, balances out the pushing in a program and goes easy on the lower back.",
+    "steps": [
+      "Place your left hand and left knee on a flat bench, with your right foot on the floor out to the side. Your back should be flat and roughly parallel to the floor.",
+      "Pick up the dumbbell in your right hand and let the arm hang straight down, shoulders level.",
+      "Brace your midsection, then pull the dumbbell toward your hip, driving your elbow back and keeping it close to your side.",
+      "Pause for a moment when the weight reaches your lower ribs, squeezing your shoulder blade toward your spine.",
+      "Lower the weight slowly until your arm is straight and your shoulder blade has moved forward. Finish your reps, then switch sides."
+    ],
+    "cues": [
+      "Pull the elbow to your back pocket",
+      "Shoulders stay square to the floor",
+      "Flat back, long neck",
+      "Lower slower than you lift"
+    ],
+    "mistakes": [
+      "Twisting the torso open to heave the weight up",
+      "Yanking with momentum instead of pulling smoothly",
+      "Shrugging the shoulder up toward the ear",
+      "Rounding the back or letting it sag"
+    ],
+    "easier": "Use a lighter weight, or stand in a split stance with one hand on a bench or chair back.",
+    "harder": "Use a heavier dumbbell, pause for two seconds at the top, or slow the lowering to three seconds."
+  },
+  {
+    "name": "Barbell Row",
+    "type": "strength",
+    "pattern": "horizontal pull",
+    "muscles": { "primary": ["Lats", "Upper back"], "secondary": ["Biceps", "Forearms", "Lower back", "Hamstrings", "Core"] },
+    "equipment": ["barbell"],
+    "level": "intermediate",
+    "summary": "A bent-over row that trains the whole back to pull while your hips and trunk hold a hinge. Powerful, but only as good as your ability to keep a flat back.",
+    "steps": [
+      "Stand with feet hip-width apart and the bar over the middle of your feet. Hinge at the hips with soft knees and grip the bar just wider than shoulder-width.",
+      "Stand up with the bar, keeping your back flat. Then hinge forward until your torso is between 45 degrees and nearly parallel to the floor, arms hanging straight.",
+      "Brace your midsection and pull the bar toward your lower ribs or upper belly, leading with your elbows.",
+      "Squeeze your shoulder blades together at the top without lifting your chest or changing your torso angle.",
+      "Lower the bar until your arms are straight, holding the same hip hinge for the whole set.",
+      "After your last rep, stand up with the bar, then lower it to the floor by hinging with a flat back."
+    ],
+    "cues": [
+      "Hinge and hold it",
+      "Bar to the belly button",
+      "Elbows drive back",
+      "No standing up to cheat"
+    ],
+    "mistakes": [
+      "Rounding the lower back as fatigue sets in",
+      "Jerking the torso upright to swing the bar up",
+      "Pulling to the chest with elbows flared wide and shoulders shrugged",
+      "Standing so upright that it becomes a shrug"
+    ],
+    "easier": "Use the one-arm dumbbell row or a chest-supported row to take the load off your lower back.",
+    "harder": "Add weight gradually, or pause for one second with the bar against your body."
+  },
+  {
+    "name": "Inverted Row",
+    "type": "strength",
+    "pattern": "horizontal pull",
+    "muscles": { "primary": ["Lats", "Upper back"], "secondary": ["Biceps", "Forearms", "Core"] },
+    "equipment": ["barbell"],
+    "level": "beginner",
+    "summary": "A bodyweight row done hanging under a fixed bar. It strengthens the back and arms, teaches a rigid body line and is a natural stepping stone to pull-ups.",
+    "steps": [
+      "Set a barbell securely in a rack at about waist height, or use a Smith machine bar. Check that it cannot roll or lift out when you pull on it.",
+      "Sit under the bar and grip it slightly wider than your shoulders, palms facing away. Extend your legs with your heels on the floor.",
+      "Tighten your abs and glutes and lift your hips so your body is straight from head to heels, hanging from straight arms.",
+      "Pull your chest to the bar, driving your elbows back and squeezing your shoulder blades together.",
+      "Pause briefly with your chest at the bar, then lower yourself under control until your arms are straight."
+    ],
+    "cues": [
+      "Body stiff as a plank",
+      "Chest to the bar",
+      "Elbows back, shoulders down",
+      "Lower with control"
+    ],
+    "mistakes": [
+      "Letting the hips sag as you pull",
+      "Reaching the chin forward instead of bringing the chest to the bar",
+      "Shrugging the shoulders toward the ears",
+      "Using a bar that is not secured in the rack"
+    ],
+    "easier": "Raise the bar so your body is more upright, or bend your knees and plant your feet flat.",
+    "harder": "Lower the bar, raise your feet on a bench, or pause for two seconds at the top."
+  },
+  {
+    "name": "Seated Cable Row",
+    "type": "strength",
+    "pattern": "horizontal pull",
+    "muscles": { "primary": ["Lats", "Upper back"], "secondary": ["Biceps", "Forearms"] },
+    "equipment": ["cable"],
+    "level": "beginner",
+    "summary": "A seated row on a cable machine that loads the back muscles from a stable base. Simple to learn, easy to progress in small steps and a good balance to pressing work.",
+    "steps": [
+      "Sit at a low cable row station with your feet on the footplates and knees slightly bent. Reach forward and take the handle with both hands.",
+      "Sit back until your torso is upright and your arms are straight, with tension on the cable. Lift your chest and keep your back in its natural curve.",
+      "Pull the handle toward your lower ribs, drawing your shoulder blades back and down and keeping your elbows close to your sides.",
+      "Pause for a moment with the handle near your torso, chest tall.",
+      "Let your arms straighten slowly and your shoulder blades glide forward, without letting your torso collapse. After the set, lean forward from the hips to return the weight gently."
+    ],
+    "cues": [
+      "Sit tall, chest proud",
+      "Shoulder blades back, then elbows",
+      "Elbows brush your ribs",
+      "Slow return, no slamming the stack"
+    ],
+    "mistakes": [
+      "Rocking the torso back and forth to move the weight",
+      "Rounding the lower back when reaching forward",
+      "Shrugging the shoulders up",
+      "Letting the weight stack crash between reps"
+    ],
+    "easier": "Lower the weight and first practice squeezing your shoulder blades together with straight arms.",
+    "harder": "Add weight, pause for two seconds at the ribs, or row one arm at a time with a single handle."
+  },
+  {
+    "name": "Band Row",
+    "type": "strength",
+    "pattern": "horizontal pull",
+    "muscles": { "primary": ["Lats", "Upper back"], "secondary": ["Biceps", "Forearms"] },
+    "equipment": ["band"],
+    "level": "beginner",
+    "summary": "A row with a resistance band anchored in front of you. Light, portable and gentle on the joints, it makes pulling work possible at home or on the road.",
+    "steps": [
+      "Anchor a resistance band at about chest height around a sturdy post, or shut it in a door with a door anchor. Tug it firmly to test that it holds.",
+      "Hold one end in each hand and step back until the band is taut with your arms straight. Stand tall with feet hip-width apart and knees soft.",
+      "Brace your midsection and pull your hands toward your lower ribs, elbows close to your sides.",
+      "Squeeze your shoulder blades together for a second at the end of the pull.",
+      "Straighten your arms slowly, resisting the band on the way back, and repeat."
+    ],
+    "cues": [
+      "Stand tall, ribs down",
+      "Lead with the elbows",
+      "Squeeze, then return slowly",
+      "Shoulders away from your ears"
+    ],
+    "mistakes": [
+      "Leaning back to cheat the pull",
+      "Letting the band snap the arms forward",
+      "Shrugging the shoulders up",
+      "Anchoring to something that can move, or using a worn or cracked band"
+    ],
+    "easier": "Step closer to the anchor or use a lighter band.",
+    "harder": "Step further back, use a thicker band, or row one arm at a time without letting your torso rotate."
+  },
+  {
+    "name": "Pull-Up",
+    "type": "strength",
+    "pattern": "vertical pull",
+    "muscles": { "primary": ["Lats"], "secondary": ["Biceps", "Upper back", "Forearms", "Core"] },
+    "equipment": ["pull-up bar"],
+    "level": "intermediate",
+    "summary": "Hanging from a bar and pulling your chin over it with an overhand grip. A demanding test of back and arm strength relative to your body weight.",
+    "steps": [
+      "Grip a pull-up bar with palms facing away, hands slightly wider than your shoulders. Use a step if you cannot reach the bar comfortably.",
+      "Hang with arms straight and legs slightly in front of you, abs and glutes tight so your body does not swing.",
+      "Start the pull by drawing your shoulder blades down and back, as if tucking them into your back pockets.",
+      "Pull your elbows down toward your ribs and lift your chest toward the bar until your chin clears it.",
+      "Lower yourself under control until your arms are fully straight, then begin the next rep from a still hang."
+    ],
+    "cues": [
+      "Shoulders down before you pull",
+      "Drive the elbows to your ribs",
+      "Chest to the bar",
+      "Full hang at the bottom"
+    ],
+    "mistakes": [
+      "Kicking or swinging to get over the bar",
+      "Stopping the descent halfway and never reaching straight arms",
+      "Craning the chin up to reach the bar",
+      "Dropping fast from the top and jarring the shoulders"
+    ],
+    "easier": "Use a band for assistance, or do lowering-only reps: step up to the top position and take five seconds to descend.",
+    "harder": "Pause for two seconds with your chin over the bar, or add weight with a belt or a dumbbell held between your feet."
+  },
+  {
+    "name": "Chin-Up",
+    "type": "strength",
+    "pattern": "vertical pull",
+    "muscles": { "primary": ["Lats", "Biceps"], "secondary": ["Upper back", "Forearms", "Core"] },
+    "equipment": ["pull-up bar"],
+    "level": "intermediate",
+    "summary": "A pull-up with your palms facing you. The underhand grip brings the biceps in more, so most people find it a little easier and a good first goal on the bar.",
+    "steps": [
+      "Grip the bar with palms facing you, hands about shoulder-width apart.",
+      "Hang with arms straight and shoulders pulled down, not shrugged up against your ears. Tighten your abs and keep your legs still.",
+      "Pull your shoulder blades down, then bend your elbows and pull your chest up toward the bar.",
+      "Keep pulling until your chin is over the bar, with your elbows close to your sides and pointing down.",
+      "Lower slowly to a full hang with straight arms before the next rep."
+    ],
+    "cues": [
+      "Elbows to your ribs",
+      "Lead with the chest, not the chin",
+      "Body still, no swinging",
+      "All the way down each rep"
+    ],
+    "mistakes": [
+      "Half reps that skip the bottom or the top",
+      "Swinging the legs to gain momentum",
+      "Rounding the shoulders forward at the top",
+      "Letting go of all tension and dropping into the hang"
+    ],
+    "easier": "Use a band or an assisted pull-up machine, or practice five-second lowering reps from the top position.",
+    "harder": "Add a pause at the top, slow the lowering phase, or hang extra weight from a belt."
+  },
+  {
+    "name": "Lat Pulldown",
+    "type": "strength",
+    "pattern": "vertical pull",
+    "muscles": { "primary": ["Lats"], "secondary": ["Biceps", "Upper back", "Forearms"] },
+    "equipment": ["cable"],
+    "level": "beginner",
+    "summary": "The machine cousin of the pull-up: you pull a bar down to your chest against an adjustable weight. It builds pulling strength at any level, one small plate at a time.",
+    "steps": [
+      "Adjust the thigh pad so it holds your legs snugly with your feet flat on the floor. Stand to grip the bar a little wider than your shoulders, palms facing away, then sit down.",
+      "Sit tall with arms straight, chest lifted and a slight backward lean of about 10 to 15 degrees.",
+      "Pull your shoulder blades down, then draw the bar to your upper chest by driving your elbows down toward your sides.",
+      "Pause with the bar just below your chin, chest lifted to meet it.",
+      "Let the bar rise slowly until your arms are straight and your shoulders stretch upward, keeping your torso still. Stand up to return the bar after your last rep."
+    ],
+    "cues": [
+      "Chest up to meet the bar",
+      "Elbows down into your back pockets",
+      "Shoulders away from your ears",
+      "Control the bar on the way up"
+    ],
+    "mistakes": [
+      "Leaning far back and using body weight to yank the bar down",
+      "Pulling the bar down behind the neck",
+      "Stopping short, so the arms never straighten",
+      "Letting the weight jerk the shoulders upward"
+    ],
+    "easier": "Reduce the weight and use a shoulder-width grip with palms facing you.",
+    "harder": "Add weight, pause for two seconds at the chest, or work toward assisted pull-ups."
+  },
+  {
+    "name": "Assisted Pull-Up",
+    "type": "strength",
+    "pattern": "vertical pull",
+    "muscles": { "primary": ["Lats"], "secondary": ["Biceps", "Upper back", "Forearms", "Core"] },
+    "equipment": ["pull-up bar", "band"],
+    "level": "beginner",
+    "summary": "A pull-up with a resistance band or machine taking some of your weight. It lets you practice the real movement through its full range while you build strength.",
+    "steps": [
+      "Loop a long resistance band over the pull-up bar and pull one end through the other so it cinches tight. Check the band for nicks or tears before trusting it.",
+      "Stand on a box or step, pull the band down and place one knee or foot securely in the loop. Grip the bar with palms facing away, slightly wider than your shoulders.",
+      "Lower into a hang with straight arms and tight abs, letting the band take part of your weight.",
+      "Pull your shoulder blades down, drive your elbows toward your ribs and pull until your chin clears the bar.",
+      "Lower slowly to straight arms, then repeat.",
+      "To finish, step back onto the box, keep hold of the bar and take your knee or foot out of the band carefully so it does not snap back."
+    ],
+    "cues": [
+      "Same form as the real thing",
+      "Shoulders down first",
+      "Chin over the bar, chest tall",
+      "Slow all the way down"
+    ],
+    "mistakes": [
+      "Bouncing off the band at the bottom to gain momentum",
+      "Using so much help that the last reps are still easy",
+      "Skipping the full hang",
+      "Stepping out of the band carelessly, so it snaps back"
+    ],
+    "easier": "Use a thicker band, or an assisted pull-up machine set to take off more of your weight.",
+    "harder": "Switch to a thinner band over time, then to slow lowering-only reps without assistance."
+  },
+  {
+    "name": "Farmer's Carry",
+    "type": "strength",
+    "pattern": "carry",
+    "muscles": { "primary": ["Forearms", "Upper back", "Core"], "secondary": ["Glutes", "Quadriceps", "Calves", "Shoulders"] },
+    "equipment": ["dumbbell"],
+    "level": "beginner",
+    "summary": "Pick up something heavy in each hand and walk. It builds grip, posture and whole-body stiffness, and it carries over directly to shopping bags and suitcases.",
+    "steps": [
+      "Place two dumbbells or kettlebells of equal weight on the floor, one outside each foot.",
+      "Hinge at the hips with a flat back, grip the handles firmly and stand up by pushing through your legs, as in a deadlift.",
+      "Stand tall with shoulders back and down, ribs stacked over your hips and abs braced.",
+      "Walk forward with short, smooth steps for a set distance, such as 20 to 40 meters (65 to 130 feet), without letting the weights swing.",
+      "Stop and stand still, then hinge with a flat back to set the weights down under control."
+    ],
+    "cues": [
+      "Walk tall, as if balancing a book on your head",
+      "Crush the handles",
+      "Shoulders down and back",
+      "Quick, quiet steps"
+    ],
+    "mistakes": [
+      "Rounding the back to pick up or put down the weights",
+      "Shrugging the shoulders or letting them roll forward",
+      "Leaning back or swaying from side to side",
+      "Holding your breath for the whole walk"
+    ],
+    "easier": "Use lighter weights or shorter distances of 10 to 15 meters (33 to 50 feet).",
+    "harder": "Go heavier, walk further, or switch to a suitcase carry with the weight in one hand."
+  },
+  {
+    "name": "Suitcase Carry",
+    "type": "strength",
+    "pattern": "carry",
+    "muscles": { "primary": ["Obliques", "Core", "Forearms"], "secondary": ["Upper back", "Glutes", "Shoulders"] },
+    "equipment": ["dumbbell"],
+    "level": "beginner",
+    "summary": "A loaded walk with the weight in one hand only. Your trunk has to resist being pulled sideways, which trains the obliques and hips to keep you upright.",
+    "steps": [
+      "Place one dumbbell or kettlebell on the floor beside your right foot.",
+      "Hinge at the hips with a flat back, grip the handle and stand up, keeping the weight close to your side.",
+      "Stand tall with shoulders level and hips square. Brace your midsection so you lean neither toward the weight nor away from it.",
+      "Walk with smooth, even steps for 15 to 30 meters (50 to 100 feet), your free arm relaxed or held slightly out for balance.",
+      "Set the weight down by hinging with a flat back, then switch hands and repeat for the same distance."
+    ],
+    "cues": [
+      "Shoulders level, like a coat hanger",
+      "Do not let the weight win",
+      "Tall spine, ribs over hips",
+      "Smooth, even steps"
+    ],
+    "mistakes": [
+      "Leaning away from the weight to counterbalance it",
+      "Letting the loaded shoulder drop or hike up",
+      "Twisting the torso with each step",
+      "Choosing a weight so heavy that your posture collapses"
+    ],
+    "easier": "Use a lighter weight, or simply stand tall holding it for 20 to 30 seconds per side.",
+    "harder": "Use a heavier weight, or walk more slowly so you spend longer under load."
+  },
+  {
+    "name": "Biceps Curl",
+    "type": "strength",
+    "pattern": "isolation",
+    "muscles": { "primary": ["Biceps"], "secondary": ["Forearms"] },
+    "equipment": ["dumbbell"],
+    "level": "beginner",
+    "summary": "The classic arm exercise: bending the elbows against resistance. It strengthens the biceps and forearms, which help with every pull, lift and carry.",
+    "steps": [
+      "Stand tall with feet hip-width apart and a dumbbell in each hand, arms straight and palms facing forward.",
+      "Pin your elbows to your sides and brace your midsection.",
+      "Bend your elbows and curl the weights toward your shoulders, keeping your upper arms still.",
+      "Squeeze your biceps briefly at the top, with the weights just in front of your shoulders.",
+      "Lower the dumbbells slowly, taking two to three seconds, until your arms are fully straight."
+    ],
+    "cues": [
+      "Elbows stay glued to your ribs",
+      "Only the forearms move",
+      "Lower slowly",
+      "Stand tall, no swinging"
+    ],
+    "mistakes": [
+      "Swinging the torso to throw the weights up",
+      "Letting the elbows drift forward, so the shoulders take over",
+      "Stopping short of straight arms at the bottom",
+      "Dropping the weights quickly instead of lowering them"
+    ],
+    "easier": "Use lighter dumbbells or a resistance band, or curl one arm at a time.",
+    "harder": "Use heavier dumbbells, or slow the lowering phase to four seconds."
+  },
+  {
+    "name": "Overhead Triceps Extension",
+    "type": "strength",
+    "pattern": "isolation",
+    "muscles": { "primary": ["Triceps"], "secondary": ["Shoulders", "Core"] },
+    "equipment": ["dumbbell"],
+    "level": "beginner",
+    "summary": "Straightening the elbows with a dumbbell held overhead. It works the triceps through a long range, building the arm strength behind every press and push-up.",
+    "steps": [
+      "Sit on a bench or stand tall, holding one dumbbell with both hands cupped under its top end. Press it overhead until your arms are straight.",
+      "Brace your abs so your ribs stay down. Keep your upper arms close to your ears and your elbows pointing mostly forward.",
+      "Bend your elbows and lower the dumbbell behind your head slowly, keeping your upper arms still.",
+      "Stop when your forearms meet your biceps, or when you feel a comfortable stretch in the back of your arms.",
+      "Straighten your elbows to lift the weight back overhead, finishing with arms straight but not snapped into lockout."
+    ],
+    "cues": [
+      "Upper arms stay by your ears",
+      "Elbows point forward, not out",
+      "Ribs down",
+      "Slow stretch, smooth press"
+    ],
+    "mistakes": [
+      "Flaring the elbows wide",
+      "Arching the lower back as the weight goes up",
+      "Moving the upper arms, so the shoulders do the work",
+      "Starting too heavy and losing control behind the head"
+    ],
+    "easier": "Use a lighter weight, or do band or cable pushdowns with your elbows at your sides.",
+    "harder": "Use a heavier dumbbell, or extend one arm at a time."
+  },
+  {
+    "name": "Lateral Raise",
+    "type": "strength",
+    "pattern": "isolation",
+    "muscles": { "primary": ["Shoulders"], "secondary": ["Upper back"] },
+    "equipment": ["dumbbell"],
+    "level": "beginner",
+    "summary": "Lifting light dumbbells out to your sides to train the outer part of the shoulder, which pressing alone tends to miss. Small weights, strict form.",
+    "steps": [
+      "Stand tall with a light dumbbell in each hand at your sides, palms facing in and elbows slightly bent.",
+      "Brace your midsection and set your shoulders down, away from your ears.",
+      "Raise your arms out to the sides and slightly in front of your body, leading with your elbows, until your hands reach shoulder height.",
+      "Pause briefly at the top with elbows and wrists level.",
+      "Lower the weights slowly to your sides over two to three seconds."
+    ],
+    "cues": [
+      "Lead with the elbows",
+      "Stop at shoulder height",
+      "Shoulders down, neck long",
+      "Light weight, slow lowering"
+    ],
+    "mistakes": [
+      "Swinging the weights up with the hips and back",
+      "Shrugging the shoulders toward the ears",
+      "Lifting well above shoulder height",
+      "Choosing dumbbells that are too heavy to control"
+    ],
+    "easier": "Use lighter weights, raise one arm at a time, or bend your elbows to 90 degrees.",
+    "harder": "Add a two-second pause at the top, or slow the lowering phase to four seconds."
+  },
+  {
+    "name": "Face Pull",
+    "type": "strength",
+    "pattern": "horizontal pull",
+    "muscles": { "primary": ["Shoulders", "Upper back"], "secondary": ["Biceps"] },
+    "equipment": ["cable"],
+    "level": "beginner",
+    "summary": "Pulling a rope toward your face with your elbows high. It trains the rear shoulders, the upper back and the small muscles that rotate the shoulder, balancing out pressing work.",
+    "steps": [
+      "Set a cable pulley with a rope attachment somewhere between upper-chest and eye height. Grip the rope ends with your thumbs pointing back toward you.",
+      "Step back until your arms are straight and the cable is taut. Stand tall in a hip-width or split stance and brace your midsection.",
+      "Pull the rope toward your face, spreading the ends apart, with your elbows high and wide.",
+      "Finish with your hands beside your ears, knuckles pointing back and shoulder blades squeezed together.",
+      "Hold for a second, then straighten your arms slowly to the start."
+    ],
+    "cues": [
+      "Elbows high and wide",
+      "Pull the rope apart",
+      "Hands finish by your ears",
+      "Ribs down, no leaning back"
+    ],
+    "mistakes": [
+      "Using too much weight and leaning back to move it",
+      "Pulling to the chest with low elbows, which turns it into a row",
+      "Jutting the head forward to meet the rope",
+      "Rushing the return"
+    ],
+    "easier": "Use a light resistance band anchored at face height.",
+    "harder": "Add a two-second hold at the end position before you add weight."
+  },
+  {
+    "name": "Calf Raise",
+    "type": "strength",
+    "pattern": "isolation",
+    "muscles": { "primary": ["Calves"], "secondary": [] },
+    "equipment": ["bodyweight"],
+    "level": "beginner",
+    "summary": "Rising onto the balls of your feet to strengthen the calves and ankles. Useful for walking, running and jumping, and doable anywhere there is a wall for balance.",
+    "steps": [
+      "Stand tall with feet hip-width apart, near a wall or rail you can touch lightly for balance.",
+      "Spread your weight across the balls of both feet, keeping your knees straight but not locked.",
+      "Rise onto the balls of your feet as high as you can, pressing mainly through the big-toe side.",
+      "Pause for one to two seconds at the top, ankles steady.",
+      "Lower your heels slowly to the floor over two to three seconds, then repeat."
+    ],
+    "cues": [
+      "Rise tall, as if a string lifts your head",
+      "Press through the big toes",
+      "Pause at the top",
+      "Slow on the way down"
+    ],
+    "mistakes": [
+      "Bouncing quickly through a tiny range of motion",
+      "Rolling the ankles outward onto the little toes",
+      "Leaning forward and hanging on the support",
+      "Bending the knees to help"
+    ],
+    "easier": "Hold a support with both hands, or do the raises seated with your feet on the floor.",
+    "harder": "Stand on the edge of a step for a deeper heel drop, do them on one leg, or hold a dumbbell."
+  },
+  {
+    "name": "Leg Press",
+    "type": "strength",
+    "pattern": "squat",
+    "muscles": { "primary": ["Quadriceps", "Glutes"], "secondary": ["Hamstrings", "Adductors"] },
+    "equipment": ["machine"],
+    "level": "beginner",
+    "summary": "A machine that lets you push heavy loads with your legs while your back is supported. Good for building leg strength without the balance demands of a squat.",
+    "steps": [
+      "Sit in the machine with your back and hips flat against the pad. Place your feet on the platform about shoulder-width apart, high enough that your heels stay down as your knees bend.",
+      "Press the platform up slightly and release the safety handles. Hold the side grips.",
+      "Bend your knees and lower the platform under control, knees tracking in line with your toes.",
+      "Stop when your knees reach about 90 degrees, or before your hips start to curl off the pad.",
+      "Press through your whole foot to straighten your legs, stopping just short of locking your knees.",
+      "After the last rep, lock the safety handles back in place before taking your feet off the platform."
+    ],
+    "cues": [
+      "Hips and back stay on the pad",
+      "Knees follow the toes",
+      "Whole foot presses",
+      "Soft knees at the top"
+    ],
+    "mistakes": [
+      "Going so deep that the hips roll up and the lower back rounds",
+      "Snapping the knees into a hard lockout",
+      "Letting the knees cave inward",
+      "Lifting the heels, or pushing on the knees with the hands"
+    ],
+    "easier": "Use a lighter load and a shallower range until the movement feels smooth.",
+    "harder": "Add weight gradually, slow the lowering to three seconds, or press one leg at a time with a light load."
+  },
+  {
+    "name": "Hamstring Curl",
+    "type": "strength",
+    "pattern": "isolation",
+    "muscles": { "primary": ["Hamstrings"], "secondary": ["Calves"] },
+    "equipment": ["machine"],
+    "level": "beginner",
+    "summary": "A machine exercise that bends the knees against resistance, training the hamstrings in a way hip hinges do not. A useful partner to deadlifts and squats.",
+    "steps": [
+      "Adjust a seated leg curl machine so your knees line up with its pivot point and the lower pad rests just above your heels. Lower the thigh pad snugly onto your thighs.",
+      "Sit tall against the backrest and hold the handles, legs nearly straight.",
+      "Bend your knees and pull the pad down and back as far as you comfortably can, keeping your hips in the seat.",
+      "Squeeze your hamstrings for a second at the end of the curl.",
+      "Let your legs straighten slowly over two to three seconds, stopping just before the weight stack touches down."
+    ],
+    "cues": [
+      "Knees in line with the pivot",
+      "Hips stay down",
+      "Squeeze, then return slowly",
+      "Smooth, no kicking"
+    ],
+    "mistakes": [
+      "Using momentum to kick the weight through the range",
+      "Lifting the hips or arching the back to finish the rep",
+      "Letting the weight drop quickly on the return",
+      "Setting up with the knees ahead of or behind the machine's pivot"
+    ],
+    "easier": "Reduce the weight and stay in a comfortable range, or try standing curls with a light band.",
+    "harder": "Add weight, slow the return to four seconds, or curl one leg at a time."
+  },
+  {
+    "name": "Leg Extension",
+    "type": "strength",
+    "pattern": "isolation",
+    "muscles": { "primary": ["Quadriceps"], "secondary": [] },
+    "equipment": ["machine"],
+    "level": "beginner",
+    "summary": "A machine exercise that straightens the knees against resistance to train the quadriceps directly. Handy for building thigh strength with controlled reps.",
+    "steps": [
+      "Sit in the machine with your back against the pad and your knees lined up with the pivot point. Set the lower pad on the front of your shins, just above your ankles.",
+      "Hold the side handles and sit tall, knees bent to about 90 degrees.",
+      "Straighten your knees smoothly until your legs are nearly straight, without kicking.",
+      "Pause for a second at the top and tighten your thighs.",
+      "Lower the weight slowly over two to three seconds, stopping just before the weight stack touches down."
+    ],
+    "cues": [
+      "Smooth up, slow down",
+      "Squeeze the thighs at the top",
+      "Hips stay in the seat",
+      "Toes point straight up"
+    ],
+    "mistakes": [
+      "Kicking the weight up with momentum",
+      "Slamming into a hard lockout at the top",
+      "Lifting the hips off the seat",
+      "Loading it so heavily that the front of the knee complains"
+    ],
+    "easier": "Use a light weight and a shorter, comfortable range.",
+    "harder": "Add weight in small steps, hold the top for three seconds, or work one leg at a time."
+  }
+]

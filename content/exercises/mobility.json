@@ -1,0 +1,301 @@
+[
+  {
+    "name": "Cat-Cow",
+    "type": "mobility",
+    "pattern": "mobility drill",
+    "muscles": { "primary": ["Lower back", "Upper back"], "secondary": ["Core", "Shoulders"] },
+    "equipment": ["bodyweight", "mat"],
+    "level": "beginner",
+    "summary": "Slowly rounding and arching your spine on hands and knees. A gentle way to move every part of your back, ideal first thing in the morning or before training.",
+    "steps": [
+      "Kneel on all fours with hands under your shoulders and knees under your hips, back flat.",
+      "Breathe out and round your back toward the ceiling, tucking your tailbone and letting your head drop gently.",
+      "Pause for a second at the top, pushing the floor away with your hands.",
+      "Breathe in and reverse the movement: let your belly sink, lift your tailbone and chest, and look slightly ahead.",
+      "Flow between the two positions slowly for 8 to 12 breaths, moving only within a comfortable range."
+    ],
+    "cues": [
+      "Move with your breath",
+      "Tail and head move together",
+      "Push the floor away as you round",
+      "Slow and smooth, no forcing"
+    ],
+    "mistakes": [
+      "Rushing through without matching the movement to your breath",
+      "Bending the elbows instead of moving the spine",
+      "Cranking the neck back in the arched position",
+      "Forcing into a range that pinches or hurts"
+    ],
+    "easier": "Make the movement smaller, or do it seated with your hands on your knees.",
+    "harder": "Slow down further and try to move one section of the spine at a time, from tailbone to neck."
+  },
+  {
+    "name": "World's Greatest Stretch",
+    "type": "mobility",
+    "pattern": "mobility drill",
+    "muscles": { "primary": ["Hip flexors", "Hamstrings", "Upper back"], "secondary": ["Adductors", "Glutes", "Shoulders", "Chest"] },
+    "equipment": ["bodyweight"],
+    "level": "intermediate",
+    "summary": "A lunge, a twist and a hamstring stretch in one flowing sequence. It opens hips, upper back and hamstrings together, which makes it a favorite warm-up.",
+    "steps": [
+      "From standing, take a long step forward with your right foot into a deep lunge and place both hands on the floor inside that foot. Keep your back leg straight and strong.",
+      "Lower your right elbow toward the inside of your right foot as far as is comfortable, keeping your back flat.",
+      "Put your right hand back down, then rotate your chest to the right and reach your right arm to the ceiling, following your hand with your eyes.",
+      "Return the hand to the floor, then shift your hips back and straighten your front leg, toes up, to stretch the hamstring.",
+      "Bend the front knee again, step forward to stand and repeat on the left side. Do three to five slow rounds per side."
+    ],
+    "cues": [
+      "Long back leg, squeezed glute",
+      "Rotate from the upper back",
+      "Eyes follow the hand",
+      "Breathe out into each position"
+    ],
+    "mistakes": [
+      "Letting the back knee sag and the hips drop to one side",
+      "Twisting from the lower back instead of the chest",
+      "Rushing through without pausing in each position",
+      "Rounding the back during the hamstring stretch"
+    ],
+    "easier": "Rest your back knee on the floor and place your hands on blocks or a low step.",
+    "harder": "Hold each position for two or three breaths and sink a little deeper each round."
+  },
+  {
+    "name": "Half-Kneeling Hip Flexor Stretch",
+    "type": "mobility",
+    "pattern": "stretch",
+    "muscles": { "primary": ["Hip flexors"], "secondary": ["Quadriceps"] },
+    "equipment": ["bodyweight", "mat"],
+    "level": "beginner",
+    "summary": "A kneeling lunge that stretches the front of the hip, an area that often feels tight after long hours of sitting. Small, precise and easy to feel.",
+    "steps": [
+      "Kneel on a mat or cushion on your right knee with your left foot flat on the floor in front of you, both knees bent to about 90 degrees.",
+      "Hold your torso tall and place your hands on your hips.",
+      "Tuck your tailbone under, as if pulling your belt buckle toward your chin, and squeeze the glute of your right leg.",
+      "Keeping that tuck, shift your hips forward a few centimeters until you feel a stretch at the front of your right hip.",
+      "Hold for 20 to 30 seconds while breathing slowly, then switch sides. Repeat two or three times per side."
+    ],
+    "cues": [
+      "Tuck the tail first, then shift",
+      "Squeeze the glute on the kneeling side",
+      "Tall torso, ribs down",
+      "Stretch, not strain"
+    ],
+    "mistakes": [
+      "Lunging far forward and arching the lower back instead of tucking the pelvis",
+      "Leaning the torso forward over the front thigh",
+      "Letting the front knee cave inward",
+      "Bouncing in and out of the stretch"
+    ],
+    "easier": "Hold a chair for balance and make the forward shift smaller.",
+    "harder": "Reach the arm on the kneeling side overhead and lean gently away from that side."
+  },
+  {
+    "name": "90/90 Hip Switch",
+    "type": "mobility",
+    "pattern": "mobility drill",
+    "muscles": { "primary": ["Glutes", "Adductors"], "secondary": ["Hip flexors", "Core"] },
+    "equipment": ["bodyweight", "mat"],
+    "level": "beginner",
+    "summary": "Sitting with both knees bent to 90 degrees and rotating them from side to side. It works hip rotation in both directions, a range that squats and walking rely on.",
+    "steps": [
+      "Sit on the floor with your knees bent and feet flat, wider than your hips. Place your hands on the floor behind you for support.",
+      "Sit tall, then let both knees drop to the right until your right leg rests in front of you and your left leg out to the side, each knee bent to about 90 degrees.",
+      "Pause and lift your chest tall over your front shin for a breath or two.",
+      "Keeping your feet in place, lift both knees and rotate them over to the left into the mirror-image position.",
+      "Continue switching slowly for 6 to 10 reps per side, staying as upright as you can."
+    ],
+    "cues": [
+      "Tall chest, long spine",
+      "Knees move like windshield wipers",
+      "Feet stay planted",
+      "Slow and smooth"
+    ],
+    "mistakes": [
+      "Slumping backward and rounding the lower back",
+      "Forcing the knees to the floor through a pinch in the hip",
+      "Letting the feet slide around",
+      "Racing through the switches"
+    ],
+    "easier": "Lean back on your hands and move through a smaller range, or sit on a cushion.",
+    "harder": "Take your hands off the floor and hold them at your chest, or lean your torso forward over the front shin."
+  },
+  {
+    "name": "Side-Lying Thoracic Rotation",
+    "type": "mobility",
+    "pattern": "mobility drill",
+    "muscles": { "primary": ["Upper back"], "secondary": ["Chest", "Shoulders", "Obliques"] },
+    "equipment": ["bodyweight", "mat"],
+    "level": "beginner",
+    "summary": "Also called the open book: lying on your side and rotating your upper back open. It works on rotation in the middle of the spine, which desk work and driving rarely ask for.",
+    "steps": [
+      "Lie on your right side with your head on a cushion and your hips and knees bent to about 90 degrees, one stacked on the other. Reach both arms straight out in front of you, palms together.",
+      "Keep your knees together and resting on the floor throughout, so your lower back stays still.",
+      "Breathe in. As you breathe out, lift your top arm and sweep it up and over, rotating your chest toward the ceiling.",
+      "Let your eyes follow your hand and let the arm open toward the floor behind you, going only as far as your knees stay together.",
+      "Pause for a breath, then return the arm to the start. Do 8 to 10 slow reps, then switch sides."
+    ],
+    "cues": [
+      "Knees stay glued together",
+      "Follow your hand with your eyes",
+      "Rotate the ribcage, not just the arm",
+      "Exhale as you open"
+    ],
+    "mistakes": [
+      "Letting the top knee lift, so the lower back twists instead of the upper back",
+      "Forcing the hand toward the floor by straining the shoulder",
+      "Moving quickly without breathing",
+      "Reaching with the arm while the chest stays put"
+    ],
+    "easier": "Place a cushion between your knees and open only as far as is comfortable.",
+    "harder": "Hold the open position for three slow breaths on each rep."
+  },
+  {
+    "name": "Downward Dog",
+    "type": "mobility",
+    "pattern": "stretch",
+    "muscles": { "primary": ["Hamstrings", "Calves", "Shoulders"], "secondary": ["Lats", "Upper back"] },
+    "equipment": ["bodyweight", "mat"],
+    "level": "beginner",
+    "summary": "The upside-down V from yoga. It stretches calves, hamstrings and shoulders at once, while your arms and upper back work to hold you up.",
+    "steps": [
+      "Start on all fours with your hands a hand-length ahead of your shoulders, fingers spread wide and toes tucked under.",
+      "Lift your knees and send your hips up and back until your body forms an upside-down V.",
+      "Press the floor away so your arms are straight and your shoulders move away from your ears, with your head relaxed between your arms.",
+      "Keep your knees slightly bent at first to lengthen your back, then gently straighten your legs and reach your heels toward the floor.",
+      "Hold for five slow breaths, or about 20 to 30 seconds, then lower your knees to the floor."
+    ],
+    "cues": [
+      "Hips high and back",
+      "Push the floor away",
+      "Long spine before straight legs",
+      "Heels heavy; they need not touch"
+    ],
+    "mistakes": [
+      "Rounding the back to force the heels down",
+      "Shrugging the shoulders up around the ears",
+      "Resting most of your weight on the wrists instead of pushing the hips back",
+      "Locking the knees hard"
+    ],
+    "easier": "Keep your knees well bent, or place your hands on a chair seat or bench.",
+    "harder": "Pedal your heels alternately, or lift one leg in line with your body for a few breaths."
+  },
+  {
+    "name": "Child's Pose",
+    "type": "mobility",
+    "pattern": "stretch",
+    "muscles": { "primary": ["Lower back", "Lats"], "secondary": ["Glutes", "Shoulders"] },
+    "equipment": ["bodyweight", "mat"],
+    "level": "beginner",
+    "summary": "A resting kneel with your hips back toward your heels and your arms stretched forward. It gently lengthens the back, hips and shoulders and is a good way to wind down.",
+    "steps": [
+      "Kneel on a mat with your big toes together and your knees hip-width apart or wider.",
+      "Sit your hips back toward your heels.",
+      "Fold forward and walk your hands out in front of you until your arms are long and your forehead rests on the mat or a cushion.",
+      "Let your chest sink toward the floor and keep your hips heavy toward your heels.",
+      "Breathe slowly into your back and sides for 30 to 60 seconds, then walk your hands back and sit up slowly."
+    ],
+    "cues": [
+      "Hips heavy, arms long",
+      "Breathe into your back",
+      "Let the shoulders soften",
+      "Nothing should pinch"
+    ],
+    "mistakes": [
+      "Forcing the hips down when the knees or ankles complain, instead of adding a cushion",
+      "Holding your breath or tensing the shoulders",
+      "Letting the hips lift high, so the stretch disappears"
+    ],
+    "easier": "Place a cushion between your hips and heels, or rest your forehead on stacked fists.",
+    "harder": "Walk both hands to one side to stretch the opposite side of your trunk, then switch."
+  },
+  {
+    "name": "Supine Hamstring Stretch",
+    "type": "mobility",
+    "pattern": "stretch",
+    "muscles": { "primary": ["Hamstrings"], "secondary": ["Calves"] },
+    "equipment": ["bodyweight", "mat"],
+    "level": "beginner",
+    "summary": "Lying on your back and raising one straight leg toward the ceiling. It stretches the hamstrings while the floor supports your spine, so your back stays out of it.",
+    "steps": [
+      "Lie on your back with both knees bent and feet flat on the floor.",
+      "Lift one leg and clasp your hands behind the thigh, or loop a strap or towel around the foot.",
+      "Slowly straighten that knee toward the ceiling until you feel a firm but comfortable stretch along the back of the thigh.",
+      "Keep your hips and lower back resting on the floor and your shoulders relaxed.",
+      "Hold for 20 to 30 seconds, breathing slowly, then switch legs. Repeat two or three times per side."
+    ],
+    "cues": [
+      "Hips stay down",
+      "Straighten the knee, do not yank the leg",
+      "Firm stretch, no pain",
+      "Slow breaths, soft shoulders"
+    ],
+    "mistakes": [
+      "Pulling the leg so hard that the hips lift and the back rounds",
+      "Bouncing at the end of the range",
+      "Forcing the knee straight when it hurts behind the knee",
+      "Tensing the neck and shoulders while pulling"
+    ],
+    "easier": "Keep the raised knee slightly bent and the other foot flat on the floor.",
+    "harder": "Straighten the resting leg along the floor, or draw the raised leg a little closer with each exhale."
+  },
+  {
+    "name": "Shoulder Pass-Through",
+    "type": "mobility",
+    "pattern": "mobility drill",
+    "muscles": { "primary": ["Shoulders", "Chest"], "secondary": ["Upper back", "Lats"] },
+    "equipment": ["band"],
+    "level": "beginner",
+    "summary": "Holding a band or broomstick with a wide grip and moving it from your hips, over your head, to behind your back. It takes the shoulders through their full arc before overhead work.",
+    "steps": [
+      "Stand tall holding a light resistance band or a broomstick in front of your thighs with a wide overhand grip, hands well outside shoulder-width.",
+      "Tighten your abs so your ribs stay down, and keep your elbows straight.",
+      "Raise the band slowly in an arc, up in front of you and over your head.",
+      "Continue the arc behind you as far as your shoulders allow without pain, ideally down toward your lower back. With a band, pull it gently apart as you go.",
+      "Reverse the path to bring the band back over your head to your thighs. Do 8 to 12 slow reps."
+    ],
+    "cues": [
+      "Arms straight, grip wide",
+      "Ribs down, no arching",
+      "Slow, even arc",
+      "Stretch the band as it passes overhead"
+    ],
+    "mistakes": [
+      "Bending the elbows, or letting one arm lead, to get around a tight spot",
+      "Arching the lower back and flaring the ribs",
+      "Using a grip that is too narrow for your current range",
+      "Forcing through a pinch or pain in the shoulder"
+    ],
+    "easier": "Take a wider grip, or go only from thighs to overhead and back.",
+    "harder": "Bring your hands a few centimeters closer together as your range improves."
+  },
+  {
+    "name": "Knee-to-Wall Ankle Mobilization",
+    "type": "mobility",
+    "pattern": "mobility drill",
+    "muscles": { "primary": ["Calves"], "secondary": [] },
+    "equipment": ["bodyweight"],
+    "level": "beginner",
+    "summary": "Driving your knee forward over your toes toward a wall while your heel stays down. It works on the ankle bend, called dorsiflexion, that deep squats, lunges and stairs depend on.",
+    "steps": [
+      "Stand facing a wall in a staggered stance, with the toes of your front foot about a hand-width from the wall. Place your hands on the wall for balance.",
+      "Keep your front heel flat on the floor and your foot pointing straight ahead.",
+      "Bend your front knee and glide it forward over your second and third toes until it touches the wall or your heel is about to lift.",
+      "Pause for two seconds at the end of the range, then return to the start.",
+      "Do 10 to 15 slow reps, then switch feet. If your knee touches the wall easily, move your foot a little further back."
+    ],
+    "cues": [
+      "Heel stays glued down",
+      "Knee tracks over the middle toes",
+      "Slow glide, short pause",
+      "Stretch at the back, no pinch at the front"
+    ],
+    "mistakes": [
+      "Letting the heel lift to reach the wall",
+      "Allowing the knee to drift inward and the arch to collapse",
+      "Bouncing quickly in and out",
+      "Pushing through a sharp pinch at the front of the ankle"
+    ],
+    "easier": "Move your foot closer to the wall and hold on firmly for balance.",
+    "harder": "Step the foot further back, or hold the end position for 20 to 30 seconds as a calf stretch."
+  }
+]

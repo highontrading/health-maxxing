@@ -1,0 +1,446 @@
+[
+  {
+    "name": "Brisk Walking",
+    "type": "cardio",
+    "pattern": "locomotion",
+    "muscles": {
+      "primary": [
+        "Heart and lungs"
+      ],
+      "secondary": [
+        "Calves",
+        "Glutes",
+        "Hamstrings",
+        "Quadriceps"
+      ]
+    },
+    "equipment": [
+      "bodyweight"
+    ],
+    "level": "beginner",
+    "summary": "Walking fast enough to raise your breathing while still being able to hold a conversation. The most accessible cardio there is, and it counts toward your weekly activity target.",
+    "steps": [
+      "Wear comfortable, supportive shoes and start with five minutes at an easy pace to warm up.",
+      "Speed up until your breathing is clearly faster but you can still talk in full sentences. If you could sing, go faster.",
+      "Walk tall with your eyes on the horizon, shoulders relaxed and elbows bent, swinging your arms forward and back.",
+      "Land softly on your heel and roll through to push off your toes. To go faster, take quicker steps, not much longer ones.",
+      "Hold that pace for 10 to 30 minutes, depending on your fitness, and build up gradually over the weeks.",
+      "Finish with a few minutes of easy walking to bring your breathing back down."
+    ],
+    "cues": [
+      "Walk as if you are slightly late",
+      "Tall posture, relaxed shoulders",
+      "Quick steps, not giant strides",
+      "Can talk, cannot sing"
+    ],
+    "mistakes": [
+      "Strolling too gently to raise your breathing rate",
+      "Overstriding, which puts the brakes on every step",
+      "Looking down at a phone and hunching forward",
+      "Doing too much too soon after a long break"
+    ],
+    "easier": "Break it into three 10-minute walks spread through the day.",
+    "harder": "Add hills, short faster intervals or a light backpack, or extend the walk toward 45 to 60 minutes."
+  },
+  {
+    "name": "Running",
+    "type": "cardio",
+    "pattern": "locomotion",
+    "muscles": {
+      "primary": [
+        "Heart and lungs"
+      ],
+      "secondary": [
+        "Quadriceps",
+        "Hamstrings",
+        "Glutes",
+        "Calves",
+        "Core"
+      ]
+    },
+    "equipment": [
+      "bodyweight"
+    ],
+    "level": "intermediate",
+    "summary": "Vigorous, time-efficient cardio that needs only shoes and a route. It builds heart and lung fitness well, provided you increase how much you run gradually.",
+    "steps": [
+      "Warm up with five to ten minutes of brisk walking or very easy jogging.",
+      "Run at an easy effort at which you can speak in short sentences. Most of your running should feel this comfortable.",
+      "Run tall with a slight forward lean from the ankles, eyes ahead, shoulders loose and elbows bent to about 90 degrees.",
+      "Take quick, light steps so your feet land under your body, not far out in front of it.",
+      "If you are new to running, alternate one minute of running with two minutes of walking for 20 to 30 minutes, and lengthen the running portions week by week.",
+      "Cool down with five minutes of walking. At first, leave at least a day between runs so muscles, tendons and bones can adapt."
+    ],
+    "cues": [
+      "Run tall, lean slightly from the ankles",
+      "Light, quick feet",
+      "Relaxed hands and shoulders",
+      "Easy enough to chat"
+    ],
+    "mistakes": [
+      "Starting too fast and having to stop after a few minutes",
+      "Increasing distance or frequency too quickly",
+      "Overstriding, with a heavy heel strike far ahead of the body",
+      "Running hard in every session, with no easy days",
+      "Pushing on through sharp or worsening pain"
+    ],
+    "easier": "Use run-walk intervals, or build a base with brisk walking first.",
+    "harder": "Extend one run each week, or add short faster efforts such as six rounds of one minute quick, two minutes easy."
+  },
+  {
+    "name": "Cycling",
+    "type": "cardio",
+    "pattern": "low-impact cardio",
+    "muscles": {
+      "primary": [
+        "Heart and lungs",
+        "Quadriceps"
+      ],
+      "secondary": [
+        "Glutes",
+        "Hamstrings",
+        "Calves"
+      ]
+    },
+    "equipment": [
+      "bike"
+    ],
+    "level": "beginner",
+    "summary": "Pedaling outdoors or on a stationary bike gives you a solid cardio workout with very little impact on your joints. Easy to adjust, from a gentle spin to an all-out effort.",
+    "steps": [
+      "Set the saddle height so your knee keeps a slight bend at the bottom of the pedal stroke and your hips do not rock from side to side.",
+      "Start with five minutes of easy pedaling in a light gear or at low resistance.",
+      "Settle into a steady effort at which your breathing is deeper but you can still talk, pedaling at a smooth rhythm of about 60 to 90 turns per minute.",
+      "Keep your shoulders relaxed, elbows slightly bent and knees tracking straight over the pedals.",
+      "Ride for 20 to 45 minutes. For a harder session, add intervals such as one minute hard followed by two minutes easy, repeated six to eight times.",
+      "Finish with five minutes of easy spinning. Outdoors, wear a helmet and follow local road rules."
+    ],
+    "cues": [
+      "Smooth circles, not stomps",
+      "Relax your grip and shoulders",
+      "Knees track straight",
+      "Spin a lighter gear, do not grind"
+    ],
+    "mistakes": [
+      "A saddle set too low, which loads the front of the knees",
+      "A saddle set too high, which makes the hips rock",
+      "Grinding a heavy gear at a very slow cadence",
+      "Locking the elbows and hunching the shoulders"
+    ],
+    "easier": "Lower the resistance and ride for 10 to 15 minutes, adding a few minutes each week.",
+    "harder": "Add hills or resistance, lengthen the ride, or include hard intervals."
+  },
+  {
+    "name": "Rowing Machine",
+    "type": "cardio",
+    "pattern": "low-impact cardio",
+    "muscles": {
+      "primary": [
+        "Heart and lungs",
+        "Quadriceps",
+        "Glutes",
+        "Lats"
+      ],
+      "secondary": [
+        "Hamstrings",
+        "Upper back",
+        "Biceps",
+        "Core",
+        "Forearms"
+      ]
+    },
+    "equipment": [
+      "cardio machine"
+    ],
+    "level": "beginner",
+    "summary": "A full-body cardio machine that works legs, trunk and back together with no impact. The stroke takes a little learning, and good technique makes it far more effective.",
+    "steps": [
+      "Strap your feet in across the widest part of each foot and set the resistance low to moderate. Hold the handle with relaxed hands.",
+      "Start at the front of the stroke: shins vertical, arms straight, shoulders just in front of your hips and back flat.",
+      "Drive by pushing with your legs first. As your legs straighten, swing your torso back slightly, then pull the handle to your lower ribs.",
+      "Recover in the reverse order: arms out, torso forward from the hips, then bend your knees and slide forward.",
+      "Make the drive powerful and the recovery about twice as long. For steady rowing, that works out to roughly 20 to 26 strokes per minute.",
+      "Row easily for five minutes, then hold a steady effort for 10 to 20 minutes or alternate hard and easy minutes. Finish with a few easy minutes."
+    ],
+    "cues": [
+      "Legs, body, arms. Then arms, body, legs",
+      "Push with the legs before you pull",
+      "Flat back, hinge from the hips",
+      "Slow slide forward"
+    ],
+    "mistakes": [
+      "Pulling with the arms before the legs have pushed",
+      "Rounding the lower back at the front of the stroke",
+      "Setting the resistance to maximum and grinding",
+      "Rushing up the slide, so the stroke becomes choppy",
+      "Leaning far back at the finish"
+    ],
+    "easier": "Row for one to two minutes at a time with short rests, focusing on the order of the stroke.",
+    "harder": "Extend the steady rowing, or do intervals such as eight rounds of one minute hard and one minute easy."
+  },
+  {
+    "name": "Swimming",
+    "type": "cardio",
+    "pattern": "low-impact cardio",
+    "muscles": {
+      "primary": [
+        "Heart and lungs",
+        "Lats",
+        "Shoulders"
+      ],
+      "secondary": [
+        "Core",
+        "Triceps",
+        "Upper back",
+        "Glutes",
+        "Quadriceps"
+      ]
+    },
+    "equipment": [
+      "pool"
+    ],
+    "level": "beginner",
+    "summary": "Full-body cardio with the water supporting your weight, which makes it gentle on joints. It trains heart, lungs and upper body together, at whatever pace you choose.",
+    "steps": [
+      "Choose a lane that matches your speed and warm up with two to four easy lengths in any stroke.",
+      "For front crawl, keep your body long and level with your eyes on the pool floor, and kick gently and steadily from the hips.",
+      "Reach forward with each arm, then pull back under your body and past your hip. Let your body rotate slightly with each stroke.",
+      "Breathe out steadily while your face is in the water, and turn your head to the side to breathe in. Do not lift it forward.",
+      "Swim lengths at an effort that keeps your breathing under control, resting 15 to 30 seconds at the wall as needed, for 15 to 30 minutes in total.",
+      "Finish with a couple of easy lengths. Swim where a lifeguard is on duty, and never alone in open water."
+    ],
+    "cues": [
+      "Long body, eyes down",
+      "Exhale in the water",
+      "Reach, then pull past the hip",
+      "Smooth beats fast"
+    ],
+    "mistakes": [
+      "Holding your breath underwater and gasping each time you turn your head",
+      "Lifting the head forward to breathe, which sinks the legs",
+      "Kicking from the knees with big splashes",
+      "Sprinting the first lengths and fading fast"
+    ],
+    "easier": "Rest at each wall, use a kickboard or switch to a gentler stroke. If you cannot swim yet, start with adult lessons.",
+    "harder": "Shorten the rests, swim longer continuous sets, or add faster lengths between easy ones."
+  },
+  {
+    "name": "Jump Rope",
+    "type": "cardio",
+    "pattern": "jumping",
+    "muscles": {
+      "primary": [
+        "Heart and lungs",
+        "Calves"
+      ],
+      "secondary": [
+        "Shoulders",
+        "Forearms",
+        "Quadriceps",
+        "Core"
+      ]
+    },
+    "equipment": [
+      "jump rope"
+    ],
+    "level": "intermediate",
+    "summary": "Skipping rope packs a lot of cardio into a small space and a short time, and it sharpens footwork and coordination. The impact is real, so build up in short rounds.",
+    "steps": [
+      "Size the rope: stand on its middle with one foot and check that the handles reach about armpit height. Jump on a firm surface with a little give, such as a wooden floor or a mat.",
+      "Hold the handles with your elbows close to your sides and your hands just in front of your hips.",
+      "Turn the rope with small circles of your wrists, not big swings of your arms.",
+      "Jump just high enough to clear the rope, about 2 to 3 cm (1 inch), and land softly on the balls of your feet with knees slightly bent.",
+      "Start with rounds of 20 to 30 seconds followed by equal rest, for five to ten minutes in total.",
+      "Lengthen the rounds gradually as your calves and coordination adapt, and finish with an easy walk."
+    ],
+    "cues": [
+      "Small jumps, quiet feet",
+      "Wrists turn the rope",
+      "Elbows in",
+      "Tall and relaxed"
+    ],
+    "mistakes": [
+      "Jumping far higher than the rope requires",
+      "Swinging the whole arm from the shoulder",
+      "Landing flat-footed or on stiff legs",
+      "Doing long sessions before your calves and Achilles tendons are ready"
+    ],
+    "easier": "Practice the jump rhythm without a rope, or step over the rope one foot at a time.",
+    "harder": "Extend rounds to one to three minutes, or try alternate-foot steps and faster turns."
+  },
+  {
+    "name": "Stair Climbing",
+    "type": "cardio",
+    "pattern": "locomotion",
+    "muscles": {
+      "primary": [
+        "Heart and lungs",
+        "Quadriceps",
+        "Glutes"
+      ],
+      "secondary": [
+        "Calves",
+        "Hamstrings"
+      ]
+    },
+    "equipment": [
+      "bodyweight"
+    ],
+    "level": "beginner",
+    "summary": "Climbing stairs lifts your whole body weight with every step, so it raises your heart rate fast and strengthens your legs. Any staircase will do.",
+    "steps": [
+      "Find a safe staircase with a handrail, or use a stair-climbing machine. Walk on the flat or climb slowly for three to five minutes to warm up.",
+      "Climb at a steady pace, placing your whole foot on each step and pushing up through the heel and midfoot.",
+      "Stand tall with a slight forward lean from the hips, eyes on the steps ahead, and keep a hand near the rail.",
+      "On real stairs, walk back down slowly as your recovery, taking care with every step.",
+      "Repeat the climbs for 10 to 20 minutes in total, at an effort that makes full sentences difficult by the top.",
+      "Finish with a few minutes of easy walking on the flat."
+    ],
+    "cues": [
+      "Whole foot on the step",
+      "Push through the heel",
+      "Tall chest, hand near the rail",
+      "Steady rhythm"
+    ],
+    "mistakes": [
+      "Hauling yourself up with the handrail, or leaning on the machine's console",
+      "Climbing on your toes only, which overloads the calves",
+      "Hurrying on the way down when your legs are tired",
+      "Hunching forward and staring at your feet"
+    ],
+    "easier": "Climb one flight at a time with a rest at the top, and use the rail for balance.",
+    "harder": "Climb faster, take the stairs two at a time on the way up, or wear a light backpack."
+  },
+  {
+    "name": "Burpee",
+    "type": "cardio",
+    "pattern": "full-body conditioning",
+    "muscles": {
+      "primary": [
+        "Heart and lungs",
+        "Quadriceps",
+        "Chest"
+      ],
+      "secondary": [
+        "Glutes",
+        "Shoulders",
+        "Triceps",
+        "Core",
+        "Calves"
+      ]
+    },
+    "equipment": [
+      "bodyweight"
+    ],
+    "level": "intermediate",
+    "summary": "A squat, a plank, a push-up and a jump stitched into one move. It drives your heart rate up fast with no equipment, as long as you keep the form tidy.",
+    "steps": [
+      "Stand with your feet shoulder-width apart.",
+      "Squat down and place your hands on the floor just in front of your feet.",
+      "Step or jump your feet back into a high plank, abs tight so your hips do not sag.",
+      "Lower your chest to the floor with a push-up, then press back up to the plank.",
+      "Step or jump your feet forward to land outside your hands with your heels down.",
+      "Stand up and finish with a small jump, reaching your arms overhead. Land softly with bent knees and go straight into the next rep.",
+      "Work in short sets, such as 5 to 10 reps or 20 to 30 seconds, resting long enough to keep every rep clean."
+    ],
+    "cues": [
+      "Hips stay level in the plank",
+      "Feet land flat before you stand",
+      "Soft, quiet landings",
+      "A steady pace beats a sloppy sprint"
+    ],
+    "mistakes": [
+      "Letting the hips sag as the feet jump back",
+      "Landing on the toes with the knees caving in",
+      "Rounding the back and standing up with straight legs",
+      "Racing until the form falls apart"
+    ],
+    "easier": "Step your feet back and forward instead of jumping, and skip the push-up and the jump at the top.",
+    "harder": "Add a tuck jump at the top, or do timed rounds such as 30 seconds of work and 30 seconds of rest."
+  },
+  {
+    "name": "Jumping Jack",
+    "type": "cardio",
+    "pattern": "jumping",
+    "muscles": {
+      "primary": [
+        "Heart and lungs"
+      ],
+      "secondary": [
+        "Calves",
+        "Shoulders",
+        "Glutes",
+        "Adductors"
+      ]
+    },
+    "equipment": [
+      "bodyweight"
+    ],
+    "level": "beginner",
+    "summary": "The schoolyard classic: jumping your feet out while your arms swing overhead. A quick, equipment-free way to warm up or raise your heart rate in a small space.",
+    "steps": [
+      "Stand tall with your feet together and your arms at your sides.",
+      "Jump your feet out to a little wider than shoulder-width while swinging your arms out and up until your hands meet, or nearly meet, overhead.",
+      "Land softly on the balls of your feet with knees slightly bent and pointing the same way as your toes.",
+      "Jump straight back to the start, feet together and arms at your sides.",
+      "Keep a steady rhythm for 20 to 60 seconds, rest, and repeat for three to five rounds. As a warm-up, one or two minutes is plenty."
+    ],
+    "cues": [
+      "Soft knees, quiet landings",
+      "Arms all the way up",
+      "Stay tall",
+      "Find a rhythm you can hold"
+    ],
+    "mistakes": [
+      "Landing heavily on stiff legs",
+      "Letting the knees collapse inward on landing",
+      "Half-hearted arm swings that stop at shoulder height",
+      "Arching the lower back as the arms go overhead"
+    ],
+    "easier": "Step one foot out to the side at a time while raising your arms, with no jump.",
+    "harder": "Go faster, add a squat each time your feet land wide, or extend the rounds."
+  },
+  {
+    "name": "Incline Treadmill Walk",
+    "type": "cardio",
+    "pattern": "locomotion",
+    "muscles": {
+      "primary": [
+        "Heart and lungs",
+        "Glutes",
+        "Calves"
+      ],
+      "secondary": [
+        "Hamstrings",
+        "Quadriceps"
+      ]
+    },
+    "equipment": [
+      "cardio machine"
+    ],
+    "level": "beginner",
+    "summary": "Walking uphill on a treadmill raises your heart rate far more than walking on the flat, without the impact of running. A way to make walking properly hard that is gentle on the joints.",
+    "steps": [
+      "Start with the treadmill flat and walk at a comfortable pace for three to five minutes.",
+      "Raise the incline in stages to between 5% and 10%, at a speed you can walk without holding on. For many people that is 4 to 6 km/h (2.5 to 3.7 mph).",
+      "Walk tall with a slight forward lean from the ankles, swinging your arms naturally.",
+      "Take slightly shorter steps than you would on the flat and push off through your whole foot.",
+      "Hold an effort at which you can speak in short sentences for 15 to 30 minutes, or alternate a few minutes steep with a few minutes flat.",
+      "Lower the incline and slow down for three to five minutes before stepping off."
+    ],
+    "cues": [
+      "Hands off the rails",
+      "Tall posture, slight lean from the ankles",
+      "Shorter steps, steady rhythm",
+      "Swing your arms"
+    ],
+    "mistakes": [
+      "Gripping the handrails and leaning back, which takes away most of the work",
+      "Setting the incline or speed too high to walk naturally",
+      "Hunching forward from the waist",
+      "Jumping straight to a steep grade without warming up the calves"
+    ],
+    "easier": "Use a 2% to 4% incline and a slower speed, building up over several weeks.",
+    "harder": "Raise the incline toward 12% to 15%, lengthen the session, or add a light backpack."
+  }
+]

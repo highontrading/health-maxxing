@@ -1,0 +1,360 @@
+[
+  {
+    "myth": "You need eight glasses of water a day",
+    "verdict": "misleading",
+    "answer": "No evidence backs the number: fluid needs vary from person to person, and other drinks and the water in food count too.",
+    "explanation": "A 2002 review went looking for the science behind the rule and found none for healthy adults; it may come from 1945 US advice of about 2.5 liters a day, which added that most of that is already in food. Official figures are not far off but are broader: the NHS suggests 6 to 8 cups of fluid a day and counts tea, coffee and milk. Needs rise in heat, with exercise and during pregnancy or breastfeeding. For most healthy people, drinking when thirsty and aiming for pale yellow urine is a good enough guide.",
+    "category": "nutrition",
+    "sticker": "bottle",
+    "sources": [
+      {
+        "title": "\"Drink at least eight glasses of water a day.\" Really? Is there scientific evidence for \"8 x 8\"?",
+        "publisher": "American Journal of Physiology: Regulatory, Integrative and Comparative Physiology",
+        "year": 2002,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Drink+at+least+eight+glasses+of+water+a+day+Really+Is+there+scientific+evidence+for+8+x+8"
+      },
+      {
+        "title": "Water, hydration, and health",
+        "publisher": "Nutrition Reviews",
+        "year": 2010,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Water%2C+hydration%2C+and+health"
+      },
+      {
+        "title": "Water, drinks and hydration",
+        "publisher": "NHS",
+        "url": "https://www.nhs.uk/live-well/eat-well/food-guidelines-and-food-labels/water-drinks-nutrition/"
+      }
+    ]
+  },
+  {
+    "myth": "Doing crunches burns belly fat",
+    "verdict": "false",
+    "answer": "You cannot pick where your body loses fat; ab exercises strengthen the muscle underneath without shrinking the fat on top.",
+    "explanation": "Spot reduction has been tested directly: in one trial, six weeks of abdominal exercises on five days a week improved muscular endurance but did not reduce belly fat or waist size compared with no training. When you use more energy than you eat, fat is drawn from stores all over the body, in an order set largely by your genes, sex and hormones. A modest calorie deficit plus regular aerobic and strength training is what shrinks a waistline. Crunches are still worth doing for a stronger trunk.",
+    "category": "fitness",
+    "sticker": "tape",
+    "sources": [
+      {
+        "title": "The effect of abdominal exercise on abdominal fat",
+        "publisher": "Journal of Strength and Conditioning Research",
+        "year": 2011,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=The+effect+of+abdominal+exercise+on+abdominal+fat"
+      },
+      {
+        "title": "Regional fat changes induced by localized muscle endurance resistance training",
+        "publisher": "Journal of Strength and Conditioning Research",
+        "year": 2013,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Regional+fat+changes+induced+by+localized+muscle+endurance+resistance+training"
+      }
+    ]
+  },
+  {
+    "myth": "Everyone needs eight hours of sleep a night",
+    "verdict": "partly-true",
+    "answer": "Eight hours is a fair average, but the adult recommendation is a range, at least 7 hours, and individual needs differ.",
+    "explanation": "US sleep societies recommend 7 or more hours a night for adults, and the National Sleep Foundation gives 7 to 9 hours for ages 18 to 64, 7 to 8 for older adults and 8 to 10 for teenagers. Within those ranges people differ, so how you function is a better test than the clock: if you wake without an alarm and stay alert all day, you are probably getting enough. Regularly sleeping less than 7 hours is linked with weight gain, diabetes, high blood pressure, heart disease and depression.",
+    "category": "sleep",
+    "sticker": "clock",
+    "sources": [
+      {
+        "title": "Recommended Amount of Sleep for a Healthy Adult: A Joint Consensus Statement of the American Academy of Sleep Medicine and Sleep Research Society",
+        "publisher": "Sleep",
+        "year": 2015,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Recommended+Amount+of+Sleep+for+a+Healthy+Adult%3A+A+Joint+Consensus+Statement+of+the+American+Academy+of+Sleep+Medicine+and+Sleep+Research+Society"
+      },
+      {
+        "title": "National Sleep Foundation's sleep time duration recommendations: methodology and results summary",
+        "publisher": "Sleep Health",
+        "year": 2015,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=National+Sleep+Foundation%27s+sleep+time+duration+recommendations%3A+methodology+and+results+summary"
+      }
+    ]
+  },
+  {
+    "myth": "Depression is just sadness, and you can snap out of it if you try",
+    "verdict": "false",
+    "answer": "Depression is a medical condition that affects mood, thinking and the body; willpower does not cure it, but treatment works.",
+    "explanation": "Sadness is a normal reaction that passes, whereas depression lasts at least two weeks, often far longer, and changes sleep, appetite, energy, concentration and the ability to enjoy things. The WHO estimates that about 5% of adults worldwide live with it, and genes, life events and physical illness all play a part. Talking therapies and antidepressants are effective, while being told to cheer up mostly adds guilt. If low mood lasts more than two weeks, see a health professional, and if you are thinking about harming yourself, contact local emergency services or a crisis line straight away (findahelpline.com lists services by country).",
+    "category": "mental-health",
+    "sticker": "cloud",
+    "sources": [
+      {
+        "title": "Depressive disorder (depression)",
+        "publisher": "World Health Organization",
+        "url": "https://www.who.int/news-room/fact-sheets/detail/depression"
+      },
+      {
+        "title": "Depression",
+        "publisher": "National Institute of Mental Health",
+        "url": "https://www.nimh.nih.gov/health/topics/depression"
+      },
+      {
+        "title": "Find A Helpline: free emotional support in your country",
+        "publisher": "Find A Helpline",
+        "url": "https://findahelpline.com"
+      }
+    ]
+  },
+  {
+    "myth": "Women's heart attack symptoms can be different from men's",
+    "verdict": "true",
+    "answer": "True: chest pain is the most common symptom in both sexes, but women are more likely to have other symptoms too, or instead.",
+    "explanation": "Chest pressure or pain is the leading warning sign for women and men alike. Women, though, more often also report shortness of breath, nausea or vomiting, and pain in the back or jaw, which can be mistaken for indigestion, flu or stress. That may be one reason women tend to wait longer before seeking help. Any of these symptoms that come on without a clear cause, especially together, are a reason to call your local emergency number straight away.",
+    "category": "heart-health",
+    "sticker": "heart",
+    "sources": [
+      {
+        "title": "Heart Attack Symptoms in Women",
+        "publisher": "American Heart Association",
+        "url": "https://www.heart.org/en/health-topics/heart-attack/warning-signs-of-a-heart-attack/heart-attack-symptoms-in-women"
+      },
+      {
+        "title": "Heart Attack: Symptoms",
+        "publisher": "National Heart, Lung, and Blood Institute",
+        "url": "https://www.nhlbi.nih.gov/health/heart-attack/symptoms"
+      }
+    ]
+  },
+  {
+    "myth": "Stress and spicy food cause stomach ulcers",
+    "verdict": "false",
+    "answer": "Most ulcers are caused by Helicobacter pylori bacteria or by regular use of anti-inflammatory painkillers, not by stress or chili.",
+    "explanation": "For decades ulcers were blamed on worry and diet, until two Australian doctors showed that a bacterium, H. pylori, infects the stomach lining and causes most of them, work that won the 2005 Nobel Prize. The other main cause is long-term use of NSAIDs such as ibuprofen and aspirin. Stress and spicy food can make an existing ulcer feel worse, but they do not create one. Most ulcers now heal with acid-reducing medicine, plus a short course of antibiotics when H. pylori is found.",
+    "category": "gut-health",
+    "sticker": "gut",
+    "sources": [
+      {
+        "title": "Peptic Ulcers (Stomach or Duodenal Ulcers)",
+        "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases",
+        "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/peptic-ulcers-stomach-ulcers"
+      },
+      {
+        "title": "Stomach ulcer",
+        "publisher": "NHS",
+        "url": "https://www.nhs.uk/conditions/stomach-ulcer/"
+      }
+    ]
+  },
+  {
+    "myth": "Your metabolism crashes once you hit 30",
+    "verdict": "false",
+    "answer": "The best data show that metabolism holds steady from about age 20 to 60 and only then declines, slowly.",
+    "explanation": "A 2021 study pooled gold-standard measurements of daily energy use from more than 6,400 people in 29 countries, aged from eight days to 95 years. After adjusting for body size and composition, energy expenditure stayed flat from the 20s through the 50s, then fell by about 0.7% a year after 60. Midlife weight gain is real, but it is better explained by moving less, carrying less muscle and eating a little more than by a metabolic slump. Those, unlike your birth date, are things you can change.",
+    "category": "metabolism",
+    "sticker": "flame",
+    "sources": [
+      {
+        "title": "Daily energy expenditure through the human life course",
+        "publisher": "Science",
+        "year": 2021,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Daily+energy+expenditure+through+the+human+life+course"
+      }
+    ]
+  },
+  {
+    "myth": "You can't get pregnant during your period",
+    "verdict": "false",
+    "answer": "It is unlikely but possible, because sperm can survive for days and ovulation can come early, especially in short cycles.",
+    "explanation": "Sperm can live in the reproductive tract for up to five days, and occasionally longer. If your cycle is short or your period long, sex toward the end of a period can leave sperm still present when you ovulate a few days later. Cycle length also varies from month to month, and bleeding between periods can be mistaken for a period, so timing is hard to judge. The NHS says you can get pregnant at any point in your cycle, so if you do not want to conceive, use contraception every time.",
+    "category": "womens-health",
+    "sticker": "calendar",
+    "sources": [
+      {
+        "title": "Periods and fertility in the menstrual cycle",
+        "publisher": "NHS",
+        "url": "https://www.nhs.uk/conditions/periods/fertility-in-the-menstrual-cycle/"
+      },
+      {
+        "title": "Fertility Awareness-Based Methods of Family Planning",
+        "publisher": "American College of Obstetricians and Gynecologists",
+        "url": "https://www.acog.org/womens-health/faqs/fertility-awareness-based-methods-of-family-planning"
+      }
+    ]
+  },
+  {
+    "myth": "A vasectomy lowers your testosterone and sex drive",
+    "verdict": "false",
+    "answer": "A vasectomy only blocks the tubes that carry sperm; testosterone, erections, orgasm and sex drive are unaffected.",
+    "explanation": "The procedure cuts or seals the vas deferens, the two tubes that carry sperm from the testicles. The testicles keep making testosterone, which reaches the rest of the body through the bloodstream, not through those tubes. Sperm make up only a small part of semen, so ejaculation looks and feels the same. You are not sterile straight away: use other contraception until a semen test, usually a few months later, confirms that no sperm remain.",
+    "category": "mens-health",
+    "sticker": "mustache",
+    "sources": [
+      {
+        "title": "Vasectomy",
+        "publisher": "Urology Care Foundation",
+        "url": "https://www.urologyhealth.org/urology-a-z/v/vasectomy"
+      },
+      {
+        "title": "Vasectomy",
+        "publisher": "MedlinePlus (US National Library of Medicine)",
+        "url": "https://medlineplus.gov/vasectomy.html"
+      }
+    ]
+  },
+  {
+    "myth": "You can get sunburned on a cloudy day",
+    "verdict": "true",
+    "answer": "True: much of the sun's UV passes through cloud, so you can burn without feeling hot or seeing the sun.",
+    "explanation": "Clouds block visible light and heat far better than they block ultraviolet rays: the American Academy of Dermatology says up to 80% of the sun's UV can pass through them, and the WHO notes that UV levels can stay high under cloud cover. Sunburn comes from UV, not warmth, so cool, breezy or overcast days are when people often get caught out. Snow, sand and water add to the dose by reflecting UV back at you. Check the UV index instead of the sky, and use sun protection when it is 3 or above.",
+    "category": "skin-hair-teeth",
+    "sticker": "sun",
+    "sources": [
+      {
+        "title": "Sunscreen FAQs",
+        "publisher": "American Academy of Dermatology",
+        "url": "https://www.aad.org/public/everyday-care/sun-protection/shade-clothing-sunscreen/sunscreen-faqs"
+      },
+      {
+        "title": "Ultraviolet radiation",
+        "publisher": "World Health Organization",
+        "url": "https://www.who.int/news-room/fact-sheets/detail/ultraviolet-radiation"
+      }
+    ]
+  },
+  {
+    "myth": "A daily multivitamin helps you live longer",
+    "verdict": "false",
+    "answer": "Large studies find that healthy adults who take a daily multivitamin live no longer than those who do not.",
+    "explanation": "A 2024 analysis by US National Institutes of Health researchers followed about 390,000 generally healthy adults for more than 20 years and found no lower risk of death among daily multivitamin users. In 2022 the US Preventive Services Task Force concluded that there was not enough evidence to recommend multivitamins for preventing heart disease or cancer, and it advised against beta-carotene and vitamin E for that purpose. Supplements still matter for specific needs, such as folic acid before and in early pregnancy, vitamin B12 for vegans, or a diagnosed deficiency.",
+    "category": "longevity",
+    "sticker": "pill",
+    "sources": [
+      {
+        "title": "Multivitamin Use and Mortality Risk in 3 Prospective US Cohorts",
+        "publisher": "JAMA Network Open",
+        "year": 2024,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Multivitamin+Use+and+Mortality+Risk+in+3+Prospective+US+Cohorts"
+      },
+      {
+        "title": "Vitamin, Mineral, and Multivitamin Supplementation to Prevent Cardiovascular Disease and Cancer: Preventive Medication",
+        "publisher": "US Preventive Services Task Force",
+        "year": 2022,
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/vitamin-supplementation-to-prevent-cvd-and-cancer-preventive-medication"
+      }
+    ]
+  },
+  {
+    "myth": "It is never too late to quit smoking",
+    "verdict": "true",
+    "answer": "True: quitting improves health and adds years of life at every age, and the sooner you stop, the more you gain.",
+    "explanation": "A study of more than 200,000 US adults found that smokers lost at least a decade of life compared with people who had never smoked. Those who quit before 40 avoided about 90% of that excess risk, and people who quit at 45 to 54 or 55 to 64 still gained about six and four years of life. Benefits begin fast: according to the WHO, heart rate and blood pressure drop within 20 minutes, and after a year the added risk of coronary heart disease is about half that of someone still smoking.",
+    "category": "lifestyle",
+    "sticker": "lungs",
+    "sources": [
+      {
+        "title": "21st-century hazards of smoking and benefits of cessation in the United States",
+        "publisher": "New England Journal of Medicine",
+        "year": 2013,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=21st-century+hazards+of+smoking+and+benefits+of+cessation+in+the+United+States"
+      },
+      {
+        "title": "Tobacco: Health benefits of smoking cessation",
+        "publisher": "World Health Organization",
+        "url": "https://www.who.int/news-room/questions-and-answers/item/tobacco-health-benefits-of-smoking-cessation"
+      },
+      {
+        "title": "Tobacco",
+        "publisher": "World Health Organization",
+        "url": "https://www.who.int/news-room/fact-sheets/detail/tobacco"
+      }
+    ]
+  },
+  {
+    "myth": "Vaccines cause autism",
+    "verdict": "false",
+    "answer": "Decades of research involving millions of children show no link between vaccines and autism.",
+    "explanation": "The claim traces to a 1998 paper on 12 children that suggested a link with the MMR vaccine; it was retracted, and its lead author was struck off the UK medical register after investigations found ethical breaches and misrepresented data. Large studies have since looked hard for a link and found none: a Danish study of more than 650,000 children found no higher autism risk in those given MMR, even among children with autistic siblings, and a meta-analysis covering over 1.2 million children reached the same conclusion. Signs of autism often become noticeable at around the age when childhood vaccines are given, which can make coincidence look like cause.",
+    "category": "immunity",
+    "sticker": "syringe",
+    "sources": [
+      {
+        "title": "Measles, Mumps, Rubella Vaccination and Autism: A Nationwide Cohort Study",
+        "publisher": "Annals of Internal Medicine",
+        "year": 2019,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Measles%2C+Mumps%2C+Rubella+Vaccination+and+Autism%3A+A+Nationwide+Cohort+Study"
+      },
+      {
+        "title": "Vaccines are not associated with autism: an evidence-based meta-analysis of case-control and cohort studies",
+        "publisher": "Vaccine",
+        "year": 2014,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Vaccines+are+not+associated+with+autism%3A+an+evidence-based+meta-analysis+of+case-control+and+cohort+studies"
+      },
+      {
+        "title": "Autism",
+        "publisher": "World Health Organization",
+        "url": "https://www.who.int/news-room/fact-sheets/detail/autism-spectrum-disorders"
+      }
+    ]
+  },
+  {
+    "myth": "We only use 10% of our brains",
+    "verdict": "false",
+    "answer": "Brain imaging shows activity throughout the brain over the course of a day; there is no silent 90% waiting to be switched on.",
+    "explanation": "Scans show that even simple tasks engage many regions, and that across a day, sleep included, virtually all of the brain is active. Damage to almost any part of it, from a stroke or an injury, causes some loss of function, which would not happen if most of it sat idle. The brain is also costly to run, using about a fifth of the body's energy at rest, which is hard to square with 90% of it doing nothing. Surveys still find the claim widely believed, even among teachers.",
+    "category": "brain-health",
+    "sticker": "brain",
+    "sources": [
+      {
+        "title": "Brain Basics: Know Your Brain",
+        "publisher": "National Institute of Neurological Disorders and Stroke",
+        "url": "https://www.ninds.nih.gov/health-information/public-education/brain-basics/brain-basics-know-your-brain"
+      },
+      {
+        "title": "Appraising the brain's energy budget",
+        "publisher": "Proceedings of the National Academy of Sciences",
+        "year": 2002,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Appraising+the+brain%27s+energy+budget"
+      },
+      {
+        "title": "Neuromyths in education: Prevalence and predictors of misconceptions among teachers",
+        "publisher": "Frontiers in Psychology",
+        "year": 2012,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Neuromyths+in+education%3A+Prevalence+and+predictors+of+misconceptions+among+teachers"
+      }
+    ]
+  },
+  {
+    "myth": "Cracking your knuckles gives you arthritis",
+    "verdict": "false",
+    "answer": "Studies comparing habitual knuckle crackers with non-crackers find no higher rate of hand arthritis.",
+    "explanation": "The pop comes from gas bubbles in the fluid that lubricates the joint, not from bones grinding. In a study of 215 people aged 50 to 89, hand osteoarthritis was found in about 18% of knuckle crackers and 21.5% of non-crackers, with no link to how long or how often they had cracked. One doctor went further and cracked the knuckles of his left hand, but not his right, for 50 years; neither hand developed arthritis. If a joint is painful, swollen or stiff when it cracks, get it checked.",
+    "category": "bones-joints",
+    "sticker": "bone",
+    "sources": [
+      {
+        "title": "Knuckle cracking and hand osteoarthritis",
+        "publisher": "Journal of the American Board of Family Medicine",
+        "year": 2011,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Knuckle+cracking+and+hand+osteoarthritis"
+      },
+      {
+        "title": "Does knuckle cracking lead to arthritis of the fingers?",
+        "publisher": "Arthritis & Rheumatism",
+        "year": 1998,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Does+knuckle+cracking+lead+to+arthritis+of+the+fingers%3F"
+      }
+    ]
+  },
+  {
+    "myth": "Everyone over 50 should take a daily aspirin to protect their heart",
+    "verdict": "misleading",
+    "answer": "Daily aspirin helps many people who have already had a heart attack or stroke, but for most others the bleeding risk outweighs the benefit.",
+    "explanation": "Aspirin makes blood less likely to clot, which prevents some heart attacks and strokes but also raises the risk of bleeding in the stomach and brain. For people with established cardiovascular disease the benefit is usually clear; for those without it, large trials published in 2018 found little or no net gain. The US Preventive Services Task Force now says adults aged 40 to 59 at raised cardiovascular risk should decide individually with their clinician, and that people aged 60 or over should not start aspirin for prevention. If you already take it on medical advice, do not stop without checking first.",
+    "category": "preventive-care",
+    "sticker": "pill",
+    "sources": [
+      {
+        "title": "Aspirin Use to Prevent Cardiovascular Disease: Preventive Medication",
+        "publisher": "US Preventive Services Task Force",
+        "year": 2022,
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/aspirin-to-prevent-cardiovascular-disease-preventive-medication"
+      },
+      {
+        "title": "Effect of Aspirin on Cardiovascular Events and Bleeding in the Healthy Elderly",
+        "publisher": "New England Journal of Medicine",
+        "year": 2018,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Effect+of+Aspirin+on+Cardiovascular+Events+and+Bleeding+in+the+Healthy+Elderly"
+      }
+    ]
+  }
+]

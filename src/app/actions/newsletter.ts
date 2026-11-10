@@ -4,15 +4,16 @@ import { z } from "zod";
 import { queryOne, run } from "@/lib/db";
 import { limitByClient } from "@/lib/rate-limit";
 import { randomToken } from "@/lib/security";
-import type { FormState } from "./types";
+import { echo, type FormState } from "./types";
 
 const emailSchema = z.string().trim().toLowerCase().email().max(200);
 
 export async function subscribeAction(_prev: FormState, formData: FormData): Promise<FormState> {
   if (String(formData.get("website") ?? "")) return { ok: true, message: "You're in. See you in your inbox." }; // honeypot
   const parsed = emailSchema.safeParse(formData.get("email"));
-  if (!parsed.success) return { message: "Please enter a valid email address." };
-  if (!(await limitByClient("subscribe", 6, 3600))) return { message: "Too many sign-ups from here. Try again later." };
+  const values = echo(formData, ["email"]);
+  if (!parsed.success) return { message: "Please enter a valid email address.", values };
+  if (!(await limitByClient("subscribe", 6, 3600))) return { message: "Too many sign-ups from here. Try again later.", values };
 
   const email = parsed.data;
   const source = String(formData.get("source") ?? "site").slice(0, 40);
@@ -50,7 +51,8 @@ const contactSchema = z.object({
 
 export async function contactAction(_prev: FormState, formData: FormData): Promise<FormState> {
   if (String(formData.get("website") ?? "")) return { ok: true, message: "Thanks. We have your message." };
-  if (!(await limitByClient("contact", 4, 3600))) return { message: "Too many messages from here. Try again later." };
+  const values = echo(formData, ["name", "email", "subject", "message"]);
+  if (!(await limitByClient("contact", 4, 3600))) return { message: "Too many messages from here. Try again later.", values };
   const parsed = contactSchema.safeParse({
     name: formData.get("name"),
     email: formData.get("email"),
@@ -62,7 +64,7 @@ export async function contactAction(_prev: FormState, formData: FormData): Promi
     for (const issue of parsed.error.issues) {
       errors[String(issue.path[0])] ??= issue.path[0] === "email" ? "Please enter a valid email address." : issue.message;
     }
-    return { errors };
+    return { errors, values };
   }
   const { name, email, subject, message } = parsed.data;
   await run("INSERT INTO contact_messages (name, email, subject, message) VALUES (?, ?, ?, ?)", [name, email, subject, message]);

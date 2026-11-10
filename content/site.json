@@ -1,0 +1,41 @@
+{
+  "_comment": "Seed values for site settings. Loaded once: after that, edit them in Admin > Settings. A key that already exists in the database is never overwritten by a sync.",
+  "site": {
+    "name": "Health Maxxing",
+    "tagline": "Feel better, on purpose",
+    "description": "Evidence-based guides to nutrition, fitness, sleep, mental health and every part of your body. Clear, sourced and free of hype.",
+    "contactEmail": ""
+  },
+  "announcement": {
+    "enabled": true,
+    "text": "Welcome to Health Maxxing. Start with the big questions",
+    "href": "/articles"
+  },
+  "newsletter": {
+    "name": "The Weekly Dose",
+    "blurb": "One email a week. The most useful thing we learned about your body, plus what to do with it.",
+    "cadence": "Weekly",
+    "fromName": "Health Maxxing"
+  },
+  "home": {
+    "eyebrow": "The health magazine that reads the studies",
+    "title": "Feel better,",
+    "accent": "on purpose.",
+    "lede": "Straight answers on food, fitness, sleep, mind and every part of your body. Sourced, practical and free of detox teas.",
+    "coverStory": "",
+    "manifesto": "Your health is not a hack {bolt} or a 30-day challenge. It is {heart} the boring, brilliant stuff {avocado} done most days: eat real food, move {dumbbell} often, sleep {moon} like it matters, see people {chat} you love, and check the numbers {stethoscope} before they check you.",
+    "ticker": [
+      "Eat the fiber",
+      "Lift something",
+      "Go to bed",
+      "Drink some water",
+      "Call a friend",
+      "Wear the sunscreen",
+      "Take the stairs",
+      "Book the checkup",
+      "Touch grass",
+      "Read the label"
+    ]
+  },
+  "community": { "enabled": true, "signupsOpen": true }
+}

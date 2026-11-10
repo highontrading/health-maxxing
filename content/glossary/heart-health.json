@@ -1,0 +1,80 @@
+[
+  {
+    "term": "Systolic blood pressure",
+    "definition": "The top number in a blood pressure reading: the pressure in your arteries when the heart contracts and pushes blood out, measured in millimeters of mercury (mm Hg). From middle age onward it is usually the more important of the two numbers for predicting heart attack and stroke.",
+    "category": "heart-health",
+    "seeAlso": ["Diastolic blood pressure", "Hypertension"]
+  },
+  {
+    "term": "Diastolic blood pressure",
+    "definition": "The bottom number in a blood pressure reading: the pressure in your arteries while the heart relaxes and refills between beats. In a reading of 120/80 mm Hg, it is the 80.",
+    "category": "heart-health",
+    "seeAlso": ["Systolic blood pressure", "Hypertension"]
+  },
+  {
+    "term": "Hypertension",
+    "definition": "The medical term for blood pressure that stays high over time. The WHO diagnoses it at 140/90 mm Hg or above; US guidelines start at 130/80. It rarely causes symptoms but steadily damages the arteries, heart, brain and kidneys, which is why getting it measured matters.",
+    "category": "heart-health",
+    "seeAlso": ["Systolic blood pressure", "Diastolic blood pressure", "Stroke"]
+  },
+  {
+    "term": "LDL cholesterol",
+    "definition": "Low-density lipoprotein cholesterol, often called bad cholesterol. LDL particles carry cholesterol to your tissues, and when there are too many they lodge in artery walls and build up as plaque. Lowering LDL, through diet, exercise or medication, lowers the risk of heart attack and stroke.",
+    "category": "heart-health",
+    "seeAlso": ["HDL cholesterol", "Atherosclerosis", "Statin", "Lipid panel"]
+  },
+  {
+    "term": "HDL cholesterol",
+    "definition": "High-density lipoprotein cholesterol, nicknamed good cholesterol because HDL particles carry cholesterol away from the arteries and back to the liver. Higher levels are linked with lower heart risk, but drugs that raise HDL have not prevented heart attacks, so it is a marker more than a target.",
+    "category": "heart-health",
+    "seeAlso": ["LDL cholesterol", "Lipid panel"]
+  },
+  {
+    "term": "Triglycerides",
+    "definition": "The most common type of fat in your blood and in your body's fat stores. Levels rise after meals and with excess calories, sugar and alcohol. A fasting level below 150 mg/dL (1.7 mmol/L) is considered normal; high levels add to cardiovascular risk, and very high levels can inflame the pancreas.",
+    "category": "heart-health",
+    "seeAlso": ["Lipid panel", "LDL cholesterol"]
+  },
+  {
+    "term": "Lipid panel",
+    "definition": "A blood test that measures total cholesterol, LDL cholesterol, HDL cholesterol and triglycerides. Also called a lipid profile or cholesterol test, it is one of the main inputs doctors use, along with age, blood pressure and smoking, to estimate your risk of heart attack and stroke.",
+    "category": "heart-health",
+    "seeAlso": ["LDL cholesterol", "HDL cholesterol", "Triglycerides"]
+  },
+  {
+    "term": "Atherosclerosis",
+    "definition": "The slow buildup of fatty, cholesterol-rich plaque inside artery walls, which narrows and stiffens them. It develops silently over decades. If a plaque ruptures, a clot can form and block the artery, causing a heart attack or stroke.",
+    "category": "heart-health",
+    "seeAlso": ["LDL cholesterol", "Myocardial infarction", "Stroke"]
+  },
+  {
+    "term": "Statin",
+    "definition": "A class of medicines, including atorvastatin and rosuvastatin, that lower LDL cholesterol by reducing how much the liver makes. Large trials show they cut the risk of heart attack and stroke in people at raised risk. Muscle aches are the best-known side effect; serious problems are rare.",
+    "category": "heart-health",
+    "seeAlso": ["LDL cholesterol", "Atherosclerosis"]
+  },
+  {
+    "term": "Resting heart rate",
+    "definition": "The number of times your heart beats per minute when you are awake, calm and still. For most adults it sits between 60 and 100; fit people often run lower because a stronger heart moves more blood with each beat. A resting rate that climbs over time can be an early sign that something is off.",
+    "category": "heart-health",
+    "seeAlso": ["Heart rate variability", "Maximum heart rate"]
+  },
+  {
+    "term": "Heart rate variability",
+    "definition": "The tiny beat-to-beat variation in the time between heartbeats, often shortened to HRV and tracked by many wearables. Higher variability generally reflects a relaxed, well-recovered nervous system; it drops with stress, illness, alcohol and poor sleep. Your own trend matters more than comparisons with other people.",
+    "category": "heart-health",
+    "seeAlso": ["Resting heart rate"]
+  },
+  {
+    "term": "Atrial fibrillation",
+    "definition": "A common heart rhythm problem in which the upper chambers quiver chaotically instead of beating in an orderly way, making the pulse irregular and often fast. Some people feel palpitations; others feel nothing. Because blood can pool and clot in the heart, it raises the risk of stroke about fivefold.",
+    "category": "heart-health",
+    "seeAlso": ["Stroke", "Resting heart rate"]
+  },
+  {
+    "term": "Myocardial infarction",
+    "definition": "The medical term for a heart attack. It happens when blood flow to part of the heart muscle is blocked, usually by a clot on a ruptured plaque in a coronary artery, and the starved muscle begins to die. Chest pressure, pain spreading to the arm or jaw, breathlessness or a cold sweat mean calling your local emergency number.",
+    "category": "heart-health",
+    "seeAlso": ["Atherosclerosis", "LDL cholesterol"]
+  }
+]

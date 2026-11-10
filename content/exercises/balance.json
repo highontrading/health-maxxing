@@ -1,0 +1,183 @@
+[
+  {
+    "name": "Single-Leg Stand",
+    "type": "balance",
+    "pattern": "static balance",
+    "muscles": { "primary": ["Glutes", "Calves"], "secondary": ["Core", "Quadriceps"] },
+    "equipment": ["bodyweight"],
+    "level": "beginner",
+    "summary": "Standing on one leg with a support within reach. Simple and easy to measure, it practices the ankle and hip control that keeps you steady on your feet.",
+    "steps": [
+      "Stand tall beside a kitchen counter or sturdy chair, feet hip-width apart, with one hand resting lightly on the support.",
+      "Shift your weight onto one foot, keeping that knee soft and not locked.",
+      "Lift the other foot a few centimeters off the floor and hold your hips level.",
+      "Fix your eyes on a point ahead of you and breathe normally. Aim to hold for 10 to 30 seconds.",
+      "Lower the foot with control, then repeat on the other leg. Do two or three holds per side."
+    ],
+    "cues": [
+      "Stand tall, as if growing upward",
+      "Soft knee on the standing leg",
+      "Eyes on one spot",
+      "Fingertips on the support, not a tight grip"
+    ],
+    "mistakes": [
+      "Hiking or dropping one hip",
+      "Locking the standing knee",
+      "Looking down at your feet",
+      "Practicing far from any support when your balance is shaky"
+    ],
+    "easier": "Keep both hands on the support, or rest the toes of the lifted foot lightly on the floor.",
+    "harder": "Take your hand off the support, turn your head slowly from side to side, or stand on a folded towel."
+  },
+  {
+    "name": "Tandem Walk",
+    "type": "balance",
+    "pattern": "dynamic balance",
+    "muscles": { "primary": ["Calves", "Glutes"], "secondary": ["Core", "Adductors"] },
+    "equipment": ["bodyweight"],
+    "level": "beginner",
+    "summary": "Walking heel to toe along a straight line, as if on a tightrope. It narrows your base of support and trains the balance you need on uneven ground.",
+    "steps": [
+      "Stand tall next to a wall or along a kitchen counter, with a clear path of about three to five meters (10 to 16 feet) ahead of you.",
+      "Place one foot directly in front of the other so the heel of the front foot touches, or nearly touches, the toes of the back foot.",
+      "Look ahead, not at your feet, and shift your weight onto the front foot.",
+      "Bring the back foot forward and place it heel to toe in front, moving slowly and with control.",
+      "Take 10 to 20 steps, turn around carefully and walk back. Repeat two or three times."
+    ],
+    "cues": [
+      "Heel kisses toe",
+      "Eyes forward",
+      "Slow, deliberate steps",
+      "Tall posture, arms out if needed"
+    ],
+    "mistakes": [
+      "Looking down at your feet the whole time",
+      "Rushing to avoid the wobble",
+      "Stepping wide of the line",
+      "Practicing without a wall or counter in reach when your balance is unsteady"
+    ],
+    "easier": "Keep a hand on the wall or counter, or leave a small gap between heel and toe.",
+    "harder": "Walk without support, turn your head slowly as you walk, or try it backward beside a counter."
+  },
+  {
+    "name": "Single-Leg Romanian Deadlift Reach",
+    "type": "balance",
+    "pattern": "dynamic balance",
+    "muscles": { "primary": ["Glutes", "Hamstrings"], "secondary": ["Core", "Lower back", "Calves"] },
+    "equipment": ["bodyweight"],
+    "level": "intermediate",
+    "summary": "A one-legged hip hinge with no weight, reaching your hands toward the floor. It blends balance with hip strength and teaches control you can later load.",
+    "steps": [
+      "Stand tall on your left leg with the knee slightly bent, next to a wall or chair you can touch if needed.",
+      "Brace your midsection and keep your hips square to the front.",
+      "Hinge forward at the hips, reaching both hands toward the floor in front of you while your right leg extends straight back behind you.",
+      "Lower until your torso and back leg form a line close to parallel with the floor, or as far as you can go with a flat back and steady balance.",
+      "Squeeze the glute of your standing leg to return to tall standing. Do 6 to 10 reps, then switch legs."
+    ],
+    "cues": [
+      "Torso and back leg move as one seesaw",
+      "Hips square to the floor",
+      "Soft standing knee",
+      "Reach long through the back heel"
+    ],
+    "mistakes": [
+      "Opening the hip of the raised leg out to the side",
+      "Rounding the back to reach the floor",
+      "Locking the standing knee",
+      "Rushing down and losing balance at the bottom"
+    ],
+    "easier": "Slide one hand along a wall or chair back, or keep the toes of the back foot on the floor for support.",
+    "harder": "Hold a light dumbbell in the hand opposite the standing leg, or pause for two seconds at the bottom."
+  },
+  {
+    "name": "Heel-to-Toe Raise",
+    "type": "balance",
+    "pattern": "dynamic balance",
+    "muscles": { "primary": ["Calves"], "secondary": [] },
+    "equipment": ["bodyweight"],
+    "level": "beginner",
+    "summary": "Rising onto your toes, then rocking back onto your heels, with a support in reach. It strengthens the calf and shin muscles and practices shifting your weight under control.",
+    "steps": [
+      "Stand tall behind a sturdy chair or at a counter, feet hip-width apart, with both hands resting lightly on the support.",
+      "Rise slowly onto the balls of your feet, lifting your heels as high as is comfortable.",
+      "Pause for a second, then lower your heels back to the floor with control.",
+      "Now rock your weight back onto your heels and lift your toes and the front of your feet off the floor. Keep your hips over your ankles; do not stick them out behind you.",
+      "Pause, lower your toes and continue alternating heel raises and toe raises for 10 to 15 slow rounds."
+    ],
+    "cues": [
+      "Rise tall, not forward",
+      "Slow up, slow down",
+      "Light hands on the support",
+      "Hips stay over the ankles"
+    ],
+    "mistakes": [
+      "Bending at the hips and sticking the backside out during the toe raise",
+      "Rocking quickly with momentum",
+      "Leaning heavily on the support",
+      "Letting the ankles roll outward on the heel raise"
+    ],
+    "easier": "Do the heel raises and toe raises as separate sets, or do them seated with your feet flat on the floor.",
+    "harder": "Use only your fingertips on the support, then no hands, or hold each end position for three seconds."
+  },
+  {
+    "name": "Sit-to-Stand",
+    "type": "balance",
+    "pattern": "squat",
+    "muscles": { "primary": ["Quadriceps", "Glutes"], "secondary": ["Hamstrings", "Core"] },
+    "equipment": ["bodyweight"],
+    "level": "beginner",
+    "summary": "Standing up from a chair and sitting back down without using your hands. It builds the leg strength and control behind one of the most important movements of daily life.",
+    "steps": [
+      "Sit toward the front of a sturdy chair that cannot slide, ideally one placed against a wall. Put your feet flat on the floor, hip-width apart and slightly behind your knees.",
+      "Cross your arms over your chest, or reach them forward for balance.",
+      "Lean your chest forward over your thighs, nose over toes, and press through your whole feet to stand up fully.",
+      "Stand tall for a moment with hips and knees straight.",
+      "Reach your hips back and lower yourself slowly, taking about three seconds to touch the seat. Do not drop into it.",
+      "Repeat for 8 to 12 reps, resting as needed."
+    ],
+    "cues": [
+      "Nose over toes, then stand",
+      "Push the floor away",
+      "Knees stay in line with the toes",
+      "Sit down as if the chair were fragile"
+    ],
+    "mistakes": [
+      "Dropping onto the seat instead of lowering with control",
+      "Rocking back and forth to build momentum",
+      "Letting the knees fall inward",
+      "Using a chair that slides or has wheels"
+    ],
+    "easier": "Push off the armrests or your thighs with your hands, or raise the seat with a firm cushion.",
+    "harder": "Use a lower seat, hover just above the chair for two seconds before sitting, or hold a weight at your chest."
+  },
+  {
+    "name": "Clock Reach",
+    "type": "balance",
+    "pattern": "dynamic balance",
+    "muscles": { "primary": ["Glutes", "Quadriceps"], "secondary": ["Calves", "Core", "Adductors"] },
+    "equipment": ["bodyweight"],
+    "level": "beginner",
+    "summary": "Balancing on one leg while the other foot taps points around an imaginary clock face. It challenges your balance in several directions, the way real life does.",
+    "steps": [
+      "Stand on your left leg in the center of an imaginary clock face, next to a chair or counter you can touch. Bend the standing knee slightly.",
+      "Reach your right foot forward and lightly tap the floor at 12 o'clock without putting weight on it, then bring it back to the center.",
+      "Tap out to the side at 3 o'clock, then behind you at 6 o'clock, returning to the center each time.",
+      "Keep your hips level, your chest tall and your standing knee pointing over your toes on every reach.",
+      "Complete three to five trips around the clock. Then stand on your right leg and tap 12, 9 and 6 o'clock with your left foot."
+    ],
+    "cues": [
+      "Tap lightly, as if testing thin ice",
+      "Standing knee over the toes",
+      "Hips level, chest tall",
+      "Reach only as far as you can control"
+    ],
+    "mistakes": [
+      "Shifting your weight onto the tapping foot",
+      "Letting the standing knee collapse inward",
+      "Leaning the trunk far over to reach further",
+      "Speeding up and losing control"
+    ],
+    "easier": "Hold the support, keep the reaches short and rest the tapping foot on the floor between taps.",
+    "harder": "Reach further and bend the standing knee more, add taps at the diagonal points, or let go of the support."
+  }
+]

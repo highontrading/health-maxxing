@@ -8,7 +8,7 @@ import { getSettings } from "@/lib/data";
 import { queryOne, run } from "@/lib/db";
 import { limitByClient, rateLimit } from "@/lib/rate-limit";
 import { hashPassword, verifyPassword } from "@/lib/security";
-import type { FormState } from "./types";
+import { echo, type FormState } from "./types";
 
 const STICKERS = ["smile", "sun", "moon", "leaf", "bolt", "flower", "apple", "avocado", "sneaker", "lotus", "star", "cloud"];
 const COLORS = ["lime", "orange", "indigo", "lilac", "pink", "yellow", "teal", "sky", "peach", "mint"];
@@ -33,9 +33,10 @@ const signUpSchema = z.object({
 
 export async function signUpAction(_prev: FormState, formData: FormData): Promise<FormState> {
   if (String(formData.get("website") ?? "")) return { ok: true, message: "Thanks!" }; // honeypot
+  const values = echo(formData, ["name", "handle", "email"]);
   const settings = await getSettings();
-  if (!settings.community.signupsOpen) return { message: "New sign-ups are paused right now. Please check back soon." };
-  if (!(await limitByClient("signup", 5, 3600))) return { message: "Too many attempts. Please try again in an hour." };
+  if (!settings.community.signupsOpen) return { message: "New sign-ups are paused right now. Please check back soon.", values };
+  if (!(await limitByClient("signup", 5, 3600))) return { message: "Too many attempts. Please try again in an hour.", values };
 
   const parsed = signUpSchema.safeParse({
     name: formData.get("name"),
@@ -46,17 +47,17 @@ export async function signUpAction(_prev: FormState, formData: FormData): Promis
   if (!parsed.success) {
     const errors: Record<string, string> = {};
     for (const issue of parsed.error.issues) errors[String(issue.path[0])] ??= issue.message;
-    return { errors };
+    return { errors, values };
   }
   const { name, handle, email, password } = parsed.data;
-  if (RESERVED.has(handle)) return { errors: { handle: "That handle is reserved. Try another." } };
-  if (formData.get("agree") !== "on") return { errors: { agree: "Please agree to the community guidelines to join." } };
+  if (RESERVED.has(handle)) return { errors: { handle: "That handle is reserved. Try another." }, values };
+  if (formData.get("agree") !== "on") return { errors: { agree: "Please agree to the community guidelines to join." }, values };
 
   if (await queryOne("SELECT id FROM users WHERE handle = ?", [handle])) {
-    return { errors: { handle: "That handle is taken." } };
+    return { errors: { handle: "That handle is taken." }, values };
   }
   if (await queryOne("SELECT id FROM users WHERE email = ?", [email])) {
-    return { errors: { email: "An account with this email already exists. Try signing in." } };
+    return { errors: { email: "An account with this email already exists. Try signing in." }, values };
   }
 
   const pick = <T,>(list: T[]) => list[Math.floor(Math.random() * list.length)];
@@ -71,11 +72,12 @@ export async function signUpAction(_prev: FormState, formData: FormData): Promis
 export async function signInAction(_prev: FormState, formData: FormData): Promise<FormState> {
   const email = String(formData.get("email") ?? "").trim().toLowerCase();
   const password = String(formData.get("password") ?? "");
-  const generic = { message: "That email and password do not match. Check them and try again." };
-  if (!email || !password) return { message: "Enter your email and password." };
+  const values = { email };
+  const generic = { message: "That email and password do not match. Check them and try again.", values };
+  if (!email || !password) return { message: "Enter your email and password.", values };
 
   if (!(await limitByClient("login", 12, 600)) || !(await rateLimit(`login-email:${email}`, 8, 600))) {
-    return { message: "Too many attempts. Please wait ten minutes and try again." };
+    return { message: "Too many attempts. Please wait ten minutes and try again.", values };
   }
   const user = await queryOne<{ id: number; password_hash: string; banned: number; role: string }>(
     "SELECT id, password_hash, banned, role FROM users WHERE email = ?",
@@ -87,7 +89,7 @@ export async function signInAction(_prev: FormState, formData: FormData): Promis
     "scrypt$16384$8$1$AAAAAAAAAAAAAAAAAAAAAA==$AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==";
   const valid = await verifyPassword(password, hash);
   if (!user || !valid) return generic;
-  if (user.banned) return { message: "This account has been suspended. Contact us if you think that is a mistake." };
+  if (user.banned) return { message: "This account has been suspended. Contact us if you think that is a mistake.", values };
 
   await createSession(user.id, (await headers()).get("user-agent") ?? "");
   const staff = user.role === "admin" || user.role === "editor";
@@ -118,7 +120,7 @@ export async function updateProfileAction(_prev: FormState, formData: FormData):
   if (!parsed.success) {
     const errors: Record<string, string> = {};
     for (const issue of parsed.error.issues) errors[String(issue.path[0])] ??= issue.message;
-    return { errors };
+    return { errors, values: echo(formData, ["name", "bio"]) };
   }
   await run("UPDATE users SET name = ?, bio = ?, sticker = ?, color = ? WHERE id = ?", [
     parsed.data.name,
@@ -127,7 +129,7 @@ export async function updateProfileAction(_prev: FormState, formData: FormData):
     parsed.data.color,
     user.id,
   ]);
-  return { ok: true, message: "Profile saved." };
+  return { ok: true, message: "Profile saved.", values: { name: parsed.data.name, bio: parsed.data.bio } };
 }
 
 export async function changePasswordAction(_prev: FormState, formData: FormData): Promise<FormState> {

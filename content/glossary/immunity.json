@@ -1,0 +1,80 @@
+[
+  {
+    "term": "Antigen",
+    "definition": "Any molecule, typically a protein on the surface of a virus, bacterium or pollen grain, that your immune system can recognize and respond to. Vaccines work by showing your body a harmless antigen in advance. Rapid antigen tests detect proteins from one specific germ in a swab sample.",
+    "category": "immunity",
+    "seeAlso": ["Antibody", "Vaccine"]
+  },
+  {
+    "term": "Antibody",
+    "definition": "A Y-shaped protein, made by immune cells called B cells, that locks onto one specific antigen, neutralizing the invader or flagging it for destruction. After an infection or vaccination your body keeps the ability to make matching antibodies quickly, which is the basis of immune memory.",
+    "category": "immunity",
+    "seeAlso": ["Antigen", "Adaptive immunity", "Vaccine"]
+  },
+  {
+    "term": "White blood cells",
+    "definition": "The cells of your immune system that travel in the blood, also called leukocytes. Different types do different jobs: neutrophils engulf bacteria, while lymphocytes target specific invaders and make antibodies. A blood count showing unusually high or low numbers can be a clue to infection or other illness.",
+    "category": "immunity",
+    "seeAlso": ["Complete blood count", "Innate immunity", "Adaptive immunity"]
+  },
+  {
+    "term": "Innate immunity",
+    "definition": "The fast, general-purpose arm of your immune system, present from birth. It includes barriers such as skin and mucus, plus cells that attack anything that looks foreign within minutes to hours. It does not learn from past infections; that is the job of adaptive immunity.",
+    "category": "immunity",
+    "seeAlso": ["Adaptive immunity", "Inflammation", "White blood cells"]
+  },
+  {
+    "term": "Adaptive immunity",
+    "definition": "The slower, highly specific arm of your immune system. Its T cells and B cells learn to recognize a particular germ, take days to mount a full response the first time, and then remember it so the next response is faster and stronger. Vaccines work by training this arm.",
+    "category": "immunity",
+    "seeAlso": ["Innate immunity", "Antibody", "Vaccine"]
+  },
+  {
+    "term": "Vaccine",
+    "definition": "A preparation that trains your immune system to recognize a germ without your having to catch the disease. It may contain a weakened or inactivated germ, a piece of one, or instructions (such as mRNA) that let your cells make a piece. Vaccines are tested in large trials and monitored for safety after approval.",
+    "category": "immunity",
+    "seeAlso": ["Antigen", "Antibody", "Herd immunity", "Adaptive immunity"]
+  },
+  {
+    "term": "Herd immunity",
+    "definition": "The indirect protection that arises when enough of a population is immune to a contagious disease that it struggles to spread, shielding people who cannot be vaccinated, such as newborns. The threshold depends on how contagious the disease is; for measles it takes about 95% vaccination coverage.",
+    "category": "immunity",
+    "seeAlso": ["Vaccine"]
+  },
+  {
+    "term": "Antibiotic",
+    "definition": "A medicine that kills bacteria or stops them from multiplying. Antibiotics treat bacterial infections such as strep throat, urinary tract infections and bacterial pneumonia. They do nothing against viruses, so they will not help a cold, the flu or most sore throats and coughs.",
+    "category": "immunity",
+    "seeAlso": ["Antibiotic resistance"]
+  },
+  {
+    "term": "Antibiotic resistance",
+    "definition": "What happens when bacteria evolve so that antibiotics no longer kill them. It is the bacteria that become resistant, not your body. Every course of antibiotics gives resistant strains an advantage, so using these drugs only when they are needed helps keep them working, for you and for everyone else.",
+    "category": "immunity",
+    "seeAlso": ["Antibiotic"]
+  },
+  {
+    "term": "Inflammation",
+    "definition": "Your immune system's response to injury or infection: extra blood flow and immune cells rush to the area, causing redness, heat, swelling and pain. Short-term (acute) inflammation is how you heal. Low-grade inflammation that persists for years is linked with heart disease, type 2 diabetes and other conditions.",
+    "category": "immunity",
+    "seeAlso": ["Innate immunity", "Autoimmune disease"]
+  },
+  {
+    "term": "Autoimmune disease",
+    "definition": "A condition in which the immune system mistakenly attacks the body's own healthy tissue. There are more than 80 types, including type 1 diabetes, rheumatoid arthritis, celiac disease and multiple sclerosis. They are more common in women, and their causes involve both genes and environmental triggers.",
+    "category": "immunity",
+    "seeAlso": ["Rheumatoid arthritis", "Celiac disease", "Inflammation"]
+  },
+  {
+    "term": "Antihistamine",
+    "definition": "A medicine that blocks histamine, the chemical your body releases during an allergic reaction that causes sneezing, itching, hives and a runny nose. Newer types such as cetirizine and loratadine cause much less drowsiness than older ones such as diphenhydramine.",
+    "category": "immunity",
+    "seeAlso": ["Anaphylaxis"]
+  },
+  {
+    "term": "Anaphylaxis",
+    "definition": "A severe, fast-moving allergic reaction that can affect breathing and blood pressure, most often triggered by foods, insect stings or medicines. Signs include swelling of the throat or tongue, wheezing, widespread hives and faintness. It is an emergency: use an adrenaline (epinephrine) auto-injector if one is available and call your local emergency number.",
+    "category": "immunity",
+    "seeAlso": ["Antihistamine"]
+  }
+]

@@ -1,0 +1,80 @@
+[
+  {
+    "term": "Macronutrient",
+    "definition": "One of the three nutrients your body needs in large amounts for energy and building material: carbohydrate, protein and fat. Carbs and protein supply about 4 kcal per gram and fat about 9, which is why fatty foods pack more energy into less space.",
+    "category": "nutrition",
+    "seeAlso": ["Micronutrient", "Calorie"]
+  },
+  {
+    "term": "Micronutrient",
+    "definition": "A vitamin or mineral your body needs in small amounts, measured in milligrams or micrograms, to run everything from blood clotting to nerve signals. Micronutrients provide no energy, but running short of one, such as iron, iodine or vitamin D, can cause real illness.",
+    "category": "nutrition",
+    "seeAlso": ["Macronutrient", "Vitamin D", "Electrolytes"]
+  },
+  {
+    "term": "Calorie",
+    "definition": "A unit of energy. The calories on food labels are really kilocalories (kcal), each the energy needed to warm 1 kg of water by 1 °C; some countries list kilojoules instead (1 kcal is about 4.2 kJ). Over time, your weight reflects the balance between the calories you eat and the calories you use.",
+    "category": "nutrition",
+    "seeAlso": ["Total daily energy expenditure", "Macronutrient"]
+  },
+  {
+    "term": "Glycemic index",
+    "definition": "A 0 to 100 ranking of how quickly a carbohydrate food raises blood sugar compared with pure glucose. Lentils score low, white bread high. It is a useful guide but an imperfect one, because portion size, cooking and whatever else is on the plate all change the real-world response.",
+    "category": "nutrition",
+    "seeAlso": ["Blood glucose", "Insulin", "Dietary fiber"]
+  },
+  {
+    "term": "Complete protein",
+    "definition": "A protein source that supplies all nine essential amino acids, the ones your body cannot make, in useful amounts. Meat, fish, eggs, dairy and soy qualify. Most plant foods run low in one or two, but eating a variety across the day covers the gaps without any careful pairing at each meal.",
+    "category": "nutrition",
+    "seeAlso": ["Macronutrient"]
+  },
+  {
+    "term": "Saturated fat",
+    "definition": "A type of fat that is usually solid at room temperature, found mainly in butter, cheese, fatty meat, and coconut and palm oil. Eating a lot of it raises LDL cholesterol, so the WHO and most national guidelines advise keeping it below about 10% of your daily calories and swapping some for unsaturated fat.",
+    "category": "nutrition",
+    "seeAlso": ["Unsaturated fat", "Trans fat", "LDL cholesterol"]
+  },
+  {
+    "term": "Unsaturated fat",
+    "definition": "The fats that stay liquid at room temperature, found in olive oil, nuts, seeds, avocado and oily fish. They come in two families, monounsaturated and polyunsaturated. Replacing saturated fat with them lowers LDL cholesterol and is linked with a lower risk of heart disease.",
+    "category": "nutrition",
+    "seeAlso": ["Saturated fat", "Omega-3 fatty acids", "LDL cholesterol"]
+  },
+  {
+    "term": "Trans fat",
+    "definition": "A fat created when liquid vegetable oil is partially hydrogenated to make it solid and shelf-stable; small amounts also occur naturally in meat and dairy. The industrial kind raises LDL cholesterol and lowers HDL cholesterol, which is why the WHO wants it out of the food supply and many countries have banned it.",
+    "category": "nutrition",
+    "seeAlso": ["Saturated fat", "LDL cholesterol", "HDL cholesterol"]
+  },
+  {
+    "term": "Omega-3 fatty acids",
+    "definition": "A family of polyunsaturated fats. EPA and DHA come from oily fish such as salmon and sardines; ALA comes from plants such as flaxseed and walnuts, and your body converts only a little of it into the other two. Eating fish regularly is linked with better heart health; the evidence for fish oil capsules is more mixed.",
+    "category": "nutrition",
+    "seeAlso": ["Unsaturated fat", "Triglycerides"]
+  },
+  {
+    "term": "Dietary fiber",
+    "definition": "The parts of plant foods your small intestine cannot digest. Soluble fiber (oats, beans) forms a gel that helps lower cholesterol and steady blood sugar; insoluble fiber (wheat bran, vegetable skins) adds bulk and keeps things moving. Most adults eat well short of the 25 g or more a day that guidelines suggest.",
+    "category": "nutrition",
+    "seeAlso": ["Prebiotic", "Short-chain fatty acids", "Gut microbiome"]
+  },
+  {
+    "term": "Antioxidant",
+    "definition": "A substance that can neutralize free radicals, the unstable molecules produced by normal metabolism, smoking and sunlight. Vitamins C and E and many plant compounds are antioxidants. Diets rich in fruit and vegetables are linked with better health, but high-dose antioxidant pills have not shown the same benefit in trials.",
+    "category": "nutrition",
+    "seeAlso": ["Micronutrient"]
+  },
+  {
+    "term": "Electrolytes",
+    "definition": "Minerals such as sodium, potassium, magnesium and calcium that carry an electrical charge in your body fluids. They keep nerves firing, muscles contracting and fluid levels balanced. Food and water cover most people's needs; replacement drinks mainly earn their place after long, sweaty exercise or a bout of vomiting or diarrhea.",
+    "category": "nutrition",
+    "seeAlso": ["Micronutrient"]
+  },
+  {
+    "term": "Ultra-processed food",
+    "definition": "An industrially made product built mostly from refined ingredients and additives you would not find in a home kitchen, such as soft drinks, packaged snacks and instant noodles. The term comes from the NOVA classification. Observational studies link diets high in these foods with obesity and heart disease, and in one tightly controlled trial people ate about 500 kcal more a day on them.",
+    "category": "nutrition",
+    "seeAlso": ["Calorie", "Observational study"]
+  }
+]

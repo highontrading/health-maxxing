@@ -50,6 +50,7 @@ export function NewsletterForm({ source = "site", dark = false, className, cta =
           required
           autoComplete="email"
           placeholder="you@example.com"
+          defaultValue={state.values?.email}
           className={cn("h-11 min-w-0 flex-1 bg-transparent text-base outline-none", dark ? "text-paper placeholder:text-white/50" : "placeholder:text-ink-3")}
         />
         <button type="submit" disabled={pending} className={cn("btn flex-none", dark ? "btn-lime" : "btn-primary")}>

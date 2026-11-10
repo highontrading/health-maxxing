@@ -104,9 +104,9 @@ This is why fiber comes up in every sensible conversation about gut health: it i
 
 ### Birth and early life
 
-A study of 596 healthy, full-term babies found that almost all of those delivered by caesarean section had little or no *Bacteroides*, a common group of gut bacteria. Their guts were dominated instead by opportunistic species such as *Enterococcus* and *Klebsiella*. About half of the vaginally born babies had *Bacteroides* in abundance. In roughly 60% of the caesarean-born babies who were followed up, the pattern was still there later in infancy.[^3]
+A study of 596 healthy, full-term babies found that almost all of those delivered by cesarean section had little or no *Bacteroides*, a common group of gut bacteria. Their guts were dominated instead by opportunistic species such as *Enterococcus* and *Klebsiella*. About half of the vaginally born babies had *Bacteroides* in abundance. In roughly 60% of the cesarean-born babies who were followed up, the pattern was still there later in infancy.[^3]
 
-The study measured bacteria, not health, so it cannot say whether the difference matters in the long run. It is not a reason to avoid a caesarean that is medically needed.
+The study measured bacteria, not health, so it cannot say whether the difference matters in the long run. It is not a reason to avoid a cesarean that is medically needed.
 
 ### Diet
 

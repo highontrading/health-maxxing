@@ -68,7 +68,7 @@ related: [ibs-and-the-low-fodmap-diet, constipation-relief-that-works, food-into
 factCheck: pending
 ---
 
-Your waistband fits at breakfast and digs in by dinner. That tight, overfull feeling is one of the most common gut complaints there is: in a global survey, close to one in five adults said they felt bloated at least once a week.[^3]
+Your waistband fits at breakfast and digs in by dinner. That tight, overfull feeling is one of the most common gut complaints there is: in a global survey, somewhere between one in six and one in five adults said they felt bloated at least once a week.[^3]
 
 Most of the time bloating is uncomfortable, not dangerous, and it comes down to a short list of causes you can test for yourself. This guide covers what is going on, which fixes have evidence behind them, and the signs that mean you should see a doctor instead of adjusting your diet.
 
@@ -83,7 +83,7 @@ The difference matters because the causes, and so the fixes, are not always the 
 | Cause | Clues | First thing to try |
 | --- | --- | --- |
 | Constipation | Hard or infrequent stools, straining | Treat the constipation |
-| Swallowed air | Fast eating, gum, fizzy drinks, smoking | Slow down, cut gum and fizz |
+| Swallowed air | Fast eating, gum, carbonated drinks, smoking | Slow down, cut gum and soda |
 | Fermentable carbs (FODMAPs) | Worse after onions, garlic, beans, wheat, some fruit, sugar-free sweets | Short, targeted food trial |
 | Lactose | Worse after milk or ice cream | Two weeks with less lactose |
 | Rapid fiber increase | Started a new high-fiber diet or supplement | Step back, then build up slowly |
@@ -111,7 +111,7 @@ If you are not emptying your bowels comfortably and regularly, start there. Reli
 
 ### Change how you eat before what you eat
 
-The NHS advice is simple: eat smaller, more frequent meals instead of large ones, chew with your mouth closed, and go easy on fizzy drinks, alcohol and large late-night meals.[^5] Slowing down and dropping gum cuts the amount of air you swallow.[^4]
+The NHS advice is simple: eat smaller, more frequent meals instead of large ones, chew with your mouth closed, and go easy on carbonated drinks, alcohol and large late-night meals.[^5] Slowing down and dropping gum cuts the amount of air you swallow.[^4]
 
 ### Move
 
@@ -136,7 +136,7 @@ Simethicone, lactase tablets (for lactose) and alpha-galactosidase, an enzyme ta
 
 ## What does not help
 
-**"Detox" and "flat tummy" teas.** There is no convincing evidence that detox or cleansing products do what they claim or improve health. Some programs rely on laxatives, which can cause diarrhea severe enough to lead to dehydration and electrolyte problems.[^10] Any flatter stomach is short-lived.
+**"Detox" and "flat belly" teas.** There is no convincing evidence that detox or cleansing products do what they claim or improve health. Some programs rely on laxatives, which can cause diarrhea severe enough to lead to dehydration and electrolyte problems.[^10] Any flatter stomach is short-lived.
 
 **Probiotics.** The American Gastroenterological Association's expert review advises against using probiotics to treat bloating and distension.[^1]
 

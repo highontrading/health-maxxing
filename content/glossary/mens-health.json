@@ -1,0 +1,74 @@
+[
+  {
+    "term": "Testosterone",
+    "definition": "The main male sex hormone, made mostly in the testicles; women make smaller amounts too. It drives puberty and supports muscle mass, bone density, red blood cell production, sex drive and sperm production. Levels are highest in the morning and decline gradually with age.",
+    "category": "mens-health",
+    "seeAlso": ["Hypogonadism", "Testosterone replacement therapy", "DHT"]
+  },
+  {
+    "term": "Hypogonadism",
+    "definition": "In men, a condition in which the testicles make too little testosterone, also called testosterone deficiency. Diagnosis needs both consistent symptoms, such as low sex drive, fatigue or loss of muscle, and low levels on at least two early-morning blood tests.",
+    "category": "mens-health",
+    "seeAlso": ["Testosterone", "Testosterone replacement therapy"]
+  },
+  {
+    "term": "Testosterone replacement therapy",
+    "definition": "Prescription testosterone, given as a gel, injection or patch, for men with confirmed testosterone deficiency. It can improve sex drive, mood and muscle mass in those men. It also suppresses sperm production, so it is not suitable for men trying to conceive, and it needs regular monitoring with blood tests.",
+    "category": "mens-health",
+    "seeAlso": ["Hypogonadism", "Testosterone", "Semen analysis"]
+  },
+  {
+    "term": "Prostate",
+    "definition": "A walnut-sized gland below the bladder that wraps around the urethra, the tube urine flows through, and produces part of the fluid in semen. It tends to grow with age, which is why urinary symptoms become so common in older men.",
+    "category": "mens-health",
+    "seeAlso": ["Benign prostatic hyperplasia", "PSA test"]
+  },
+  {
+    "term": "PSA test",
+    "definition": "A blood test for prostate-specific antigen, a protein made by the prostate. Levels rise with prostate cancer but also with a benign enlarged prostate, an infection or even recent ejaculation, so a raised result is not a diagnosis. Whether to be screened is a personal decision best made with a doctor.",
+    "category": "mens-health",
+    "seeAlso": ["Prostate", "Benign prostatic hyperplasia", "Screening", "False positive"]
+  },
+  {
+    "term": "Benign prostatic hyperplasia",
+    "definition": "Non-cancerous enlargement of the prostate, shortened to BPH, which is very common from middle age. The growing gland squeezes the urethra, causing a weak stream, hesitancy, frequent trips and waking at night to urinate. It does not turn into cancer, and medicines or procedures can ease it.",
+    "category": "mens-health",
+    "seeAlso": ["Prostate", "PSA test", "DHT"]
+  },
+  {
+    "term": "Erectile dysfunction",
+    "definition": "The persistent inability to get or keep an erection firm enough for sex. It becomes more common with age and is often caused by reduced blood flow, so it can be an early warning sign of heart disease or diabetes. It is very treatable and worth raising with a doctor.",
+    "category": "mens-health",
+    "seeAlso": ["PDE5 inhibitor", "Atherosclerosis"]
+  },
+  {
+    "term": "PDE5 inhibitor",
+    "definition": "A class of medicines, including sildenafil and tadalafil, that treat erectile dysfunction by relaxing blood vessels in the penis so that more blood flows in during arousal. They do not create desire. They must never be combined with nitrate heart medicines, because blood pressure can fall dangerously.",
+    "category": "mens-health",
+    "seeAlso": ["Erectile dysfunction"]
+  },
+  {
+    "term": "DHT",
+    "definition": "Dihydrotestosterone: a potent hormone your body makes from testosterone. It shapes male development before birth and at puberty, and later in life it drives both prostate growth and male pattern hair loss in men who are genetically prone. The drug finasteride works by blocking its production.",
+    "category": "mens-health",
+    "seeAlso": ["Testosterone", "Male pattern hair loss", "Benign prostatic hyperplasia"]
+  },
+  {
+    "term": "Male pattern hair loss",
+    "definition": "The most common cause of hair loss in men, medically called androgenetic alopecia. In genetically susceptible men, DHT gradually shrinks hair follicles, producing a receding hairline and thinning at the crown. Minoxidil and finasteride can slow it and regrow some hair for as long as they are used.",
+    "category": "mens-health",
+    "seeAlso": ["DHT", "Telogen effluvium"]
+  },
+  {
+    "term": "Semen analysis",
+    "definition": "A lab test of a semen sample that measures sperm count, movement (motility) and shape (morphology), among other things. It is the first test for male fertility. Results vary from sample to sample, so an abnormal result is normally repeated before any conclusions are drawn.",
+    "category": "mens-health",
+    "seeAlso": ["Testosterone", "Vasectomy"]
+  },
+  {
+    "term": "Vasectomy",
+    "definition": "A minor operation that cuts or seals the tubes carrying sperm from the testicles, used as permanent contraception. It is more than 99% effective once a follow-up semen test confirms no sperm remain. It does not affect testosterone, erections or sex drive, and it should be regarded as permanent.",
+    "category": "mens-health",
+    "seeAlso": ["Semen analysis"]
+  }
+]

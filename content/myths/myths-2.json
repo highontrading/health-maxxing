@@ -1,0 +1,366 @@
+[
+  {
+    "myth": "Sea salt is healthier than table salt",
+    "verdict": "false",
+    "answer": "Sea salt and table salt contain about the same amount of sodium by weight, and sodium is what affects blood pressure.",
+    "explanation": "Both are about 40% sodium. Sea salt keeps traces of minerals such as magnesium and potassium, but far too little to matter, and its bigger crystals only mean a little less sodium per teaspoon because fewer fit on the spoon. Table salt is often iodized, which helps prevent iodine deficiency. Whatever the type, the WHO advises adults to stay under 5 g of salt a day, just under a teaspoon.",
+    "category": "nutrition",
+    "sticker": "fish",
+    "sources": [
+      {
+        "title": "Sea Salt vs. Table Salt",
+        "publisher": "American Heart Association",
+        "url": "https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/sodium/sea-salt-vs-table-salt"
+      },
+      {
+        "title": "Healthy diet",
+        "publisher": "World Health Organization",
+        "url": "https://www.who.int/news-room/fact-sheets/detail/healthy-diet"
+      }
+    ]
+  },
+  {
+    "myth": "You need 10,000 steps a day to be healthy",
+    "verdict": "misleading",
+    "answer": "More steps are better, but benefits start well below 10,000 and level off at roughly 6,000 to 10,000 a day, depending on age.",
+    "explanation": "The figure began as marketing: a 1960s Japanese pedometer was sold as the manpo-kei, or 10,000-step meter. A 2022 meta-analysis of 15 studies and about 47,000 adults found that the risk of death fell as daily steps rose, then leveled off at 6,000 to 8,000 steps for people aged 60 and over and 8,000 to 10,000 for younger adults. In a study of older women, the benefit was already clear at about 4,400 steps a day. These are observational findings, but they agree on the practical point: if you walk little now, your first extra couple of thousand steps do the most good.",
+    "category": "fitness",
+    "sticker": "sneaker",
+    "sources": [
+      {
+        "title": "Daily steps and all-cause mortality: a meta-analysis of 15 international cohorts",
+        "publisher": "The Lancet Public Health",
+        "year": 2022,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Daily+steps+and+all-cause+mortality%3A+a+meta-analysis+of+15+international+cohorts"
+      },
+      {
+        "title": "Association of Step Volume and Intensity With All-Cause Mortality in Older Women",
+        "publisher": "JAMA Internal Medicine",
+        "year": 2019,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Association+of+Step+Volume+and+Intensity+With+All-Cause+Mortality+in+Older+Women"
+      }
+    ]
+  },
+  {
+    "myth": "A nightcap helps you sleep better",
+    "verdict": "misleading",
+    "answer": "Alcohol helps you nod off faster, but it fragments the second half of the night and cuts into REM sleep.",
+    "explanation": "A review of sleep-laboratory studies found that alcohol at any dose shortens the time it takes to fall asleep and deepens sleep early in the night. The cost comes later: as it wears off, sleep becomes lighter and more broken, and REM sleep is reduced, more so at higher doses. Alcohol also relaxes the throat muscles, which worsens snoring and sleep apnea. Sleep specialists advise avoiding it in the hours before bed.",
+    "category": "sleep",
+    "sticker": "moon",
+    "sources": [
+      {
+        "title": "Alcohol and sleep I: effects on normal sleep",
+        "publisher": "Alcoholism: Clinical and Experimental Research",
+        "year": 2013,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Alcohol+and+sleep+I%3A+effects+on+normal+sleep"
+      },
+      {
+        "title": "Healthy Sleep Habits",
+        "publisher": "American Academy of Sleep Medicine (Sleep Education)",
+        "url": "https://sleepeducation.org/healthy-sleep/healthy-sleep-habits/"
+      }
+    ]
+  },
+  {
+    "myth": "Asking someone about suicide puts the idea in their head",
+    "verdict": "false",
+    "answer": "Research shows that asking directly about suicidal thoughts does not increase them and can ease distress.",
+    "explanation": "A 2014 review of 13 studies found no evidence that asking about suicide increased suicidal thoughts in adults or adolescents; some of the studies suggested that talking about it reduced them. The US National Institute of Mental Health puts asking the question plainly first in its steps for helping someone in emotional pain. If the answer is yes, listen without judgment, stay with the person and help them reach support. If you or someone you know is thinking about suicide, contact local emergency services or a crisis line straight away; findahelpline.com lists services by country.",
+    "category": "mental-health",
+    "sticker": "chat",
+    "sources": [
+      {
+        "title": "Does asking about suicide and related behaviours induce suicidal ideation? What is the evidence?",
+        "publisher": "Psychological Medicine",
+        "year": 2014,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Does+asking+about+suicide+and+related+behaviours+induce+suicidal+ideation%3F+What+is+the+evidence%3F"
+      },
+      {
+        "title": "Suicide Prevention",
+        "publisher": "National Institute of Mental Health",
+        "url": "https://www.nimh.nih.gov/health/topics/suicide-prevention"
+      },
+      {
+        "title": "Find A Helpline: free emotional support in your country",
+        "publisher": "Find A Helpline",
+        "url": "https://findahelpline.com"
+      }
+    ]
+  },
+  {
+    "myth": "A glass of red wine a day is good for your heart",
+    "verdict": "misleading",
+    "answer": "The apparent benefit of moderate drinking shrinks or vanishes in better-designed studies, and no major health body advises drinking for your heart.",
+    "explanation": "Older observational studies found less heart disease in moderate drinkers than in non-drinkers, but the non-drinkers often included people who had quit because of poor health, and moderate drinkers tend to be better off in other ways. A 2023 meta-analysis of 107 cohort studies that corrected for these biases found no significant reduction in deaths among light or moderate drinkers. No randomized trial has shown that wine protects the heart, and alcohol raises blood pressure and the risk of several cancers. The American Heart Association advises against starting to drink for health reasons.",
+    "category": "heart-health",
+    "sticker": "bottle",
+    "sources": [
+      {
+        "title": "Association Between Daily Alcohol Intake and Risk of All-Cause Mortality: A Systematic Review and Meta-analyses",
+        "publisher": "JAMA Network Open",
+        "year": 2023,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Association+Between+Daily+Alcohol+Intake+and+Risk+of+All-Cause+Mortality%3A+A+Systematic+Review+and+Meta-analyses"
+      },
+      {
+        "title": "Alcohol and Heart Health",
+        "publisher": "American Heart Association",
+        "url": "https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/nutrition-basics/alcohol-and-heart-health"
+      },
+      {
+        "title": "Alcohol",
+        "publisher": "World Health Organization",
+        "url": "https://www.who.int/news-room/fact-sheets/detail/alcohol"
+      }
+    ]
+  },
+  {
+    "myth": "Everyone should take a daily probiotic for gut health",
+    "verdict": "misleading",
+    "answer": "Certain strains help in certain situations, but there is no good evidence that healthy people benefit from a daily probiotic.",
+    "explanation": "Probiotics are not one thing: effects depend on the strain, the dose and the condition. The best evidence is for narrow uses, such as lowering the risk of diarrhea while you take antibiotics, and for most digestive conditions the American Gastroenterological Association's 2020 guideline judged the evidence too weak to recommend them outside clinical trials. Supplements are not regulated like medicines, so quality varies. They are safe for most healthy people but have caused serious infections in people who are very ill or have weakened immune systems.",
+    "category": "gut-health",
+    "sticker": "germ",
+    "sources": [
+      {
+        "title": "Probiotics: Usefulness and Safety",
+        "publisher": "National Center for Complementary and Integrative Health",
+        "url": "https://www.nccih.nih.gov/health/probiotics-usefulness-and-safety"
+      },
+      {
+        "title": "AGA Clinical Practice Guidelines on the Role of Probiotics in the Management of Gastrointestinal Disorders",
+        "publisher": "Gastroenterology",
+        "year": 2020,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=AGA+Clinical+Practice+Guidelines+on+the+Role+of+Probiotics+in+the+Management+of+Gastrointestinal+Disorders"
+      }
+    ]
+  },
+  {
+    "myth": "Eating small, frequent meals speeds up your metabolism",
+    "verdict": "false",
+    "answer": "The energy you burn digesting food depends on how much you eat in a day, not on how many meals you split it into.",
+    "explanation": "Digesting food does use energy, roughly 10% of the calories you eat, which is where the idea of stoking the fire came from. But the effect scales with meal size, so six small meals and three larger ones with the same total burn about the same. Reviews of controlled studies, including a position stand from the International Society of Sports Nutrition, find that meal frequency does not meaningfully change metabolic rate or fat loss when calories are equal. Eat on the schedule that best controls your hunger and fits your day.",
+    "category": "metabolism",
+    "sticker": "bowl",
+    "sources": [
+      {
+        "title": "Meal frequency and energy balance",
+        "publisher": "British Journal of Nutrition",
+        "year": 1997,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Meal+frequency+and+energy+balance"
+      },
+      {
+        "title": "International Society of Sports Nutrition position stand: meal frequency",
+        "publisher": "Journal of the International Society of Sports Nutrition",
+        "year": 2011,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=International+Society+of+Sports+Nutrition+position+stand%3A+meal+frequency"
+      }
+    ]
+  },
+  {
+    "myth": "Women who live together sync their periods",
+    "verdict": "false",
+    "answer": "Careful studies find no synchrony; cycles of different lengths simply overlap by chance from time to time.",
+    "explanation": "The idea took off in 1971, when a study of 135 women in a college dormitory reported that the period dates of roommates and close friends drew closer over time. Later researchers found statistical flaws in that method and could not reproduce the result; a year-long study of 186 women living in dormitories in China found no synchronization at all. Because cycles differ in length from person to person and month to month, any two women's periods will drift together and apart again. The overlaps are simply the months people remember.",
+    "category": "womens-health",
+    "sticker": "flower",
+    "sources": [
+      {
+        "title": "Women do not synchronize their menstrual cycles",
+        "publisher": "Human Nature",
+        "year": 2006,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Women+do+not+synchronize+their+menstrual+cycles"
+      },
+      {
+        "title": "Menstrual synchrony and suppression",
+        "publisher": "Nature",
+        "year": 1971,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Menstrual+synchrony+and+suppression"
+      }
+    ]
+  },
+  {
+    "myth": "Baldness is inherited from your mother's father",
+    "verdict": "partly-true",
+    "answer": "One key hair-loss gene sits on the X chromosome that men get from their mothers, but many genes from both parents are involved.",
+    "explanation": "Male pattern hair loss is strongly hereditary, and the best-studied gene, AR, which codes for the androgen receptor, lies on the X chromosome a man inherits from his mother. So there is something to the old rule. But a genetic study of more than 52,000 men found over 250 genetic regions linked to hair loss, the large majority of them on other chromosomes, which come from both parents. Your maternal grandfather's hairline is a clue, not a forecast; look at both sides of the family.",
+    "category": "mens-health",
+    "sticker": "dna",
+    "sources": [
+      {
+        "title": "Androgenetic alopecia",
+        "publisher": "MedlinePlus Genetics (US National Library of Medicine)",
+        "url": "https://medlineplus.gov/genetics/condition/androgenetic-alopecia/"
+      },
+      {
+        "title": "Genetic prediction of male pattern baldness",
+        "publisher": "PLoS Genetics",
+        "year": 2017,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Genetic+prediction+of+male+pattern+baldness"
+      }
+    ]
+  },
+  {
+    "myth": "Shaving makes hair grow back thicker and darker",
+    "verdict": "false",
+    "answer": "Shaving cuts hair at the surface and does not touch the follicle, so it cannot change thickness, color or growth rate.",
+    "explanation": "In a 1970 study, five men shaved one leg weekly for several months and left the other alone; researchers found no difference in the hair's width, coarseness or rate of growth. Regrowth feels stubbly because a razor leaves a blunt tip in place of the naturally tapered end. It can look darker because the new hair has not yet been lightened by the sun and stands out against the skin. The living part of the hair lies below the surface, where a blade never reaches.",
+    "category": "skin-hair-teeth",
+    "sticker": "sparkle",
+    "sources": [
+      {
+        "title": "Shaving and hair growth",
+        "publisher": "Journal of Investigative Dermatology",
+        "year": 1970,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Shaving+and+hair+growth"
+      }
+    ]
+  },
+  {
+    "myth": "Once you are past 70, it is too late for exercise to make a difference",
+    "verdict": "false",
+    "answer": "People gain strength, mobility and independence from exercise at any age, including in their 80s and 90s.",
+    "explanation": "In a classic 1990 study, frail nursing-home residents with an average age of 90 increased their leg strength by an average of 174% after eight weeks of supervised resistance training. A much larger trial, LIFE, enrolled more than 1,600 sedentary adults aged 70 to 89 and found that a program of walking, strength and balance exercises cut the risk of major mobility disability by 18% over about two and a half years. The WHO recommends that older adults aim for the same 150 minutes of weekly activity as younger adults, plus balance and strength work on three or more days. Start gently and build up.",
+    "category": "longevity",
+    "sticker": "dumbbell",
+    "sources": [
+      {
+        "title": "High-intensity strength training in nonagenarians. Effects on skeletal muscle",
+        "publisher": "JAMA",
+        "year": 1990,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=High-intensity+strength+training+in+nonagenarians.+Effects+on+skeletal+muscle"
+      },
+      {
+        "title": "Effect of structured physical activity on prevention of major mobility disability in older adults: the LIFE study randomized clinical trial",
+        "publisher": "JAMA",
+        "year": 2014,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Effect+of+structured+physical+activity+on+prevention+of+major+mobility+disability+in+older+adults%3A+the+LIFE+study+randomized+clinical+trial"
+      },
+      {
+        "title": "Physical activity",
+        "publisher": "World Health Organization",
+        "url": "https://www.who.int/news-room/fact-sheets/detail/physical-activity"
+      }
+    ]
+  },
+  {
+    "myth": "Coffee dehydrates you",
+    "verdict": "misleading",
+    "answer": "Caffeine is a mild diuretic, but the water in coffee more than makes up for it; moderate coffee intake hydrates about as well as water.",
+    "explanation": "The belief comes from caffeine's real, if modest, effect on urine output at high doses, an effect to which regular drinkers build up tolerance. In a 2014 crossover trial, 50 men who drank four mugs of coffee a day for three days showed no difference in hydration markers compared with three days of drinking the same amount of water. The NHS counts tea and coffee toward your daily fluids. The limit worth watching is the caffeine itself: the FDA cites about 400 mg a day as an amount not generally associated with harm in healthy adults.",
+    "category": "lifestyle",
+    "sticker": "coffee",
+    "sources": [
+      {
+        "title": "No evidence of dehydration with moderate daily coffee intake: a counterbalanced cross-over study in a free-living population",
+        "publisher": "PLoS One",
+        "year": 2014,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=No+evidence+of+dehydration+with+moderate+daily+coffee+intake%3A+a+counterbalanced+cross-over+study+in+a+free-living+population"
+      },
+      {
+        "title": "Water, drinks and hydration",
+        "publisher": "NHS",
+        "url": "https://www.nhs.uk/live-well/eat-well/food-guidelines-and-food-labels/water-drinks-nutrition/"
+      },
+      {
+        "title": "Spilling the Beans: How Much Caffeine is Too Much?",
+        "publisher": "US Food and Drug Administration",
+        "url": "https://www.fda.gov/consumers/consumer-updates/spilling-beans-how-much-caffeine-too-much"
+      }
+    ]
+  },
+  {
+    "myth": "Antibiotics will help you get over a cold or the flu",
+    "verdict": "false",
+    "answer": "Colds and flu are caused by viruses, and antibiotics work only against bacteria.",
+    "explanation": "Antibiotics attack structures that bacteria have and viruses lack, so they cannot shorten a cold, the flu or most coughs and sore throats. Taking them anyway exposes you to side effects such as diarrhea and rashes, and gives bacteria more chances to develop resistance, which the WHO ranks among the top global public health threats. Most colds clear up within a week or two with rest and fluids. See a doctor if symptoms are severe, last more than about 10 days, or improve and then get worse, which can signal a bacterial complication.",
+    "category": "immunity",
+    "sticker": "pill",
+    "sources": [
+      {
+        "title": "Antimicrobial resistance",
+        "publisher": "World Health Organization",
+        "url": "https://www.who.int/news-room/fact-sheets/detail/antimicrobial-resistance"
+      },
+      {
+        "title": "Antibiotics",
+        "publisher": "NHS",
+        "url": "https://www.nhs.uk/conditions/antibiotics/"
+      },
+      {
+        "title": "Antibiotics",
+        "publisher": "MedlinePlus (US National Library of Medicine)",
+        "url": "https://medlineplus.gov/antibiotics.html"
+      }
+    ]
+  },
+  {
+    "myth": "People are either left-brained and logical or right-brained and creative",
+    "verdict": "false",
+    "answer": "Some functions lean toward one side of the brain, but people do not have a dominant hemisphere that shapes their personality.",
+    "explanation": "The two hemispheres do specialize: in most people language relies more on the left and spatial attention more on the right. Pop psychology stretched that finding into personality types. When researchers analyzed brain scans from more than 1,000 people aged 7 to 29, they found no evidence that individuals use one hemisphere's networks more than the other's overall. Logic and creativity both draw on networks that span the two sides, which exchange information constantly.",
+    "category": "brain-health",
+    "sticker": "bolt",
+    "sources": [
+      {
+        "title": "An evaluation of the left-brain vs. right-brain hypothesis with resting state functional connectivity magnetic resonance imaging",
+        "publisher": "PLoS One",
+        "year": 2013,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=An+evaluation+of+the+left-brain+vs.+right-brain+hypothesis+with+resting+state+functional+connectivity+magnetic+resonance+imaging"
+      },
+      {
+        "title": "Neuromyths in education: Prevalence and predictors of misconceptions among teachers",
+        "publisher": "Frontiers in Psychology",
+        "year": 2012,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Neuromyths+in+education%3A+Prevalence+and+predictors+of+misconceptions+among+teachers"
+      }
+    ]
+  },
+  {
+    "myth": "Running ruins your knees",
+    "verdict": "misleading",
+    "answer": "Recreational runners have less knee and hip arthritis than non-runners; only very high-volume competitive running is linked with more.",
+    "explanation": "A 2017 meta-analysis covering about 115,000 people found hip or knee osteoarthritis in 3.5% of recreational runners, 10.2% of sedentary non-runners and 13.3% of elite or professional runners. A separate study of about 2,600 adults found that those who had run at some point in their lives had no more knee arthritis, and less knee pain, than those who never ran. These are observational studies, so runners may differ in other ways, such as body weight. Most running knee pain comes from doing too much too soon, and it usually settles with a lighter load and strength work.",
+    "category": "bones-joints",
+    "sticker": "sneaker",
+    "sources": [
+      {
+        "title": "The Association of Recreational and Competitive Running With Hip and Knee Osteoarthritis: A Systematic Review and Meta-analysis",
+        "publisher": "Journal of Orthopaedic & Sports Physical Therapy",
+        "year": 2017,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=The+Association+of+Recreational+and+Competitive+Running+With+Hip+and+Knee+Osteoarthritis%3A+A+Systematic+Review+and+Meta-analysis"
+      },
+      {
+        "title": "Is There an Association Between a History of Running and Symptomatic Knee Osteoarthritis? A Cross-Sectional Study From the Osteoarthritis Initiative",
+        "publisher": "Arthritis Care & Research",
+        "year": 2017,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Is+There+an+Association+Between+a+History+of+Running+and+Symptomatic+Knee+Osteoarthritis%3F+A+Cross-Sectional+Study+From+the+Osteoarthritis+Initiative"
+      }
+    ]
+  },
+  {
+    "myth": "The flu shot can give you the flu",
+    "verdict": "false",
+    "answer": "Injected flu vaccines contain inactivated virus or a single viral protein, so they cannot cause influenza.",
+    "explanation": "Flu shots are made with killed virus or with just one protein from it, and neither can infect you. A sore arm, mild aches or a slight temperature for a day or two are signs of your immune system responding, not of flu. People sometimes fall ill after vaccination because protection takes about two weeks to build, because they caught one of the many other viruses that circulate in winter, or because the vaccine was not a perfect match for that season's strains. The nasal spray vaccine does contain live virus, but in a weakened form that does not cause flu.",
+    "category": "preventive-care",
+    "sticker": "syringe",
+    "sources": [
+      {
+        "title": "Flu Shot",
+        "publisher": "MedlinePlus (US National Library of Medicine)",
+        "url": "https://medlineplus.gov/flushot.html"
+      },
+      {
+        "title": "Influenza (seasonal)",
+        "publisher": "World Health Organization",
+        "url": "https://www.who.int/news-room/fact-sheets/detail/influenza-(seasonal)"
+      },
+      {
+        "title": "Flu vaccine",
+        "publisher": "NHS",
+        "url": "https://www.nhs.uk/vaccinations/flu-vaccine/"
+      }
+    ]
+  }
+]

@@ -274,7 +274,7 @@ certain of it. Say in the name whether the food is raw, cooked, dried and so on.
 
 `type`: strength, cardio, core, mobility, balance. `level`: beginner, intermediate, advanced.
 `equipment`: bodyweight, dumbbell, kettlebell, barbell, band, bench, pull-up bar, cable, machine,
-medicine ball, jump rope, box, mat, foam roller, cardio machine.
+medicine ball, jump rope, box, mat, foam roller, cardio machine, ab wheel, bike, pool.
 
 ## 6. Checking your work
 

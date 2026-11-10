@@ -1,0 +1,80 @@
+[
+  {
+    "term": "Bone density",
+    "definition": "The amount of mineral, mainly calcium and phosphate, packed into a given area of bone, and a major factor in how strong the bone is. It peaks by around age 30 and then slowly declines, falling faster in women after menopause. Weight-bearing and resistance exercise, enough calcium and vitamin D, and not smoking all help preserve it.",
+    "category": "bones-joints",
+    "seeAlso": ["Osteoporosis", "DEXA scan", "Vitamin D"]
+  },
+  {
+    "term": "Osteoporosis",
+    "definition": "A condition in which bones lose density and internal structure, becoming fragile enough to break from a minor fall or bump. It causes no symptoms until a fracture, most often of the wrist, spine or hip. It is diagnosed with a bone density scan and is most common in women after menopause.",
+    "category": "bones-joints",
+    "seeAlso": ["Bone density", "DEXA scan", "Estrogen"]
+  },
+  {
+    "term": "DEXA scan",
+    "definition": "A quick, low-dose X-ray scan, also written DXA, that measures bone density at the hip and spine. The result is given as a T-score comparing you with a healthy young adult: minus 1 or above is normal, and minus 2.5 or below indicates osteoporosis. The same technology can also estimate body fat and muscle.",
+    "category": "bones-joints",
+    "seeAlso": ["Bone density", "Osteoporosis"]
+  },
+  {
+    "term": "Osteoarthritis",
+    "definition": "The most common form of arthritis, in which the cartilage cushioning a joint gradually breaks down and the surrounding bone and tissues change. Knees, hips, hands and the spine are typical sites. Pain and stiffness build slowly; exercise and weight management are the core treatments, and sensible movement does not wear the joint out faster.",
+    "category": "bones-joints",
+    "seeAlso": ["Cartilage", "Rheumatoid arthritis"]
+  },
+  {
+    "term": "Rheumatoid arthritis",
+    "definition": "An autoimmune disease in which the immune system attacks the lining of the joints, causing pain, swelling and prolonged morning stiffness, usually in the same joints on both sides of the body. Unlike osteoarthritis it can start at any age, and early treatment with disease-modifying drugs helps prevent permanent joint damage.",
+    "category": "bones-joints",
+    "seeAlso": ["Autoimmune disease", "Osteoarthritis", "Inflammation"]
+  },
+  {
+    "term": "Cartilage",
+    "definition": "The smooth, rubbery tissue that covers the ends of bones in a joint so they glide against each other and absorb shock. It has no blood supply of its own, which is why it heals poorly once damaged. Its gradual breakdown is the central feature of osteoarthritis.",
+    "category": "bones-joints",
+    "seeAlso": ["Osteoarthritis", "Collagen"]
+  },
+  {
+    "term": "Ligament",
+    "definition": "A tough band of fibrous tissue that connects bone to bone and keeps a joint stable. Overstretching or tearing one is a sprain; the anterior cruciate ligament (ACL) in the knee and the ligaments on the outside of the ankle are frequent casualties.",
+    "category": "bones-joints",
+    "seeAlso": ["Sprain", "Tendon"]
+  },
+  {
+    "term": "Tendon",
+    "definition": "A strong cord of fibrous tissue that attaches muscle to bone and transmits the force that moves a joint. The Achilles tendon at the back of the ankle is the largest. Tendons adapt to load more slowly than muscle does, which is why sudden jumps in training tend to irritate them.",
+    "category": "bones-joints",
+    "seeAlso": ["Ligament", "Collagen"]
+  },
+  {
+    "term": "Sprain",
+    "definition": "An injury to a ligament, caused by stretching or tearing it, most often at the ankle. A strain is the equivalent injury to a muscle or tendon. Both cause pain, swelling and sometimes bruising; mild ones heal with a few days of relative rest followed by a gradual return to movement.",
+    "category": "bones-joints",
+    "seeAlso": ["Ligament", "Tendon"]
+  },
+  {
+    "term": "Sciatica",
+    "definition": "Pain that travels from the lower back or buttock down the back of one leg, sometimes with tingling, numbness or weakness, caused by irritation of a nerve root that feeds the sciatic nerve. A herniated disc is the usual culprit. Most cases improve within weeks; loss of bladder or bowel control or numbness around the groin is an emergency.",
+    "category": "bones-joints",
+    "seeAlso": ["Herniated disc"]
+  },
+  {
+    "term": "Herniated disc",
+    "definition": "A spinal disc whose soft center has bulged or pushed through its tougher outer ring, also called a slipped disc, which can press on a nearby nerve. It is a common cause of sciatica. Many herniated discs cause no symptoms at all, and most painful ones settle without surgery.",
+    "category": "bones-joints",
+    "seeAlso": ["Sciatica"]
+  },
+  {
+    "term": "Vitamin D",
+    "definition": "A vitamin your skin makes in sunlight and that you also get from oily fish, eggs and fortified foods. It helps your body absorb calcium, so a long-term shortage weakens bones. Supplements help people who are deficient; in generally healthy adults, a large trial found that extra vitamin D did not prevent fractures.",
+    "category": "bones-joints",
+    "seeAlso": ["Bone density", "Osteoporosis", "Micronutrient"]
+  },
+  {
+    "term": "NSAID",
+    "definition": "Nonsteroidal anti-inflammatory drug: a class of pain relievers that includes ibuprofen, naproxen and aspirin. NSAIDs reduce pain, fever and inflammation by blocking the enzymes that make prostaglandins. Regular or high-dose use can irritate the stomach, raise blood pressure and strain the kidneys, so take the lowest dose that works, as directed on the label.",
+    "category": "bones-joints",
+    "seeAlso": ["Inflammation"]
+  }
+]

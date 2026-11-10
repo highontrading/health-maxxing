@@ -100,7 +100,7 @@ The World Health Organization does not set a step target. Its guidelines ask adu
 
 You can translate between the two systems with the cadence rule. At about 100 steps a minute, 150 minutes of brisk walking is roughly 15,000 brisk steps a week, or a little over 2,000 a day.[^6] So someone who takes 7,000 to 8,000 steps a day, with a couple of thousand of them at a purposeful pace, is probably meeting the aerobic guideline without ever calling it exercise.
 
-The reverse is also true. You can reach 8,000 steps entirely by pottering around, in which case you get the benefits linked with step volume but may still fall short on intensity. A daily brisk walk of 20 to 30 minutes closes that gap.
+The reverse is also true. You can reach 8,000 steps entirely by puttering around the house, in which case you get the benefits linked with step volume but may still fall short on intensity. A daily brisk walk of 20 to 30 minutes closes that gap.
 
 ## So what should you aim for?
 

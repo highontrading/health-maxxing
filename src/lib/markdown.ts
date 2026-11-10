@@ -89,7 +89,8 @@ function linkCitations(html: string, citations: number): string {
   return html.replace(/\[\^(\d+)\]/g, (_, n: string) => {
     const num = Number(n);
     if (!citations || num < 1 || num > citations) return "";
-    return `<sup class="cite"><a href="#source-${num}" aria-label="Source ${num}">${num}</a></sup>`;
+    // The word joiner keeps the marker on the same line as the sentence it follows.
+    return `\u2060<sup class="cite"><a href="#source-${num}" aria-label="Source ${num}">${num}</a></sup>`;
   });
 }
 

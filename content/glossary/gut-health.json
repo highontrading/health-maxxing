@@ -1,0 +1,74 @@
+[
+  {
+    "term": "Gut microbiome",
+    "definition": "The trillions of bacteria, viruses and fungi that live in your digestive tract, mostly in the large intestine, together with their genes. They help digest fiber, make certain vitamins and train the immune system. A varied, plant-rich diet is linked with a more diverse microbiome.",
+    "category": "gut-health",
+    "seeAlso": ["Probiotic", "Prebiotic", "Short-chain fatty acids"]
+  },
+  {
+    "term": "Probiotic",
+    "definition": "Live microorganisms that give a health benefit when you take enough of them. They come in supplements and in some fermented foods such as yogurt and kefir. Effects depend on the specific strain: some help with antibiotic-related diarrhea, but there is little evidence that healthy people need them.",
+    "category": "gut-health",
+    "seeAlso": ["Prebiotic", "Gut microbiome"]
+  },
+  {
+    "term": "Prebiotic",
+    "definition": "A food component, usually a type of fiber, that you cannot digest but your beneficial gut bacteria can. Onions, garlic, leeks, oats, beans and slightly green bananas are good sources. Think of prebiotics as food for the microbes and probiotics as the microbes themselves.",
+    "category": "gut-health",
+    "seeAlso": ["Probiotic", "Dietary fiber", "Short-chain fatty acids"]
+  },
+  {
+    "term": "Short-chain fatty acids",
+    "definition": "Small fatty acids, mainly acetate, propionate and butyrate, that gut bacteria produce when they ferment fiber in the large intestine. Butyrate is the main fuel for the cells lining your colon. They are one reason researchers think fiber is good for more than regularity.",
+    "category": "gut-health",
+    "seeAlso": ["Dietary fiber", "Gut microbiome", "Prebiotic"]
+  },
+  {
+    "term": "FODMAPs",
+    "definition": "Short-chain carbohydrates that are poorly absorbed in the small intestine and quickly fermented by gut bacteria; the name stands for fermentable oligosaccharides, disaccharides, monosaccharides and polyols. They are found in wheat, onions, beans, milk and some fruits. A temporary low-FODMAP diet, ideally guided by a dietitian, eases symptoms for many people with IBS.",
+    "category": "gut-health",
+    "seeAlso": ["Irritable bowel syndrome", "Lactose intolerance"]
+  },
+  {
+    "term": "Irritable bowel syndrome",
+    "definition": "A common long-term disorder of the way the gut and brain communicate, known as IBS. It causes recurring abdominal pain linked with bowel movements, plus bloating and diarrhea, constipation or both, without visible damage to the gut. It is uncomfortable but does not raise the risk of bowel cancer.",
+    "category": "gut-health",
+    "seeAlso": ["FODMAPs", "Inflammatory bowel disease"]
+  },
+  {
+    "term": "Inflammatory bowel disease",
+    "definition": "An umbrella term, shortened to IBD, for Crohn's disease and ulcerative colitis, in which the immune system drives ongoing inflammation that damages the gut lining. Symptoms include persistent diarrhea, blood in the stool, abdominal pain and weight loss. It is a different and more serious condition than IBS.",
+    "category": "gut-health",
+    "seeAlso": ["Irritable bowel syndrome", "Inflammation"]
+  },
+  {
+    "term": "GERD",
+    "definition": "Gastroesophageal reflux disease: frequent acid reflux, in which stomach contents flow back up into the esophagus, the tube from your mouth to your stomach. Heartburn and a sour taste are the classic symptoms. Occasional reflux is normal; it becomes GERD when it is frequent or causes damage.",
+    "category": "gut-health",
+    "seeAlso": ["Proton pump inhibitor"]
+  },
+  {
+    "term": "Proton pump inhibitor",
+    "definition": "A class of medicines, including omeprazole and esomeprazole, that sharply reduce the acid your stomach makes. Often shortened to PPI, they are the most effective drugs for GERD and stomach ulcers. They are generally safe, but long-term use is worth reviewing with a doctor from time to time.",
+    "category": "gut-health",
+    "seeAlso": ["GERD"]
+  },
+  {
+    "term": "Lactose intolerance",
+    "definition": "Difficulty digesting lactose, the sugar in milk, because the small intestine makes too little of the enzyme lactase. Undigested lactose is fermented in the colon, causing gas, bloating and diarrhea. It is a digestive issue, not an allergy, and most people with it can still handle small amounts of dairy.",
+    "category": "gut-health",
+    "seeAlso": ["FODMAPs"]
+  },
+  {
+    "term": "Celiac disease",
+    "definition": "An autoimmune condition in which eating gluten triggers the immune system to damage the lining of the small intestine, which impairs the absorption of nutrients. It affects about 1 in 100 people and is diagnosed with blood tests and usually a biopsy. The only treatment is a strict, lifelong gluten-free diet.",
+    "category": "gut-health",
+    "seeAlso": ["Gluten", "Autoimmune disease"]
+  },
+  {
+    "term": "Gluten",
+    "definition": "A group of proteins in wheat, barley and rye that gives dough its stretch. It is harmless for most people. Those with celiac disease must avoid it completely, and some others report symptoms after eating wheat, but there is no good evidence that going gluten-free benefits people who tolerate it.",
+    "category": "gut-health",
+    "seeAlso": ["Celiac disease"]
+  }
+]

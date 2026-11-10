@@ -1,0 +1,75 @@
+[
+  {
+    "name": "Tofu, regular, calcium-set, raw",
+    "group": "plant-proteins",
+    "serving": { "label": "1/2 cup", "grams": 124 },
+    "per100g": { "kcal": 76, "protein": 8.1, "carbs": 1.9, "fiber": 0.3, "sugars": 0.6, "fat": 4.8, "satFat": 0.7, "sodiumMg": 7 },
+    "micros": [
+      { "name": "Calcium", "amount": 350, "unit": "mg" },
+      { "name": "Iron", "amount": 5.4, "unit": "mg" },
+      { "name": "Manganese", "amount": 0.6, "unit": "mg" },
+      { "name": "Selenium", "amount": 8.9, "unit": "mcg" }
+    ],
+    "note": "Half a cup (124 g) has about 10 g of protein and, when set with calcium sulfate like this one, over 400 mg of calcium."
+  },
+  {
+    "name": "Tofu, silken, firm",
+    "group": "plant-proteins",
+    "serving": { "label": "1 thick slice", "grams": 84 },
+    "per100g": { "kcal": 62, "protein": 6.9, "carbs": 2.4, "fiber": 0.1, "sugars": 1.3, "fat": 2.7, "satFat": 0.4, "sodiumMg": 36 },
+    "micros": [
+      { "name": "Potassium", "amount": 194, "unit": "mg" },
+      { "name": "Iron", "amount": 1, "unit": "mg" }
+    ],
+    "note": "Soft enough to blend into soups, sauces and smoothies; about 7 g of protein per 100 g, but little calcium in this type."
+  },
+  {
+    "name": "Tofu, fried",
+    "group": "plant-proteins",
+    "serving": { "label": "3 pieces", "grams": 40 },
+    "per100g": { "kcal": 270, "protein": 18.8, "carbs": 8.9, "fiber": 3.9, "sugars": 2.7, "fat": 20.2, "satFat": 2.9, "sodiumMg": 16 },
+    "micros": [
+      { "name": "Calcium", "amount": 372, "unit": "mg" },
+      { "name": "Iron", "amount": 4.9, "unit": "mg" },
+      { "name": "Manganese", "amount": 1.5, "unit": "mg" }
+    ],
+    "note": "Frying drives out water and adds oil, so tofu ends up with over three times the calories per 100 g."
+  },
+  {
+    "name": "Natto",
+    "group": "plant-proteins",
+    "serving": { "label": "1 small pack", "grams": 45 },
+    "per100g": { "kcal": 211, "protein": 19.4, "carbs": 12.7, "fiber": 5.4, "sugars": 4.9, "fat": 11, "satFat": 1.6, "sodiumMg": 7 },
+    "micros": [
+      { "name": "Iron", "amount": 8.6, "unit": "mg" },
+      { "name": "Calcium", "amount": 217, "unit": "mg" },
+      { "name": "Magnesium", "amount": 115, "unit": "mg" },
+      { "name": "Potassium", "amount": 729, "unit": "mg" }
+    ],
+    "note": "Fermented whole soybeans with a sticky texture and strong flavor; a small 45 g pack has nearly 9 g of protein."
+  },
+  {
+    "name": "Miso",
+    "group": "plant-proteins",
+    "serving": { "label": "1 tablespoon", "grams": 17 },
+    "per100g": { "kcal": 198, "protein": 12.8, "carbs": 25.4, "fiber": 5.4, "sugars": 6.2, "fat": 6, "satFat": 1, "sodiumMg": 3728 },
+    "micros": [
+      { "name": "Vitamin K", "amount": 29.3, "unit": "mcg" },
+      { "name": "Manganese", "amount": 0.9, "unit": "mg" },
+      { "name": "Zinc", "amount": 2.6, "unit": "mg" }
+    ],
+    "note": "Used by the spoonful, not the bowlful: a tablespoon (17 g) has about 34 calories and 630 mg of sodium."
+  },
+  {
+    "name": "Soy milk, unsweetened, fortified",
+    "group": "plant-proteins",
+    "serving": { "label": "1 cup (240 ml)", "grams": 243 },
+    "per100g": { "kcal": 33, "protein": 2.9, "carbs": 1.7, "fiber": 0.5, "sugars": 0.4, "fat": 1.6, "satFat": 0.2, "sodiumMg": 37 },
+    "micros": [
+      { "name": "Calcium", "amount": 123, "unit": "mg" },
+      { "name": "Vitamin B12", "amount": 1.1, "unit": "mcg" },
+      { "name": "Vitamin D", "amount": 1.2, "unit": "mcg" }
+    ],
+    "note": "About 7 g of protein per cup, close to cow's milk; the calcium, B12 and vitamin D come from fortification, so check the carton."
+  }
+]

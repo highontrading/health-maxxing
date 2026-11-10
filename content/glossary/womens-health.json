@@ -1,0 +1,80 @@
+[
+  {
+    "term": "Menstrual cycle",
+    "definition": "The monthly hormonal cycle that prepares the body for a possible pregnancy, counted from the first day of one period to the day before the next. A typical adult cycle lasts 21 to 35 days. It has two halves: the follicular phase before ovulation and the luteal phase after it.",
+    "category": "womens-health",
+    "seeAlso": ["Ovulation", "Estrogen", "Progesterone"]
+  },
+  {
+    "term": "Ovulation",
+    "definition": "The release of a mature egg from an ovary, which happens about 14 days before your next period starts, not necessarily on day 14. The egg survives for up to about 24 hours, but because sperm can live for several days, the fertile window covers roughly the six days ending on the day of ovulation.",
+    "category": "womens-health",
+    "seeAlso": ["Menstrual cycle", "Progesterone"]
+  },
+  {
+    "term": "Estrogen",
+    "definition": "The main female sex hormone, made mostly by the ovaries before menopause. It drives puberty, builds the lining of the uterus each cycle and helps maintain bone density, among many other jobs. Men make it too, in smaller amounts. Falling levels around menopause cause hot flashes and speed up bone loss.",
+    "category": "womens-health",
+    "seeAlso": ["Progesterone", "Menopause", "Bone density"]
+  },
+  {
+    "term": "Progesterone",
+    "definition": "A hormone released by the ovary after ovulation that readies the lining of the uterus for a fertilized egg and helps sustain early pregnancy. If no pregnancy occurs, levels fall and a period begins. Synthetic versions, called progestins, are used in hormonal contraception.",
+    "category": "womens-health",
+    "seeAlso": ["Estrogen", "Ovulation", "Menstrual cycle"]
+  },
+  {
+    "term": "Polycystic ovary syndrome",
+    "definition": "A common hormonal condition, known as PCOS, diagnosed when at least two of three features are present: irregular or absent ovulation, signs of high androgen levels such as excess hair growth or acne, and ovaries with many small follicles on ultrasound. It is linked with insulin resistance and is a leading cause of irregular periods.",
+    "category": "womens-health",
+    "seeAlso": ["Ovulation", "Insulin resistance", "Testosterone"]
+  },
+  {
+    "term": "Endometriosis",
+    "definition": "A condition in which tissue similar to the lining of the uterus grows outside it, often on the ovaries or the lining of the pelvis. It can cause severe period pain, pain during sex and difficulty getting pregnant. It affects roughly 1 in 10 women of reproductive age, and diagnosis is often delayed by years.",
+    "category": "womens-health",
+    "seeAlso": ["Menstrual cycle"]
+  },
+  {
+    "term": "Perimenopause",
+    "definition": "The transition leading up to menopause, when hormone levels fluctuate and periods become irregular. It typically begins in the 40s and lasts several years. Hot flashes, night sweats, sleep problems and mood changes often start here, and pregnancy is still possible.",
+    "category": "womens-health",
+    "seeAlso": ["Menopause", "Estrogen", "Menopausal hormone therapy"]
+  },
+  {
+    "term": "Menopause",
+    "definition": "The point at which periods have stopped for 12 months in a row, marking the end of the reproductive years. The average age is around 51. The word is also used loosely for the years of symptoms on either side of that date.",
+    "category": "womens-health",
+    "seeAlso": ["Perimenopause", "Estrogen", "Menopausal hormone therapy"]
+  },
+  {
+    "term": "Menopausal hormone therapy",
+    "definition": "Treatment with estrogen, combined with a progestogen for women who still have a uterus, to relieve menopause symptoms. Also called HRT, it is the most effective treatment for hot flashes and night sweats. Its benefits and risks depend on your age, your health and how long after menopause you start.",
+    "category": "womens-health",
+    "seeAlso": ["Menopause", "Perimenopause", "Estrogen"]
+  },
+  {
+    "term": "Pelvic floor",
+    "definition": "The sling of muscles and connective tissue at the base of the pelvis that supports the bladder, bowel and, in women, the uterus. Pregnancy, childbirth, menopause and aging can weaken it, leading to leaks or prolapse. Pelvic floor muscle training, often called Kegels, is the first treatment for stress incontinence.",
+    "category": "womens-health",
+    "seeAlso": ["Menopause"]
+  },
+  {
+    "term": "Cervical screening",
+    "definition": "A test that checks the cervix for high-risk HPV or for abnormal cells (the Pap test or smear), so that changes can be treated before they turn into cancer. It usually starts between ages 21 and 25 and repeats every three to five years, depending on your country and the test used.",
+    "category": "womens-health",
+    "seeAlso": ["HPV", "Screening"]
+  },
+  {
+    "term": "Mammogram",
+    "definition": "A low-dose X-ray of the breast used to find cancers before they can be felt. Screening programs invite women at regular intervals, typically every one to three years from age 40 or 50, depending on the country. Screening lowers deaths from breast cancer but also produces false alarms and some overdiagnosis.",
+    "category": "womens-health",
+    "seeAlso": ["Screening", "False positive"]
+  },
+  {
+    "term": "HPV",
+    "definition": "Human papillomavirus: a very common group of viruses spread by skin-to-skin and sexual contact. Most infections clear on their own, but long-lasting infection with high-risk types causes almost all cervical cancer and some cancers of the throat, anus and genitals. Vaccination, ideally before first sexual contact, prevents most of them.",
+    "category": "womens-health",
+    "seeAlso": ["Cervical screening", "Vaccine"]
+  }
+]

@@ -20,7 +20,7 @@ faqs:
   - q: "How much fish do I need for omega-3?"
     a: "The American Heart Association recommends two servings of fish a week, particularly oily fish such as salmon, sardines, mackerel, herring or trout. A serving is about 85 g (3 oz) cooked."
   - q: "Is butter better than margarine?"
-    a: "Old-style stick margarines were high in trans fat and were worse than butter. Most modern soft spreads are made without partially hydrogenated oils and contain mainly unsaturated fat, which is better for LDL cholesterol. Check the label for saturated fat and for the words partially hydrogenated."
+    a: "Old-style stick margarines were high in trans fat, which is worse for cholesterol than the saturated fat in butter. Where trans fat is now restricted, most soft spreads are made without partially hydrogenated oils and contain mainly unsaturated fat, which is better for LDL cholesterol. Check the label for saturated fat and for the words partially hydrogenated."
 sources:
   - title: "Saturated fatty acid and trans-fatty acid intake for adults and children: WHO guideline"
     publisher: "World Health Organization"
@@ -61,10 +61,9 @@ sources:
   - title: "Healthy Cooking Oils"
     publisher: "American Heart Association"
     url: "https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/fats/healthy-cooking-oils"
-  - title: "The Effect of Coconut Oil Consumption on Cardiovascular Risk Factors: A Systematic Review and Meta-Analysis of Clinical Trials"
-    publisher: "Circulation"
-    year: 2020
-    url: "https://pubmed.ncbi.nlm.nih.gov/?term=The+Effect+of+Coconut+Oil+Consumption+on+Cardiovascular+Risk+Factors%3A+A+Systematic+Review+and+Meta-Analysis+of+Clinical+Trials"
+  - title: "Trans Fats"
+    publisher: "American Heart Association"
+    url: "https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/fats/trans-fat"
 related: [omega-3-fish-oil-and-your-heart, cholesterol-explained, mediterranean-diet-guide, ultra-processed-foods]
 factCheck: pending
 ---
@@ -94,7 +93,7 @@ The main guidelines agree on direction and differ on strictness:
 
 Ten percent of 2,000 calories is about 22 g. A tablespoon of butter has about 7 g, so the cap is easy to reach if butter, cheese and fatty meat appear at most meals.
 
-The crucial question is what you eat instead. An American Heart Association review of the randomized trials concluded that replacing saturated fat with polyunsaturated vegetable oil cut cardiovascular disease by about 30%, while replacing it with refined carbohydrates and sugar brought no benefit.[^4] A Cochrane review of 15 trials reached a more modest figure: cutting saturated fat for at least two years reduced cardiovascular events by about 17%, with little or no effect on overall mortality.[^5]
+The crucial question is what you eat instead. An American Heart Association review of the randomized trials concluded that replacing saturated fat with polyunsaturated vegetable oil cut cardiovascular disease by about 30%, while replacing it with refined carbohydrates and sugar brought no benefit.[^4] A Cochrane review of 15 trials reached a more modest figure: cutting saturated fat for at least two years reduced cardiovascular events by roughly a fifth, with little or no effect on overall mortality.[^5]
 
 The WHO draws the same conclusion. It advises replacing saturated fat with polyunsaturated or plant-based monounsaturated fat, or with carbohydrates from whole grains, vegetables, fruit and pulses.[^1]
 
@@ -103,12 +102,12 @@ The WHO draws the same conclusion. It advises replacing saturated fat with polyu
 
 ## Trans fat: the one to avoid
 
-Industrially produced trans fat is made by partially hydrogenating vegetable oil to make it solid and shelf-stable. It raises LDL cholesterol, lowers protective HDL cholesterol, and has no known benefit.[^2] The WHO attributes more than 278,000 deaths a year worldwide to it and advises keeping all trans fat below 1% of calories, which is about 2.2 g a day.[^2]
+Industrially produced trans fat is made by partially hydrogenating vegetable oil to make it solid and shelf-stable. It raises LDL cholesterol, lowers protective HDL cholesterol, and has no known benefit.[^2] The WHO attributes more than 278,000 deaths a year worldwide to it and advises keeping all trans fat, including the small amounts found naturally in meat and dairy, below 1% of calories. That is about 2.2 g a day.[^2]
 
 This is one nutrition problem that policy is solving. In 2018 the WHO launched a plan called REPLACE to remove industrial trans fat from the global food supply. Its recommended policies are a limit of 2 g of trans fat per 100 g of fat in all foods, or a ban on partially hydrogenated oils. Denmark led the way in 2003, the US, Canada and the European Union have since acted, and by 2024 best-practice policies covered 53 countries and nearly half the world's population.[^2]
 
 > [!WARNING]
-> Where trans fat is still allowed, labels can hide it. In the US, a food with less than 0.5 g per serving may list 0 g. Check the ingredient list for "partially hydrogenated" oil.[^3]
+> Where trans fat is still allowed, labels can hide it. In the US, a food with less than 0.5 g per serving may list 0 g. Check the ingredient list for "partially hydrogenated" oil.[^12]
 
 ## Omega-3: the fish fat
 
@@ -136,7 +135,7 @@ There is a reasonable point buried in the panic. A large share of seed oil is ea
 
 For everyday cooking, the American Heart Association suggests oils that are low in saturated fat: olive, canola, sunflower, soybean, corn, peanut and safflower.[^11] Extra-virgin olive oil has the strongest trial evidence, as the oil used in the best-known [Mediterranean diet](/articles/mediterranean-diet-guide) study.
 
-Tropical oils are a different matter. In a meta-analysis of 16 clinical trials, coconut oil raised LDL cholesterol by about 10 mg/dL (0.27 mmol/L) compared with other vegetable oils.[^12]
+Tropical oils are a different matter. Coconut oil is mostly saturated fat, and in all seven controlled trials reviewed by the American Heart Association it raised LDL cholesterol compared with unsaturated oils.[^4]
 
 Two kitchen rules cover the rest. If oil starts to smoke, it is breaking down, so discard it and start again. And do not keep reusing the same frying oil.[^11]
 

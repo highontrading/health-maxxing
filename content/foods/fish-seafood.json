@@ -1,0 +1,128 @@
+[
+  {
+    "name": "Salmon, Atlantic, farmed, cooked",
+    "group": "fish-seafood",
+    "fdcId": 175168,
+    "serving": { "label": "1 fillet", "grams": 125 },
+    "per100g": { "kcal": 206, "protein": 22.1, "carbs": 0, "fiber": 0, "sugars": 0, "fat": 12.4, "satFat": 2.4, "sodiumMg": 61 },
+    "micros": [
+      { "name": "Omega-3 (EPA + DHA)", "amount": 2.1, "unit": "g" },
+      { "name": "Vitamin D", "amount": 13.1, "unit": "mcg" },
+      { "name": "Vitamin B12", "amount": 2.8, "unit": "mcg" },
+      { "name": "Selenium", "amount": 41.4, "unit": "mcg" }
+    ],
+    "note": "A 125 g fillet supplies about 2.7 g of omega-3 (EPA and DHA) and roughly a day's vitamin D."
+  },
+  {
+    "name": "Salmon, Atlantic, wild, cooked",
+    "group": "fish-seafood",
+    "serving": { "label": "1 fillet", "grams": 125 },
+    "per100g": { "kcal": 182, "protein": 25.4, "carbs": 0, "fiber": 0, "sugars": 0, "fat": 8.1, "satFat": 1.3, "sodiumMg": 56 },
+    "micros": [
+      { "name": "Omega-3 (EPA + DHA)", "amount": 1.8, "unit": "g" },
+      { "name": "Vitamin B12", "amount": 3.1, "unit": "mcg" },
+      { "name": "Selenium", "amount": 46.8, "unit": "mcg" },
+      { "name": "Potassium", "amount": 628, "unit": "mg" }
+    ],
+    "note": "Leaner than farmed salmon, with about two thirds of the fat and a little more protein, and still about 1.8 g of omega-3 per 100 g."
+  },
+  {
+    "name": "Tuna, light, canned in water, drained",
+    "group": "fish-seafood",
+    "serving": { "label": "1 small can, drained", "grams": 100 },
+    "per100g": { "kcal": 86, "protein": 19.4, "carbs": 0, "fiber": 0, "sugars": 0, "fat": 1, "satFat": 0.2, "sodiumMg": 247 },
+    "micros": [
+      { "name": "Selenium", "amount": 70.6, "unit": "mcg" },
+      { "name": "Niacin (B3)", "amount": 10.1, "unit": "mg" },
+      { "name": "Vitamin B12", "amount": 2.6, "unit": "mcg" }
+    ],
+    "note": "Almost pure protein, at about 19 g per 100 g with 1 g of fat, but far lower in omega-3 than salmon or sardines."
+  },
+  {
+    "name": "Sardines, canned in oil, drained, with bones",
+    "group": "fish-seafood",
+    "serving": { "label": "1 small can, drained", "grams": 92 },
+    "per100g": { "kcal": 208, "protein": 24.6, "carbs": 0, "fiber": 0, "sugars": 0, "fat": 11.5, "satFat": 1.5, "sodiumMg": 307 },
+    "micros": [
+      { "name": "Calcium", "amount": 382, "unit": "mg" },
+      { "name": "Vitamin B12", "amount": 8.9, "unit": "mcg" },
+      { "name": "Vitamin D", "amount": 4.8, "unit": "mcg" },
+      { "name": "Omega-3 (EPA + DHA)", "amount": 1, "unit": "g" }
+    ],
+    "note": "Eat the soft bones: they are the reason one small can gives you about 350 mg of calcium."
+  },
+  {
+    "name": "Mackerel, Atlantic, cooked",
+    "group": "fish-seafood",
+    "serving": { "label": "1 fillet", "grams": 88 },
+    "per100g": { "kcal": 262, "protein": 23.9, "carbs": 0, "fiber": 0, "sugars": 0, "fat": 17.8, "satFat": 4.2, "sodiumMg": 83 },
+    "micros": [
+      { "name": "Vitamin B12", "amount": 19, "unit": "mcg" },
+      { "name": "Omega-3 (EPA + DHA)", "amount": 1.2, "unit": "g" },
+      { "name": "Selenium", "amount": 51.6, "unit": "mcg" }
+    ],
+    "note": "An oily fish with about 1.2 g of omega-3 per 100 g and several days' worth of vitamin B12."
+  },
+  {
+    "name": "Herring, Atlantic, cooked",
+    "group": "fish-seafood",
+    "serving": { "label": "1 fillet", "grams": 143 },
+    "per100g": { "kcal": 203, "protein": 23, "carbs": 0, "fiber": 0, "sugars": 0, "fat": 11.6, "satFat": 2.6, "sodiumMg": 115 },
+    "micros": [
+      { "name": "Vitamin B12", "amount": 13.1, "unit": "mcg" },
+      { "name": "Omega-3 (EPA + DHA)", "amount": 2, "unit": "g" },
+      { "name": "Vitamin D", "amount": 5.4, "unit": "mcg" },
+      { "name": "Selenium", "amount": 46.8, "unit": "mcg" }
+    ],
+    "note": "One of the richest omega-3 sources on this list at about 2 g per 100 g, with a good amount of vitamin D too."
+  },
+  {
+    "name": "Cod, Atlantic, cooked",
+    "group": "fish-seafood",
+    "serving": { "label": "1 fillet piece", "grams": 125 },
+    "per100g": { "kcal": 105, "protein": 22.8, "carbs": 0, "fiber": 0, "sugars": 0, "fat": 0.9, "satFat": 0.2, "sodiumMg": 78 },
+    "micros": [
+      { "name": "Selenium", "amount": 37.6, "unit": "mcg" },
+      { "name": "Vitamin B12", "amount": 1.1, "unit": "mcg" },
+      { "name": "Phosphorus", "amount": 138, "unit": "mg" }
+    ],
+    "note": "A very lean white fish: about 23 g of protein and under 1 g of fat per 100 g, so it needs gentle cooking to stay moist."
+  },
+  {
+    "name": "Tilapia, cooked",
+    "group": "fish-seafood",
+    "serving": { "label": "1 fillet", "grams": 87 },
+    "per100g": { "kcal": 128, "protein": 26.2, "carbs": 0, "fiber": 0, "sugars": 0, "fat": 2.7, "satFat": 0.9, "sodiumMg": 56 },
+    "micros": [
+      { "name": "Selenium", "amount": 54.4, "unit": "mcg" },
+      { "name": "Vitamin B12", "amount": 1.9, "unit": "mcg" },
+      { "name": "Vitamin D", "amount": 3.7, "unit": "mcg" },
+      { "name": "Niacin (B3)", "amount": 4.7, "unit": "mg" }
+    ],
+    "note": "Mild and lean, with about 26 g of protein per 100 g, but much lower in omega-3 than oily fish."
+  },
+  {
+    "name": "Shrimp, cooked",
+    "group": "fish-seafood",
+    "serving": { "label": "1 palm-size portion", "grams": 85 },
+    "per100g": { "kcal": 99, "protein": 24, "carbs": 0.2, "fiber": 0, "sugars": 0, "fat": 0.3, "satFat": 0.1, "sodiumMg": 111 },
+    "micros": [
+      { "name": "Phosphorus", "amount": 237, "unit": "mg" },
+      { "name": "Zinc", "amount": 1.6, "unit": "mg" }
+    ],
+    "note": "Nearly all protein with almost no fat; these figures are for shrimp without added brine, and many frozen packs are saltier."
+  },
+  {
+    "name": "Mussels, blue, cooked",
+    "group": "fish-seafood",
+    "serving": { "label": "1 small bowl, shelled", "grams": 85 },
+    "per100g": { "kcal": 172, "protein": 23.8, "carbs": 7.4, "fiber": 0, "sugars": 0, "fat": 4.5, "satFat": 0.9, "sodiumMg": 369 },
+    "micros": [
+      { "name": "Vitamin B12", "amount": 24, "unit": "mcg" },
+      { "name": "Iron", "amount": 6.7, "unit": "mg" },
+      { "name": "Selenium", "amount": 89.6, "unit": "mcg" },
+      { "name": "Manganese", "amount": 6.8, "unit": "mg" }
+    ],
+    "note": "Around 24 g of protein per 100 g, ten times a day's vitamin B12 and more iron than beef."
+  }
+]

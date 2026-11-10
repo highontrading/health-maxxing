@@ -1,5 +1,7 @@
+import { Suspense } from "react";
 import { Footer } from "@/components/site/Footer";
 import { Header } from "@/components/site/Header";
+import { ProseLinkRouter } from "@/components/article/ArticleClient";
 import { RevealObserver } from "@/components/RevealObserver";
 
 export default function SiteLayout({ children }: LayoutProps<"/">) {
@@ -10,7 +12,11 @@ export default function SiteLayout({ children }: LayoutProps<"/">) {
         {children}
       </div>
       <Footer />
-      <RevealObserver />
+      {/* Reads the pathname, which is only known at request time on forum routes. */}
+      <Suspense fallback={null}>
+        <RevealObserver />
+      </Suspense>
+      <ProseLinkRouter />
     </div>
   );
 }

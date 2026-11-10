@@ -83,6 +83,8 @@ The clearest picture comes from a 2016 analysis that pooled data on more than a 
 
 Two cautions. First, these are observational studies. People who are already unwell sit more, which can make sitting look more harmful than it is. Second, the risk was concentrated among people who did little activity. That second point is the good news.
 
+Not all sitting looked equal, either. Long hours in front of the television were linked with higher risk even among very active people, although the link was weaker in that group.[^2] Evening TV tends to mean long unbroken spells, often after a large meal, which may be part of the explanation.
+
 ## The offset: how much movement cancels it out
 
 In the same million-person analysis, people who did about 60 to 75 minutes of moderate-intensity activity a day showed no increased risk of death from sitting more than eight hours.[^2] Brisk walking and cycling at an easy pace count as moderate.
@@ -98,7 +100,7 @@ This matches the WHO's advice: limit sedentary time, replace it with movement of
 
 Separate from your total activity, there is the question of long unbroken stretches. Here the evidence comes from small, tightly controlled lab studies that measure blood markers over a single day.
 
-In one, 19 overweight adults who interrupted sitting with two minutes of walking every 20 minutes had after-meal blood sugar responses about a quarter lower, and lower insulin levels, than on a day of uninterrupted sitting.[^6]
+In one, 19 overweight adults who interrupted sitting with two minutes of walking every 20 minutes had after-meal blood sugar responses about a quarter lower, and lower insulin levels, than on a day of uninterrupted sitting. The likely reason is simple: working muscles pull sugar out of the blood, and idle ones do not.[^6]
 
 A 2023 trial tested different "doses" of break in 11 middle-aged and older adults. Five minutes of light walking every 30 minutes cut the blood sugar spike after a meal by more than half compared with sitting all day. Every walking pattern tested, including one minute every hour, lowered systolic blood pressure by 4 to 5 mm Hg.[^5]
 
@@ -124,24 +126,24 @@ Ideas that fit around work:
 - Take the stairs, fast, whenever there are fewer than four floors.
 - Walk for ten minutes after lunch, when blood sugar is rising.
 - Stand or pace for phone calls and one-to-one meetings.
-- Get off public transport a stop early, or park at the far end.
+- Get off the bus or train a stop early, or park at the far end.
 - Keep a resistance band or kettlebell where you can see it.
 
 If you track [steps](/articles/how-many-steps-a-day), use the hourly count as a prompt instead of only the daily total.
 
 ## Set up your desk so sitting hurts less
 
-No chair makes eight motionless hours healthy, but a decent setup reduces aches.[^9]
+No chair makes eight motionless hours healthy, but a decent setup reduces aches.
 
-- Feet flat on the floor or on a footrest, with thighs and hips supported.
-- Back supported, shoulders relaxed, elbows close to your body and bent at roughly 90 to 120 degrees.
-- Screen directly in front of you at about arm's length, with the top at or just below eye level.
-- Change position often. The best posture is your next one.
+- Feet flat on the floor or on a footrest, with thighs and hips supported.[^9]
+- Back supported, shoulders relaxed, elbows close to your body and bent at roughly 90 to 120 degrees.[^9]
+- Screen directly in front of you at about arm's length, with the top roughly at eye level.[^10]
+- Change position often. The best posture is your next one.[^9]
 
 UK workplace guidance adds that short, frequent breaks from screen work are better than occasional long ones, for example 5 to 10 minutes every hour.[^10] For neck and shoulder trouble, see our guide to [posture and tech neck](/articles/posture-and-tech-neck).
 
 > [!DOCTOR]
-> See a doctor promptly if you develop throbbing pain, swelling, warmth or redness in one leg, usually the calf, especially after a long period of not moving. These can be signs of a blood clot. Call your local emergency number if leg symptoms come with sudden breathlessness or chest pain.[^12] Back pain with numbness, leg weakness or bladder changes also needs urgent assessment.
+> See a doctor promptly if you develop throbbing pain, swelling, warmth or redness in one leg, usually the calf, especially after a long period of not moving. These can be signs of a blood clot. Call your local emergency number if leg symptoms come with sudden breathlessness or chest pain.[^12] Back pain with numbness around the groin, leg weakness or new bladder problems also needs urgent assessment, as our [low back pain guide](/articles/low-back-pain-what-works) explains.
 
 ## The bottom line
 

@@ -1,0 +1,74 @@
+[
+  {
+    "term": "Generalized anxiety disorder",
+    "definition": "A condition marked by persistent, hard-to-control worry about many everyday things, on most days for at least six months, often with restlessness, muscle tension, poor sleep and trouble concentrating. It is common and treatable, usually with talking therapy, medication or both.",
+    "category": "mental-health",
+    "seeAlso": ["Cognitive behavioral therapy", "SSRI", "Panic attack"]
+  },
+  {
+    "term": "Major depressive disorder",
+    "definition": "The clinical name for depression: at least two weeks of low mood or loss of interest in things you usually enjoy, along with changes such as poor sleep, low energy, altered appetite, trouble concentrating or feelings of worthlessness. It is an illness, not a weakness, and it responds to treatment.",
+    "category": "mental-health",
+    "seeAlso": ["SSRI", "Cognitive behavioral therapy", "Rumination"]
+  },
+  {
+    "term": "Cognitive behavioral therapy",
+    "definition": "A structured, usually short-term talking therapy, often shortened to CBT, that helps you notice and change unhelpful patterns of thinking and behavior. It has some of the strongest trial evidence of any psychological treatment for anxiety disorders and depression.",
+    "category": "mental-health",
+    "seeAlso": ["CBT-I", "Generalized anxiety disorder", "Major depressive disorder"]
+  },
+  {
+    "term": "SSRI",
+    "definition": "Selective serotonin reuptake inhibitor: the most commonly prescribed class of antidepressant, including sertraline and fluoxetine. SSRIs increase the amount of serotonin available between nerve cells and are used for depression and anxiety disorders. They usually take a few weeks to show their full effect.",
+    "category": "mental-health",
+    "seeAlso": ["Serotonin", "Major depressive disorder", "Neurotransmitter"]
+  },
+  {
+    "term": "Mindfulness",
+    "definition": "Paying attention to the present moment, such as your breath, body or surroundings, on purpose and without judging what you notice. It can be practiced through meditation or in daily life. Structured programs show modest but real benefits for stress, anxiety and preventing relapse of depression.",
+    "category": "mental-health",
+    "seeAlso": ["Rumination", "Cortisol"]
+  },
+  {
+    "term": "Burnout",
+    "definition": "A state of exhaustion, growing cynicism or mental distance from your job, and a sense of getting less done, caused by chronic workplace stress that has not been managed. The WHO classes it as an occupational phenomenon, not a medical condition, though it overlaps with depression and deserves attention.",
+    "category": "mental-health",
+    "seeAlso": ["Cortisol", "Major depressive disorder"]
+  },
+  {
+    "term": "Cortisol",
+    "definition": "The main stress hormone, made by the adrenal glands that sit above your kidneys. It follows a daily rhythm, peaking soon after you wake and falling at night, and it surges under stress to raise blood sugar and alertness. Short spikes are healthy; the trouble comes when levels stay raised for long periods.",
+    "category": "mental-health",
+    "seeAlso": ["Fight-or-flight response", "Circadian rhythm"]
+  },
+  {
+    "term": "Panic attack",
+    "definition": "A sudden surge of intense fear that peaks within minutes, with physical symptoms such as a racing heart, shortness of breath, trembling, chest tightness and dizziness. It feels alarming but is not dangerous in itself. Chest pain you cannot explain still deserves urgent medical attention.",
+    "category": "mental-health",
+    "seeAlso": ["Fight-or-flight response", "Generalized anxiety disorder"]
+  },
+  {
+    "term": "Rumination",
+    "definition": "Going over the same negative thoughts, often about past events or your own failings, again and again without reaching a solution. It is a common feature of depression and anxiety, tends to keep both going, and is one of the habits talking therapies target.",
+    "category": "mental-health",
+    "seeAlso": ["Major depressive disorder", "Mindfulness"]
+  },
+  {
+    "term": "Fight-or-flight response",
+    "definition": "Your body's automatic reaction to a perceived threat. The sympathetic nervous system releases adrenaline, which speeds up your heart and breathing, tenses your muscles and sharpens attention. It is ideal for dodging a car and less useful when the trigger is an email.",
+    "category": "mental-health",
+    "seeAlso": ["Cortisol", "Panic attack"]
+  },
+  {
+    "term": "Post-traumatic stress disorder",
+    "definition": "A condition, known as PTSD, that can develop after a frightening or life-threatening event. Symptoms include flashbacks or nightmares, avoiding reminders, feeling constantly on guard and negative changes in mood, lasting more than a month. Trauma-focused talking therapies are the best-supported treatment.",
+    "category": "mental-health",
+    "seeAlso": ["Cognitive behavioral therapy", "Fight-or-flight response"]
+  },
+  {
+    "term": "Serotonin",
+    "definition": "A chemical messenger that helps regulate mood, sleep, appetite and digestion; most of the body's supply is actually in the gut. The idea that depression is simply a serotonin imbalance is too simple, even though medicines that act on serotonin do help many people.",
+    "category": "mental-health",
+    "seeAlso": ["SSRI", "Neurotransmitter"]
+  }
+]

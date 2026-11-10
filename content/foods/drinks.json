@@ -1,0 +1,79 @@
+[
+  {
+    "name": "Orange juice, fresh",
+    "group": "drinks",
+    "fdcId": 169098,
+    "serving": { "label": "1 cup (240 ml)", "grams": 248 },
+    "per100g": { "kcal": 45, "protein": 0.7, "carbs": 10.4, "fiber": 0.2, "sugars": 8.4, "fat": 0.2, "satFat": 0, "sodiumMg": 1 },
+    "micros": [
+      { "name": "Vitamin C", "amount": 50, "unit": "mg" },
+      { "name": "Potassium", "amount": 200, "unit": "mg" },
+      { "name": "Folate", "amount": 30, "unit": "mcg" }
+    ],
+    "note": "A cup has about 110 calories and 21 g of sugar with almost none of the orange's fiber, though it does deliver a full day's vitamin C."
+  },
+  {
+    "name": "Cola, regular",
+    "group": "drinks",
+    "serving": { "label": "1 can (355 ml)", "grams": 368 },
+    "per100g": { "kcal": 42, "protein": 0, "carbs": 10.6, "fiber": 0, "sugars": 10.6, "fat": 0.3, "satFat": 0, "sodiumMg": 3 },
+    "micros": [
+      { "name": "Caffeine", "amount": 9, "unit": "mg" }
+    ],
+    "note": "A 355 ml can has about 39 g of sugar, more than 9 teaspoons, and nothing else of note."
+  },
+  {
+    "name": "Coffee, brewed, black",
+    "group": "drinks",
+    "serving": { "label": "1 cup (240 ml)", "grams": 237 },
+    "per100g": { "kcal": 1, "protein": 0.1, "carbs": 0, "fiber": 0, "sugars": 0, "fat": 0, "satFat": 0, "sodiumMg": 2 },
+    "micros": [
+      { "name": "Caffeine", "amount": 40, "unit": "mg" },
+      { "name": "Potassium", "amount": 49, "unit": "mg" }
+    ],
+    "note": "Essentially calorie-free until you add milk, sugar or syrup; a cup has roughly 95 mg of caffeine, depending on the brew."
+  },
+  {
+    "name": "Tea, black, brewed",
+    "group": "drinks",
+    "serving": { "label": "1 cup (240 ml)", "grams": 237 },
+    "per100g": { "kcal": 1, "protein": 0, "carbs": 0.3, "fiber": 0, "sugars": 0, "fat": 0, "satFat": 0, "sodiumMg": 3 },
+    "micros": [
+      { "name": "Caffeine", "amount": 20, "unit": "mg" },
+      { "name": "Potassium", "amount": 37, "unit": "mg" }
+    ],
+    "note": "Calorie-free without milk or sugar, with about half the caffeine of coffee: roughly 47 mg per cup."
+  },
+  {
+    "name": "Beer, regular",
+    "group": "drinks",
+    "serving": { "label": "1 can or bottle (355 ml)", "grams": 356 },
+    "per100g": { "kcal": 43, "protein": 0.5, "carbs": 3.6, "fiber": 0, "sugars": 0, "fat": 0, "satFat": 0, "sodiumMg": 4 },
+    "micros": [
+      { "name": "Alcohol", "amount": 3.9, "unit": "g" }
+    ],
+    "note": "Most of the calories come from alcohol, about 3.9 g per 100 g; a 355 ml can or bottle has roughly 150 calories."
+  },
+  {
+    "name": "Red wine",
+    "group": "drinks",
+    "serving": { "label": "1 glass (150 ml)", "grams": 147 },
+    "per100g": { "kcal": 85, "protein": 0.1, "carbs": 2.6, "fiber": 0, "sugars": 0.6, "fat": 0, "satFat": 0, "sodiumMg": 4 },
+    "micros": [
+      { "name": "Alcohol", "amount": 10.6, "unit": "g" },
+      { "name": "Potassium", "amount": 127, "unit": "mg" }
+    ],
+    "note": "Nearly all the calories come from alcohol, about 10.6 g per 100 g; a 150 ml glass has roughly 125 calories."
+  },
+  {
+    "name": "Coconut water",
+    "group": "drinks",
+    "serving": { "label": "1 cup (240 ml)", "grams": 240 },
+    "per100g": { "kcal": 19, "protein": 0.7, "carbs": 3.7, "fiber": 1.1, "sugars": 2.6, "fat": 0.2, "satFat": 0.2, "sodiumMg": 105 },
+    "micros": [
+      { "name": "Potassium", "amount": 250, "unit": "mg" },
+      { "name": "Magnesium", "amount": 25, "unit": "mg" }
+    ],
+    "note": "Mostly water with some natural sugar: a cup has about 45 calories, 600 mg of potassium and 250 mg of sodium."
+  }
+]

@@ -45,6 +45,9 @@ export const EXERCISE_EQUIPMENT = [
   "mat",
   "foam roller",
   "cardio machine",
+  "ab wheel",
+  "bike",
+  "pool",
 ] as const;
 export const COLOR_KEYS = [
   "lime",

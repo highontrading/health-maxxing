@@ -155,39 +155,40 @@
 }
 
 /* ------------------------------------------------------------------
-   Base
+   Base (in the base layer so component styles can override it)
 ------------------------------------------------------------------- */
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: calc(var(--header-h) + 20px);
-  -webkit-text-size-adjust: 100%;
-}
-body {
-  background: var(--paper);
-  color: var(--ink);
-  font-family: var(--font-sans);
-  font-feature-settings: "ss01" on, "cv11" on;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-}
-::selection {
-  background: var(--lime-solid);
-  color: var(--ink);
-}
-:focus-visible {
-  outline: 2.5px solid var(--blue-solid);
-  outline-offset: 3px;
-  border-radius: 6px;
-}
-a, button, summary, [role="button"] {
-  -webkit-tap-highlight-color: transparent;
-}
-img, svg {
-  display: block;
-}
-hr {
-  border-color: var(--line);
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-h) + 20px);
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01" on, "cv11" on;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--lime-solid);
+    color: var(--ink);
+  }
+  :focus-visible {
+    outline: 2.5px solid var(--blue-solid);
+    outline-offset: 3px;
+  }
+  a, button, summary, [role="button"] {
+    -webkit-tap-highlight-color: transparent;
+  }
+  img, svg {
+    display: block;
+  }
+  hr {
+    border-color: var(--line);
+  }
 }
 
 @layer components {
@@ -403,8 +404,10 @@ hr {
   .marquee:hover .marquee-track { animation-play-state: paused; }
 
   /* ---------- Reveal on scroll ---------- */
-  .reveal { opacity: 0; translate: 0 16px; transition: opacity 0.6s ease, translate 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
-  .reveal.is-in { opacity: 1; translate: 0 0; }
+  /* Content is visible by default. RevealObserver adds .reveal-ready to <html>
+     once it is running, so nothing stays hidden if scripts fail. */
+  .reveal { transition: opacity 0.6s ease, translate 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
+  .reveal-ready .reveal:not(.is-in) { opacity: 0; translate: 0 16px; }
 
   /* ---------- Article prose ---------- */
   .prose-hm {
@@ -605,5 +608,10 @@ hr {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  .reveal { opacity: 1; translate: 0 0; }
+  .reveal-ready .reveal:not(.is-in) { opacity: 1; translate: 0 0; }
+}
+
+/* Draggable stickers: only for precise pointers, so touch scrolling is untouched. */
+@media (pointer: fine) {
+  .draggable { cursor: grab; touch-action: none; transition: scale 0.2s ease; }
 }

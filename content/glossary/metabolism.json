@@ -1,0 +1,74 @@
+[
+  {
+    "term": "Basal metabolic rate",
+    "definition": "The energy your body uses at complete rest just to keep you alive: breathing, pumping blood, running your brain and holding your temperature steady. Usually shortened to BMR, it accounts for roughly 60% to 70% of the calories most people burn in a day and depends mostly on body size and how much muscle you carry.",
+    "category": "metabolism",
+    "seeAlso": ["Total daily energy expenditure", "Calorie"]
+  },
+  {
+    "term": "Total daily energy expenditure",
+    "definition": "All the calories you burn in 24 hours, shortened to TDEE: your basal metabolic rate, plus the energy used to digest food, plus all movement, from workouts to fidgeting. It is the number calorie calculators try to estimate, and for any one person the estimate can be off by a few hundred calories.",
+    "category": "metabolism",
+    "seeAlso": ["Basal metabolic rate", "NEAT", "Calorie"]
+  },
+  {
+    "term": "Insulin",
+    "definition": "A hormone made by the pancreas that lets glucose move from your blood into your cells to be used as fuel or stored. It rises after you eat, especially after carbohydrate. In type 1 diabetes the body makes little or none; in type 2 diabetes the body stops responding to it properly.",
+    "category": "metabolism",
+    "seeAlso": ["Insulin resistance", "Blood glucose", "Type 2 diabetes"]
+  },
+  {
+    "term": "Insulin resistance",
+    "definition": "A state in which your muscle, fat and liver cells respond poorly to insulin, so the pancreas has to produce more to keep blood sugar normal. It often develops years before type 2 diabetes and is closely tied to excess fat around the waist and to inactivity. Exercise and weight loss improve it.",
+    "category": "metabolism",
+    "seeAlso": ["Insulin", "Prediabetes", "Visceral fat"]
+  },
+  {
+    "term": "Blood glucose",
+    "definition": "The amount of sugar (glucose) in your blood, your cells' main fuel. US guidelines class a fasting level below 100 mg/dL (5.6 mmol/L) as normal and 126 mg/dL (7.0 mmol/L) or higher, confirmed on a second test, as diabetes. Levels rise after meals and are brought back down by insulin.",
+    "category": "metabolism",
+    "seeAlso": ["Insulin", "HbA1c", "Prediabetes"]
+  },
+  {
+    "term": "HbA1c",
+    "definition": "A blood test showing the percentage of your hemoglobin that has glucose attached, which reflects your average blood sugar over the past two to three months. By US criteria, below 5.7% is normal, 5.7% to 6.4% is prediabetes and 6.5% or higher indicates diabetes. No fasting is needed.",
+    "category": "metabolism",
+    "seeAlso": ["Blood glucose", "Prediabetes", "Type 2 diabetes"]
+  },
+  {
+    "term": "Prediabetes",
+    "definition": "Blood sugar that is higher than normal but not yet in the diabetes range, for example an HbA1c of 5.7% to 6.4% by US criteria. It usually causes no symptoms. It is a warning, not a sentence: in a large US trial, modest weight loss and regular activity cut the risk of progressing to type 2 diabetes by 58%.",
+    "category": "metabolism",
+    "seeAlso": ["HbA1c", "Insulin resistance", "Type 2 diabetes"]
+  },
+  {
+    "term": "Type 2 diabetes",
+    "definition": "A long-term condition in which the body does not respond well to insulin and cannot make enough to compensate, so blood sugar stays too high. It is by far the most common form of diabetes. Over years, high blood sugar damages blood vessels, nerves, eyes and kidneys, but good management greatly lowers those risks.",
+    "category": "metabolism",
+    "seeAlso": ["Insulin resistance", "HbA1c", "Blood glucose"]
+  },
+  {
+    "term": "TSH",
+    "definition": "Thyroid-stimulating hormone, made by the pituitary gland in the brain to tell your thyroid how hard to work. It is the standard first blood test for thyroid problems. A high TSH usually points to an underactive thyroid and a low TSH to an overactive one, which seems backwards until you remember it measures the brain's request, not the thyroid's output.",
+    "category": "metabolism",
+    "seeAlso": ["Reference range"]
+  },
+  {
+    "term": "GLP-1 receptor agonist",
+    "definition": "A class of medicines, including semaglutide and liraglutide, that mimic a gut hormone called GLP-1. They prompt insulin release when blood sugar is high, slow stomach emptying and reduce appetite. Developed for type 2 diabetes, they are now also used for weight management; nausea is the most common side effect.",
+    "category": "metabolism",
+    "seeAlso": ["Insulin", "Type 2 diabetes"]
+  },
+  {
+    "term": "Body mass index",
+    "definition": "Your weight in kilograms divided by the square of your height in meters, shortened to BMI. For adults, 18.5 to 24.9 is classed as a healthy weight, 25 to 29.9 as overweight and 30 or above as obesity. It is a quick screening tool, but it cannot tell muscle from fat or show where fat is carried.",
+    "category": "metabolism",
+    "seeAlso": ["Visceral fat"]
+  },
+  {
+    "term": "Visceral fat",
+    "definition": "Fat stored deep in the abdomen, around the liver, intestines and other organs, as opposed to the fat just under your skin. It is more strongly linked with insulin resistance, type 2 diabetes and heart disease than fat elsewhere. Your waist measurement is a simple, rough guide to how much you carry.",
+    "category": "metabolism",
+    "seeAlso": ["Insulin resistance", "Body mass index"]
+  }
+]

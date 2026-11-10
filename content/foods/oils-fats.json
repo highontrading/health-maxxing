@@ -1,0 +1,78 @@
+[
+  {
+    "name": "Olive oil",
+    "group": "oils-fats",
+    "fdcId": 171413,
+    "serving": { "label": "1 tablespoon", "grams": 13.5 },
+    "per100g": { "kcal": 884, "protein": 0, "carbs": 0, "fiber": 0, "sugars": 0, "fat": 100, "satFat": 13.8, "sodiumMg": 2 },
+    "micros": [
+      { "name": "Vitamin E", "amount": 14.4, "unit": "mg" },
+      { "name": "Vitamin K", "amount": 60.2, "unit": "mcg" }
+    ],
+    "note": "A tablespoon is about 120 calories, almost all of it from fat, most of that monounsaturated."
+  },
+  {
+    "name": "Canola oil",
+    "group": "oils-fats",
+    "serving": { "label": "1 tablespoon", "grams": 14 },
+    "per100g": { "kcal": 884, "protein": 0, "carbs": 0, "fiber": 0, "sugars": 0, "fat": 100, "satFat": 7.4, "sodiumMg": 0 },
+    "micros": [
+      { "name": "Vitamin E", "amount": 17.5, "unit": "mg" },
+      { "name": "Vitamin K", "amount": 71.3, "unit": "mcg" },
+      { "name": "Omega-3 (ALA)", "amount": 9.1, "unit": "g" }
+    ],
+    "note": "The lowest in saturated fat of the oils on this list, at 7.4 g per 100 g, and one of the few with plant omega-3 (ALA)."
+  },
+  {
+    "name": "Sunflower oil (linoleic)",
+    "group": "oils-fats",
+    "serving": { "label": "1 tablespoon", "grams": 13.6 },
+    "per100g": { "kcal": 884, "protein": 0, "carbs": 0, "fiber": 0, "sugars": 0, "fat": 100, "satFat": 10.3, "sodiumMg": 0 },
+    "micros": [
+      { "name": "Vitamin E", "amount": 41.1, "unit": "mg" },
+      { "name": "Vitamin K", "amount": 5.4, "unit": "mcg" }
+    ],
+    "note": "Rich in vitamin E, with a tablespoon covering over a third of a day's needs; high-oleic versions have a different fat profile."
+  },
+  {
+    "name": "Coconut oil",
+    "group": "oils-fats",
+    "serving": { "label": "1 tablespoon", "grams": 13.6 },
+    "per100g": { "kcal": 892, "protein": 0, "carbs": 0, "fiber": 0, "sugars": 0, "fat": 99.1, "satFat": 82.5, "sodiumMg": 0 },
+    "note": "About 83% saturated fat, far more than butter, which is why it is solid at room temperature."
+  },
+  {
+    "name": "Butter, salted",
+    "group": "oils-fats",
+    "fdcId": 173410,
+    "serving": { "label": "1 tablespoon", "grams": 14.2 },
+    "per100g": { "kcal": 717, "protein": 0.9, "carbs": 0.1, "fiber": 0, "sugars": 0.1, "fat": 81.1, "satFat": 51.4, "sodiumMg": 643 },
+    "micros": [
+      { "name": "Vitamin A (RAE)", "amount": 684, "unit": "mcg" },
+      { "name": "Vitamin E", "amount": 2.3, "unit": "mg" }
+    ],
+    "note": "A tablespoon (14 g) has about 100 calories and 7 g of saturated fat."
+  },
+  {
+    "name": "Ghee (clarified butter)",
+    "group": "oils-fats",
+    "serving": { "label": "1 tablespoon", "grams": 12.8 },
+    "per100g": { "kcal": 876, "protein": 0.3, "carbs": 0, "fiber": 0, "sugars": 0, "fat": 99.5, "satFat": 61.9, "sodiumMg": 2 },
+    "micros": [
+      { "name": "Vitamin A (RAE)", "amount": 840, "unit": "mcg" },
+      { "name": "Vitamin E", "amount": 2.8, "unit": "mg" }
+    ],
+    "note": "Butter with the water and milk solids cooked off, so it is almost pure fat: about 112 calories per tablespoon."
+  },
+  {
+    "name": "Mayonnaise, regular",
+    "group": "oils-fats",
+    "serving": { "label": "1 tablespoon", "grams": 14 },
+    "per100g": { "kcal": 680, "protein": 1, "carbs": 0.6, "fiber": 0, "sugars": 0.6, "fat": 74.9, "satFat": 11.7, "sodiumMg": 635 },
+    "micros": [
+      { "name": "Vitamin K", "amount": 163, "unit": "mcg" },
+      { "name": "Vitamin E", "amount": 3.3, "unit": "mg" }
+    ],
+    "note": "Mostly oil held together with egg yolk: a tablespoon adds about 95 calories to a sandwich."
+  }
+]

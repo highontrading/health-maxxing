@@ -91,6 +91,8 @@ Tobacco kills more than 7 million people a year, and up to half of the people wh
 > [!STAT] 9 years
 > The life expectancy gained, on average, by quitting at about age 40 compared with continuing to smoke. Quitting at about 50 gains roughly six years, and at 60 about three.[^2]
 
+Smoking is a leading cause of [lung cancer](/conditions/lung-cancer), [COPD](/conditions/copd) and cardiovascular disease, so stopping is one of the most effective ways to lower your [heart disease risk](/articles/heart-disease-risk-factors).[^1]
+
 ## What works, ranked by evidence
 
 Going cold turkey with no help is the most common method and the least successful. Studies of unaided attempts suggest only about 3 to 5 in 100 last 6 to 12 months.[^12] Each of the options below improves on that.
@@ -134,7 +136,7 @@ Withdrawal can bring irritability, restlessness, low mood, poor concentration, t
 
 Two worries stop many people from trying.
 
-**"Smoking is how I cope with stress."** It feels that way because each cigarette relieves the withdrawal left by the last one. In a meta-analysis of 26 studies, people who quit ended up with less anxiety, depression and stress than those who carried on, an improvement comparable in size to that seen with antidepressant treatment.[^10] These were observational comparisons, so they cannot prove cause, but they do not support the fear that quitting wrecks your mental health.
+**"Smoking is how I cope with [stress](/articles/stress-and-your-body)."** It feels that way because each cigarette relieves the withdrawal left by the last one. In a meta-analysis of 26 studies, people who quit ended up with less anxiety, depression and stress than those who carried on, an improvement comparable in size to that seen with antidepressant treatment.[^10] These were observational comparisons, so they cannot prove cause, but they do not support the fear that quitting wrecks your mental health.
 
 **"I will gain weight."** Many people do: on average about 4 to 5 kg (9 to 11 lb) in the first year, with wide variation.[^11] Staying active helps, and the benefit of quitting dwarfs the cost of a few kilograms.
 
@@ -148,8 +150,8 @@ Far fewer trials have tested how to stop vaping, so the advice is less certain. 
 Until better evidence arrives, the principles from smoking apply. Set a date, step down your nicotine strength or the number of times you vape each day, keep it out of reach at set times, and get behavioral support. If you vape to stay off cigarettes, the priority is not going back to smoking, so reduce gradually and only when you feel secure.[^7]
 
 > [!DOCTOR]
-> Talk to a doctor or pharmacist before quitting if you are pregnant, have heart disease, or take regular medicines. Stopping smoking changes how the body handles some drugs, so doses may need adjusting.[^6] Seek help promptly if your mood drops sharply after quitting. If you have thoughts of harming yourself, contact your local emergency number or a crisis line straight away.
+> Quitting is worthwhile for almost everyone, including people who are pregnant or have heart disease. Ask a doctor or pharmacist which quitting aids suit you if you are pregnant, have a heart condition or take regular medicines. Stopping smoking changes how the body handles some drugs, so doses may need adjusting.[^6] Seek help promptly if your mood drops sharply after quitting. If you have thoughts of harming yourself, contact your local emergency number or a crisis line straight away.
 
 ## The bottom line
 
-Pick a quit date, choose one of the proven aids, and add support from a quitline, an app or a counselor. Expect the first week to be the hardest and plan for your triggers. If one method does not work, try another: the evidence says the people who succeed are usually the ones who kept trying with better tools.
+Pick a quit date, choose one of the proven aids, and add support from a quitline, an app or a counselor. Expect the first week to be the hardest and plan for your triggers. If one method does not work, try another. Most people who quit for good needed more than one attempt, and proven tools make each attempt more likely to succeed.

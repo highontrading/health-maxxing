@@ -148,7 +148,7 @@ Retinoids work, but they commonly cause dryness, redness and peeling in the firs
 
 **Long routines.** Every additional product is another chance of irritation, and layering several new ones makes it impossible to tell which caused a problem. A ten-step routine is a hobby, not a medical need.
 
-**Before-and-after photos.** A moisturizer can plump fine lines within minutes, which looks impressive and changes nothing underneath.[^2]
+**Before-and-after photos.** A moisturizer can plump fine lines straight away, which looks impressive and changes nothing underneath.[^2]
 
 > [!TIP] Patch test before you commit
 > The AAD method: apply the product to a small patch of skin, such as the inner arm or the bend of the elbow, twice a day for 7 to 10 days. If there is no redness, itching or swelling by then, use it on your face.[^12]

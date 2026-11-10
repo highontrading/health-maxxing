@@ -1,0 +1,58 @@
+[
+  {
+    "board": "start-here",
+    "title": "Welcome to the Health Maxxing community (read this first)",
+    "pinned": true,
+    "locked": true,
+    "body": "Welcome. This is a place to compare notes with other people who are trying to look after their health without the hype.\n\nA few things make it work:\n\n**Be kind.** Everyone here started somewhere. Disagree with ideas, not people.\n\n**Share experience, not prescriptions.** \"This is what helped me\" is great. \"You should stop taking your medication\" is not. Nobody here can examine you, so nobody here can diagnose you.\n\n**Bring sources.** If you make a factual claim, link to where it comes from. Guidelines and published studies beat screenshots.\n\n**No selling.** No affiliate links, supplement pitches or coaching offers.\n\n**Protect your privacy.** Do not post information that could identify you or anyone else.\n\nIf you are in crisis or think you may have a medical emergency, please contact your local emergency number rather than posting here.\n\nThe full community guidelines are at /community-guidelines. Posts that break them are removed and repeat offenders lose their accounts.\n\nNow go and introduce yourself in the thread below."
+  },
+  {
+    "board": "start-here",
+    "title": "Introduce yourself: what are you working on?",
+    "pinned": true,
+    "body": "Say hello. Tell us roughly where in the world you are, what you are working on right now (sleep, strength, a first 5K, getting your blood pressure down, eating more vegetables), and one thing you would like help with.\n\nNo goal is too small. \"I want to walk every day this month\" is a perfectly good introduction."
+  },
+  {
+    "board": "nutrition",
+    "title": "What is one food swap that actually stuck for you?",
+    "pinned": true,
+    "body": "Not the swap you tried for a week. The one that became normal.\n\nWe will start: keeping frozen vegetables in the freezer so there is always something green to add to dinner. It is not glamorous, and that is exactly why it works.\n\nWhat is yours? Bonus points if it is cheap and takes less than five minutes."
+  },
+  {
+    "board": "training",
+    "title": "Beginners: post your first-month plan and get feedback",
+    "pinned": true,
+    "body": "If you are new to training, post what you plan to do each week for your first month and people here will help you tidy it up.\n\nUseful things to include: how many days you can train, what equipment you have, any injuries or limits, and what you want out of it.\n\nA reminder for everyone replying: the best beginner plan is the simple one that gets repeated. If you want a starting template, the beginner strength guide at /articles/strength-training-for-beginners has one, and the exercise library at /exercises explains each movement."
+  },
+  {
+    "board": "sleep-mind",
+    "title": "What finally fixed your sleep (or did not)?",
+    "pinned": true,
+    "body": "Sleep advice is everywhere and a lot of it contradicts itself. So tell us what you have actually tried and what happened.\n\nWhat made a real difference? What was a waste of money? What did you expect to work that did nothing?\n\nIf you have had trouble sleeping at least three nights a week for three months or more, that is worth raising with a doctor: there are treatments that work, and the insomnia guide at /articles/insomnia-what-actually-works explains them."
+  },
+  {
+    "board": "conditions",
+    "title": "How this board works: support, not medical advice",
+    "pinned": true,
+    "locked": true,
+    "body": "This board is for people living with a health condition, and the people who care about them, to share experience and encouragement.\n\nWhat it is for: what daily life is like, questions you wish you had asked your doctor, how you keep up with treatment, what has made things easier.\n\nWhat it is not for: asking strangers to diagnose symptoms, recommending that someone start, stop or change a medicine, or promoting cures.\n\nIf someone describes symptoms that sound urgent, the kind thing to do is to tell them to contact a health professional or their local emergency number.\n\nPosts that offer diagnoses or tell people to ignore medical advice will be removed."
+  },
+  {
+    "board": "ask-the-studies",
+    "title": "How to read a health headline in 60 seconds",
+    "pinned": true,
+    "body": "Before you share or worry about a health story, run it through five quick questions.\n\n**1. Was it in people?** Results in cells or mice often do not hold up in humans.\n\n**2. Was it a trial or an observation?** A randomized trial can show that something causes an effect. An observational study can only show that two things tend to go together.\n\n**3. How many people, for how long?** Twenty people for two weeks tells you much less than twenty thousand for ten years.\n\n**4. Is the number relative or absolute?** \"Doubles your risk\" can mean going from 1 in 10,000 to 2 in 10,000.\n\n**5. Who paid for it, and does it fit with everything else we know?** One surprising study rarely overturns a hundred earlier ones.\n\nPost a headline below and we will work through it together."
+  },
+  {
+    "board": "wins",
+    "title": "Small wins thread: what went right this week?",
+    "pinned": true,
+    "body": "Progress is mostly small, boring and easy to miss, so this thread is for noticing it.\n\nSlept seven hours three nights in a row? Took the stairs? Cooked instead of ordering? Went back to the gym after a month off? Post it here.\n\nNo win is too small, and nobody is keeping score."
+  },
+  {
+    "board": "site-feedback",
+    "title": "Spotted an error? Tell us here",
+    "pinned": true,
+    "body": "We work hard to get things right, and we will still get things wrong.\n\nIf you find a factual error, a broken link, an out-of-date guideline or anything unclear, reply here with the page and what you think is wrong. A link to a source helps us fix it faster.\n\nYou can also reach the editors privately through the contact page at /contact. We correct mistakes openly and note significant changes on the page."
+  }
+]

@@ -57,15 +57,19 @@ type UserRow = {
   banned: number;
 };
 
-/** The signed-in user, or null. Deduplicated per request. */
+/**
+ * The signed-in user, or null. Deduplicated per request.
+ * Expiry is compared in SQL: reading the clock in JS here would count as an
+ * unstable value during prerendering.
+ */
 export const getSessionUser = cache(async (): Promise<SessionUser | null> => {
   const token = (await cookies()).get(SESSION_COOKIE)?.value;
   if (!token) return null;
   const row = await queryOne<UserRow>(
     `SELECT u.id, u.email, u.handle, u.name, u.role, u.sticker, u.color, u.banned
      FROM sessions s JOIN users u ON u.id = s.user_id
-     WHERE s.id = ? AND s.expires_at > ?`,
-    [sha256(token), new Date().toISOString()],
+     WHERE s.id = ? AND s.expires_at > strftime('%Y-%m-%dT%H:%M:%fZ','now')`,
+    [sha256(token)],
   );
   if (!row) return null;
   return {
@@ -80,7 +84,7 @@ export const getSessionUser = cache(async (): Promise<SessionUser | null> => {
   };
 });
 
-export const isStaff = (user: SessionUser | null): user is SessionUser =>
+export const isStaff = (user: SessionUser | null): boolean =>
   !!user && !user.banned && (user.role === "admin" || user.role === "editor");
 
 /** For member-only pages: send signed-out visitors to the login page. */
@@ -93,7 +97,7 @@ export async function requireUser(next = "/account"): Promise<SessionUser> {
 /** For the admin panel: editors and admins only. */
 export async function requireStaff(): Promise<SessionUser> {
   const user = await getSessionUser();
-  if (!isStaff(user)) redirect("/admin/login");
+  if (!user || !isStaff(user)) redirect("/admin/login");
   return user;
 }
 

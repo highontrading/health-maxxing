@@ -1,0 +1,95 @@
+[
+  {
+    "name": "Dark chocolate, 70-85% cacao",
+    "group": "snacks-sweets",
+    "fdcId": 170273,
+    "serving": { "label": "2 to 3 squares", "grams": 28 },
+    "per100g": { "kcal": 598, "protein": 7.8, "carbs": 45.9, "fiber": 10.9, "sugars": 24, "fat": 42.6, "satFat": 24.5, "sodiumMg": 20 },
+    "micros": [
+      { "name": "Iron", "amount": 11.9, "unit": "mg" },
+      { "name": "Magnesium", "amount": 228, "unit": "mg" },
+      { "name": "Copper", "amount": 1.8, "unit": "mg" },
+      { "name": "Manganese", "amount": 1.9, "unit": "mg" }
+    ],
+    "note": "A 28 g piece has about 170 calories and 7 g of saturated fat, plus more iron and magnesium than you would guess."
+  },
+  {
+    "name": "Milk chocolate",
+    "group": "snacks-sweets",
+    "serving": { "label": "1 small bar", "grams": 44 },
+    "per100g": { "kcal": 535, "protein": 7.7, "carbs": 59.4, "fiber": 3.4, "sugars": 51.5, "fat": 29.7, "satFat": 18.5, "sodiumMg": 79 },
+    "micros": [
+      { "name": "Calcium", "amount": 189, "unit": "mg" },
+      { "name": "Magnesium", "amount": 63, "unit": "mg" }
+    ],
+    "note": "Roughly half sugar by weight: a 44 g bar has about 235 calories and 23 g of sugar."
+  },
+  {
+    "name": "Potato chips, plain, salted",
+    "group": "snacks-sweets",
+    "serving": { "label": "1 small bag", "grams": 28 },
+    "per100g": { "kcal": 532, "protein": 6.4, "carbs": 53.8, "fiber": 3.1, "sugars": 0.3, "fat": 34, "satFat": 3.4, "sodiumMg": 527 },
+    "micros": [
+      { "name": "Potassium", "amount": 1196, "unit": "mg" }
+    ],
+    "note": "About a third fat by weight; a small 28 g bag is roughly 150 calories and 150 mg of sodium."
+  },
+  {
+    "name": "Popcorn, air-popped",
+    "group": "snacks-sweets",
+    "serving": { "label": "3 cups popped", "grams": 24 },
+    "per100g": { "kcal": 387, "protein": 12.9, "carbs": 77.8, "fiber": 14.5, "sugars": 0.9, "fat": 4.5, "satFat": 0.6, "sodiumMg": 8 },
+    "micros": [
+      { "name": "Magnesium", "amount": 144, "unit": "mg" },
+      { "name": "Zinc", "amount": 3.1, "unit": "mg" },
+      { "name": "Manganese", "amount": 1.1, "unit": "mg" }
+    ],
+    "note": "A whole grain: three cups popped weigh only 24 g, so that is about 93 calories and 3.5 g of fiber before butter or salt."
+  },
+  {
+    "name": "Honey",
+    "group": "snacks-sweets",
+    "fdcId": 169640,
+    "serving": { "label": "1 tablespoon", "grams": 21 },
+    "per100g": { "kcal": 304, "protein": 0.3, "carbs": 82.4, "fiber": 0.2, "sugars": 82.1, "fat": 0, "satFat": 0, "sodiumMg": 4 },
+    "note": "About 82% sugar; a tablespoon has roughly 64 calories, more than a tablespoon of table sugar because honey is denser."
+  },
+  {
+    "name": "Sugar, white, granulated",
+    "group": "snacks-sweets",
+    "fdcId": 169655,
+    "serving": { "label": "1 teaspoon", "grams": 4.2 },
+    "per100g": { "kcal": 387, "protein": 0, "carbs": 100, "fiber": 0, "sugars": 99.8, "fat": 0, "satFat": 0, "sodiumMg": 1 },
+    "note": "Pure sucrose: a level teaspoon is about 4 g and 16 calories, and it brings no other nutrients."
+  },
+  {
+    "name": "Maple syrup",
+    "group": "snacks-sweets",
+    "serving": { "label": "1 tablespoon", "grams": 20 },
+    "per100g": { "kcal": 260, "protein": 0, "carbs": 67, "fiber": 0, "sugars": 60.5, "fat": 0.1, "satFat": 0, "sodiumMg": 12 },
+    "micros": [
+      { "name": "Manganese", "amount": 2.9, "unit": "mg" },
+      { "name": "Riboflavin (B2)", "amount": 1.3, "unit": "mg" },
+      { "name": "Calcium", "amount": 102, "unit": "mg" }
+    ],
+    "note": "About 60% sugar and a third water, so a tablespoon has fewer calories than honey: roughly 52."
+  },
+  {
+    "name": "Ice cream, vanilla",
+    "group": "snacks-sweets",
+    "serving": { "label": "1/2 cup scoop", "grams": 66 },
+    "per100g": { "kcal": 207, "protein": 3.5, "carbs": 23.6, "fiber": 0.7, "sugars": 21.2, "fat": 11, "satFat": 6.8, "sodiumMg": 80 },
+    "micros": [
+      { "name": "Calcium", "amount": 128, "unit": "mg" },
+      { "name": "Vitamin A (RAE)", "amount": 118, "unit": "mcg" }
+    ],
+    "note": "A half-cup scoop (66 g) has about 137 calories, 14 g of sugar and 4.5 g of saturated fat."
+  },
+  {
+    "name": "Butter cookies, store-bought",
+    "group": "snacks-sweets",
+    "serving": { "label": "4 cookies", "grams": 20 },
+    "per100g": { "kcal": 467, "protein": 6.1, "carbs": 68.9, "fiber": 0.8, "sugars": 20.2, "fat": 18.8, "satFat": 11.1, "sodiumMg": 351 },
+    "note": "Small but dense: four cookies (20 g) come to about 93 calories, 4 g of sugar and 2 g of saturated fat."
+  }
+]

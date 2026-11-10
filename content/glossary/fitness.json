@@ -1,0 +1,74 @@
+[
+  {
+    "term": "Progressive overload",
+    "definition": "The principle of gradually asking your body to do a little more than it is used to, by adding weight, repetitions, sets or difficulty over time. It is the main driver of strength and muscle gains: if the challenge never increases, neither do you.",
+    "category": "fitness",
+    "seeAlso": ["Hypertrophy", "One-rep max"]
+  },
+  {
+    "term": "VO2 max",
+    "definition": "The maximum amount of oxygen your body can use during all-out exercise, measured in milliliters per kilogram of body weight per minute. It is the standard measure of cardiorespiratory fitness, and higher values are consistently linked with a lower risk of heart disease and early death. Training raises it.",
+    "category": "fitness",
+    "seeAlso": ["Aerobic exercise", "HIIT", "Zone 2 training"]
+  },
+  {
+    "term": "Zone 2 training",
+    "definition": "Steady exercise at an easy-to-moderate effort, roughly 60% to 70% of your maximum heart rate, where you can still hold a conversation. It builds aerobic fitness with little recovery cost, which is why endurance athletes do so much of it. Zone definitions vary between coaches and devices.",
+    "category": "fitness",
+    "seeAlso": ["Maximum heart rate", "Aerobic exercise", "VO2 max"]
+  },
+  {
+    "term": "HIIT",
+    "definition": "High-intensity interval training: short bursts of hard effort alternated with easy recovery, for example four minutes hard and three minutes easy, repeated. It improves fitness about as well as longer steady sessions in less time, though the hard parts need to be genuinely hard.",
+    "category": "fitness",
+    "seeAlso": ["VO2 max", "Zone 2 training"]
+  },
+  {
+    "term": "One-rep max",
+    "definition": "The heaviest weight you can lift once with good form in a given exercise, often written 1RM. Training loads are commonly set as a percentage of it. You do not have to test it directly; it can be estimated from the number of reps you manage with a lighter weight.",
+    "category": "fitness",
+    "seeAlso": ["Progressive overload", "RPE"]
+  },
+  {
+    "term": "Hypertrophy",
+    "definition": "Growth in muscle size, caused by muscle fibers getting thicker in response to training. It happens across a wide range of weights and rep counts, as long as sets are taken close to fatigue and you get enough protein and rest.",
+    "category": "fitness",
+    "seeAlso": ["Progressive overload", "Compound exercise"]
+  },
+  {
+    "term": "DOMS",
+    "definition": "Delayed onset muscle soreness: the stiffness and ache that peaks a day or two after exercise that was new or harder than usual, especially moves that lengthen a muscle under load, such as walking downhill. It is not caused by lactic acid, fades within a few days and gets milder as your body adapts.",
+    "category": "fitness",
+    "seeAlso": ["Progressive overload"]
+  },
+  {
+    "term": "Aerobic exercise",
+    "definition": "Sustained, rhythmic activity such as brisk walking, cycling, running or swimming, in which your heart and lungs supply enough oxygen to keep you going. Often called cardio. It strengthens the heart, helps lower blood pressure and is the kind of activity the 150-minutes-a-week guideline counts.",
+    "category": "fitness",
+    "seeAlso": ["VO2 max", "Zone 2 training", "Resting heart rate"]
+  },
+  {
+    "term": "RPE",
+    "definition": "Rate of perceived exertion: a score for how hard an effort feels to you. In the gym it is usually a 1 to 10 scale, where 10 means you could not have done another rep and 8 means you had about two left. It lets you adjust training to how you feel on the day instead of chasing a fixed number.",
+    "category": "fitness",
+    "seeAlso": ["One-rep max"]
+  },
+  {
+    "term": "Compound exercise",
+    "definition": "A movement that works several joints and muscle groups at once, such as a squat, deadlift, push-up or row. Compound lifts train a lot of muscle in little time and mimic everyday tasks, so they form the backbone of most strength programs. Single-joint moves such as biceps curls are called isolation exercises.",
+    "category": "fitness",
+    "seeAlso": ["Hypertrophy", "Progressive overload"]
+  },
+  {
+    "term": "Creatine",
+    "definition": "A compound your body makes and stores in muscle, where it helps recycle energy for short, intense efforts. Creatine monohydrate is one of the most studied sports supplements: 3 to 5 g a day reliably improves results from strength and power training, and it is considered safe for healthy adults.",
+    "category": "fitness",
+    "seeAlso": ["Hypertrophy"]
+  },
+  {
+    "term": "Maximum heart rate",
+    "definition": "The fastest your heart can beat during all-out effort. It falls with age, and the familiar estimate of 220 minus your age can be off by 10 beats or more in either direction for an individual. It is used to set training zones; it is not a measure of fitness.",
+    "category": "fitness",
+    "seeAlso": ["Zone 2 training", "Resting heart rate"]
+  }
+]

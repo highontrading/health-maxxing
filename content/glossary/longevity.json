@@ -1,0 +1,74 @@
+[
+  {
+    "term": "Healthspan",
+    "definition": "The number of years you live in good health, free of serious disease and disability, as opposed to lifespan, which counts all your years. The aim of healthy aging is to bring the two closer together, so that fewer of your final years are spent unwell.",
+    "category": "longevity",
+    "seeAlso": ["Life expectancy", "Frailty"]
+  },
+  {
+    "term": "Life expectancy",
+    "definition": "The average number of years a person in a given population is expected to live, usually quoted from birth. It is a statistical average for a group, strongly affected by deaths in childhood and midlife, and not a prediction for any individual.",
+    "category": "longevity",
+    "seeAlso": ["Healthspan", "All-cause mortality"]
+  },
+  {
+    "term": "All-cause mortality",
+    "definition": "Death from any cause. Studies use it as an outcome because it is unambiguous: a treatment that prevents one disease but causes another will not look good on it. When you read that a habit is linked with 20% lower all-cause mortality, it refers to the risk of dying during the study period.",
+    "category": "longevity",
+    "seeAlso": ["Relative risk", "Observational study"]
+  },
+  {
+    "term": "Sarcopenia",
+    "definition": "The loss of muscle mass, strength and function that comes with aging. The decline starts gradually in midlife and speeds up later, raising the risk of falls, fractures and loss of independence. Resistance training and enough protein are the best-supported ways to slow it.",
+    "category": "longevity",
+    "seeAlso": ["Frailty", "Grip strength", "Hypertrophy"]
+  },
+  {
+    "term": "Frailty",
+    "definition": "A state of reduced physical reserve, most often in older age, in which the body struggles to bounce back from stresses such as an infection, a fall or surgery. Signs include weakness, slow walking, exhaustion and unintended weight loss. It is not an inevitable part of aging and can often be improved with exercise and good nutrition.",
+    "category": "longevity",
+    "seeAlso": ["Sarcopenia", "Grip strength"]
+  },
+  {
+    "term": "Grip strength",
+    "definition": "How hard you can squeeze, measured with a handheld device called a dynamometer. It is a quick stand-in for overall muscle strength, and in large observational studies a weaker grip is linked with a higher risk of disability and early death. Training your grip alone will not make you live longer; it is a marker of whole-body strength.",
+    "category": "longevity",
+    "seeAlso": ["Sarcopenia", "Frailty"]
+  },
+  {
+    "term": "Telomere",
+    "definition": "A protective cap of repeated DNA at each end of a chromosome, often compared to the plastic tip of a shoelace. Telomeres shorten a little each time a cell divides, and very short ones signal the cell to stop dividing. Shorter telomeres are linked with aging, but the tests sold to consumers say little about your own health.",
+    "category": "longevity",
+    "seeAlso": ["Cellular senescence", "Biological age"]
+  },
+  {
+    "term": "Biological age",
+    "definition": "An estimate of how old your body seems, based on markers such as chemical tags on DNA, blood tests or physical function, as opposed to the years since your birth. It is a promising research tool, but consumer tests disagree with one another, and no one has shown that lowering your score makes you live longer.",
+    "category": "longevity",
+    "seeAlso": ["Telomere", "Healthspan"]
+  },
+  {
+    "term": "Cellular senescence",
+    "definition": "A state in which a damaged or old cell permanently stops dividing but does not die. These lingering cells release inflammatory signals that can harm their neighbors, and they accumulate with age. Drugs designed to clear them, called senolytics, are still experimental.",
+    "category": "longevity",
+    "seeAlso": ["Telomere", "Inflammation"]
+  },
+  {
+    "term": "Autophagy",
+    "definition": "Your cells' recycling system: the process of breaking down and reusing worn-out or damaged parts. The name means self-eating. Fasting and exercise increase it in animal studies, but there is no practical way to measure it in people, so claims that a particular diet switches on autophagy go beyond the evidence.",
+    "category": "longevity",
+    "seeAlso": ["Caloric restriction"]
+  },
+  {
+    "term": "Caloric restriction",
+    "definition": "Eating substantially fewer calories than usual over the long term while still getting enough nutrients. It extends lifespan in many laboratory animals. In a two-year human trial it improved risk markers such as blood pressure and cholesterol, but whether it lengthens human life is unknown.",
+    "category": "longevity",
+    "seeAlso": ["Autophagy", "Calorie"]
+  },
+  {
+    "term": "Blue Zones",
+    "definition": "Five regions said to have unusually many people living past 90 or 100: Okinawa in Japan, Sardinia in Italy, Nicoya in Costa Rica, Ikaria in Greece and Loma Linda in California. Shared habits include plant-heavy diets, daily movement and strong social ties. Some researchers question the reliability of the age records behind the claims.",
+    "category": "longevity",
+    "seeAlso": ["Life expectancy", "Healthspan"]
+  }
+]

@@ -96,7 +96,7 @@ None of this means the symptoms are imagined. It means the wiring is over-respon
 UK guidance puts simple measures first:[^5][^6]
 
 - eat regular meals and take your time over them
-- drink enough fluid, and cut back on coffee, tea, alcohol and fizzy drinks
+- drink enough fluid, and cut back on coffee, tea, alcohol and carbonated drinks
 - go easy on insoluble fiber such as wheat bran, which can make pain and bloating worse
 - take regular exercise
 
@@ -128,12 +128,12 @@ The diet was developed at Monash University in Australia and has three steps.[^8
 
 ## How well does it work?
 
-In the best-known trial, 30 people with IBS ate either a low-FODMAP diet or a typical Australian diet for three weeks each, with all food provided. About 70% felt better on the low-FODMAP diet, and overall symptom scores were roughly halved.[^10] A pooled analysis of 13 randomized trials ranked it first among dietary approaches for overall symptoms.[^11]
+In the best-known trial, 30 people with IBS ate either a low-FODMAP diet or a typical Australian diet for three weeks each, with all food provided. About 70% felt better on the low-FODMAP diet, and overall symptom scores were roughly halved.[^10] A pooled analysis of randomized trials ranked it first among dietary approaches for overall symptoms.[^11]
 
 > [!STAT] 50 to 75%
-> The approximate share of people with IBS who improve on a low-FODMAP diet in trials and clinic studies.[^8][^10]
+> The approximate share of people with IBS who improve on a low-FODMAP diet in trials and clinic studies.[^7][^10]
 
-Two caveats. Diet trials are hard to blind and most were short, so the evidence is rated low quality: the ACG makes only a conditional recommendation for a limited trial.[^3][^11] And a meaningful minority of people do not respond at all.
+Two caveats. Diet trials are hard to blind and most were short, so the evidence is rated as very low quality, and the ACG makes only a conditional recommendation for a limited trial.[^3][^11] And a meaningful minority of people do not respond at all.
 
 ## Who should not do it, and common mistakes
 
@@ -150,7 +150,7 @@ The usual mistakes are staying in the strict phase for months, skipping reintrod
 - **Gut-directed psychological therapy.** IBS-specific cognitive behavioral therapy and gut-directed hypnotherapy are supported by both US and UK guidelines.[^3][^6]
 - **Probiotics.** Advice differs: the ACG suggests against them, while the British Society of Gastroenterology says a trial of up to 12 weeks is reasonable, stopping if there is no benefit.[^3][^6] More in our [probiotics guide](/articles/probiotics-prebiotics-fermented-foods).
 
-Because [stress](/articles/stress-and-your-body) and poor sleep can aggravate symptoms, looking after both is part of treatment, not an optional extra.
+Because [stress](/articles/stress-and-your-body) and poor sleep can aggravate symptoms, looking after both is part of treatment, not an optional extra.[^4]
 
 ## Red flags
 

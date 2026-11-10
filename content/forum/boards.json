@@ -1,0 +1,10 @@
+[
+  { "slug": "start-here", "name": "Start Here", "description": "House rules, introductions and how to get the most out of the community.", "sticker": "smile", "color": "yellow", "order": 1 },
+  { "slug": "nutrition", "name": "Food & Nutrition", "description": "Protein, fiber, meal ideas and making sense of what is on the label.", "sticker": "avocado", "color": "lime", "order": 2 },
+  { "slug": "training", "name": "Training & Fitness", "description": "Strength, cardio, programs, plateaus and form checks.", "sticker": "dumbbell", "color": "orange", "order": 3 },
+  { "slug": "sleep-mind", "name": "Sleep & Mind", "description": "Sleep, stress, mood and the habits that keep your head in a good place.", "sticker": "moon", "color": "indigo", "order": 4 },
+  { "slug": "conditions", "name": "Living With a Condition", "description": "Peer support and shared experience. Not a place for diagnoses or medical advice.", "sticker": "heart", "color": "pink", "order": 5 },
+  { "slug": "ask-the-studies", "name": "What Does the Study Say?", "description": "Bring a headline or a paper and work out together what it really shows.", "sticker": "magnifier", "color": "blue", "order": 6 },
+  { "slug": "wins", "name": "Wins & Progress", "description": "First 5K, a better blood pressure reading, a week of real sleep. Share it.", "sticker": "medal", "color": "mint", "order": 7 },
+  { "slug": "site-feedback", "name": "Site Feedback", "description": "Corrections, ideas and requests for things we should cover.", "sticker": "chat", "color": "sand", "order": 8 }
+]

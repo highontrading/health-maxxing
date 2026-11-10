@@ -86,14 +86,14 @@ A **food intolerance** does not involve the immune system in that way. Usually y
 | What is reacting | Immune system | Mostly the digestive system |
 | Onset | Minutes to 2 hours | Usually a few hours |
 | Amount needed | A trace can be enough | Depends on the dose |
-| Typical symptoms | Hives, swelling, vomiting, wheeze | Bloating, gas, tummy pain, diarrhea |
+| Typical symptoms | Hives, swelling, vomiting, wheeze | Bloating, gas, abdominal pain, diarrhea |
 | Worst case | Anaphylaxis, which can be fatal | Miserable, but not life-threatening |
 
 Sources for the table: the US National Institute of Allergy and Infectious Diseases and the NHS.[^1][^2][^3]
 
 ## Food allergy: small list, big consequences
 
-A handful of foods cause most serious reactions. US law names nine major allergens that must be declared on labels: milk, eggs, fish, crustacean shellfish, tree nuts, peanuts, wheat, soybeans and, since 2023, sesame.[^5] The EU and UK require labeling for a longer list of 14.
+A handful of foods cause most serious reactions. US law names nine major allergens that must be declared on labels: milk, eggs, fish, crustacean shellfish, tree nuts, peanuts, wheat, soybeans and, since 2023, sesame.[^5] Other countries use somewhat different lists, so check local labeling rules when you travel.
 
 Symptoms can include an itchy mouth, hives, swelling of the lips, face or throat, vomiting, abdominal pain, wheezing and dizziness.[^3] The most severe reaction is [anaphylaxis](/conditions/anaphylaxis), which affects breathing or circulation and needs immediate treatment with epinephrine (adrenaline).[^1]
 
@@ -107,7 +107,7 @@ Diagnosis starts with the story: what you ate, how quickly symptoms began and wh
 
 ### Lactose
 
-Lactose, the sugar in milk, needs the enzyme lactase to be absorbed. Most of the world's adults make less of it after childhood. A pooled analysis estimated that about 68% of people worldwide have lactose malabsorption, ranging from under 30% in northern and western Europe to well over 60% in much of Asia and the Middle East.[^6]
+Lactose, the sugar in milk, needs the enzyme lactase to be absorbed. Most of the world's adults make less of it after childhood. A pooled analysis estimated that about 68% of people worldwide have lactose malabsorption, ranging from under 30% in northern and western Europe to more than 60% in Asia and the Middle East.[^6]
 
 Malabsorption is not the same as intolerance, which means actually getting symptoms. Research suggests many people with lactose malabsorption can have about 12 g of lactose, the amount in a cup (240 mL) of milk, with no or only mild symptoms, especially with a meal.[^7] Hard cheeses and yogurt are often tolerated better than milk, and lactose-free dairy and lactase tablets are other options. If you do cut down on dairy, make sure you get calcium and vitamin D elsewhere.[^7]
 
@@ -117,7 +117,7 @@ Lactose is one of a wider family of poorly absorbed carbohydrates known as FODMA
 
 ## Celiac disease is neither
 
-Celiac disease is an autoimmune condition. In people with certain genes, gluten (a protein in wheat, barley and rye) provokes the immune system to attack the lining of the small intestine.[^9] It affects roughly 1% of people worldwide, many of them undiagnosed.[^8]
+[Celiac disease](/conditions/celiac-disease) is an autoimmune condition. In people with certain genes, gluten (a protein in wheat, barley and rye) provokes the immune system to attack the lining of the small intestine.[^9] It affects roughly 1% of people worldwide, and many of them have not been diagnosed.[^8][^9]
 
 Symptoms range from diarrhea, bloating and weight loss to iron-deficiency anemia, fatigue and an itchy skin rash, and some people have no gut symptoms at all.[^9] Diagnosis is by blood tests for specific antibodies, usually followed by a biopsy of the small intestine. The only treatment is a strict, lifelong gluten-free diet.[^9]
 

@@ -1,0 +1,79 @@
+[
+  {
+    "term": "Standard drink",
+    "definition": "A unit for counting alcohol that contains a fixed amount of pure alcohol, whatever the beverage. The size differs by country: about 14 g in the United States, 10 g in Australia and 8 g for a UK unit. A large glass of wine or a strong beer can easily hold two or more.",
+    "category": "lifestyle",
+    "seeAlso": ["Binge drinking", "Alcohol use disorder"]
+  },
+  {
+    "term": "Binge drinking",
+    "definition": "Drinking a lot in a short time. US agencies define it as about five or more drinks for men, or four or more for women, within roughly two hours, enough to bring blood alcohol to 0.08%. It raises the risk of injuries, alcohol poisoning and heart rhythm problems, even in people who drink only occasionally.",
+    "category": "lifestyle",
+    "seeAlso": ["Standard drink", "Alcohol use disorder"]
+  },
+  {
+    "term": "Alcohol use disorder",
+    "definition": "The medical term for a pattern of drinking that you struggle to control despite the harm it causes, ranging from mild to severe. Signs include drinking more than you intended, cravings, needing more for the same effect and withdrawal symptoms. It is a treatable medical condition, not a character flaw.",
+    "category": "lifestyle",
+    "seeAlso": ["Binge drinking", "Standard drink"]
+  },
+  {
+    "term": "Nicotine",
+    "definition": "The addictive chemical in tobacco and most vapes. It reaches the brain within seconds of inhaling and triggers a release of dopamine, which is what makes quitting hard. Nicotine itself is not the main cause of smoking-related disease; the tar and gases from burning tobacco are.",
+    "category": "lifestyle",
+    "seeAlso": ["Nicotine replacement therapy", "E-cigarette", "Dopamine"]
+  },
+  {
+    "term": "Nicotine replacement therapy",
+    "definition": "Patches, gum, lozenges, sprays and inhalers that deliver nicotine without tobacco smoke, easing cravings and withdrawal while you quit. Shortened to NRT, it raises the chance of quitting successfully by about 50% to 60% compared with placebo, and pairing a patch with a faster-acting form works better still.",
+    "category": "lifestyle",
+    "seeAlso": ["Nicotine", "Placebo"]
+  },
+  {
+    "term": "Secondhand smoke",
+    "definition": "Smoke breathed in by people near a smoker, a mix of what is exhaled and what drifts from the burning tip. It causes heart disease and lung cancer in non-smoking adults and raises the risk of sudden infant death syndrome, asthma attacks and ear infections in children. There is no safe level of exposure.",
+    "category": "lifestyle",
+    "seeAlso": ["Nicotine"]
+  },
+  {
+    "term": "E-cigarette",
+    "definition": "A battery-powered device, also called a vape, that heats a liquid, usually containing nicotine and flavorings, into an aerosol you inhale. Vaping exposes you to fewer harmful chemicals than smoking and can help adult smokers quit, but it is not harmless, its long-term effects are unknown, and it is not for non-smokers or young people.",
+    "category": "lifestyle",
+    "seeAlso": ["Nicotine", "Nicotine replacement therapy"]
+  },
+  {
+    "term": "Sedentary behavior",
+    "definition": "Time spent awake sitting, reclining or lying down while using very little energy, such as desk work, driving and screen time. Long daily totals are linked with a higher risk of heart disease, type 2 diabetes and early death, especially in people who are otherwise inactive. Regular movement offsets much of that risk.",
+    "category": "lifestyle",
+    "seeAlso": ["NEAT", "Aerobic exercise"]
+  },
+  {
+    "term": "NEAT",
+    "definition": "Non-exercise activity thermogenesis: the energy you burn through everything that is not sleeping, eating or deliberate exercise, such as walking to the shops, climbing stairs, cooking and fidgeting. It can differ by hundreds of calories a day between two people of the same size.",
+    "category": "lifestyle",
+    "seeAlso": ["Total daily energy expenditure", "Sedentary behavior"]
+  },
+  {
+    "term": "Caffeine",
+    "definition": "A stimulant in coffee, tea, cola, energy drinks and chocolate. It works by blocking adenosine, a chemical that builds up in the brain while you are awake and makes you sleepy. Up to about 400 mg a day, roughly four cups of coffee, is considered safe for most healthy adults; the advised limit in pregnancy is 200 mg.",
+    "category": "lifestyle",
+    "seeAlso": ["Sleep hygiene", "Sleep debt"]
+  },
+  {
+    "term": "Habit stacking",
+    "definition": "A technique for building a new habit by attaching it to something you already do reliably: after I pour my morning coffee, I take my vitamin D. The existing routine acts as the cue. It builds on research showing that specific if-then plans make follow-through more likely.",
+    "category": "lifestyle"
+  },
+  {
+    "term": "Blue light",
+    "definition": "The short-wavelength part of visible light, abundant in daylight and also emitted by LED screens and bulbs. It is the part of the spectrum that most strongly signals daytime to your body clock. Bright light late in the evening can delay sleep, though a screen is a far weaker source than daylight.",
+    "category": "lifestyle",
+    "seeAlso": ["Circadian rhythm", "Melatonin"]
+  },
+  {
+    "term": "UV index",
+    "definition": "An international scale, running from 0 to 11 and above, for the strength of the sun's ultraviolet radiation at a given place and time. Most weather apps show it. Sun protection is advised when it reaches 3 or more. It peaks around the middle of the day and can be high even when the weather is cool or cloudy.",
+    "category": "lifestyle",
+    "seeAlso": ["Ultraviolet radiation", "SPF"]
+  }
+]

@@ -94,7 +94,7 @@ Timing decides the direction. Light in the morning pulls the clock earlier. Ligh
 
 Evening light also holds back melatonin, which your brain normally releases as darkness falls. In an experiment with 116 volunteers, ordinary room lighting in the hours before bedtime delayed the start of melatonin release in 99% of people and shortened its duration by about 90 minutes, compared with dim light.[^4]
 
-Modern life gets the pattern backwards: dim days indoors, bright evenings. Daylight can reach tens of thousands of lux, the unit of illumination, while a typical office provides about 500.[^3] When eight people spent a week camping with only sunlight and a campfire, their melatonin began to rise about two hours earlier, in step with sunset.[^5]
+Modern life gets the pattern backwards: dim days indoors, bright evenings. Daylight can reach tens of thousands of lux, the unit of illumination, while typical office lighting provides a few hundred.[^3] When eight people spent a week camping with only sunlight and a campfire, their melatonin began to rise about two hours earlier, in step with sunset.[^5]
 
 > [!TIP] Bright days, dim evenings, dark nights
 > An international panel of light and sleep scientists recommends bright light throughout the day, ideally daylight, dim light for the three hours before bed, and a bedroom that is as dark as possible.[^6] In practice: get outside in the morning, sit near a window, and switch to low, warm lamps after dinner.

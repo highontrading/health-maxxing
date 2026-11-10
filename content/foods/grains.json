@@ -1,0 +1,182 @@
+[
+  {
+    "name": "Rice, white, long-grain, cooked",
+    "group": "grains",
+    "fdcId": 168878,
+    "serving": { "label": "1 cup cooked", "grams": 158 },
+    "per100g": { "kcal": 130, "protein": 2.7, "carbs": 28.2, "fiber": 0.4, "sugars": 0.1, "fat": 0.3, "satFat": 0.1, "sodiumMg": 1 },
+    "micros": [
+      { "name": "Manganese", "amount": 0.5, "unit": "mg" },
+      { "name": "Selenium", "amount": 7.5, "unit": "mcg" }
+    ],
+    "note": "Basmati and jasmine are long-grain rices too; a cup of cooked rice is about 205 calories, nearly all from starch."
+  },
+  {
+    "name": "Rice, brown, long-grain, cooked",
+    "group": "grains",
+    "fdcId": 169704,
+    "serving": { "label": "1 cup cooked", "grams": 202 },
+    "per100g": { "kcal": 123, "protein": 2.7, "carbs": 25.6, "fiber": 1.6, "sugars": 0.2, "fat": 1, "satFat": 0.3, "sodiumMg": 4 },
+    "micros": [
+      { "name": "Magnesium", "amount": 39, "unit": "mg" },
+      { "name": "Manganese", "amount": 1, "unit": "mg" },
+      { "name": "Niacin (B3)", "amount": 2.6, "unit": "mg" }
+    ],
+    "note": "Keeps its bran, so it has about four times the fiber of white rice, though that is still a modest 1.6 g per 100 g."
+  },
+  {
+    "name": "Rice, white, glutinous (sticky), cooked",
+    "group": "grains",
+    "serving": { "label": "1 cup cooked", "grams": 174 },
+    "per100g": { "kcal": 97, "protein": 2, "carbs": 21.1, "fiber": 1, "sugars": 0.1, "fat": 0.2, "satFat": 0, "sodiumMg": 5 },
+    "micros": [
+      { "name": "Selenium", "amount": 5.6, "unit": "mcg" },
+      { "name": "Manganese", "amount": 0.3, "unit": "mg" }
+    ],
+    "note": "The name refers to its glue-like texture, not to gluten; rice does not contain any."
+  },
+  {
+    "name": "Oats, rolled, dry",
+    "group": "grains",
+    "fdcId": 169705,
+    "serving": { "label": "1/2 cup dry", "grams": 40 },
+    "per100g": { "kcal": 379, "protein": 13.2, "carbs": 67.7, "fiber": 10.1, "sugars": 1, "fat": 6.5, "satFat": 1.1, "sodiumMg": 6 },
+    "micros": [
+      { "name": "Manganese", "amount": 3.6, "unit": "mg" },
+      { "name": "Magnesium", "amount": 138, "unit": "mg" },
+      { "name": "Iron", "amount": 4.3, "unit": "mg" },
+      { "name": "Zinc", "amount": 3.6, "unit": "mg" }
+    ],
+    "note": "A 40 g serving of dry oats is about 150 calories and 4 g of fiber before you add milk or toppings."
+  },
+  {
+    "name": "Oatmeal, cooked with water",
+    "group": "grains",
+    "serving": { "label": "1 cup cooked", "grams": 234 },
+    "per100g": { "kcal": 71, "protein": 2.5, "carbs": 12, "fiber": 1.7, "sugars": 0.3, "fat": 1.5, "satFat": 0.3, "sodiumMg": 4 },
+    "micros": [
+      { "name": "Manganese", "amount": 0.6, "unit": "mg" },
+      { "name": "Magnesium", "amount": 27, "unit": "mg" },
+      { "name": "Iron", "amount": 0.9, "unit": "mg" }
+    ],
+    "note": "Cooking in water multiplies the weight about five times, which is why these numbers look so much lower than dry oats."
+  },
+  {
+    "name": "Bread, whole-wheat",
+    "group": "grains",
+    "serving": { "label": "1 slice", "grams": 32 },
+    "per100g": { "kcal": 252, "protein": 12.5, "carbs": 42.7, "fiber": 6, "sugars": 4.3, "fat": 3.5, "satFat": 0.7, "sodiumMg": 455 },
+    "micros": [
+      { "name": "Manganese", "amount": 2.2, "unit": "mg" },
+      { "name": "Selenium", "amount": 25.8, "unit": "mcg" },
+      { "name": "Magnesium", "amount": 75, "unit": "mg" },
+      { "name": "Iron", "amount": 2.5, "unit": "mg" }
+    ],
+    "note": "Two slices give you about 4 g of fiber and 8 g of protein, plus roughly 290 mg of sodium."
+  },
+  {
+    "name": "Bread, white, enriched",
+    "group": "grains",
+    "serving": { "label": "1 slice", "grams": 28 },
+    "per100g": { "kcal": 266, "protein": 8.9, "carbs": 49.4, "fiber": 2.7, "sugars": 5.7, "fat": 3.3, "satFat": 0.7, "sodiumMg": 490 },
+    "micros": [
+      { "name": "Iron", "amount": 3.6, "unit": "mg" },
+      { "name": "Folate", "amount": 111, "unit": "mcg" }
+    ],
+    "note": "Less than half the fiber of whole-wheat bread; the iron and folate come from flour enrichment, which varies by country."
+  },
+  {
+    "name": "Pasta, enriched, cooked",
+    "group": "grains",
+    "serving": { "label": "1 cup cooked", "grams": 140 },
+    "per100g": { "kcal": 158, "protein": 5.8, "carbs": 30.9, "fiber": 1.8, "sugars": 0.6, "fat": 0.9, "satFat": 0.2, "sodiumMg": 1 },
+    "micros": [
+      { "name": "Selenium", "amount": 26.4, "unit": "mcg" },
+      { "name": "Iron", "amount": 1.3, "unit": "mg" },
+      { "name": "Manganese", "amount": 0.3, "unit": "mg" }
+    ],
+    "note": "A cup of cooked spaghetti is about 220 calories before sauce; weigh it dry if you track portions, since it more than doubles in weight."
+  },
+  {
+    "name": "Quinoa, cooked",
+    "group": "grains",
+    "fdcId": 168917,
+    "serving": { "label": "1 cup cooked", "grams": 185 },
+    "per100g": { "kcal": 120, "protein": 4.4, "carbs": 21.3, "fiber": 2.8, "sugars": 0.9, "fat": 1.9, "satFat": 0.2, "sodiumMg": 7 },
+    "micros": [
+      { "name": "Magnesium", "amount": 64, "unit": "mg" },
+      { "name": "Manganese", "amount": 0.6, "unit": "mg" },
+      { "name": "Folate", "amount": 42, "unit": "mcg" },
+      { "name": "Iron", "amount": 1.5, "unit": "mg" }
+    ],
+    "note": "A cup of cooked quinoa has about 8 g of protein and 5 g of fiber, more of each than the same amount of rice."
+  },
+  {
+    "name": "Corn tortilla",
+    "group": "grains",
+    "serving": { "label": "1 tortilla", "grams": 26 },
+    "per100g": { "kcal": 218, "protein": 5.7, "carbs": 44.6, "fiber": 6.3, "sugars": 0.9, "fat": 2.9, "satFat": 0.5, "sodiumMg": 45 },
+    "micros": [
+      { "name": "Magnesium", "amount": 72, "unit": "mg" },
+      { "name": "Calcium", "amount": 81, "unit": "mg" },
+      { "name": "Phosphorus", "amount": 314, "unit": "mg" }
+    ],
+    "note": "About 57 calories each, with more fiber than you might expect from a flatbread this thin."
+  },
+  {
+    "name": "Chapati (roti), plain",
+    "group": "grains",
+    "serving": { "label": "1 medium roti", "grams": 40 },
+    "per100g": { "kcal": 297, "protein": 11.3, "carbs": 46.4, "fiber": 4.9, "sugars": 2.7, "fat": 7.5, "satFat": 1.3, "sodiumMg": 409 },
+    "micros": [
+      { "name": "Iron", "amount": 3, "unit": "mg" },
+      { "name": "Magnesium", "amount": 62, "unit": "mg" }
+    ],
+    "note": "Based on store-bought roti; homemade versions vary with how much oil, ghee and salt go into the dough."
+  },
+  {
+    "name": "Barley, pearled, cooked",
+    "group": "grains",
+    "serving": { "label": "1 cup cooked", "grams": 157 },
+    "per100g": { "kcal": 123, "protein": 2.3, "carbs": 28.2, "fiber": 3.8, "sugars": 0.3, "fat": 0.4, "satFat": 0.1, "sodiumMg": 3 },
+    "micros": [
+      { "name": "Selenium", "amount": 8.6, "unit": "mcg" },
+      { "name": "Niacin (B3)", "amount": 2.1, "unit": "mg" },
+      { "name": "Manganese", "amount": 0.3, "unit": "mg" }
+    ],
+    "note": "Chewy and filling, with more than twice the fiber of brown rice even after its outer bran is polished off."
+  },
+  {
+    "name": "Couscous, cooked",
+    "group": "grains",
+    "serving": { "label": "1 cup cooked", "grams": 157 },
+    "per100g": { "kcal": 112, "protein": 3.8, "carbs": 23.2, "fiber": 1.4, "sugars": 0.1, "fat": 0.2, "satFat": 0, "sodiumMg": 5 },
+    "micros": [
+      { "name": "Selenium", "amount": 27.5, "unit": "mcg" }
+    ],
+    "note": "Tiny pasta rather than a whole grain: quick to make, low in fiber, and a good source of selenium."
+  },
+  {
+    "name": "Bulgur, cooked",
+    "group": "grains",
+    "serving": { "label": "1 cup cooked", "grams": 182 },
+    "per100g": { "kcal": 83, "protein": 3.1, "carbs": 18.6, "fiber": 4.5, "sugars": 0.1, "fat": 0.2, "satFat": 0, "sodiumMg": 5 },
+    "micros": [
+      { "name": "Manganese", "amount": 0.6, "unit": "mg" },
+      { "name": "Magnesium", "amount": 32, "unit": "mg" }
+    ],
+    "note": "Cracked, parboiled wheat with 4.5 g of fiber per 100 g cooked, the most of any cooked grain on this list."
+  },
+  {
+    "name": "Millet, cooked",
+    "group": "grains",
+    "serving": { "label": "1 cup cooked", "grams": 174 },
+    "per100g": { "kcal": 119, "protein": 3.5, "carbs": 23.7, "fiber": 1.3, "sugars": 0.1, "fat": 1, "satFat": 0.2, "sodiumMg": 2 },
+    "micros": [
+      { "name": "Magnesium", "amount": 44, "unit": "mg" },
+      { "name": "Phosphorus", "amount": 100, "unit": "mg" },
+      { "name": "Manganese", "amount": 0.3, "unit": "mg" }
+    ],
+    "note": "A staple across Africa and Asia that cooks like rice, with similar calories and a little more protein."
+  }
+]

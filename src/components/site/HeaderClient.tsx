@@ -2,15 +2,16 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { Suspense, useCallback, useEffect, useId, useRef, useState } from "react";
 import { signOutAction } from "@/app/actions/auth";
 import { Icon } from "@/components/Icon";
 import { Sticker } from "@/components/stickers/Sticker";
 import { cn } from "@/lib/cn";
+import { SEARCH_TYPE_LABEL } from "@/lib/labels";
 
 export type NavCategory = { slug: string; name: string; tagline: string; sticker: string; color: string };
 
-export const PRIMARY_LINKS = [
+const PRIMARY_LINKS = [
   { href: "/conditions", label: "Conditions" },
   { href: "/body", label: "Body map" },
   { href: "/tools", label: "Tools" },
@@ -42,18 +43,51 @@ function useDismiss(open: boolean, close: () => void, ref: React.RefObject<HTMLE
   }, [open, close, ref]);
 }
 
+function PathReader({ onChange }: { onChange: (pathname: string) => void }) {
+  const pathname = usePathname();
+  useEffect(() => onChange(pathname), [pathname, onChange]);
+  return null;
+}
+
+/**
+ * Calls `onChange` after mount and after every navigation. The pathname is
+ * read behind its own Suspense boundary, so the caller still prerenders on
+ * routes whose params are only known at request time.
+ */
+function PathWatcher({ onChange }: { onChange: (pathname: string) => void }) {
+  return (
+    <Suspense fallback={null}>
+      <PathReader onChange={onChange} />
+    </Suspense>
+  );
+}
+
 /* ------------------------------------------------------------------ */
 /* Desktop navigation                                                  */
 /* ------------------------------------------------------------------ */
 
 export function DesktopNav({ categories }: { categories: NavCategory[] }) {
-  const pathname = usePathname();
-  const [open, setOpen] = useState(false);
+  // Without a known pathname (a route whose params arrive at request time) the
+  // prerendered shell shows the nav with no active link, then fills it in.
+  return (
+    <Suspense fallback={<DesktopNavView categories={categories} pathname="" />}>
+      <DesktopNavAtPath categories={categories} />
+    </Suspense>
+  );
+}
+
+function DesktopNavAtPath({ categories }: { categories: NavCategory[] }) {
+  return <DesktopNavView categories={categories} pathname={usePathname()} />;
+}
+
+function DesktopNavView({ categories, pathname }: { categories: NavCategory[]; pathname: string }) {
+  // The panel remembers the page it was opened on, so navigating closes it.
+  const [openOn, setOpenOn] = useState<string | null>(null);
+  const open = openOn === pathname;
   const wrap = useRef<HTMLDivElement>(null);
-  const close = useCallback(() => setOpen(false), []);
+  const close = useCallback(() => setOpenOn(null), []);
   const panelId = useId();
   useDismiss(open, close, wrap);
-  useEffect(() => setOpen(false), [pathname]);
 
   const linkClass = (active: boolean) =>
     cn(
@@ -70,7 +104,7 @@ export function DesktopNav({ categories }: { categories: NavCategory[] }) {
           className={cn(linkClass(topicsActive), "inline-flex items-center gap-1")}
           aria-expanded={open}
           aria-controls={panelId}
-          onClick={() => setOpen((v) => !v)}
+          onClick={() => setOpenOn(open ? null : pathname)}
         >
           Topics
           <Icon name="chevron-down" size={16} className={cn("transition-transform", open && "rotate-180")} />
@@ -129,9 +163,8 @@ export function DesktopNav({ categories }: { categories: NavCategory[] }) {
 /* ------------------------------------------------------------------ */
 
 export function MobileMenu({ categories }: { categories: NavCategory[] }) {
-  const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  useEffect(() => setOpen(false), [pathname]);
+  const close = useCallback(() => setOpen(false), []);
   useEffect(() => {
     if (!open) return;
     const prev = document.body.style.overflow;
@@ -146,6 +179,7 @@ export function MobileMenu({ categories }: { categories: NavCategory[] }) {
 
   return (
     <>
+      <PathWatcher onChange={close} />
       <button
         type="button"
         className="inline-flex size-11 items-center justify-center rounded-full hover:bg-sand-2 lg:hidden"
@@ -200,33 +234,43 @@ export function AccountButton() {
   const [me, setMe] = useState<Me | undefined>(undefined);
   const [open, setOpen] = useState(false);
   const wrap = useRef<HTMLDivElement>(null);
-  const pathname = usePathname();
+  const latest = useRef(0);
   const close = useCallback(() => setOpen(false), []);
   useDismiss(open, close, wrap);
 
-  useEffect(() => {
-    let alive = true;
+  // Signing in or out always navigates, so re-checking on navigation is enough.
+  const onNavigate = useCallback(() => {
+    setOpen(false);
+    const request = ++latest.current;
     fetch("/api/me", { credentials: "same-origin" })
       .then((r) => (r.ok ? r.json() : { user: null }))
-      .then((d) => alive && setMe(d.user ?? null))
-      .catch(() => alive && setMe(null));
-    return () => {
-      alive = false;
-    };
-  }, [pathname]);
-  useEffect(() => setOpen(false), [pathname]);
+      .then((d) => request === latest.current && setMe(d.user ?? null))
+      .catch(() => request === latest.current && setMe(null));
+  }, []);
+  const watcher = <PathWatcher onChange={onNavigate} />;
 
-  if (me === undefined) return <span className="hidden size-10 rounded-full bg-sand-2 sm:block" aria-hidden />;
+  if (me === undefined) {
+    return (
+      <>
+        {watcher}
+        <span className="hidden size-10 rounded-full bg-sand-2 sm:block" aria-hidden />
+      </>
+    );
+  }
   if (me === null) {
     return (
-      <Link href="/login" className="btn btn-ghost btn-sm hidden sm:inline-flex">
-        Sign in
-      </Link>
+      <>
+        {watcher}
+        <Link href="/login" className="btn btn-ghost btn-sm hidden sm:inline-flex">
+          Sign in
+        </Link>
+      </>
     );
   }
   const staff = me.role === "admin" || me.role === "editor";
   return (
     <div ref={wrap} className="relative">
+      {watcher}
       <button
         type="button"
         className={cn(`tone-${me.color}`, "flex size-10 items-center justify-center rounded-full bg-tone-soft ring-2 ring-transparent transition hover:ring-ink")}
@@ -271,16 +315,6 @@ export function AccountButton() {
 
 type Hit = { type: string; slug: string; href: string; title: string; summary: string; category: string; sticker: string };
 
-export const TYPE_LABEL: Record<string, string> = {
-  article: "Article",
-  condition: "Condition",
-  tool: "Tool",
-  topic: "Topic",
-  term: "Glossary",
-  myth: "Myth or fact",
-  food: "Food",
-  exercise: "Exercise",
-};
 const TYPE_STICKER: Record<string, string> = {
   condition: "stethoscope",
   term: "chat",
@@ -335,7 +369,7 @@ export function SearchHitRow({ hit, colorOf, active, onNavigate }: { hit: Hit; c
       <span className="min-w-0 flex-1">
         <span className="flex items-center gap-2">
           <span className="truncate font-semibold leading-snug">{hit.title}</span>
-          <span className="eyebrow flex-none text-ink-3">{TYPE_LABEL[hit.type] ?? hit.type}</span>
+          <span className="eyebrow flex-none text-ink-3">{SEARCH_TYPE_LABEL[hit.type] ?? hit.type}</span>
         </span>
         <span className="line-clamp-1 text-sm text-ink-3">{hit.summary}</span>
       </span>
@@ -351,11 +385,9 @@ export function SearchButton({ colorOf }: { colorOf: Record<string, string> }) {
   const [cursor, setCursor] = useState(0);
   const input = useRef<HTMLInputElement>(null);
   const router = useRouter();
-  const pathname = usePathname();
+  const close = useCallback(() => setOpen(false), []);
   const { hits, loading } = useSearch(query);
 
-  useEffect(() => setOpen(false), [pathname]);
-  useEffect(() => setCursor(0), [query]);
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const typing = /^(INPUT|TEXTAREA|SELECT)$/.test((e.target as HTMLElement)?.tagName ?? "") || (e.target as HTMLElement)?.isContentEditable;
@@ -386,6 +418,7 @@ export function SearchButton({ colorOf }: { colorOf: Record<string, string> }) {
 
   return (
     <>
+      <PathWatcher onChange={close} />
       <button
         type="button"
         className="inline-flex size-11 items-center justify-center rounded-full hover:bg-sand-2"
@@ -412,7 +445,10 @@ export function SearchButton({ colorOf }: { colorOf: Record<string, string> }) {
               <input
                 ref={input}
                 value={query}
-                onChange={(e) => setQuery(e.target.value)}
+                onChange={(e) => {
+                  setQuery(e.target.value);
+                  setCursor(0);
+                }}
                 onKeyDown={(e) => {
                   if (e.key === "ArrowDown") {
                     e.preventDefault();

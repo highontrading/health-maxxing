@@ -1,0 +1,80 @@
+[
+  {
+    "term": "SPF",
+    "definition": "Sun protection factor: a measure of how well a sunscreen protects against UVB rays, the main cause of sunburn. Applied generously, SPF 30 filters about 97% of UVB and SPF 50 about 98%. Most people apply far too little, and every sunscreen needs reapplying about every two hours outdoors.",
+    "category": "skin-hair-teeth",
+    "seeAlso": ["Broad-spectrum sunscreen", "Ultraviolet radiation", "UV index"]
+  },
+  {
+    "term": "Broad-spectrum sunscreen",
+    "definition": "A sunscreen that protects against both UVA and UVB rays. SPF describes only UVB protection, so this label (or the UVA logo or star rating used in Europe and the UK) is what tells you the product also guards against the rays that drive skin aging.",
+    "category": "skin-hair-teeth",
+    "seeAlso": ["SPF", "Ultraviolet radiation"]
+  },
+  {
+    "term": "Ultraviolet radiation",
+    "definition": "Invisible light from the sun and from tanning beds. UVB burns the skin's surface; UVA penetrates deeper, passes through clouds and window glass, and drives wrinkles and sun spots. Both damage the DNA in skin cells and cause skin cancer.",
+    "category": "skin-hair-teeth",
+    "seeAlso": ["SPF", "UV index", "Melanoma"]
+  },
+  {
+    "term": "Retinoid",
+    "definition": "A family of skincare ingredients and medicines derived from vitamin A, including over-the-counter retinol and prescription tretinoin. They speed up skin cell turnover and are among the best-proven treatments for acne and sun-related skin aging. They can irritate at first, and they are not used during pregnancy.",
+    "category": "skin-hair-teeth",
+    "seeAlso": ["Comedone", "Benzoyl peroxide", "Skin barrier"]
+  },
+  {
+    "term": "Benzoyl peroxide",
+    "definition": "An over-the-counter acne treatment that kills acne-causing bacteria and helps unclog pores. It is a first-line option in acne guidelines, and bacteria do not become resistant to it. It can dry the skin, and it bleaches towels and pillowcases.",
+    "category": "skin-hair-teeth",
+    "seeAlso": ["Comedone", "Retinoid"]
+  },
+  {
+    "term": "Comedone",
+    "definition": "A pore clogged with oil and dead skin cells, the basic building block of acne. An open comedone is a blackhead (the dark color is oxidized oil and pigment, not dirt); a closed one is a whitehead. Products labeled non-comedogenic are formulated to be less likely to block pores.",
+    "category": "skin-hair-teeth",
+    "seeAlso": ["Benzoyl peroxide", "Retinoid"]
+  },
+  {
+    "term": "Skin barrier",
+    "definition": "The outermost layer of your skin, built from flattened cells held together by fats such as ceramides, like bricks and mortar. It keeps water in and irritants and microbes out. Over-washing, harsh scrubs and too many active products can damage it, leaving skin dry, tight, red or stinging.",
+    "category": "skin-hair-teeth",
+    "seeAlso": ["Retinoid"]
+  },
+  {
+    "term": "Collagen",
+    "definition": "The most abundant protein in your body and the main structural protein of skin, tendons, cartilage and bone. Production slows with age, and sun exposure and smoking speed its breakdown. Collagen supplements show small improvements in skin elasticity in some trials, but many of those studies are small or industry-funded.",
+    "category": "skin-hair-teeth",
+    "seeAlso": ["Ultraviolet radiation", "Cartilage", "Tendon"]
+  },
+  {
+    "term": "Melanoma",
+    "definition": "The most dangerous of the common skin cancers, arising from the pigment-producing cells called melanocytes. It often appears as a new or changing mole. The ABCDE warning signs are asymmetry, an irregular border, uneven color, a diameter over 6 mm and evolving over time. Caught early, it is highly curable.",
+    "category": "skin-hair-teeth",
+    "seeAlso": ["Ultraviolet radiation", "SPF"]
+  },
+  {
+    "term": "Telogen effluvium",
+    "definition": "Temporary, diffuse hair shedding that starts two to three months after a shock to the body, such as a major illness, childbirth, surgery, rapid weight loss or severe stress. More hairs than usual shift into the resting phase and then fall out together. It usually settles on its own within about six months.",
+    "category": "skin-hair-teeth",
+    "seeAlso": ["Male pattern hair loss"]
+  },
+  {
+    "term": "Dental plaque",
+    "definition": "The sticky, colorless film of bacteria that forms on teeth all day long. Its bacteria turn sugars into acids that attack enamel and irritate the gums. Brushing and cleaning between your teeth remove it; left in place it hardens into tartar, which only a dental professional can remove.",
+    "category": "skin-hair-teeth",
+    "seeAlso": ["Gingivitis", "Fluoride"]
+  },
+  {
+    "term": "Gingivitis",
+    "definition": "The early, reversible stage of gum disease, caused by plaque building up along the gumline. Gums look red and swollen and bleed when you brush or floss. Better daily cleaning usually reverses it; ignored, it can progress to periodontitis, which destroys the bone that holds your teeth in place.",
+    "category": "skin-hair-teeth",
+    "seeAlso": ["Dental plaque"]
+  },
+  {
+    "term": "Fluoride",
+    "definition": "A mineral that strengthens tooth enamel and helps repair the earliest stages of decay. It is added to most toothpaste and, in many places, to drinking water. Brushing twice a day with fluoride toothpaste is one of the best-proven ways to prevent cavities.",
+    "category": "skin-hair-teeth",
+    "seeAlso": ["Dental plaque"]
+  }
+]

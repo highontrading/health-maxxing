@@ -1,0 +1,74 @@
+[
+  {
+    "term": "Circadian rhythm",
+    "definition": "Your internal clock of roughly 24 hours, run by a cluster of cells in the brain and reset each day mainly by light. It times when you feel sleepy and alert, along with body temperature, hormones and digestion. Shift work and jet lag feel rough because they push your schedule out of step with it.",
+    "category": "sleep",
+    "seeAlso": ["Melatonin", "Chronotype", "Blue light"]
+  },
+  {
+    "term": "REM sleep",
+    "definition": "Rapid eye movement sleep, the stage in which most vivid dreaming happens. Your brain is highly active while most of your muscles are temporarily switched off. It makes up about a fifth to a quarter of an adult's night, mostly in the later hours, and appears to matter for memory and emotional processing.",
+    "category": "sleep",
+    "seeAlso": ["Deep sleep", "Sleep cycle"]
+  },
+  {
+    "term": "Deep sleep",
+    "definition": "The deepest stage of non-REM sleep, also called slow-wave sleep after its large, slow brain waves. It is the hardest stage to wake from, comes mostly in the first half of the night, and is when much of the body's physical recovery and growth hormone release takes place. You get less of it as you age.",
+    "category": "sleep",
+    "seeAlso": ["REM sleep", "Sleep cycle"]
+  },
+  {
+    "term": "Sleep cycle",
+    "definition": "One pass through the stages of sleep, from light sleep to deep sleep to REM, lasting about 90 minutes on average. You run through four to six of them a night, with more deep sleep early and more REM toward morning. Being woken out of deep sleep is what causes that groggy, thick-headed feeling.",
+    "category": "sleep",
+    "seeAlso": ["REM sleep", "Deep sleep"]
+  },
+  {
+    "term": "Sleep debt",
+    "definition": "The running shortfall between the sleep you need and the sleep you get. Lose an hour a night for a week and you are about seven hours down. A lie-in or two helps you feel better, but it does not fully undo the effects of chronic short sleep on attention and metabolism.",
+    "category": "sleep",
+    "seeAlso": ["Sleep hygiene", "Caffeine"]
+  },
+  {
+    "term": "Melatonin",
+    "definition": "A hormone your brain's pineal gland releases in the evening as it gets dark, signaling that night has arrived. It is a timing cue more than a sedative. Supplements can help shift the body clock for jet lag or a delayed sleep schedule, but they do little for ordinary insomnia.",
+    "category": "sleep",
+    "seeAlso": ["Circadian rhythm", "Insomnia"]
+  },
+  {
+    "term": "Chronotype",
+    "definition": "Your natural tendency to sleep and feel alert earlier or later in the day: lark, owl or, like most people, somewhere in between. It is partly genetic and shifts with age, running late in the teens and drifting earlier in older adulthood.",
+    "category": "sleep",
+    "seeAlso": ["Circadian rhythm"]
+  },
+  {
+    "term": "Sleep hygiene",
+    "definition": "The everyday habits and bedroom conditions that make good sleep more likely: regular bed and wake times, a dark, quiet, cool room, and less caffeine, alcohol and bright light late in the day. It is a helpful foundation, but it is usually not enough on its own to fix chronic insomnia.",
+    "category": "sleep",
+    "seeAlso": ["Insomnia", "CBT-I", "Caffeine"]
+  },
+  {
+    "term": "Insomnia",
+    "definition": "Trouble falling asleep, staying asleep or waking too early, despite having the chance to sleep, with knock-on effects during the day. It counts as chronic when it happens at least three nights a week for three months or more. The recommended first treatment is a structured talking therapy, not sleeping pills.",
+    "category": "sleep",
+    "seeAlso": ["CBT-I", "Sleep hygiene"]
+  },
+  {
+    "term": "CBT-I",
+    "definition": "Cognitive behavioral therapy for insomnia: a structured program lasting several weeks that retrains sleep through techniques such as a fixed wake time, limiting time in bed to the time you actually sleep, and defusing anxious thoughts about sleep. Guidelines recommend it as the first treatment for chronic insomnia.",
+    "category": "sleep",
+    "seeAlso": ["Insomnia", "Cognitive behavioral therapy"]
+  },
+  {
+    "term": "Obstructive sleep apnea",
+    "definition": "A condition in which the throat repeatedly narrows or closes during sleep, pausing breathing for seconds at a time and fragmenting sleep. Loud snoring, gasping and daytime sleepiness are typical signs. Untreated, it raises the risk of high blood pressure and heart disease, so it is worth getting tested.",
+    "category": "sleep",
+    "seeAlso": ["CPAP", "Hypertension"]
+  },
+  {
+    "term": "CPAP",
+    "definition": "Continuous positive airway pressure: a bedside machine that blows a gentle stream of air through a mask to hold your airway open while you sleep. It is the standard treatment for moderate to severe obstructive sleep apnea, and it works only on the nights you wear it.",
+    "category": "sleep",
+    "seeAlso": ["Obstructive sleep apnea"]
+  }
+]

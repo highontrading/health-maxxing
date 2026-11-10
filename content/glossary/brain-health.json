@@ -1,0 +1,74 @@
+[
+  {
+    "term": "Neurotransmitter",
+    "definition": "A chemical messenger that carries a signal across the tiny gap between one nerve cell (neuron) and the next. Examples include dopamine, serotonin, GABA and glutamate. Many medicines for mood, pain, attention and Parkinson's disease work by changing how neurotransmitters behave.",
+    "category": "brain-health",
+    "seeAlso": ["Dopamine", "Serotonin", "SSRI"]
+  },
+  {
+    "term": "Dopamine",
+    "definition": "A neurotransmitter involved in motivation, learning from rewards, attention and movement. It is less a pleasure chemical than a signal that something is worth pursuing. The loss of dopamine-producing cells causes Parkinson's disease, and ADHD medicines act partly by strengthening dopamine signaling.",
+    "category": "brain-health",
+    "seeAlso": ["Neurotransmitter", "ADHD", "Nicotine"]
+  },
+  {
+    "term": "Neuroplasticity",
+    "definition": "The brain's ability to change its wiring in response to learning, experience and injury, by strengthening, weakening or forming connections between nerve cells. It is why practice improves skills and why rehabilitation helps after a stroke. It is strongest in childhood but continues throughout life.",
+    "category": "brain-health",
+    "seeAlso": ["Stroke"]
+  },
+  {
+    "term": "Migraine",
+    "definition": "A neurological condition that causes attacks of moderate to severe, often one-sided, throbbing headache lasting 4 to 72 hours, usually with nausea or sensitivity to light and sound. It is far more than a bad headache, tends to run in families and affects women about three times as often as men.",
+    "category": "brain-health",
+    "seeAlso": ["Aura"]
+  },
+  {
+    "term": "Aura",
+    "definition": "Temporary neurological symptoms that build up gradually before or during a migraine in about a quarter to a third of people who get migraines. Most are visual, such as shimmering zigzag lines or a blind spot, and they usually last under an hour. Sudden weakness or speech trouble in someone with no history of aura should be treated as a possible stroke.",
+    "category": "brain-health",
+    "seeAlso": ["Migraine", "Stroke"]
+  },
+  {
+    "term": "Concussion",
+    "definition": "A mild traumatic brain injury caused by a blow or jolt to the head or body that briefly disrupts how the brain works. Symptoms include headache, dizziness, confusion, memory gaps and feeling foggy; most people are not knocked out, and brain scans are usually normal. Most people recover within a few weeks with brief rest and a gradual return to activity.",
+    "category": "brain-health",
+    "seeAlso": ["Vertigo"]
+  },
+  {
+    "term": "Dementia",
+    "definition": "An umbrella term for a decline in memory, thinking or reasoning severe enough to interfere with daily life. It is caused by diseases of the brain, most often Alzheimer's disease, and is not a normal part of aging. Managing blood pressure, hearing loss, inactivity and other risk factors may prevent or delay a sizable share of cases.",
+    "category": "brain-health",
+    "seeAlso": ["Alzheimer's disease", "Mild cognitive impairment", "Risk factor"]
+  },
+  {
+    "term": "Alzheimer's disease",
+    "definition": "The most common cause of dementia, thought to contribute to 60% to 70% of cases. Abnormal deposits of two proteins, amyloid and tau, build up in the brain for years before symptoms appear. Those symptoms typically begin with trouble remembering recent events.",
+    "category": "brain-health",
+    "seeAlso": ["Dementia", "Mild cognitive impairment"]
+  },
+  {
+    "term": "Mild cognitive impairment",
+    "definition": "A decline in memory or thinking that is greater than expected for your age and shows up on testing but does not stop you managing everyday life. It raises the risk of dementia, yet many people stay stable and some return to normal. New or worsening memory problems are worth a medical check.",
+    "category": "brain-health",
+    "seeAlso": ["Dementia", "Alzheimer's disease"]
+  },
+  {
+    "term": "Stroke",
+    "definition": "A medical emergency in which the blood supply to part of the brain is cut off by a clot (ischemic stroke, the most common kind) or a burst vessel (hemorrhagic stroke). Remember FAST: face drooping, arm weakness, speech difficulty, time to call your local emergency number. A brief episode that clears up, called a TIA or mini-stroke, needs urgent assessment too.",
+    "category": "brain-health",
+    "seeAlso": ["Hypertension", "Atrial fibrillation", "Atherosclerosis"]
+  },
+  {
+    "term": "Vertigo",
+    "definition": "The false sensation that you or your surroundings are spinning or moving. It is a symptom, not a diagnosis, and usually comes from the balance organs of the inner ear. The most common cause, called BPPV, brings brief spins when you move your head and can often be fixed with a guided series of head movements.",
+    "category": "brain-health",
+    "seeAlso": ["Migraine"]
+  },
+  {
+    "term": "ADHD",
+    "definition": "Attention-deficit/hyperactivity disorder: a neurodevelopmental condition involving persistent inattention, hyperactivity and impulsiveness, or a mix, that begins in childhood and often continues into adulthood. In adults it tends to show up as disorganization, restlessness and trouble sustaining focus. It is diagnosed by clinical assessment, not by a blood test or scan.",
+    "category": "brain-health",
+    "seeAlso": ["Dopamine"]
+  }
+]

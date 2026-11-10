@@ -63,7 +63,7 @@ Symptoms creep in slowly, and many people have none for years. When they appear,
 
 ## Causes and risk factors
 
-Genes and environment both play a part. Risk is higher if you have overweight or obesity, are 35 or older, have a parent or sibling with diabetes, are not physically active, or have had prediabetes or diabetes during pregnancy (gestational diabetes).[^2] It is also more common in some ethnic groups, including people of South Asian, Black African, Hispanic and Native American descent.[^2][^6]
+Genes and environment both play a part. Risk rises with age and is higher if you have overweight or obesity, have a parent or sibling with diabetes, are not physically active, or have had prediabetes or diabetes during pregnancy (gestational diabetes).[^2] It is also more common in some ethnic groups, including people of South Asian, Black African, Hispanic and Native American descent.[^2][^6]
 
 ## Diagnosis
 

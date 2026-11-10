@@ -1,0 +1,354 @@
+[
+  {
+    "myth": "A detox diet or juice cleanse flushes toxins out of your body",
+    "verdict": "false",
+    "answer": "Your liver and kidneys already clear waste around the clock, and no good study shows that a cleanse removes anything extra.",
+    "explanation": "Detox products rarely name the toxins they are meant to remove, and a 2015 review found no compelling evidence that detox diets eliminate toxins or lead to lasting weight loss. The quick drop on the scale is mostly water and the result of eating very little, so it returns when normal meals do. Juice-only plans are low in protein and fiber, and cleanses that rely on laxatives or unpasteurized juice carry real risks.",
+    "category": "nutrition",
+    "sticker": "leaf",
+    "sources": [
+      {
+        "title": "\"Detoxes\" and \"Cleanses\": What You Need To Know",
+        "publisher": "National Center for Complementary and Integrative Health",
+        "url": "https://www.nccih.nih.gov/health/detoxes-and-cleanses-what-you-need-to-know"
+      },
+      {
+        "title": "Detox diets for toxin elimination and weight management: a critical review of the evidence",
+        "publisher": "Journal of Human Nutrition and Dietetics",
+        "year": 2015,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Detox+diets+for+toxin+elimination+and+weight+management%3A+a+critical+review+of+the+evidence"
+      }
+    ]
+  },
+  {
+    "myth": "You have to eat protein within 30 minutes of a workout or you waste it",
+    "verdict": "partly-true",
+    "answer": "Protein after training helps, but the window is hours wide, and your total protein for the day matters far more than the clock.",
+    "explanation": "The so-called anabolic window came from short-term lab studies. When a 2013 meta-analysis pooled longer training trials, the apparent advantage of protein right around a workout largely disappeared once total daily protein was taken into account. The International Society of Sports Nutrition says muscle stays responsive for many hours after exercise, and that what counts is enough protein each day, spread across meals of roughly 20 to 40 g. Timing matters most when you train after a long gap without food, such as first thing in the morning.",
+    "category": "fitness",
+    "sticker": "stopwatch",
+    "sources": [
+      {
+        "title": "The effect of protein timing on muscle strength and hypertrophy: a meta-analysis",
+        "publisher": "Journal of the International Society of Sports Nutrition",
+        "year": 2013,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=The+effect+of+protein+timing+on+muscle+strength+and+hypertrophy%3A+a+meta-analysis"
+      },
+      {
+        "title": "International society of sports nutrition position stand: nutrient timing",
+        "publisher": "Journal of the International Society of Sports Nutrition",
+        "year": 2017,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=International+society+of+sports+nutrition+position+stand%3A+nutrient+timing"
+      }
+    ]
+  },
+  {
+    "myth": "Teenagers are biologically wired to stay up late",
+    "verdict": "true",
+    "answer": "True: puberty shifts the body clock later, so many teenagers struggle to fall asleep before about 11 p.m.",
+    "explanation": "During puberty the evening release of melatonin moves later, pushing natural sleep and wake times back by up to two hours compared with childhood. Teenagers still need 8 to 10 hours, so early school starts leave many chronically short of sleep. This is why the American Academy of Pediatrics recommends that middle and high schools start no earlier than 8:30 a.m. Late-night screens and caffeine add to the delay, but they are not the root cause.",
+    "category": "sleep",
+    "sticker": "bed",
+    "sources": [
+      {
+        "title": "School start times for adolescents",
+        "publisher": "Pediatrics",
+        "year": 2014,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=School+start+times+for+adolescents"
+      },
+      {
+        "title": "Recommended Amount of Sleep for Pediatric Populations: A Consensus Statement of the American Academy of Sleep Medicine",
+        "publisher": "Journal of Clinical Sleep Medicine",
+        "year": 2016,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Recommended+Amount+of+Sleep+for+Pediatric+Populations%3A+A+Consensus+Statement+of+the+American+Academy+of+Sleep+Medicine"
+      }
+    ]
+  },
+  {
+    "myth": "Antidepressants are addictive",
+    "verdict": "misleading",
+    "answer": "They do not cause cravings or a high, but stopping them can bring withdrawal symptoms, which is why doses are reduced gradually.",
+    "explanation": "Addiction involves craving, loss of control and escalating use, and antidepressants do not produce these. They can cause physical dependence, though: some people who stop, particularly abruptly or after long use, get symptoms such as dizziness, nausea, vivid dreams, irritability and electric-shock sensations. These are often mild and pass within a couple of weeks, but for some people they are severe or last much longer. The guidance is to come off gradually with your prescriber, and not to stop suddenly on your own.",
+    "category": "mental-health",
+    "sticker": "pill",
+    "sources": [
+      {
+        "title": "Stopping antidepressants",
+        "publisher": "Royal College of Psychiatrists",
+        "url": "https://www.rcpsych.ac.uk/mental-health/treatments-and-wellbeing/stopping-antidepressants"
+      },
+      {
+        "title": "Mental Health Medications",
+        "publisher": "National Institute of Mental Health",
+        "url": "https://www.nimh.nih.gov/health/topics/mental-health-medications"
+      }
+    ]
+  },
+  {
+    "myth": "If you had high blood pressure, you would feel it",
+    "verdict": "false",
+    "answer": "High blood pressure usually causes no symptoms at all, so measuring it is the only way to know.",
+    "explanation": "Headaches, flushing and feeling tense are not reliable signs: most people with hypertension feel completely normal for years while it quietly damages their arteries, heart, brain and kidneys. The WHO estimates that 1.4 billion adults aged 30 to 79 had hypertension in 2024 and that about 44% of them did not know it. Symptoms tend to appear only when pressure is extremely high or once complications have set in. Have yours measured at least every few years as an adult, and more often if it has been raised before.",
+    "category": "heart-health",
+    "sticker": "stethoscope",
+    "sources": [
+      {
+        "title": "Hypertension",
+        "publisher": "World Health Organization",
+        "year": 2025,
+        "url": "https://www.who.int/news-room/fact-sheets/detail/hypertension"
+      },
+      {
+        "title": "Why High Blood Pressure is a \"Silent Killer\"",
+        "publisher": "American Heart Association",
+        "url": "https://www.heart.org/en/health-topics/high-blood-pressure/why-high-blood-pressure-is-a-silent-killer"
+      }
+    ]
+  },
+  {
+    "myth": "A gluten-free diet is healthier for everyone",
+    "verdict": "false",
+    "answer": "Going gluten-free is essential for people with celiac disease but has no proven benefit for people who tolerate gluten.",
+    "explanation": "About 1 in 100 people have celiac disease and must avoid gluten strictly, and some others have a non-celiac sensitivity to gluten or wheat. For everyone else, a study that followed about 110,000 US health professionals for 26 years found no link between gluten intake and heart disease, and warned that avoiding gluten can mean eating fewer heart-protective whole grains. Packaged gluten-free foods can also be lower in fiber and higher in sugar or fat. If you suspect celiac disease, get tested before cutting gluten, because the tests only work while it is still in your diet.",
+    "category": "gut-health",
+    "sticker": "bread",
+    "sources": [
+      {
+        "title": "Long term gluten consumption in adults without celiac disease and risk of coronary heart disease: prospective cohort study",
+        "publisher": "BMJ",
+        "year": 2017,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Long+term+gluten+consumption+in+adults+without+celiac+disease+and+risk+of+coronary+heart+disease%3A+prospective+cohort+study"
+      },
+      {
+        "title": "Celiac Disease",
+        "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases",
+        "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/celiac-disease"
+      }
+    ]
+  },
+  {
+    "myth": "Eating sugar gives you diabetes",
+    "verdict": "partly-true",
+    "answer": "Sugar does not directly cause diabetes, but sugary drinks and excess weight raise the risk of type 2; type 1 is unrelated to diet.",
+    "explanation": "Type 1 diabetes is an autoimmune condition that is not caused by diet or lifestyle. Type 2 develops when the body stops responding well to insulin, and its main risk factors are excess weight, inactivity, family history and age. Sugar matters indirectly, because it makes weight gain easier, and sugary drinks stand out: in a meta-analysis, people who drank one to two servings a day had a 26% higher risk of type 2 diabetes than those who rarely drank them. A slice of birthday cake will not give you diabetes, but a daily soda habit does add risk.",
+    "category": "metabolism",
+    "sticker": "donut",
+    "sources": [
+      {
+        "title": "Symptoms & Causes of Diabetes",
+        "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases",
+        "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/symptoms-causes"
+      },
+      {
+        "title": "Sugar-sweetened beverages and risk of metabolic syndrome and type 2 diabetes: a meta-analysis",
+        "publisher": "Diabetes Care",
+        "year": 2010,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Sugar-sweetened+beverages+and+risk+of+metabolic+syndrome+and+type+2+diabetes%3A+a+meta-analysis"
+      }
+    ]
+  },
+  {
+    "myth": "Cranberry juice cures a urinary tract infection",
+    "verdict": "partly-true",
+    "answer": "Cranberry products can help prevent repeat infections in some people, but they do not treat an infection you already have.",
+    "explanation": "A 2023 Cochrane review of 50 trials with nearly 9,000 participants found that cranberry juice, tablets or capsules cut the risk of symptomatic UTIs by about a quarter in women with recurrent infections, and also reduced it in children. It found no clear benefit for older people in care homes or for pregnant women. There is no good evidence that cranberry clears an active infection, which usually needs antibiotics. See a doctor if you have burning when you urinate, and promptly if you also have fever, back pain or blood in your urine.",
+    "category": "womens-health",
+    "sticker": "drop",
+    "sources": [
+      {
+        "title": "Cranberries for preventing urinary tract infections",
+        "publisher": "Cochrane Database of Systematic Reviews",
+        "year": 2023,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Cranberries+for+preventing+urinary+tract+infections"
+      },
+      {
+        "title": "Cranberry",
+        "publisher": "National Center for Complementary and Integrative Health",
+        "url": "https://www.nccih.nih.gov/health/cranberry"
+      }
+    ]
+  },
+  {
+    "myth": "Erectile dysfunction is just a normal part of getting older",
+    "verdict": "misleading",
+    "answer": "It becomes more common with age, but it is not inevitable, it is treatable, and it can be an early sign of heart disease or diabetes.",
+    "explanation": "Erections depend on healthy blood vessels and nerves, so the conditions that damage them, such as high blood pressure, diabetes, smoking and obesity, are among the most common causes. Because the arteries in the penis are small, trouble can show up there a few years before heart symptoms, which is why doctors treat new erectile dysfunction as a reason to check cardiovascular risk. Some medicines, low testosterone, depression and anxiety can also contribute. Effective treatments exist at every age, so it is worth raising with a doctor.",
+    "category": "mens-health",
+    "sticker": "hourglass",
+    "sources": [
+      {
+        "title": "Erectile Dysfunction (ED)",
+        "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases",
+        "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/erectile-dysfunction"
+      },
+      {
+        "title": "Erectile dysfunction (impotence)",
+        "publisher": "NHS",
+        "url": "https://www.nhs.uk/conditions/erection-problems-erectile-dysfunction/"
+      },
+      {
+        "title": "The Princeton III Consensus recommendations for the management of erectile dysfunction and cardiovascular disease",
+        "publisher": "Mayo Clinic Proceedings",
+        "year": 2012,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=The+Princeton+III+Consensus+recommendations+for+the+management+of+erectile+dysfunction+and+cardiovascular+disease"
+      }
+    ]
+  },
+  {
+    "myth": "Chocolate and greasy food cause acne",
+    "verdict": "partly-true",
+    "answer": "Greasy food is not to blame, but diet is not irrelevant: high-glycemic foods and possibly milk are linked with more breakouts.",
+    "explanation": "Acne starts when hormones boost oil production and pores clog; eating fries does not put oil in your pores, and the evidence on chocolate is thin and inconsistent. What studies do suggest, according to the American Academy of Dermatology, is that diets heavy in high-glycemic foods such as white bread, sugary drinks and sweets may worsen acne. Cow's milk, skim milk in particular, is linked with more breakouts in some studies. Much of this research is small or observational, so diet changes are a reasonable add-on to proven treatments, not a replacement.",
+    "category": "skin-hair-teeth",
+    "sticker": "donut",
+    "sources": [
+      {
+        "title": "Can the right diet get rid of acne?",
+        "publisher": "American Academy of Dermatology",
+        "url": "https://www.aad.org/public/diseases/acne/causes/diet"
+      },
+      {
+        "title": "Acne: health topic overview",
+        "publisher": "National Institute of Arthritis and Musculoskeletal and Skin Diseases",
+        "url": "https://www.niams.nih.gov/health-topics/acne"
+      }
+    ]
+  },
+  {
+    "myth": "Intermittent fasting is proven to make you live longer",
+    "verdict": "misleading",
+    "answer": "Fasting and calorie restriction extend life in lab animals, but no human trial has shown that they lengthen lifespan.",
+    "explanation": "In worms, flies and rodents, eating less or within restricted hours reliably extends life, but human trials are far shorter and measure risk markers, not deaths. In the two-year CALERIE trial, healthy adults who cut calories by about 12% lost weight and improved cardiometabolic risk factors; it could not test longevity. A year-long trial of alternate-day fasting produced weight loss similar to ordinary daily calorie restriction. Fasting can be a workable way to eat less if it suits you, but check with a doctor first if you have diabetes, are pregnant or have a history of eating disorders.",
+    "category": "longevity",
+    "sticker": "hourglass",
+    "sources": [
+      {
+        "title": "A 2-Year Randomized Controlled Trial of Human Caloric Restriction: Feasibility and Effects on Predictors of Health Span and Longevity",
+        "publisher": "The Journals of Gerontology: Series A",
+        "year": 2015,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=A+2-Year+Randomized+Controlled+Trial+of+Human+Caloric+Restriction%3A+Feasibility+and+Effects+on+Predictors+of+Health+Span+and+Longevity"
+      },
+      {
+        "title": "Effects of Intermittent Fasting on Health, Aging, and Disease",
+        "publisher": "New England Journal of Medicine",
+        "year": 2019,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Effects+of+Intermittent+Fasting+on+Health%2C+Aging%2C+and+Disease"
+      },
+      {
+        "title": "Effect of Alternate-Day Fasting on Weight Loss, Weight Maintenance, and Cardioprotection Among Metabolically Healthy Obese Adults: A Randomized Clinical Trial",
+        "publisher": "JAMA Internal Medicine",
+        "year": 2017,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Effect+of+Alternate-Day+Fasting+on+Weight+Loss%2C+Weight+Maintenance%2C+and+Cardioprotection+Among+Metabolically+Healthy+Obese+Adults%3A+A+Randomized+Clinical+Trial"
+      }
+    ]
+  },
+  {
+    "myth": "Sitting is the new smoking",
+    "verdict": "misleading",
+    "answer": "Long hours of sitting do harm health, but smoking is far more dangerous, and regular exercise offsets much of sitting's risk.",
+    "explanation": "A 2018 review compared the two head to head: smoking raises the risk of early death far more than even the highest levels of sitting, for which the increase is in the region of 10% to 20%. Sitting also harms nobody around you. A meta-analysis of more than a million adults found that 60 to 75 minutes of moderate activity a day appeared to cancel out the added mortality risk of sitting for more than eight hours. The slogan grabs attention, but the useful message is plainer: sit less, move more and do not smoke.",
+    "category": "lifestyle",
+    "sticker": "phone",
+    "sources": [
+      {
+        "title": "Evaluating the Evidence on Sitting, Smoking, and Health: Is Sitting Really the New Smoking?",
+        "publisher": "American Journal of Public Health",
+        "year": 2018,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Evaluating+the+Evidence+on+Sitting%2C+Smoking%2C+and+Health%3A+Is+Sitting+Really+the+New+Smoking%3F"
+      },
+      {
+        "title": "Does physical activity attenuate, or even eliminate, the detrimental association of sitting time with mortality? A harmonised meta-analysis of data from more than 1 million men and women",
+        "publisher": "The Lancet",
+        "year": 2016,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Does+physical+activity+attenuate%2C+or+even+eliminate%2C+the+detrimental+association+of+sitting+time+with+mortality%3F+A+harmonised+meta-analysis+of+data+from+more+than+1+million+men+and+women"
+      }
+    ]
+  },
+  {
+    "myth": "Taking vitamin C stops you catching colds",
+    "verdict": "misleading",
+    "answer": "Regular vitamin C does not prevent colds in most people; it shortens them slightly, and starting once you are ill does little.",
+    "explanation": "A Cochrane review pooled 29 trials with more than 11,000 participants and found that taking at least 200 mg of vitamin C every day did not reduce how often people in the general population caught colds. It did shorten colds a little, by about 8% in adults and 14% in children, and it halved the risk in people under heavy physical stress, such as marathon runners and soldiers on subarctic exercises. Starting vitamin C after symptoms begin showed no consistent benefit. The idea was popularized in the 1970s by Nobel laureate Linus Pauling, whose enthusiasm ran well ahead of the evidence.",
+    "category": "immunity",
+    "sticker": "apple",
+    "sources": [
+      {
+        "title": "Vitamin C for preventing and treating the common cold",
+        "publisher": "Cochrane Database of Systematic Reviews",
+        "year": 2013,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Vitamin+C+for+preventing+and+treating+the+common+cold"
+      },
+      {
+        "title": "Vitamin C: Fact Sheet for Health Professionals",
+        "publisher": "NIH Office of Dietary Supplements",
+        "url": "https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/"
+      }
+    ]
+  },
+  {
+    "myth": "Becoming forgetful is just a normal part of aging",
+    "verdict": "partly-true",
+    "answer": "Slower recall and the odd misplaced key are normal with age; memory loss that disrupts daily life is not and should be checked.",
+    "explanation": "Healthy aging does bring changes: it takes longer to learn new things and to retrieve names, and you may misplace things more often. Dementia is different, and the WHO stresses that it is not a normal part of aging; warning signs include repeating the same questions, getting lost in familiar places and struggling to manage money or follow a recipe. Many treatable things can also cloud memory, including depression, poor sleep, thyroid problems, low vitamin B12 and some medicines. New or worsening problems are worth raising with a doctor.",
+    "category": "brain-health",
+    "sticker": "magnifier",
+    "sources": [
+      {
+        "title": "Dementia",
+        "publisher": "World Health Organization",
+        "url": "https://www.who.int/news-room/fact-sheets/detail/dementia"
+      },
+      {
+        "title": "Memory",
+        "publisher": "MedlinePlus (US National Library of Medicine)",
+        "url": "https://medlineplus.gov/memory.html"
+      }
+    ]
+  },
+  {
+    "myth": "You need to drink milk to have strong bones",
+    "verdict": "partly-true",
+    "answer": "Calcium is essential for bone and dairy is a convenient source, but it is not the only one, and bones need more than calcium.",
+    "explanation": "Adults need about 1,000 to 1,200 mg of calcium a day by US reference intakes, and a glass of milk supplies roughly 300 mg. You can also get there with yogurt, cheese, calcium-set tofu, fortified plant drinks, canned sardines or salmon eaten with the bones, and greens such as kale and bok choy. Calcium alone is not enough: bones also depend on vitamin D, enough protein and, crucially, weight-bearing and resistance exercise, which signals bone to stay dense. Not smoking and limiting alcohol help too.",
+    "category": "bones-joints",
+    "sticker": "milk",
+    "sources": [
+      {
+        "title": "Calcium: Fact Sheet for Health Professionals",
+        "publisher": "NIH Office of Dietary Supplements",
+        "url": "https://ods.od.nih.gov/factsheets/Calcium-HealthProfessional/"
+      },
+      {
+        "title": "Osteoporosis",
+        "publisher": "National Institute of Arthritis and Musculoskeletal and Skin Diseases",
+        "url": "https://www.niams.nih.gov/health-topics/osteoporosis"
+      }
+    ]
+  },
+  {
+    "myth": "The more health screening tests you have, the better",
+    "verdict": "misleading",
+    "answer": "Screening saves lives when it targets the right people, but extra tests bring false alarms, overdiagnosis and unnecessary treatment.",
+    "explanation": "Every screening test is a trade-off: in people at low risk, tests turn up many false positives that lead to anxiety, repeat scans and biopsies, and they can find slow-growing abnormalities that would never have caused harm, a problem called overdiagnosis. That is why expert panels recommend screening by age and risk; the US Preventive Services Task Force, for example, says men aged 55 to 69 should decide individually about prostate screening and advises against it from age 70. The FDA says it knows of no evidence that whole-body CT scans do more good than harm in people without symptoms. Before any test, ask what it is looking for and what happens if the result is positive.",
+    "category": "preventive-care",
+    "sticker": "check",
+    "sources": [
+      {
+        "title": "Cancer Screening Overview (PDQ) - Patient Version",
+        "publisher": "National Cancer Institute",
+        "url": "https://www.cancer.gov/about-cancer/screening/patient-screening-overview-pdq"
+      },
+      {
+        "title": "Prostate Cancer: Screening",
+        "publisher": "US Preventive Services Task Force",
+        "year": 2018,
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/prostate-cancer-screening"
+      },
+      {
+        "title": "Full-Body CT Scans: What You Need to Know",
+        "publisher": "US Food and Drug Administration",
+        "url": "https://www.fda.gov/radiation-emitting-products/medical-x-ray-imaging/full-body-ct-scans-what-you-need-know"
+      }
+    ]
+  }
+]

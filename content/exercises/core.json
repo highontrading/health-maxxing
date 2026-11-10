@@ -1,0 +1,418 @@
+[
+  {
+    "name": "Plank",
+    "type": "core",
+    "pattern": "anti-extension",
+    "muscles": {
+      "primary": [
+        "Core"
+      ],
+      "secondary": [
+        "Shoulders",
+        "Glutes",
+        "Quadriceps"
+      ]
+    },
+    "equipment": [
+      "bodyweight",
+      "mat"
+    ],
+    "level": "beginner",
+    "summary": "Holding your body in a straight line on forearms and toes. It trains the trunk to resist sagging, a skill you need in almost every other lift.",
+    "steps": [
+      "Kneel on a mat and place your forearms on the floor, elbows directly under your shoulders and forearms parallel.",
+      "Step your feet back one at a time until your body forms a straight line from head to heels, feet hip-width apart.",
+      "Tuck your tailbone slightly, squeeze your glutes and tighten your abs as if bracing for a nudge.",
+      "Push your forearms into the floor so your upper back does not sag between your shoulder blades. Look at the floor just ahead of your hands.",
+      "Breathe steadily and hold for the planned time, stopping when your hips start to sag. Lower your knees to finish."
+    ],
+    "cues": [
+      "Straight line, head to heels",
+      "Squeeze glutes, ribs down",
+      "Push the floor away",
+      "Keep breathing"
+    ],
+    "mistakes": [
+      "Hips sagging and the lower back arching",
+      "Hips piked up high to make it easier",
+      "Holding your breath",
+      "Chasing long times with sloppy form instead of short, tight holds"
+    ],
+    "easier": "Hold the plank from your knees, or with your forearms on a bench.",
+    "harder": "Lift one foot a few centimeters for a few seconds at a time, or reach one arm forward without shifting your hips."
+  },
+  {
+    "name": "Side Plank",
+    "type": "core",
+    "pattern": "anti-lateral flexion",
+    "muscles": {
+      "primary": [
+        "Obliques"
+      ],
+      "secondary": [
+        "Core",
+        "Glutes",
+        "Shoulders"
+      ]
+    },
+    "equipment": [
+      "bodyweight",
+      "mat"
+    ],
+    "level": "beginner",
+    "summary": "A plank on one forearm with your body turned sideways. It trains the obliques and hip muscles to stop your trunk bending sideways, a gap in many routines.",
+    "steps": [
+      "Lie on your side on a mat with your elbow directly under your shoulder and your forearm pointing straight ahead. Stack your legs and feet.",
+      "Tighten your abs and glutes, then lift your hips until your body forms a straight line from head to feet.",
+      "Keep your hips pushed forward and stacked one above the other, not rolling toward the floor or the ceiling.",
+      "Rest your top hand on your hip or reach it toward the ceiling, and keep your neck in line with your spine.",
+      "Hold while breathing steadily, lower with control, then repeat on the other side."
+    ],
+    "cues": [
+      "Hips up and forward",
+      "Stack shoulders, hips and ankles",
+      "Push the floor away with your forearm",
+      "Long line from head to heels"
+    ],
+    "mistakes": [
+      "Letting the hips drop toward the floor",
+      "Sitting the hips back, so the body bends at the waist",
+      "Sinking into the supporting shoulder",
+      "Rolling the chest toward the floor"
+    ],
+    "easier": "Bend your knees and support yourself on your forearm and bottom knee.",
+    "harder": "Lift the top leg, or lower and raise your hips slowly for reps."
+  },
+  {
+    "name": "Dead Bug",
+    "type": "core",
+    "pattern": "anti-extension",
+    "muscles": {
+      "primary": [
+        "Core"
+      ],
+      "secondary": [
+        "Hip flexors",
+        "Obliques"
+      ]
+    },
+    "equipment": [
+      "bodyweight",
+      "mat"
+    ],
+    "level": "beginner",
+    "summary": "Lying on your back and lowering the opposite arm and leg while your lower back stays put. It teaches your abs to hold your spine steady while your limbs move.",
+    "steps": [
+      "Lie on your back with your arms pointing straight up at the ceiling and your hips and knees bent to 90 degrees, shins parallel to the floor.",
+      "Breathe out, draw your ribs down and gently press your lower back toward the floor.",
+      "Slowly lower your right arm overhead and straighten your left leg toward the floor at the same time, keeping your lower back in place.",
+      "Stop just before your hand and heel touch the floor, or as soon as your back starts to arch.",
+      "Return to the start and repeat with the left arm and right leg. Keep alternating slowly."
+    ],
+    "cues": [
+      "Lower back stays heavy on the floor",
+      "Move slowly, as if through water",
+      "Exhale as you reach",
+      "Ribs down"
+    ],
+    "mistakes": [
+      "Letting the lower back arch off the floor as the leg lowers",
+      "Rushing through the reps",
+      "Holding your breath",
+      "Moving the arm and leg on the same side"
+    ],
+    "easier": "Move only the legs, or tap the heel to the floor with the knee still bent.",
+    "harder": "Hold a light weight in your hands, or pause for three seconds in the extended position."
+  },
+  {
+    "name": "Bird Dog",
+    "type": "core",
+    "pattern": "anti-rotation",
+    "muscles": {
+      "primary": [
+        "Core",
+        "Glutes"
+      ],
+      "secondary": [
+        "Lower back",
+        "Shoulders"
+      ]
+    },
+    "equipment": [
+      "bodyweight",
+      "mat"
+    ],
+    "level": "beginner",
+    "summary": "From hands and knees, you reach one arm and the opposite leg while keeping your trunk still. A gentle, widely used drill for back and hip control.",
+    "steps": [
+      "Kneel on all fours with hands under your shoulders and knees under your hips. Keep your back flat and look at the floor.",
+      "Tighten your midsection gently, as if bracing for a light poke.",
+      "Slide one leg straight back and lift it to hip height while reaching the opposite arm forward to shoulder height.",
+      "Hold for two to five seconds with hips and shoulders level, as if balancing a glass of water on your lower back.",
+      "Return your hand and knee to the floor under control, then repeat on the other side."
+    ],
+    "cues": [
+      "Reach long, not high",
+      "Hips stay square to the floor",
+      "Do not spill the glass on your back",
+      "Slow and steady"
+    ],
+    "mistakes": [
+      "Lifting the leg too high and arching the lower back",
+      "Rotating the hips open as the leg lifts",
+      "Shifting the weight far to one side",
+      "Rushing instead of pausing in the reach"
+    ],
+    "easier": "Move only an arm or only a leg at a time, sliding the foot back along the floor without lifting it.",
+    "harder": "Hold each reach for 10 seconds, or bring elbow and knee together under your body between reps."
+  },
+  {
+    "name": "Hollow Hold",
+    "type": "core",
+    "pattern": "anti-extension",
+    "muscles": {
+      "primary": [
+        "Core"
+      ],
+      "secondary": [
+        "Hip flexors",
+        "Quadriceps"
+      ]
+    },
+    "equipment": [
+      "bodyweight",
+      "mat"
+    ],
+    "level": "intermediate",
+    "summary": "A gymnastics staple: lying on your back and holding a shallow banana shape with shoulders and legs off the floor. It builds serious strength in the front of the trunk.",
+    "steps": [
+      "Lie on your back with your knees pulled toward your chest and your arms by your sides. Press your lower back firmly into the floor.",
+      "Lift your head and shoulder blades slightly off the floor, tucking your chin gently.",
+      "Straighten your legs up and out, lowering them only as far as you can keep your lower back pressed down.",
+      "Reach your arms overhead beside your ears if you can hold the position, or keep them pointing toward your feet.",
+      "Hold while taking short, steady breaths. Stop when your lower back starts to lift, then hug your knees to rest."
+    ],
+    "cues": [
+      "Lower back glued to the floor",
+      "Ribs pulled toward hips",
+      "Long legs, pointed toes",
+      "Short, steady breaths"
+    ],
+    "mistakes": [
+      "Letting the lower back arch off the floor",
+      "Dropping the legs lower than the abs can control",
+      "Pulling the chin hard to the chest and straining the neck",
+      "Holding your breath"
+    ],
+    "easier": "Keep your knees bent over your hips (a tuck hold), or straighten only one leg.",
+    "harder": "Reach your arms overhead with legs low, or rock gently forward and back while holding the shape."
+  },
+  {
+    "name": "Pallof Press",
+    "type": "core",
+    "pattern": "anti-rotation",
+    "muscles": {
+      "primary": [
+        "Core",
+        "Obliques"
+      ],
+      "secondary": [
+        "Shoulders",
+        "Glutes"
+      ]
+    },
+    "equipment": [
+      "band"
+    ],
+    "level": "beginner",
+    "summary": "Pressing a band or cable straight out from your chest while it tries to twist you sideways. It trains your trunk to resist rotation without bending or twisting the spine.",
+    "steps": [
+      "Anchor a band to a sturdy post at chest height, or set a cable pulley to the same height. Stand side-on to the anchor.",
+      "Hold the band with both hands against your breastbone and step away until it is taut. Set your feet shoulder-width apart with knees soft.",
+      "Brace your midsection and squeeze your glutes, with shoulders and hips square to the front.",
+      "Press your hands straight out in front of your chest until your arms are straight, resisting the pull toward the anchor.",
+      "Hold for two to three seconds, then bring your hands back to your chest slowly.",
+      "Complete your reps, then turn around and repeat facing the other way."
+    ],
+    "cues": [
+      "Belt buckle and chest face forward",
+      "Press slowly, return more slowly",
+      "Do not let the band turn you",
+      "Glutes tight, knees soft"
+    ],
+    "mistakes": [
+      "Letting the hands drift toward the anchor",
+      "Rotating or leaning the torso to counter the pull",
+      "Shrugging the shoulders up",
+      "Standing so close that there is no real tension"
+    ],
+    "easier": "Use a lighter band, stand closer to the anchor, or take a wider stance.",
+    "harder": "Step further away, narrow your stance, or hold each press for five to ten seconds."
+  },
+  {
+    "name": "Hanging Knee Raise",
+    "type": "core",
+    "pattern": "hip flexion",
+    "muscles": {
+      "primary": [
+        "Core",
+        "Hip flexors"
+      ],
+      "secondary": [
+        "Forearms",
+        "Lats"
+      ]
+    },
+    "equipment": [
+      "pull-up bar"
+    ],
+    "level": "intermediate",
+    "summary": "Hanging from a bar and lifting your knees toward your chest. It works the abs and hip flexors hard, and builds grip and shoulder strength as a bonus.",
+    "steps": [
+      "Grip a pull-up bar with palms facing away, hands shoulder-width apart, and hang with arms straight.",
+      "Pull your shoulders down, away from your ears, and tighten your abs so your body is still.",
+      "Lift your knees toward your chest, curling your pelvis up slightly at the top so your abs finish the movement.",
+      "Pause briefly with your knees at or above hip height.",
+      "Lower your legs slowly until they are straight, and stop any swing before the next rep."
+    ],
+    "cues": [
+      "Shoulders active, not shrugged",
+      "Curl the hips up, not just the knees",
+      "Lower slowly to kill the swing",
+      "No kicking"
+    ],
+    "mistakes": [
+      "Swinging the legs and using momentum",
+      "Hanging limp from the shoulders",
+      "Dropping the legs quickly",
+      "Arching the lower back at the bottom"
+    ],
+    "easier": "Do lying knee tucks on the floor, or use a captain's chair that supports your forearms.",
+    "harder": "Raise straight legs to hip height, or slow the lowering to four seconds."
+  },
+  {
+    "name": "Mountain Climber",
+    "type": "core",
+    "pattern": "anti-extension",
+    "muscles": {
+      "primary": [
+        "Core",
+        "Hip flexors"
+      ],
+      "secondary": [
+        "Shoulders",
+        "Quadriceps",
+        "Obliques"
+      ]
+    },
+    "equipment": [
+      "bodyweight"
+    ],
+    "level": "beginner",
+    "summary": "Driving your knees toward your chest from a push-up position. Part core drill, part cardio, it challenges your trunk to stay steady while your legs move fast.",
+    "steps": [
+      "Start in a high plank with hands under your shoulders, arms straight and body in a line from head to heels.",
+      "Tighten your abs and glutes and press the floor away so your upper back does not sag between your shoulder blades.",
+      "Bring one knee toward your chest without letting your hips rise or your foot drag.",
+      "Return that foot to the start as you bring the other knee forward, switching legs smoothly.",
+      "Continue alternating at a pace you can hold with level hips, then lower your knees to finish."
+    ],
+    "cues": [
+      "Shoulders over wrists",
+      "Hips level with shoulders",
+      "Quiet feet",
+      "Quick knees, steady trunk"
+    ],
+    "mistakes": [
+      "Hips bouncing up and down or piking high",
+      "Shoulders drifting back behind the wrists",
+      "Lower back sagging as fatigue builds",
+      "Going so fast that the movement shrinks to a shuffle"
+    ],
+    "easier": "Slow to a deliberate march, or put your hands on a bench or step.",
+    "harder": "Speed up while keeping your hips still, or bring each knee across toward the opposite elbow."
+  },
+  {
+    "name": "Ab Wheel Rollout",
+    "type": "core",
+    "pattern": "anti-extension",
+    "muscles": {
+      "primary": [
+        "Core"
+      ],
+      "secondary": [
+        "Lats",
+        "Shoulders",
+        "Hip flexors"
+      ]
+    },
+    "equipment": [
+      "ab wheel",
+      "mat"
+    ],
+    "level": "advanced",
+    "summary": "Kneeling and rolling a wheel out in front of you until your body is nearly straight, then pulling it back. One of the hardest tests of how well your abs resist arching.",
+    "steps": [
+      "Kneel on a mat or pad and hold an ab wheel (or a barbell loaded with small round plates) on the floor under your shoulders, arms straight.",
+      "Tuck your tailbone slightly, squeeze your glutes and brace your abs so your lower back is flat or gently rounded.",
+      "Roll the wheel forward slowly, letting your hips travel forward with it so your body lengthens from knees to hands.",
+      "Go only as far as you can without your lower back sagging. At first, that may be about half the full distance.",
+      "Pull the wheel back toward your knees with straight arms, using your abs and lats, without pushing your hips back first."
+    ],
+    "cues": [
+      "Tuck the tailbone, squeeze the glutes",
+      "Hips and shoulders move together",
+      "Stop before your back sags",
+      "Pull back with straight arms"
+    ],
+    "mistakes": [
+      "Letting the lower back arch as the wheel rolls out",
+      "Rolling further than you can control",
+      "Starting the return by pushing the hips back",
+      "Bending the elbows and shrugging the shoulders"
+    ],
+    "easier": "Roll toward a wall that stops the wheel at a safe distance, or build up with planks and dead bugs first.",
+    "harder": "Roll out a little further over time, or pause for two seconds at full reach."
+  },
+  {
+    "name": "Russian Twist",
+    "type": "core",
+    "pattern": "rotation",
+    "muscles": {
+      "primary": [
+        "Obliques",
+        "Core"
+      ],
+      "secondary": [
+        "Hip flexors"
+      ]
+    },
+    "equipment": [
+      "bodyweight",
+      "mat"
+    ],
+    "level": "beginner",
+    "summary": "Sitting with your torso leaned back and rotating from side to side. Done slowly with a long spine, it trains the obliques to produce and control rotation.",
+    "steps": [
+      "Sit on a mat with knees bent and heels on the floor. Clasp your hands in front of your chest.",
+      "Lean back until you feel your abs switch on, at most about 45 degrees, keeping your chest lifted and your spine long, not slumped.",
+      "Rotate your ribcage and shoulders to one side, bringing your hands toward the floor beside your hip. Let your eyes follow your hands.",
+      "Pause, then rotate through the center to the other side at the same slow pace.",
+      "Keep your knees still and pointing up throughout, and continue alternating for the planned reps."
+    ],
+    "cues": [
+      "Turn the ribcage, not just the arms",
+      "Tall chest, long spine",
+      "Knees stay still",
+      "Slow and controlled"
+    ],
+    "mistakes": [
+      "Slumping with a rounded lower back",
+      "Swinging the arms from side to side while the torso barely turns",
+      "Racing through reps with momentum",
+      "Adding weight before the bodyweight version is under control"
+    ],
+    "easier": "Sit more upright and reduce the range of the twist.",
+    "harder": "Hold a medicine ball or light dumbbell, or lift your feet a few centimeters off the floor."
+  }
+]

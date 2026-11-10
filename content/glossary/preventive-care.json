@@ -1,0 +1,80 @@
+[
+  {
+    "term": "Randomized controlled trial",
+    "definition": "A study in which participants are assigned by chance to receive a treatment or a comparison, such as a placebo or usual care. Because chance decides who gets what, the groups start out alike, so a difference in outcomes can be credited to the treatment. It is the strongest single-study design for testing cause and effect.",
+    "category": "preventive-care",
+    "seeAlso": ["Placebo", "Observational study", "Meta-analysis"]
+  },
+  {
+    "term": "Observational study",
+    "definition": "Research that watches what people do and what happens to them without assigning any treatment, for example tracking coffee drinkers and non-drinkers for 20 years. It can reveal associations in large groups and real-world settings, but on its own it cannot prove that one thing caused the other.",
+    "category": "preventive-care",
+    "seeAlso": ["Confounding", "Randomized controlled trial"]
+  },
+  {
+    "term": "Meta-analysis",
+    "definition": "A statistical method that pools the results of several studies on the same question to produce one, more precise estimate. It usually sits inside a systematic review, which searches for all the relevant studies using rules set in advance. It is only as good as the studies that go into it.",
+    "category": "preventive-care",
+    "seeAlso": ["Randomized controlled trial", "Observational study"]
+  },
+  {
+    "term": "Placebo",
+    "definition": "An inactive treatment, such as a sugar pill or saline injection, made to look identical to the real one. Giving it to the comparison group in a trial lets researchers separate a treatment's true effect from the improvement that comes from expectation, attention and the natural course of an illness.",
+    "category": "preventive-care",
+    "seeAlso": ["Randomized controlled trial"]
+  },
+  {
+    "term": "Relative risk",
+    "definition": "A comparison of risk between two groups, expressed as a ratio or a percentage. A relative risk of 0.8 means a 20% lower risk than the comparison group. It says nothing about how common the outcome is, so a headline that something halves your risk could mean going from 2 in 10 to 1 in 10, or from 2 in a million to 1 in a million.",
+    "category": "preventive-care",
+    "seeAlso": ["Absolute risk"]
+  },
+  {
+    "term": "Absolute risk",
+    "definition": "The actual chance that something will happen over a stated period, such as 4 in 100 people having a heart attack within 10 years. The absolute risk reduction is the plain difference between two groups: if a drug lowers that 4 to 3, it helps 1 person in 100. It is the number that tells you what a change is worth to you.",
+    "category": "preventive-care",
+    "seeAlso": ["Relative risk"]
+  },
+  {
+    "term": "Confounding",
+    "definition": "When a third factor is tied to both the thing being studied and the outcome, creating a link that is misleading. People who take vitamins, for example, also tend to exercise more and smoke less, so their better health may have nothing to do with the pills. It is the main reason observational findings need caution.",
+    "category": "preventive-care",
+    "seeAlso": ["Observational study", "Randomized controlled trial"]
+  },
+  {
+    "term": "Statistical significance",
+    "definition": "A sign that a study result would be unlikely if chance alone were at work, conventionally declared when the p-value is below 0.05. It does not tell you the effect is large or important: with enough participants, a trivially small difference can be statistically significant.",
+    "category": "preventive-care",
+    "seeAlso": ["Relative risk", "Absolute risk"]
+  },
+  {
+    "term": "Screening",
+    "definition": "Testing people who have no symptoms in order to find a disease, or a risk factor for one, early enough to act. Blood pressure checks, mammograms and bowel cancer tests are examples. Good programs prevent deaths, but all of them also produce some false alarms and unnecessary follow-up, so they target the groups most likely to benefit.",
+    "category": "preventive-care",
+    "seeAlso": ["False positive", "Mammogram", "Cervical screening", "PSA test"]
+  },
+  {
+    "term": "False positive",
+    "definition": "A test result that says you have a condition when you do not. No test is perfect, and when a disease is rare, most positive screening results turn out to be false alarms. This is why an abnormal screening result leads to further tests, not straight to a diagnosis.",
+    "category": "preventive-care",
+    "seeAlso": ["Screening"]
+  },
+  {
+    "term": "Reference range",
+    "definition": "The span of values a lab reports as normal for a test, usually the range that covers 95% of healthy people. By that definition 1 in 20 healthy people falls outside it on any one test, so a result slightly out of range is often nothing. Ranges also differ between labs, ages and sexes.",
+    "category": "preventive-care",
+    "seeAlso": ["Complete blood count"]
+  },
+  {
+    "term": "Complete blood count",
+    "definition": "One of the most common blood tests, also called a CBC or full blood count. It measures red blood cells and their oxygen-carrying hemoglobin, white blood cells and platelets. It can point to anemia, infection, inflammation and some blood disorders.",
+    "category": "preventive-care",
+    "seeAlso": ["White blood cells", "Reference range"]
+  },
+  {
+    "term": "Risk factor",
+    "definition": "Anything that raises your chance of developing a condition. Some you can change, such as smoking, blood pressure and inactivity; others you cannot, such as age and family history. Having one does not mean you will get the disease, and having none is no guarantee that you will not.",
+    "category": "preventive-care",
+    "seeAlso": ["Absolute risk", "Screening"]
+  }
+]
