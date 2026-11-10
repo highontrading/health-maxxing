@@ -29,8 +29,8 @@ export async function Header() {
           </div>
         </div>
       )}
-      {/* Named so it holds still, above the pages, while one page fades into the next. */}
-      <header className="sticky top-0 z-40 border-b border-line" style={{ viewTransitionName: "site-header" }}>
+      {/* vt-site-header: holds still, above the pages, while one page fades into the next (page-transitions.css). */}
+      <header className="vt-site-header sticky top-0 z-40 border-b border-line">
         {/* The frosted background is a layer of its own. A backdrop filter on the header itself makes the header the
             box that its fixed children are laid out in, which squashed the phone menu to nothing and kept the search
             scrim inside the header. */}

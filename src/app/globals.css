@@ -626,7 +626,6 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  .reveal-ready .reveal:not([data-revealed]) { opacity: 1; translate: none; scale: none; }
 }
 
 /* Draggable stickers: only for precise pointers, so touch scrolling is untouched. */

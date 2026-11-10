@@ -42,3 +42,24 @@ export function useToday(): string | null {
     () => null,
   );
 }
+
+const REDUCED_MOTION = "(prefers-reduced-motion: reduce)";
+const onMotionPreference = (notify: () => void) => {
+  const query = window.matchMedia(REDUCED_MOTION);
+  query.addEventListener("change", notify);
+  return () => query.removeEventListener("change", notify);
+};
+
+/**
+ * True when the visitor asked their device for less motion. CSS already
+ * handles this for every animation and transition (globals.css); use the hook
+ * only for motion that JavaScript drives, such as counting a number up.
+ * False on the server and until the page has hydrated.
+ */
+export function useReducedMotion(): boolean {
+  return useSyncExternalStore(
+    onMotionPreference,
+    () => window.matchMedia(REDUCED_MOTION).matches,
+    () => false,
+  );
+}

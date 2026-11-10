@@ -77,7 +77,15 @@
 }
 
 /* ---- Bars that stay put. Each is its own layer above the page pictures,
-   otherwise a scrolled page would be drawn over it while it fades. ---- */
+   otherwise a scrolled page would be drawn over it while it fades. They are
+   named only while a transition runs: a permanent name would switch off the
+   header's frosted blur (a named element stops seeing what is behind it). ---- */
+:root:active-view-transition .vt-site-header {
+  view-transition-name: site-header;
+}
+:root:active-view-transition .vt-admin-bar {
+  view-transition-name: admin-bar;
+}
 ::view-transition-group(site-header),
 ::view-transition-group(admin-bar) {
   animation: none;

@@ -6,43 +6,6 @@
    transition to nothing).
 ------------------------------------------------------------------- */
 @layer components {
-  /* ---------- Reveal on scroll ----------
-     Add `reveal` to an element below the fold. It is visible by default;
-     RevealObserver adds .reveal-ready to <html> once it is running, hides
-     what has not been seen yet and shows each element as it scrolls into
-     view. Elements that are already on screen when they are found are
-     shown at once, without animation. The observer records what it has
-     shown in a data-revealed attribute, which React never rewrites.
-     Modifiers: reveal-fade (no movement), reveal-pop (stickers),
-     reveal-left, reveal-right. */
-  .reveal:not([data-revealed="done"]) {
-    transition:
-      opacity var(--dur-slower) ease-out,
-      translate var(--dur-slower) var(--ease-enter),
-      scale var(--dur-slower) var(--ease-enter);
-    transition-delay: var(--reveal-delay, 0ms);
-  }
-  .reveal.reveal-pop:not([data-revealed="done"]) {
-    transition-timing-function: ease-out, var(--ease-enter), var(--ease-pop);
-  }
-  .reveal-ready .reveal:not([data-revealed]) {
-    opacity: 0;
-    translate: 0 16px;
-  }
-  .reveal-ready .reveal.reveal-fade:not([data-revealed]) {
-    translate: none;
-  }
-  .reveal-ready .reveal.reveal-pop:not([data-revealed]) {
-    translate: none;
-    scale: 0.8;
-  }
-  .reveal-ready .reveal.reveal-left:not([data-revealed]) {
-    translate: -16px 0;
-  }
-  .reveal-ready .reveal.reveal-right:not([data-revealed]) {
-    translate: 16px 0;
-  }
-
   /* ---------- Entrances ----------
      Play once when the element appears: on first load, after a page change
      and when a hidden parent is shown. For decoration and secondary content
@@ -164,6 +127,27 @@
     translate: -3px 0;
   }
 
+  /* MenuToggleIcon: three bars fold into a cross. */
+  .menu-toggle-icon line {
+    transform-box: view-box;
+    transform-origin: 12px 12px;
+    transition:
+      translate var(--dur-base) var(--ease-move),
+      rotate var(--dur-base) var(--ease-move),
+      opacity var(--dur-fast) ease;
+  }
+  .menu-toggle-icon[data-open="true"] line:nth-child(1) {
+    translate: 0 5px;
+    rotate: 45deg;
+  }
+  .menu-toggle-icon[data-open="true"] line:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle-icon[data-open="true"] line:nth-child(3) {
+    translate: 0 -5px;
+    rotate: -45deg;
+  }
+
   /* One-shot feedback. Re-run by changing the element's React key. */
   .shake {
     animation: shake-x 380ms var(--ease-move) both;
@@ -203,6 +187,63 @@
     scale: 1 1;
     animation: fade-out var(--dur-base) ease-out forwards;
   }
+}
+
+/* ---------- Reveal on scroll ----------
+   Add `reveal` to an element below the fold. RevealObserver "arms" (hides) it
+   only once it is watching it, and shows it when it scrolls into view. So an
+   element is never hidden unless something is waiting to show it: without
+   JavaScript, under reduced motion, in print, or already on screen, it is
+   simply visible. Siblings that arrive together cascade; set the order
+   yourself with style={stagger(i)}.
+   Modifiers: reveal-fade (no movement), reveal-pop (stickers), reveal-left,
+   reveal-right.
+   These rules are outside the layer on purpose: while an element is waiting
+   or arriving they must win over its own transition utilities. Afterwards
+   (data-reveal="done") they no longer apply, so hover effects work as usual. */
+.reveal[data-reveal="armed"],
+.reveal[data-reveal="in"] {
+  transition:
+    opacity var(--dur-slower) ease-out,
+    translate var(--dur-slower) var(--ease-enter),
+    scale var(--dur-slower) var(--ease-enter);
+  transition-delay: var(--reveal-delay, calc(var(--i, 0) * var(--stagger)));
+}
+.reveal.reveal-pop[data-reveal="armed"],
+.reveal.reveal-pop[data-reveal="in"] {
+  transition-timing-function: ease-out, var(--ease-enter), var(--ease-pop);
+}
+.reveal[data-reveal="armed"] {
+  opacity: 0;
+  translate: 0 16px;
+}
+.reveal.reveal-fade[data-reveal="armed"] {
+  translate: none;
+}
+.reveal.reveal-pop[data-reveal="armed"] {
+  translate: none;
+  scale: 0.8;
+}
+.reveal.reveal-left[data-reveal="armed"] {
+  translate: -16px 0;
+}
+.reveal.reveal-right[data-reveal="armed"] {
+  translate: 16px 0;
+}
+@media print, (prefers-reduced-motion: reduce) {
+  .reveal[data-reveal="armed"] {
+    opacity: 1;
+    translate: none;
+    scale: none;
+  }
+}
+
+/* ---------- Scroll lock (useScrollLock) ----------
+   The gutter keeps the page the same width while its scrollbar is gone, so
+   opening a dialog does not nudge everything sideways. */
+html.scroll-locked {
+  overflow: hidden;
+  scrollbar-gutter: stable;
 }
 
 /* Hover movement only where there is a real pointer: on touch screens a
