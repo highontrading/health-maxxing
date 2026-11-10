@@ -190,51 +190,20 @@
 }
 
 /* ---------- Reveal on scroll ----------
-   Add `reveal` to an element below the fold. RevealObserver "arms" (hides) it
-   only once it is watching it, and shows it when it scrolls into view. So an
-   element is never hidden unless something is waiting to show it: without
-   JavaScript, under reduced motion, in print, or already on screen, it is
-   simply visible. Siblings that arrive together cascade; set the order
-   yourself with style={stagger(i)}.
-   Modifiers: reveal-fade (no movement), reveal-pop (stickers), reveal-left,
-   reveal-right.
-   These rules are outside the layer on purpose: while an element is waiting
-   or arriving they must win over its own transition utilities. Afterwards
-   (data-reveal="done") they no longer apply, so hover effects work as usual. */
-.reveal[data-reveal="armed"],
-.reveal[data-reveal="in"] {
-  transition:
-    opacity var(--dur-slower) ease-out,
-    translate var(--dur-slower) var(--ease-enter),
-    scale var(--dur-slower) var(--ease-enter);
-  transition-delay: var(--reveal-delay, calc(var(--i, 0) * var(--stagger)));
-}
-.reveal.reveal-pop[data-reveal="armed"],
-.reveal.reveal-pop[data-reveal="in"] {
-  transition-timing-function: ease-out, var(--ease-enter), var(--ease-pop);
-}
-.reveal[data-reveal="armed"] {
-  opacity: 0;
-  translate: 0 16px;
-}
-.reveal.reveal-fade[data-reveal="armed"] {
-  translate: none;
-}
-.reveal.reveal-pop[data-reveal="armed"] {
-  translate: none;
-  scale: 0.8;
-}
-.reveal.reveal-left[data-reveal="armed"] {
-  translate: -16px 0;
-}
-.reveal.reveal-right[data-reveal="armed"] {
-  translate: 16px 0;
-}
-@media print, (prefers-reduced-motion: reduce) {
-  .reveal[data-reveal="armed"] {
-    opacity: 1;
-    translate: none;
-    scale: none;
+   Add `reveal` to an element below the fold and RevealObserver shows it as it
+   scrolls into view. Modifiers: reveal-fade (no movement), reveal-pop
+   (stickers), reveal-left, reveal-right. Siblings that arrive together
+   cascade; set the order yourself with style={stagger(i)}.
+   The classes are only markers: the observer hides and shows through the Web
+   Animations API (src/components/RevealObserver.tsx), so an element is never
+   hidden unless something is waiting to show it. Without JavaScript, under
+   reduced motion or already on screen, it is simply visible. Paper has no
+   scrolling, so print shows everything. */
+@media print {
+  .reveal {
+    opacity: 1 !important;
+    translate: none !important;
+    scale: none !important;
   }
 }
 
