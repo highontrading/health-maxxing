@@ -1,0 +1,132 @@
+[
+  {
+    "slug": "brain-nerves",
+    "name": "Brain & Nerves",
+    "description": "Your brain, spinal cord and the nerves that connect them to everything else. Headaches, seizures, memory, movement and sensation live here.",
+    "sticker": "brain",
+    "color": "plum",
+    "organs": ["Brain", "Spinal cord", "Peripheral nerves"],
+    "categories": ["brain-health"],
+    "order": 1
+  },
+  {
+    "slug": "mental-health",
+    "name": "Mind & Mood",
+    "description": "Mental health conditions are health conditions. Mood, anxiety, attention, trauma and sleep disorders, with the treatments that work.",
+    "sticker": "smile",
+    "color": "lilac",
+    "organs": ["Mood", "Thinking", "Behavior"],
+    "categories": ["mental-health", "sleep"],
+    "order": 2
+  },
+  {
+    "slug": "eyes-ears-mouth",
+    "name": "Eyes, Ears, Nose & Mouth",
+    "description": "The senses and the structures of the head: vision, hearing, sinuses, teeth and gums.",
+    "sticker": "eye",
+    "color": "sky",
+    "organs": ["Eyes", "Ears", "Nose and sinuses", "Teeth and gums", "Throat"],
+    "categories": ["skin-hair-teeth"],
+    "order": 3
+  },
+  {
+    "slug": "heart-circulation",
+    "name": "Heart & Blood",
+    "description": "The heart, blood vessels and blood itself: blood pressure, cholesterol, rhythm problems, clots and anemia.",
+    "sticker": "heart",
+    "color": "pink",
+    "organs": ["Heart", "Arteries and veins", "Blood"],
+    "categories": ["heart-health"],
+    "order": 4
+  },
+  {
+    "slug": "lungs-breathing",
+    "name": "Lungs & Breathing",
+    "description": "Airways and lungs, from asthma and infections to sleep-related breathing problems.",
+    "sticker": "lungs",
+    "color": "blue",
+    "organs": ["Airways", "Lungs", "Diaphragm"],
+    "categories": ["immunity", "sleep"],
+    "order": 5
+  },
+  {
+    "slug": "digestive",
+    "name": "Digestive System",
+    "description": "Everything from the esophagus to the bowel, plus the liver, gallbladder and pancreas that support digestion.",
+    "sticker": "gut",
+    "color": "yellow",
+    "organs": ["Esophagus", "Stomach", "Intestines", "Liver", "Gallbladder", "Pancreas"],
+    "categories": ["gut-health", "nutrition"],
+    "order": 6
+  },
+  {
+    "slug": "hormones-metabolism",
+    "name": "Hormones & Metabolism",
+    "description": "The endocrine glands and how your body makes and uses energy: diabetes, thyroid disease, weight and nutrient deficiencies.",
+    "sticker": "flame",
+    "color": "teal",
+    "organs": ["Thyroid", "Pancreas", "Adrenal glands", "Pituitary"],
+    "categories": ["metabolism"],
+    "order": 7
+  },
+  {
+    "slug": "kidneys-urinary",
+    "name": "Kidneys & Urinary",
+    "description": "The kidneys, bladder and urinary tract: stones, infections, chronic kidney disease and bladder control.",
+    "sticker": "drop",
+    "color": "mint",
+    "organs": ["Kidneys", "Ureters", "Bladder", "Urethra"],
+    "categories": ["preventive-care"],
+    "order": 8
+  },
+  {
+    "slug": "bones-joints-muscles",
+    "name": "Bones, Joints & Muscles",
+    "description": "The musculoskeletal system: back pain, arthritis, osteoporosis, tendons and soft-tissue injuries.",
+    "sticker": "bone",
+    "color": "sand",
+    "organs": ["Bones", "Joints", "Muscles", "Tendons and ligaments"],
+    "categories": ["bones-joints", "fitness"],
+    "order": 9
+  },
+  {
+    "slug": "skin-hair-nails",
+    "name": "Skin, Hair & Nails",
+    "description": "Your largest organ and its accessories: acne, eczema, psoriasis, infections and skin cancer.",
+    "sticker": "sparkle",
+    "color": "peach",
+    "organs": ["Skin", "Hair", "Nails"],
+    "categories": ["skin-hair-teeth"],
+    "order": 10
+  },
+  {
+    "slug": "immune-infections",
+    "name": "Immune System & Infections",
+    "description": "Infections from the common cold to malaria, plus allergies and conditions where the immune system misfires.",
+    "sticker": "shield",
+    "color": "green",
+    "organs": ["White blood cells", "Lymph nodes", "Spleen", "Bone marrow"],
+    "categories": ["immunity"],
+    "order": 11
+  },
+  {
+    "slug": "womens-reproductive",
+    "name": "Women's Reproductive Health",
+    "description": "The uterus, ovaries, cervix and breasts: periods, hormones, fertility, menopause and the cancers screening can catch early.",
+    "sticker": "flower",
+    "color": "rose",
+    "organs": ["Uterus", "Ovaries", "Cervix", "Breasts"],
+    "categories": ["womens-health"],
+    "order": 12
+  },
+  {
+    "slug": "mens-reproductive",
+    "name": "Men's Reproductive Health",
+    "description": "The prostate, testes and sexual function: enlarged prostate, erectile dysfunction, testosterone and prostate cancer.",
+    "sticker": "mustache",
+    "color": "indigo",
+    "organs": ["Prostate", "Testes", "Penis"],
+    "categories": ["mens-health"],
+    "order": 13
+  }
+]

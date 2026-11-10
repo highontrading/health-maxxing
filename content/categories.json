@@ -1,0 +1,146 @@
+[
+  {
+    "slug": "nutrition",
+    "name": "Nutrition",
+    "tagline": "Eat like you mean it",
+    "description": "Protein, fiber, fats, carbs and everything on your plate, minus the diet-culture noise. What to eat, how much, and what the evidence actually says.",
+    "color": "lime",
+    "sticker": "avocado",
+    "order": 1
+  },
+  {
+    "slug": "fitness",
+    "name": "Fitness",
+    "tagline": "Move it or lose it",
+    "description": "Strength, cardio, mobility and recovery. Training advice that respects both the research and your schedule.",
+    "color": "orange",
+    "sticker": "dumbbell",
+    "order": 2
+  },
+  {
+    "slug": "sleep",
+    "name": "Sleep",
+    "tagline": "The original performance enhancer",
+    "description": "How much you need, why you are not getting it, and the habits and treatments that genuinely help.",
+    "color": "indigo",
+    "sticker": "moon",
+    "order": 3
+  },
+  {
+    "slug": "mental-health",
+    "name": "Mind",
+    "tagline": "Head stuff, handled gently",
+    "description": "Stress, anxiety, low mood, burnout and the practices and treatments with real evidence behind them.",
+    "color": "lilac",
+    "sticker": "smile",
+    "order": 4
+  },
+  {
+    "slug": "heart-health",
+    "name": "Heart",
+    "tagline": "Keep the beat",
+    "description": "Blood pressure, cholesterol, risk factors and warning signs. The numbers that matter and how to move them.",
+    "color": "pink",
+    "sticker": "heart",
+    "order": 5
+  },
+  {
+    "slug": "gut-health",
+    "name": "Gut",
+    "tagline": "Trust it, but verify",
+    "description": "Digestion, the microbiome, bloating, reflux and IBS, explained without the detox nonsense.",
+    "color": "yellow",
+    "sticker": "gut",
+    "order": 6
+  },
+  {
+    "slug": "metabolism",
+    "name": "Metabolism & Hormones",
+    "tagline": "Your body's operating system",
+    "description": "Weight, blood sugar, thyroid, insulin and the hormones that run the show, including what the new weight-loss drugs can and cannot do.",
+    "color": "teal",
+    "sticker": "flame",
+    "order": 7
+  },
+  {
+    "slug": "womens-health",
+    "name": "Women's Health",
+    "tagline": "Every phase, taken seriously",
+    "description": "Periods, PCOS, pregnancy, perimenopause and beyond. Straight answers on health across the whole lifespan.",
+    "color": "rose",
+    "sticker": "flower",
+    "order": 8
+  },
+  {
+    "slug": "mens-health",
+    "name": "Men's Health",
+    "tagline": "The stuff guys skip",
+    "description": "Testosterone, prostate, sexual health, hair and the checkups men famously avoid.",
+    "color": "sky",
+    "sticker": "mustache",
+    "order": 9
+  },
+  {
+    "slug": "skin-hair-teeth",
+    "name": "Skin, Hair & Teeth",
+    "tagline": "Maintenance, not miracles",
+    "description": "Sunscreen, skincare, acne, hair loss and oral health. What works, what is marketing.",
+    "color": "peach",
+    "sticker": "sparkle",
+    "order": 10
+  },
+  {
+    "slug": "longevity",
+    "name": "Longevity",
+    "tagline": "More good years",
+    "description": "Healthy aging without the biohacker hype: the habits, markers and science that predict a longer, better life.",
+    "color": "tan",
+    "sticker": "hourglass",
+    "order": 11
+  },
+  {
+    "slug": "lifestyle",
+    "name": "Lifestyle",
+    "tagline": "Small habits, big compounding",
+    "description": "Alcohol, smoking, screens, sitting, sunlight and the everyday choices that quietly shape your health.",
+    "color": "green",
+    "sticker": "sun",
+    "order": 12
+  },
+  {
+    "slug": "immunity",
+    "name": "Immunity",
+    "tagline": "Your built-in security team",
+    "description": "How your immune system works, colds and flu, vaccines, antibiotics and allergies.",
+    "color": "mint",
+    "sticker": "shield",
+    "order": 13
+  },
+  {
+    "slug": "brain-health",
+    "name": "Brain & Nerves",
+    "tagline": "Protect your processor",
+    "description": "Headaches, memory, focus, concussion and keeping your brain sharp for the long run.",
+    "color": "plum",
+    "sticker": "brain",
+    "order": 14
+  },
+  {
+    "slug": "bones-joints",
+    "name": "Bones & Joints",
+    "tagline": "The frame that carries you",
+    "description": "Back pain, knees, arthritis, osteoporosis and injuries. How to keep your musculoskeletal system working.",
+    "color": "sand",
+    "sticker": "bone",
+    "order": 15
+  },
+  {
+    "slug": "preventive-care",
+    "name": "Checkups",
+    "tagline": "Catch it early",
+    "description": "Screenings, blood tests, first aid and how to get the most out of the health system before something goes wrong.",
+    "color": "blue",
+    "sticker": "stethoscope",
+    "order": 16
+  }
+]

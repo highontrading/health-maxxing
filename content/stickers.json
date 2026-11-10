@@ -1,0 +1,13 @@
+{
+  "_comment": "Every sticker id that content may reference. The artwork lives in src/components/stickers/. Add the art there before adding an id here.",
+  "ids": [
+    "heart", "brain", "lungs", "gut", "bone", "tooth", "eye", "muscle", "dna", "drop",
+    "germ", "shield", "thermometer", "pill", "syringe", "stethoscope", "bandage", "medkit",
+    "apple", "avocado", "broccoli", "carrot", "banana", "egg", "fish", "bread", "bowl", "milk",
+    "bottle", "coffee", "donut", "leaf",
+    "dumbbell", "kettlebell", "sneaker", "lotus", "stopwatch", "medal",
+    "moon", "sun", "cloud", "clock", "bed", "smile", "phone",
+    "flame", "bolt", "scale", "tape", "calendar", "sparkle", "flower", "hourglass", "mustache", "ribbon",
+    "chat", "mail", "magnifier", "check", "cross"
+  ]
+}
