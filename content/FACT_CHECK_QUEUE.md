@@ -188,11 +188,15 @@ Pieces not listed here still need the standard check; they just had no special f
 - **Checked by search:** `blood-pressure-numbers-explained` (verified). The 2025 AHA/ACC guideline
   calls a symptom-free reading above 180/120 "severe hypertension"; the 2024 ESC guideline added
   an "elevated" band of 120–139/70–89.
+- **Checked by search:** `heart-attack-and-stroke-warning-signs` (verified). The stroke treatment
+  windows now cite the 2026 AHA/ASA guideline. The evidence was search-result text, and four
+  statements were confirmed on a sibling page of the same organization rather than on the exact
+  page cited: the AHA's "do not drive yourself", the AHA on milder or absent symptoms in women,
+  older adults and people with diabetes, the NHS causes of a TIA, and clot-dissolving medicine
+  working best the sooner it is given.
 - `cholesterol-explained`: everything attributed to the 2026 ACC/AHA dyslipidemia guideline (LDL
   under 55 mg/dL for very high risk, Lp(a) once, selective ApoB); statin muscle-symptom figures
   (27.1% vs 26.6%); the 60-person nocebo trial.
-- `heart-attack-and-stroke-warning-signs`: stroke treatment windows (cites the 2019 AHA/ASA
-  guideline; a 2026 update may exist); NHS wording on aspirin; TIA figures.
 - `dash-diet-and-salt`: DASH-Sodium figures (6.7, 3.0, 7.1, 11.5 mm Hg); salt-substitute trial
   (14%, 13%, 12%); WHO 10.8 g global average.
 - `resting-heart-rate-and-hrv`: leans on single wearable studies. Apple Heart Study figures
@@ -292,15 +296,26 @@ Pieces not listed here still need the standard check; they just had no special f
   and underwear figures; supplement review (90 trials); varicocele 15% and 40%.
 - `checkups-men-skip`: all USPSTF ages and intervals; CDC adult vaccine items.
 
-### preventive-care (all pending)
-- `first-aid-basics` (**highest stakes: check first**): choking sequence "5 back blows then 5
-  abdominal thrusts" for adults and children, attributed to the 2025 AHA guidelines and the NHS,
-  with chest thrusts in late pregnancy; burn cooling "NHS at least 20 minutes, US guidelines at
-  least 10"; the NHS list of burns needing assessment; aspirin for suspected heart attack and
-  tourniquets for life-threatening limb bleeding (2024 AHA/Red Cross first aid guidelines); CPR
-  depth "at least 5 cm (2 inches)" and "2 to 3 times" survival.
-- `emergency-or-not`: NHS fever thresholds (under 3 months 38 °C; 3 to 6 months 39 °C; 5 days),
-  sepsis signs and the "call 999" list wording.
+### preventive-care
+- **Checked by search:** `emergency-or-not` (verified). One judgment call: the list on the national
+  NHS "When to call 999" page never came back in search results, so the wording for sudden
+  swelling of the lips, mouth, throat or tongue, and for bleeding that "sprays, pours or forms a
+  puddle", was confirmed on NHS trust and ambulance-service pages that publish the same criteria.
+  Open the national page once to settle it. The "when in doubt, go up a tier" rule is house advice
+  with no listed source.
+- `first-aid-basics` (**highest stakes**; checked by search, still pending). Confirmed: the choking
+  sequence, CPR rate and depth, hands-only CPR, aspirin and tourniquets, NHS burn first aid, the
+  seizure 5-minute rule, the anaphylaxis steps, FAST and the AED facts. Five errors were fixed (the
+  US burn-cooling time, the NHS list of burns needing care, "late pregnancy" for choking, the
+  recovery position with a suspected spinal injury, three NHS links that had moved). Not yet
+  confirmed against a listed source: anaphylaxis "do not let them stand or walk"; the check by a
+  clinician after abdominal thrusts (found on NHS trust pages; the NHS page "How to stop a child
+  from choking" would source it, but the list is at its 12-source cap); the address of the AHA 2025
+  guidelines landing page; "2 to 3 times" survival (on AHA Hands-Only CPR fact sheets, not the page
+  cited); the CPR cues "straighten your arms" and "take turns"; the bleeding cues ("spurts, pools
+  or soaks through clothing", gloves, not lifting the pad, tourniquet above the wound); burns "keep
+  the person warm"; heart attack "have the person sit and rest"; the BE FAST sentence (on stroke.org,
+  not the page cited); the course facts (a few hours, a two-year refresh).
 - `health-screenings-by-age`: USPSTF cervical advice is the 2018 version (a December 2024 draft
   update may now be final); NHS England bowel screening "every two years, ages 50 to 74"; NEI
   dilated-exam interval (every 1 to 2 years over 60); NICE dental recall of 3 months to 2 years.
@@ -318,15 +333,25 @@ Pieces not listed here still need the standard check; they just had no special f
 - `how-to-talk-to-your-doctor`: recorded-visits study (36% asked for the agenda, interrupted in
   about two of three cases, median 11 seconds); "40% to 80% forgotten" (Kessels 2003); Cochrane
   review "more than 30 randomized trials"; BRAN is cited to NICE NG197, which may not name it.
-- `home-first-aid-kit`: FDA statement on bathroom heat and humidity; the kit table is presented
-  as Red Cross-based (scissors may not be on that list); NHS advice against antiseptic on wounds;
-  the AAP 2003 ipecac wording.
+- `home-first-aid-kit` (checked by search, still pending). Confirmed: every emergency
+  instruction, the Red Cross family-of-four list, the FDA bathroom-storage statement, the AAP
+  ipecac wording and all 12 links; the page's antiseptic advice contradicted the NHS and now says
+  saline solution or alcohol-free wipes. Nothing left was contradicted, but these are house advice
+  or were confirmed only on a sibling page: checking the kit "twice a year" (the Red Cross says
+  "regularly"); hydrocortisone "for itchy bites and mild rashes"; no medicines in a car in summer;
+  leftover painkillers and sedatives as a poisoning risk; take-back "often through pharmacies";
+  aspirin for children "unless a doctor has told you to"; a "gaping" cut; poisoning "or local
+  emergency number"; the uses in the kit table one by one; whether scissors are on the Red Cross
+  list (two search summaries disagreed, so the page calls them its own addition); the travel
+  details (on other CDC travel pages); cling film over a cooled burn (NHS 111 Wales and a trust
+  page); the NHS rationale that antiseptic slows healing; "no substitute for adrenaline" (Allergy
+  UK); storing the kit out of children's reach (AAP parent guidance, uncited).
 - Least-certain URLs: NEI dilated-eye-exam page; NCI multi-cancer detection page; IHI Ask Me 3;
   NIA "prepare for a doctor's appointment"; AHRQ health-literacy tool 5; telehealth.hhs.gov;
-  NICE ng246 (number from memory); CDC STEADI and antibiotic-use pages; cpr.heart.org; NHLBI
-  blood-tests; two NHS urgent-care pages; NHS screening overview; the Red Cross first-aid course
-  page (a weak citation). Three PubMed title searches may not resolve cleanly ("Poison treatment
-  in the home", "Improving Diagnosis in Health Care", and the reference-intervals review).
+  NICE ng246 (number from memory); CDC STEADI page; NHLBI blood-tests; NHS screening overview.
+  Two PubMed title searches may not resolve cleanly ("Improving Diagnosis in Health Care" and the
+  reference-intervals review). The cpr.heart.org, NHS urgent-care, CDC antibiotic-use, Red Cross
+  course and ipecac links were replaced during the search check of the pages above.
 
 ## Glossary and myths (all pending; nothing was checked online)
 - Myth verdicts to review: "A glass of red wine a day is good for your heart" (misleading; the
