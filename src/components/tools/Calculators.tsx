@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useId, useMemo, useState, type ReactNode } from "react";
+import { useId, useMemo, useState, type ReactNode } from "react";
 import * as c from "@/lib/calc";
 import { cn } from "@/lib/cn";
+import { useToday } from "@/lib/hooks";
 import { ChoiceList, EmptyResult, Field, fmt, HeightInput, LengthInput, NumberInput, parseNum, Result, ScaleBar, Segmented, Stat, UnitToggle, useUnits, WeightInput } from "./ui";
 
 /** Inputs on the left, result on the right (stacked on small screens). */
@@ -520,12 +521,9 @@ function DueDateCalculator() {
   const [date, setDate] = useState("");
   const [cycle, setCycle] = useState("28");
   const [embryo, setEmbryo] = useState<"5" | "3">("5");
-  // "Today" is only known in the browser, so it is filled in after mount.
-  const [today, setToday] = useState<Date | null>(null);
-  useEffect(() => {
-    const now = new Date();
-    setToday(new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate())));
-  }, []);
+  // "Today" is only known in the browser, so it is empty until the page has hydrated.
+  const todayKey = useToday();
+  const today = useMemo(() => (todayKey ? c.parseIsoDate(todayKey) : null), [todayKey]);
   const d = c.parseIsoDate(date);
   const cyc = parseNum(cycle);
   const cycleOk = method !== "lmp" || (cyc !== null && cyc >= 21 && cyc <= 45);

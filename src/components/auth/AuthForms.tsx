@@ -1,19 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { useActionState, useEffect, useState } from "react";
+import { useActionState, useState } from "react";
 import { changePasswordAction, signInAction, signUpAction, updateProfileAction } from "@/app/actions/auth";
 import { EMPTY } from "@/app/actions/types";
 import { Sticker } from "@/components/stickers/Sticker";
 import { cn } from "@/lib/cn";
+import { useQueryParam } from "@/lib/hooks";
 
 /** Reads ?next= on the client so auth pages can stay static. */
 function useNext(): string {
-  const [next, setNext] = useState("");
-  useEffect(() => {
-    setNext(new URLSearchParams(window.location.search).get("next") ?? "");
-  }, []);
-  return next;
+  return useQueryParam("next") ?? "";
 }
 
 export function SignInForm({ area = "site" }: { area?: "site" | "admin" }) {

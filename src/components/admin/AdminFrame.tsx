@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, type ReactNode } from "react";
+import { Suspense, useCallback, useEffect, useState, type ReactNode } from "react";
 import { signOutAction } from "@/app/actions/auth";
 import { Icon } from "@/components/Icon";
 import { Sticker } from "@/components/stickers/Sticker";
@@ -45,79 +45,100 @@ function buildNav(counts: FrameCounts): NavGroup[] {
   ];
 }
 
-export function AdminFrame({ user, counts, children }: { user: FrameUser; counts: FrameCounts; children: ReactNode }) {
+/** The menu and the signed-in account. Rendered by the server once it knows who is signed in. */
+export function AdminNav({ user, counts }: { user: FrameUser; counts: FrameCounts }) {
   const pathname = usePathname();
-  // The menu remembers the page it was opened on, so following a link closes it.
-  const [openOn, setOpenOn] = useState<string | null>(null);
-  const open = openOn === pathname;
-  const nav = buildNav(counts);
   const isActive = (href: string) => (href === "/admin" ? pathname === "/admin" : pathname === href || pathname.startsWith(`${href}/`));
-
-  const menu = (
-    <nav aria-label="Admin" className="space-y-4 px-3 pb-6">
-      {nav.map((group) => {
-        const items = group.items.filter((i) => !i.adminOnly || user.role === "admin");
-        if (!items.length) return null;
-        return (
-          <div key={group.title || "top"}>
-            {group.title && <p className="eyebrow mb-1.5 px-3 text-ink-3">{group.title}</p>}
-            <ul className="space-y-0.5">
-              {items.map((item) => {
-                const active = isActive(item.href);
-                return (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      aria-current={active ? "page" : undefined}
-                      className={cn(
-                        "flex items-center gap-2.5 rounded-xl px-3 py-1.5 text-[0.9375rem] font-medium transition-colors",
-                        active ? "bg-ink text-paper" : "text-ink-2 hover:bg-sand-2 hover:text-ink",
-                      )}
-                    >
-                      <Icon name={item.icon} size={18} className="flex-none" />
-                      <span className="min-w-0 flex-1 truncate">{item.label}</span>
-                      {!!item.badge && (
-                        <span className={cn("rounded-full px-1.5 text-xs font-bold tabular-nums", active ? "bg-paper text-ink" : "bg-[var(--pink-solid)] text-white")}>
-                          {item.badge}
-                        </span>
-                      )}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
+  return (
+    <>
+      <nav aria-label="Admin" className="flex-1 space-y-4 overflow-y-auto px-3 pb-6 pt-2">
+        {buildNav(counts).map((group) => {
+          const items = group.items.filter((i) => !i.adminOnly || user.role === "admin");
+          if (!items.length) return null;
+          return (
+            <div key={group.title || "top"}>
+              {group.title && <p className="eyebrow mb-1.5 px-3 text-ink-3">{group.title}</p>}
+              <ul className="space-y-0.5">
+                {items.map((item) => {
+                  const active = isActive(item.href);
+                  return (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        aria-current={active ? "page" : undefined}
+                        className={cn(
+                          "flex items-center gap-2.5 rounded-xl px-3 py-1.5 text-[0.9375rem] font-medium transition-colors",
+                          active ? "bg-ink text-paper" : "text-ink-2 hover:bg-sand-2 hover:text-ink",
+                        )}
+                      >
+                        <Icon name={item.icon} size={18} className="flex-none" />
+                        <span className="min-w-0 flex-1 truncate">{item.label}</span>
+                        {!!item.badge && (
+                          <span className={cn("rounded-full px-1.5 text-xs font-bold tabular-nums", active ? "bg-paper text-ink" : "bg-[var(--pink-solid)] text-white")}>
+                            {item.badge}
+                          </span>
+                        )}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          );
+        })}
+      </nav>
+      <div className="border-t border-line p-3">
+        <div className="flex items-center gap-2.5 px-1">
+          <span className={cn(`tone-${user.color}`, "flex size-9 flex-none items-center justify-center rounded-full bg-tone-soft")}>
+            <Sticker name={user.sticker} size={24} flat />
+          </span>
+          <div className="min-w-0 flex-1 leading-tight">
+            <p className="truncate text-sm font-semibold">{user.name}</p>
+            <p className="truncate text-xs capitalize text-ink-3">{user.role}</p>
           </div>
-        );
-      })}
-    </nav>
-  );
-
-  const account = (
-    <div className="border-t border-line p-3">
-      <div className="flex items-center gap-2.5 px-1">
-        <span className={cn(`tone-${user.color}`, "flex size-9 flex-none items-center justify-center rounded-full bg-tone-soft")}>
-          <Sticker name={user.sticker} size={24} flat />
-        </span>
-        <div className="min-w-0 flex-1 leading-tight">
-          <p className="truncate text-sm font-semibold">{user.name}</p>
-          <p className="truncate text-xs capitalize text-ink-3">{user.role}</p>
+        </div>
+        <div className="mt-2 grid grid-cols-2 gap-1.5">
+          <Link href="/admin/account" className="btn btn-ghost btn-sm">
+            Account
+          </Link>
+          <form action={signOutAction}>
+            <button type="submit" className="btn btn-ghost btn-sm w-full">
+              Sign out
+            </button>
+          </form>
         </div>
       </div>
-      <div className="mt-2 grid grid-cols-2 gap-1.5">
-        <Link href="/admin/account" className="btn btn-ghost btn-sm">
-          Account
-        </Link>
-        <form action={signOutAction}>
-          <button type="submit" className="btn btn-ghost btn-sm w-full">
-            Sign out
-          </button>
-        </form>
-      </div>
+    </>
+  );
+}
+
+export function AdminNavSkeleton() {
+  return (
+    <div className="flex-1 space-y-2 px-4 pt-3" aria-busy="true">
+      {[70, 55, 62, 48, 66, 58, 44, 60].map((w, i) => (
+        <div key={i} className="h-7 animate-pulse rounded-lg bg-sand-2" style={{ width: `${w}%` }} />
+      ))}
     </div>
   );
+}
+
+/** Tells the frame when the page changes, from behind its own boundary (the pathname is unknown while prerendering some routes). */
+function OnNavigate({ run }: { run: () => void }) {
+  const pathname = usePathname();
+  useEffect(() => run(), [pathname, run]);
+  return null;
+}
+
+/**
+ * The fixed chrome around every admin page. It renders straight away; the
+ * menu arrives in the `nav` slot once the server has checked the session.
+ */
+export function AdminFrame({ nav, children }: { nav: ReactNode; children: ReactNode }) {
+  const [open, setOpen] = useState(false);
+  const close = useCallback(() => setOpen(false), []);
 
   const brand = (
-    <Link href="/admin" className="flex items-center gap-2 px-5 py-4">
+    <Link href="/admin" className="flex flex-none items-center gap-2 px-5 py-4">
       <Sticker name="heart" size={32} rotate={-8} flat />
       <span className="text-[1.0625rem] font-semibold leading-none tracking-[-0.03em]">
         Health <span className="serif-accent text-[1.12em] font-normal">Maxxing</span>
@@ -128,11 +149,14 @@ export function AdminFrame({ user, counts, children }: { user: FrameUser; counts
 
   return (
     <div className="lg:grid lg:min-h-dvh lg:grid-cols-[256px_minmax(0,1fr)]">
+      <Suspense fallback={null}>
+        <OnNavigate run={close} />
+      </Suspense>
+
       {/* Desktop sidebar */}
       <aside className="sticky top-0 hidden h-dvh flex-col border-r border-line bg-paper lg:flex">
         {brand}
-        <div className="flex-1 overflow-y-auto pt-2">{menu}</div>
-        {account}
+        {nav}
       </aside>
 
       {/* Mobile bar */}
@@ -142,7 +166,7 @@ export function AdminFrame({ user, counts, children }: { user: FrameUser; counts
           className="inline-flex size-10 items-center justify-center rounded-full hover:bg-sand-2"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
-          onClick={() => setOpenOn(open ? null : pathname)}
+          onClick={() => setOpen((v) => !v)}
         >
           <Icon name={open ? "close" : "menu"} size={22} />
         </button>
@@ -151,12 +175,7 @@ export function AdminFrame({ user, counts, children }: { user: FrameUser; counts
           View site <Icon name="external" size={14} />
         </Link>
       </div>
-      {open && (
-        <div className="fixed inset-x-0 bottom-0 top-14 z-40 flex flex-col overflow-y-auto bg-paper lg:hidden">
-          <div className="flex-1 pt-4">{menu}</div>
-          {account}
-        </div>
-      )}
+      {open && <div className="fixed inset-x-0 bottom-0 top-14 z-40 flex flex-col bg-paper lg:hidden">{nav}</div>}
 
       <div className="min-w-0">
         <div className="hidden h-14 items-center justify-end gap-2 px-8 lg:flex">

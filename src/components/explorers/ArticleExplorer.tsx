@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
+import { useQueryParam } from "@/lib/hooks";
 import { ArticleCard } from "@/components/ArticleCard";
 import { Icon } from "@/components/Icon";
 import { Sticker } from "@/components/stickers/Sticker";
@@ -13,18 +14,15 @@ const PAGE = 18;
 
 /** Filterable grid of every article. Filtering happens in the browser. */
 export function ArticleExplorer({ articles, categories }: { articles: Card[]; categories: Cat[] }) {
-  const [topic, setTopic] = useState("all");
+  // Deep links such as /articles?topic=sleep set the starting topic until the reader picks one.
+  const linked = useQueryParam("topic");
+  const [picked, setTopic] = useState<string | null>(null);
+  const topic = picked ?? (linked && categories.some((c) => c.slug === linked) ? linked : "all");
   const [kind, setKind] = useState("all");
   const [sort, setSort] = useState<"new" | "quick" | "az">("new");
   const [query, setQuery] = useState("");
   const [shown, setShown] = useState(PAGE);
   const cat = useMemo(() => new Map(categories.map((c) => [c.slug, c])), [categories]);
-
-  // Allow deep links such as /articles?topic=sleep
-  useEffect(() => {
-    const t = new URLSearchParams(window.location.search).get("topic");
-    if (t && categories.some((c) => c.slug === t)) setTopic(t);
-  }, [categories]);
 
   const kinds = useMemo(() => Array.from(new Set(articles.map((a) => a.kind))), [articles]);
   const filtered = useMemo(() => {

@@ -571,3 +571,32 @@ export async function getSearchIndex(): Promise<SearchDoc[]> {
   }
   return docs;
 }
+
+/* ------------------------------------------------------------------ */
+/* Sitemap                                                             */
+/* ------------------------------------------------------------------ */
+
+export type SitemapEntry = { path: string; updatedAt: string | null };
+
+/** Every public, indexable page that comes from the database. */
+export async function getSitemapEntries(): Promise<SitemapEntry[]> {
+  "use cache";
+  cacheLife("hours");
+  cacheTag("articles", "conditions", "categories", "body-systems", "foods", "exercises", "pages", "newsletter", "forum-boards");
+  const sets: [string, string][] = [
+    ["/articles/", `SELECT slug, updated_at FROM articles WHERE ${LIVE}`],
+    ["/conditions/", "SELECT slug, updated_at FROM conditions WHERE status = 'published'"],
+    ["/topics/", "SELECT slug, updated_at FROM categories WHERE status = 'published'"],
+    ["/body/", "SELECT slug, updated_at FROM body_systems WHERE status = 'published'"],
+    ["/foods/", "SELECT slug, updated_at FROM foods WHERE status = 'published'"],
+    ["/exercises/", "SELECT slug, updated_at FROM exercises WHERE status = 'published'"],
+    ["/newsletter/", "SELECT slug, updated_at FROM newsletter_issues WHERE status = 'published'"],
+    ["/community/", "SELECT slug, updated_at FROM forum_boards WHERE status = 'published'"],
+    ["/", "SELECT slug, updated_at FROM pages WHERE status = 'published'"],
+  ];
+  const out: SitemapEntry[] = [];
+  for (const [prefix, sql] of sets) {
+    for (const r of await query<{ slug: string; updated_at: string | null }>(sql)) out.push({ path: `${prefix}${r.slug}`, updatedAt: r.updated_at });
+  }
+  return out;
+}

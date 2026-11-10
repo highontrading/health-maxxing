@@ -6,6 +6,7 @@ import { Icon } from "@/components/Icon";
 import { SearchHitRow, useSearch } from "@/components/site/HeaderClient";
 import { Sticker } from "@/components/stickers/Sticker";
 import { cn } from "@/lib/cn";
+import { useQueryParam } from "@/lib/hooks";
 import { SEARCH_TYPE_LABEL } from "@/lib/labels";
 
 const SUGGESTIONS = ["protein", "sleep", "blood pressure", "anxiety", "back pain", "creatine", "cholesterol", "migraine", "vitamin D", "heart rate"];
@@ -14,22 +15,22 @@ const ORDER = ["article", "condition", "tool", "topic", "term", "myth", "food", 
 /** Full search page. The query lives in the URL (?q=) so results can be shared. */
 export function SearchPageClient({ colorOf }: { colorOf: Record<string, string> }) {
   const router = useRouter();
-  const [query, setQuery] = useState("");
+  // The query starts from ?q= and then follows what the reader types.
+  const linked = useQueryParam("q");
+  const [typed, setQuery] = useState<string | null>(null);
+  const query = typed ?? linked ?? "";
   const [type, setType] = useState("all");
   const { hits, loading } = useSearch(query);
 
-  useEffect(() => {
-    setQuery(new URLSearchParams(window.location.search).get("q") ?? "");
-  }, []);
-
   // Keep the address bar in step without adding history entries for every keystroke.
   useEffect(() => {
+    if (typed === null) return;
     const t = setTimeout(() => {
-      const url = query.trim() ? `/search?q=${encodeURIComponent(query.trim())}` : "/search";
+      const url = typed.trim() ? `/search?q=${encodeURIComponent(typed.trim())}` : "/search";
       if (window.location.pathname + window.location.search !== url) window.history.replaceState(null, "", url);
     }, 300);
     return () => clearTimeout(t);
-  }, [query]);
+  }, [typed]);
 
   const counts = useMemo(() => {
     const map = new Map<string, number>();

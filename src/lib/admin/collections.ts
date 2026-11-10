@@ -198,7 +198,7 @@ export const COLLECTIONS: CollectionDef[] = [
         label: "Publish date",
         type: "datetime",
         side: true,
-        help: "A future date schedules the article: it appears on its own at that time.",
+        help: "A future date schedules the article: it appears on its own within about an hour of that time.",
       },
       FACT_CHECK,
       TOPIC,

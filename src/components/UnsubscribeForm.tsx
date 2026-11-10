@@ -1,17 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { useActionState, useEffect, useState } from "react";
+import { useActionState } from "react";
 import { unsubscribeAction } from "@/app/actions/newsletter";
 import { EMPTY } from "@/app/actions/types";
+import { useQueryParam } from "@/lib/hooks";
 
 /** Reads the token from ?token= and confirms the unsubscribe with one click. */
 export function UnsubscribeForm() {
   const [state, action, pending] = useActionState(unsubscribeAction, EMPTY);
-  const [token, setToken] = useState<string | null>(null);
-  useEffect(() => {
-    setToken(new URLSearchParams(window.location.search).get("token") ?? "");
-  }, []);
+  const token = useQueryParam("token");
 
   if (state.ok) {
     return (

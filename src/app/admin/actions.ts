@@ -420,7 +420,7 @@ export async function topicAction(formData: FormData): Promise<void> {
 }
 
 /** Drafts the next queued topic. This waits for Claude, so it can take a few minutes. */
-export async function runAutopilotAction(_prev: FormState, _formData: FormData): Promise<FormState> {
+export async function runAutopilotAction(): Promise<FormState> {
   const user = await requireAdmin();
   const summary = await runAutopilot({ max: 1, actor: actorOf(user) });
   if (summary.drafted) invalidate("articles");
@@ -431,7 +431,7 @@ export async function runAutopilotAction(_prev: FormState, _formData: FormData):
   return { message: summary.messages.join(" ") || "Nothing was drafted." };
 }
 
-export async function suggestTopicsAction(_prev: FormState, _formData: FormData): Promise<FormState> {
+export async function suggestTopicsAction(): Promise<FormState> {
   const user = await requireAdmin();
   try {
     const added = await suggestTopics(5, actorOf(user));

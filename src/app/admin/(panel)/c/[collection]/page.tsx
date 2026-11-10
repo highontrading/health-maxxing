@@ -11,6 +11,7 @@ import { Icon } from "@/components/Icon";
 import { getCollection } from "@/lib/admin/collections";
 import { listRows, loadOptions } from "@/lib/admin/store";
 import { requireStaff } from "@/lib/auth";
+import { requestTime } from "@/lib/now";
 
 type Props = PageProps<"/admin/c/[collection]">;
 
@@ -34,7 +35,7 @@ export default async function CollectionListPage({ params, searchParams }: Props
     def.topicColumn ? loadOptions() : Promise.resolve(null),
   ]);
   const topicName = new Map(options?.categories.map((o) => [o.value, o.label]) ?? []);
-  const now = Date.now();
+  const now = await requestTime();
 
   // Where bulk actions return to: this list with its current filters.
   const backParams = new URLSearchParams();

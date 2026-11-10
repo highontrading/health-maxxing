@@ -9,6 +9,7 @@ import { Icon } from "@/components/Icon";
 import { Sticker } from "@/components/stickers/Sticker";
 import { getSessionUser, isStaff } from "@/lib/auth";
 import { getBoard, listThreads, THREADS_PER_PAGE } from "@/lib/forum";
+import { requestTime } from "@/lib/now";
 
 type Props = PageProps<"/community/[board]">;
 
@@ -31,7 +32,7 @@ async function BoardView({ params, searchParams }: Props) {
   if (!board) notFound();
   const page = Math.max(1, Number(Array.isArray(query.page) ? query.page[0] : query.page) || 1);
   const { threads, total } = await listThreads({ boardId: board.id, page, includeHidden: isStaff(user) });
-  const now = Date.now();
+  const now = await requestTime();
 
   return (
     <div className={`tone-${board.color}`}>

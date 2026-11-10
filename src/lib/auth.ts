@@ -7,6 +7,7 @@ import "server-only";
 import { cache } from "react";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import { connection } from "next/server";
 import { queryOne, run } from "./db";
 import { randomToken, sha256 } from "./security";
 import type { ColorKey, SessionUser } from "./types";
@@ -63,6 +64,10 @@ type UserRow = {
  * unstable value during prerendering.
  */
 export const getSessionUser = cache(async (): Promise<SessionUser | null> => {
+  // Anything that depends on who is signed in must be rendered for this request.
+  // Without this, the client router may keep showing a prefetched copy of a
+  // signed-in page after a form action has changed its data.
+  await connection();
   const token = (await cookies()).get(SESSION_COOKIE)?.value;
   if (!token) return null;
   const row = await queryOne<UserRow>(

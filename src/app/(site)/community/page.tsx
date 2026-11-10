@@ -9,6 +9,7 @@ import { Sticker } from "@/components/stickers/Sticker";
 import { cn } from "@/lib/cn";
 import { forumStats, listBoards, listThreads, timeAgo } from "@/lib/forum";
 import { formatNumber } from "@/lib/format";
+import { requestTime } from "@/lib/now";
 
 export const metadata: Metadata = {
   title: "Community",
@@ -62,7 +63,7 @@ function ForumSkeleton() {
 async function CommunityHome() {
   await connection();
   const [boards, recent, stats] = await Promise.all([listBoards(), listThreads({ limit: 10 }), forumStats()]);
-  const now = Date.now();
+  const now = await requestTime();
 
   return (
     <>

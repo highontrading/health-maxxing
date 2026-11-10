@@ -325,34 +325,29 @@ const TYPE_STICKER: Record<string, string> = {
 };
 
 export function useSearch(query: string) {
-  const [hits, setHits] = useState<Hit[]>([]);
-  const [loading, setLoading] = useState(false);
+  // Results are remembered together with the query they answer, so a stale
+  // response is never shown for newer text and nothing is reset in the effect.
+  const [result, setResult] = useState<{ q: string; hits: Hit[] } | null>(null);
+  const q = query.trim();
+  const wanted = q.length >= 2;
   useEffect(() => {
-    const q = query.trim();
-    if (q.length < 2) {
-      setHits([]);
-      setLoading(false);
-      return;
-    }
-    setLoading(true);
+    if (!wanted) return;
     const ctrl = new AbortController();
     const timer = setTimeout(() => {
       fetch(`/api/search?q=${encodeURIComponent(q)}`, { signal: ctrl.signal })
         .then((r) => r.json())
-        .then((d) => {
-          setHits(d.hits ?? []);
-          setLoading(false);
-        })
+        .then((d) => setResult({ q, hits: d.hits ?? [] }))
         .catch((err) => {
-          if (err?.name !== "AbortError") setLoading(false);
+          if (err?.name !== "AbortError") setResult({ q, hits: [] });
         });
     }, 140);
     return () => {
       clearTimeout(timer);
       ctrl.abort();
     };
-  }, [query]);
-  return { hits, loading };
+  }, [q, wanted]);
+  const current = wanted && result?.q === q;
+  return { hits: current ? result.hits : [], loading: wanted && !current };
 }
 
 export function SearchHitRow({ hit, colorOf, active, onNavigate }: { hit: Hit; colorOf: Record<string, string>; active?: boolean; onNavigate?: () => void }) {

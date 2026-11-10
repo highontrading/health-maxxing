@@ -1,17 +1,12 @@
 "use client";
 
-import { useId, useRef, useState, useSyncExternalStore, useTransition } from "react";
+import { useId, useRef, useState, useTransition } from "react";
 import { previewMarkdownAction, uploadMediaAction } from "@/app/admin/actions";
 import { Icon } from "@/components/Icon";
 import { STICKER_ART } from "@/components/stickers/art";
 import { Sticker } from "@/components/stickers/Sticker";
 import { cn } from "@/lib/cn";
-
-const noop = () => () => {};
-/** False on the server and during hydration, true afterwards. */
-export function useMounted(): boolean {
-  return useSyncExternalStore(noop, () => true, () => false);
-}
+import { useMounted } from "@/lib/hooks";
 
 /* ------------------------------------------------------------------ */
 /* Markdown editor                                                     */

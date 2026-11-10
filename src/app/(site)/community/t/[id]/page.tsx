@@ -12,6 +12,7 @@ import { getSettings } from "@/lib/data";
 import { run } from "@/lib/db";
 import { getThread, hasLiked, listPosts, timeAgo } from "@/lib/forum";
 import { renderUserText } from "@/lib/markdown";
+import { requestTime } from "@/lib/now";
 
 type Props = PageProps<"/community/t/[id]">;
 
@@ -43,7 +44,7 @@ async function ThreadView({ params }: Pick<Props, "params">) {
   const [posts, liked] = await Promise.all([listPosts(id, user?.id ?? null, staff), user ? hasLiked(user.id, "thread", id) : false]);
   // Count the visit without blocking the response.
   void run("UPDATE forum_threads SET views = views + 1 WHERE id = ?", [id]).catch(() => {});
-  const now = Date.now();
+  const now = await requestTime();
   const canPost = !!user && !user.banned && (!thread.locked || staff) && (settings.community.enabled || staff);
 
   return (
