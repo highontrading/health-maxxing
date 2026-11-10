@@ -48,24 +48,36 @@ async function migrate(c: Client): Promise<void> {
     await c.execute("PRAGMA foreign_keys = ON");
   }
   await c.execute("CREATE TABLE IF NOT EXISTS meta (key TEXT PRIMARY KEY, value TEXT NOT NULL)");
-  const row = await c.execute("SELECT value FROM meta WHERE key = 'schema_version'");
-  let version = row.rows.length ? Number(row.rows[0][0]) : 0;
+  const readVersion = async () => {
+    const row = await c.execute("SELECT value FROM meta WHERE key = 'schema_version'");
+    return row.rows.length ? Number(row.rows[0][0]) : 0;
+  };
+  let version = await readVersion();
   while (version < MIGRATIONS.length) {
     const statements = MIGRATIONS[version]
       .split(/;\s*(?:\n|$)/)
       .map((s) => s.trim())
       .filter(Boolean);
-    await c.batch(
-      [
-        ...statements,
-        {
-          sql: "INSERT INTO meta (key, value) VALUES ('schema_version', ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value",
-          args: [String(version + 1)],
-        },
-      ],
-      "write",
-    );
-    version += 1;
+    try {
+      await c.batch(
+        [
+          ...statements,
+          {
+            sql: "INSERT INTO meta (key, value) VALUES ('schema_version', ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value",
+            args: [String(version + 1)],
+          },
+        ],
+        "write",
+      );
+      version += 1;
+    } catch (err) {
+      // Several processes can start at once (build workers, serverless instances).
+      // If another one applied this migration first, ours fails on "already exists":
+      // carry on from the version the database now reports.
+      const current = await readVersion();
+      if (current <= version) throw err;
+      version = current;
+    }
   }
 }
 
