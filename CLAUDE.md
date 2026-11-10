@@ -18,6 +18,7 @@ changes the code or the content.
 | `npm run content:sync` | Load `content/` into the database. `--force` overwrites admin edits, `--prune` removes rows whose file is gone |
 | `npm run typecheck` | Regenerate route types, then `tsc`. Needed after adding or renaming a route |
 | `node scripts/e2e/*.js` | Browser tests (see `scripts/e2e/README.md`). They create data: development database only |
+| `node scripts/e2e/motion.js` | Page-transition checks. Run it against a production build |
 
 The admin login for a local database is in `data/admin-credentials.txt`.
 
@@ -47,6 +48,17 @@ an API you have not used in this repository.
   and inputs use them as `defaultValue`. Every new form must do the same, or a failed submit wipes
   what the visitor typed.
 - **Page files export only what Next.js allows.** Put helpers in `src/lib/`.
+- **The previous page stays in the DOM, hidden.** After a client-side navigation Next.js keeps the
+  page you left (for back and forward). `document.querySelector` and browser-test selectors can
+  match its elements, so scope them to what is rendered.
+- **A link prefetches only the shell of a `[slug]` page** (its loading skeleton). `IntentPrefetch`
+  in the site layout fetches the whole page on hover, focus or touch, so it opens in one step.
+- **Page changes must not smooth-scroll.** `<html data-scroll-behavior="smooth">` makes navigation
+  jump to the top while links within a page still scroll smoothly. Do not remove it.
+- **`backdrop-filter` (and `filter`, `transform`) turns an element into the box its `position: fixed`
+  children are laid out in.** That squashed the phone menu inside the header once. Put the blur on a
+  separate layer, never on an element that contains a fixed overlay.
+- **Turbopack's disk cache is off** (`next.config.ts`): a warm cache once served a stale stylesheet.
 - `generateStaticParams` must return at least one entry. Middleware is `proxy.ts`. `next lint` is gone.
 - **Test against a production build before calling something done.** Several bugs here appeared only
   in `next build` + `next start`. When restarting, kill the old `next-server` process first:
@@ -111,6 +123,38 @@ an API you have not used in this repository.
 - Check phone widths with `node scripts/e2e/overflow.js`. In grids and flex rows, add `min-w-0` to
   children that hold long or truncated text.
 
+## Motion
+
+The site moves a little everywhere and it must never get in the way. Shared pieces:
+
+| Where | What |
+| --- | --- |
+| `src/app/styles/motion/tokens.css` | Durations (`--dur-fast` to `--dur-slower`), curves (`--ease-enter`, `--ease-exit`, `--ease-move`, `--ease-pop`), distances, `--stagger` |
+| `src/app/styles/motion/keyframes.css`, `utilities.css` | Shared keyframes and classes: `reveal`, `enter-*`, `motion-menu/dialog/fade/sheet`, `collapse-y`, `pressable`, `link-draw`, `skeleton` |
+| `src/app/styles/motion/page-transitions.css` | How one page swaps for the next |
+| `src/app/styles/motion/<area>.css` | Motion that belongs to one area (chrome, home, reading, explore, tools, forms, admin) |
+| `src/components/motion/` | `PageTransition`, `Swap`, `usePresence`, `Collapse`, `CountUp`, `Spinner`, `MenuToggleIcon`, `useScrollLock`, `stagger`, `IntentPrefetch`, `RouteProgress` |
+
+- **Every `page.tsx` wraps what it returns in `<PageTransition>`** (`variant="panel"` in the admin,
+  `variant="skeleton"` around a loading placeholder). It must be in the page, not a layout. A new
+  page without it changes with no animation. Read the comment in `PageTransition.tsx`.
+- **Keep page transitions short.** While one runs the page cannot be clicked, and React waits for
+  it before showing what loads next. They do not run on first load, back and forward, `refresh()`
+  or a query-string change.
+- **No `view-transition-name` and no `<ViewTransition name>`.** Two elements with one name on a page
+  cancel the whole transition. The header and the admin bar are named in CSS only while a
+  transition runs (`vt-site-header`, `vt-admin-bar`); a permanent name switches off the header blur.
+- **Visible by default.** Nothing in the server-rendered page may need JavaScript or a finished
+  animation to be seen. `reveal` (scroll) hides an element only once `RevealObserver` is holding it;
+  `enter-*` classes are for decoration, never the main heading or body text.
+- **Things that open also close with motion:** `usePresence(open)` plus a `motion-*` class and
+  `data-state`. A closed layer is unmounted or `inert`; a closing one never blocks a click.
+- **Reduced motion** is handled in CSS for every animation and transition. Motion driven from
+  JavaScript must check `useReducedMotion()`.
+- Use the tokens, animate `opacity`, `translate`, `scale` and `rotate` (height only through
+  `Collapse`), keep feedback within about 300 ms, and put hover movement inside `@media (hover: hover)`.
+- The admin panel is calmer than the public site: fades only.
+
 ## Writing for the interface
 
 Plain, specific, friendly. Sentence case. Say what happened and what to do next in error messages.
@@ -120,6 +164,6 @@ Avoid health hype words (superfood, detox, miracle). American English.
 
 1. `npm run check`
 2. For anything visible, build and test against production: `npm run build`, `npm start`, then the
-   relevant `scripts/e2e` script.
+   relevant `scripts/e2e` script. After touching pages, layouts or motion, run `scripts/e2e/motion.js`.
 3. Commit with a clear message and push to the working branch. Do not open a pull request unless asked.
 4. Report honestly: what was verified, what was not, and what is still pending.

@@ -58,6 +58,19 @@
   animation: 100ms var(--ease-exit) both fade-out;
 }
 
+/* A placeholder is not worth showing for a wait nobody notices: it stays
+   invisible for a quarter of a second, then fades in. Most pages arrive
+   sooner, so the visitor sees one cross-fade, old page to new page. */
+.page-skeleton {
+  animation: fade-in var(--dur-base) ease-out 250ms both;
+}
+/* On the public site it fills the screen, so the footer stays below the fold
+   instead of jumping up beside a short placeholder. */
+.page-skeleton-tall,
+.page-skeleton-tall > main {
+  min-height: 100dvh;
+}
+
 /* ---- Admin pages: a plain, quick cross-fade. */
 ::view-transition-old(.panel-exit) {
   animation: 100ms var(--ease-exit) both fade-out;

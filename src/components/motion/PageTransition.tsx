@@ -10,10 +10,14 @@ import { ViewTransition, type ReactNode } from "react";
  * - `page` (default): public pages. Links tagged with
  *   `transitionTypes={["nav-forward"]}` or `["nav-back"]` slide a little in
  *   that direction instead of rising.
- * - `skeleton`: the placeholder a page shows while its content loads. It
- *   arrives and leaves quietly, so the real content gets the entrance.
+ * - `skeleton`: the placeholder a public page shows while its content loads.
+ *   It stays invisible for the first quarter second, so a page that loads
+ *   quickly reads as one cross-fade instead of page, skeleton, page; it is a
+ *   full screen tall, so the footer never jumps into view while it shows; and
+ *   it leaves quietly, so the real content gets the entrance.
  * - `panel`: admin pages, a plain quick cross-fade. Wraps the page in a <div>
  *   so its many top-level blocks move as one.
+ * - `panel-skeleton`: the admin loading placeholder, also invisible at first.
  *
  * A page with a loading state uses both:
  *
@@ -24,11 +28,11 @@ import { ViewTransition, type ReactNode } from "react";
  * Nothing animates on the first load, on browser back and forward, on
  * `router.refresh()`, or when only the query string changes.
  */
-export function PageTransition({ children, variant = "page" }: { children: ReactNode; variant?: "page" | "skeleton" | "panel" }) {
-  if (variant === "skeleton") {
+export function PageTransition({ children, variant = "page" }: { children: ReactNode; variant?: "page" | "skeleton" | "panel" | "panel-skeleton" }) {
+  if (variant === "skeleton" || variant === "panel-skeleton") {
     return (
       <ViewTransition enter="skeleton-enter" exit="skeleton-exit" default="none">
-        {children}
+        <div className={variant === "skeleton" ? "page-skeleton page-skeleton-tall" : "page-skeleton"}>{children}</div>
       </ViewTransition>
     );
   }
