@@ -52,7 +52,9 @@ an API you have not used in this repository.
   page you left (for back and forward). `document.querySelector` and browser-test selectors can
   match its elements, so scope them to what is rendered.
 - **A link prefetches only the shell of a `[slug]` page** (its loading skeleton). `IntentPrefetch`
-  in the site layout fetches the whole page on hover, focus or touch, so it opens in one step.
+  in the site layout fetches the whole page on hover, focus or touch, and on touch screens also
+  the links in the middle of the screen once scrolling settles, so pages open in one step. Add a
+  new content section to its `CONTENT_PAGE` pattern, and a new top-level route to `RESERVED`.
 - **Page changes must not smooth-scroll.** `<html data-scroll-behavior="smooth">` makes navigation
   jump to the top while links within a page still scroll smoothly. Do not remove it.
 - **`backdrop-filter` (and `filter`, `transform`) turns an element into the box its `position: fixed`
@@ -136,8 +138,14 @@ The site moves a little everywhere and it must never get in the way. Shared piec
 | `src/components/motion/` | `PageTransition`, `Swap`, `usePresence`, `Collapse`, `CountUp`, `Spinner`, `MenuToggleIcon`, `useScrollLock`, `stagger`, `IntentPrefetch`, `RouteProgress` |
 
 - **Every `page.tsx` wraps what it returns in `<PageTransition>`** (`variant="panel"` in the admin,
-  `variant="skeleton"` around a loading placeholder). It must be in the page, not a layout. A new
-  page without it changes with no animation. Read the comment in `PageTransition.tsx`.
+  `variant="skeleton"` or `"panel-skeleton"` around a loading placeholder). It must be in the page,
+  not a layout, with nothing between a `<Suspense>` and it. A new page without it changes with no
+  animation. Read the comment in `PageTransition.tsx`.
+- **Each layout wraps its root element in `<LayoutTransition>`.** A page's own transition does not
+  play when the layout around it appears or disappears in the same step (site to admin, signing
+  in), so the layout fades instead.
+- **A loading skeleton stays invisible for a quarter of a second** and is a full screen tall on the
+  public site. Most pages arrive sooner, so visitors see one cross-fade, not page, skeleton, page.
 - **Keep page transitions short.** While one runs the page cannot be clicked, and React waits for
   it before showing what loads next. They do not run on first load, back and forward, `refresh()`
   or a query-string change.
