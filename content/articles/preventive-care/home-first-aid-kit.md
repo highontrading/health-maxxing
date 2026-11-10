@@ -8,7 +8,7 @@ sticker: bandage
 kind: list
 takeaways:
   - "A useful home kit is mostly dressings, bandages, tape, gloves, scissors, tweezers and a thermometer, plus a handful of over-the-counter medicines."
-  - "Clean running water is the best wound cleaner. Antiseptic wipes are a backup for when you cannot get to a tap."
+  - "Clean running water is the best wound cleaner. Saline solution or alcohol-free wipes are the backup for when you cannot get to a tap."
   - "Add oral rehydration salts, pain and fever relief, an antihistamine and any personal emergency medicines, such as an adrenaline auto-injector or a reliever inhaler."
   - "Check the kit about twice a year, replace anything used or expired, and keep it where adults can find it and small children cannot."
   - "Leave out syrup of ipecac, leftover antibiotics and expired medicines."
@@ -18,42 +18,42 @@ faqs:
   - q: "How often should I check my first-aid kit?"
     a: "Check it regularly. Twice a year is a sensible routine, plus a restock after every use. Replace anything that is used, damaged or past its expiry date, and make sure auto-injectors and inhalers are in date."
   - q: "Should I use antiseptic on a cut?"
-    a: "For most minor cuts and grazes, rinsing thoroughly under clean running tap water is what matters. The NHS advises against putting antiseptic on the wound itself because it may damage the skin and slow healing. Wipes are still useful for cleaning your hands or the skin around a wound when clean water is not available."
+    a: "For most minor cuts and grazes, rinsing thoroughly under clean running tap water is what matters. The NHS advises against putting antiseptic on the wound itself because it may damage the skin and slow healing. When clean running water is not available, its alternatives are saline solution or an alcohol-free wipe."
   - q: "Can I keep leftover antibiotics in case I need them later?"
-    a: "No. Antibiotics are prescribed for a specific infection, and a leftover part-course is unlikely to be the right drug, dose or duration for a different illness. The US Centers for Disease Control and Prevention advises against saving antibiotics for later or taking ones prescribed for someone else. Return leftovers to a pharmacy or a medicine take-back scheme."
+    a: "No. Antibiotics are prescribed for a specific infection, and a leftover part-course is unlikely to be the right drug, dose or duration for a different illness. The US Centers for Disease Control and Prevention advises against saving antibiotics for later or sharing them with other people. Return leftovers to a pharmacy or a medicine take-back scheme."
 sources:
-  - title: "Make a First Aid Kit"
+  - title: "Make a First Aid Kit: What to Include"
     publisher: "American Red Cross"
     url: "https://www.redcross.org/get-help/how-to-prepare-for-emergencies/anatomy-of-a-first-aid-kit.html"
   - title: "2024 American Heart Association and American Red Cross Guidelines for First Aid"
     publisher: "Circulation"
     year: 2024
-    url: "https://pubmed.ncbi.nlm.nih.gov/?term=2024+American+Heart+Association+and+American+Red+Cross+Guidelines+for+First+Aid"
+    url: "https://doi.org/10.1161/CIR.0000000000001281"
   - title: "Cuts and grazes"
     publisher: "NHS"
     url: "https://www.nhs.uk/conditions/cuts-and-grazes/"
   - title: "Diarrhoeal disease"
     publisher: "World Health Organization"
     url: "https://www.who.int/news-room/fact-sheets/detail/diarrhoeal-disease"
-  - title: "Reye Syndrome"
-    publisher: "MedlinePlus, US National Library of Medicine"
-    url: "https://medlineplus.gov/reyesyndrome.html"
+  - title: "Reye syndrome"
+    publisher: "MedlinePlus Medical Encyclopedia, US National Library of Medicine"
+    url: "https://medlineplus.gov/ency/article/001565.htm"
   - title: "Anaphylaxis"
     publisher: "NHS"
     url: "https://www.nhs.uk/conditions/anaphylaxis/"
   - title: "Don't Be Tempted to Use Expired Medicines"
     publisher: "US Food and Drug Administration"
-    url: "https://www.fda.gov/drugs/special-features/dont-be-tempted-use-expired-medicines"
+    url: "https://www.fda.gov/drugs/safe-disposal-medicines/dont-be-tempted-use-expired-medicines"
   - title: "Disposal of Unused Medicines: What You Should Know"
     publisher: "US Food and Drug Administration"
     url: "https://www.fda.gov/drugs/safe-disposal-medicines/disposal-unused-medicines-what-you-should-know"
   - title: "Poison treatment in the home"
     publisher: "Pediatrics (American Academy of Pediatrics)"
     year: 2003
-    url: "https://pubmed.ncbi.nlm.nih.gov/?term=Poison+treatment+in+the+home+American+Academy+of+Pediatrics"
-  - title: "Antibiotic Prescribing and Use"
+    url: "https://pubmed.ncbi.nlm.nih.gov/14595067/"
+  - title: "Healthy Habits: Antibiotic Do's and Don'ts"
     publisher: "Centers for Disease Control and Prevention"
-    url: "https://www.cdc.gov/antibiotic-use/index.html"
+    url: "https://www.cdc.gov/antibiotic-use/about/index.html"
   - title: "Pack Smart"
     publisher: "Centers for Disease Control and Prevention, Travelers' Health"
     url: "https://wwwnc.cdc.gov/travel/page/pack-smart"
@@ -84,20 +84,22 @@ Most first aid at home is cuts, scrapes, burns, bumps and fevers. The core of th
 | Instant cold pack | Sprains, bumps and bruises |
 | Foil emergency blanket | Keeping an injured person warm |
 
-Two cheap extras are worth adding. A printed first-aid guide helps when your mind goes blank. A roll of plastic wrap from the kitchen makes a good temporary cover for a burn once you have cooled it under running water.[^12]
+The scissors are our own addition to that list: you will want a pair for cutting tape and dressings to size.
+
+Two cheap extras are worth adding. A printed first-aid guide, which is on the Red Cross list, helps when your mind goes blank.[^1] A roll of plastic wrap from the kitchen makes a good temporary cover for a burn once you have cooled it under running water.[^12]
 
 > [!NOTE] Water first
-> The best wound cleaner is not in the kit. Guidelines recommend rinsing cuts and grazes thoroughly under clean running tap water, then covering them with a dressing.[^2] The NHS advises against putting antiseptic on the wound itself, because it may damage the skin and slow healing.[^3] Keep antiseptic wipes for the times when there is no clean tap nearby.
+> The best wound cleaner is not in the kit. Guidelines recommend rinsing cuts and grazes thoroughly under clean running tap water, then covering them with a dressing.[^2] The NHS advises against putting antiseptic on the wound itself, because it may damage the skin and slow healing.[^3] Keep saline solution or alcohol-free wipes for the times when there is no clean tap nearby.[^3]
 
 ## Medicines worth keeping
 
 Keep this section short. Every extra box is one more thing to expire.
 
-- **Pain and fever relief.** Paracetamol (acetaminophen), ibuprofen or both, in adult and child versions if you need them, used as directed on the label.
-- **An antihistamine** for hives, insect stings and hay fever, used as directed on the label. It is not a treatment for a severe allergic reaction: that needs adrenaline and an ambulance.[^6]
-- **Oral rehydration salts.** These sachets of salts and sugar, mixed with clean water, replace the fluid and electrolytes lost through diarrhea and vomiting.[^4] Follow the mixing instructions exactly.
+- **Pain and fever relief.** Paracetamol (acetaminophen), ibuprofen or both, in adult and child versions if you need them, used as directed on the label.[^11]
+- **An antihistamine** for hives, insect stings and hay fever, used as directed on the label.[^11] It is no substitute for adrenaline in a severe allergic reaction, which also needs an ambulance.[^6]
+- **Oral rehydration salts.** These sachets of salts and sugar, mixed with clean water, replace the fluid and electrolytes lost through diarrhea.[^4] Follow the mixing instructions exactly.
 - **Hydrocortisone cream** for itchy bites and mild rashes, as directed on the label.[^1]
-- **Aspirin, for adults only.** The Red Cross list includes it, because first-aid guidelines support chewing aspirin during a suspected heart attack while you wait for an ambulance, unless the person is allergic or has been told to avoid it.[^1][^2] Do not give aspirin to children or teenagers unless a doctor has told you to. It has been linked to Reye syndrome, a rare but serious illness.[^5]
+- **Aspirin, for adults only.** The Red Cross list includes it, and first-aid guidelines support chewing aspirin during a suspected heart attack while you wait for an ambulance, unless the person is allergic or has been told to avoid it.[^1][^2] Do not give aspirin to children or teenagers unless a doctor has told you to. It has been linked to Reye syndrome, a rare but serious illness.[^5]
 - **Personal emergency medicines.** If anyone at home has been prescribed an adrenaline (epinephrine) auto-injector, a reliever inhaler or another rescue medicine, everyone should know where it lives.[^1][^6]
 
 If you have had bleeding-control training, a commercial tourniquet is a reasonable addition. Guidelines recommend one for life-threatening bleeding from an arm or leg.[^2] Our [first aid basics](/articles/first-aid-basics) guide covers how the kit gets used.
@@ -115,7 +117,7 @@ Then check it. The Red Cross advises going through your kit regularly and replac
 
 ## Numbers and information to add
 
-Tape a card inside the lid with:[^1]
+The Red Cross suggests keeping emergency phone numbers with your kit.[^1] Tape a card inside the lid with:
 
 - Your local emergency number
 - Your poison information service
@@ -140,14 +142,14 @@ Rules on carrying medicines differ between countries, so check before you fly.
 
 Some things have earned their retirement.
 
-- **Syrup of ipecac.** It was once kept at home to induce vomiting after poisoning. The American Academy of Pediatrics has advised since 2003 that it should no longer be used as a home treatment and that any still in the house should be disposed of safely. If you suspect poisoning, contact your poison information service or local emergency number instead.[^9]
-- **Leftover antibiotics.** A half-used course will not be the right treatment for the next illness. The CDC advises against saving antibiotics or taking ones prescribed for someone else.[^10] Our guide to [when antibiotics help](/articles/antibiotics-when-they-help) explains why.
-- **Expired medicines.** The US Food and Drug Administration says that once the expiry date has passed, there is no guarantee a medicine will be safe or effective.[^7]
+- **Syrup of ipecac.** It was once kept at home to induce vomiting after poisoning. In 2003 the American Academy of Pediatrics advised that it should no longer be used routinely as a home treatment and that any still in the house should be disposed of safely. If you suspect poisoning, contact your poison information service or local emergency number instead.[^9]
+- **Leftover antibiotics.** A half-used course will not be the right treatment for the next illness. The CDC advises against saving antibiotics for later or sharing them with other people.[^10] Our guide to [when antibiotics help](/articles/antibiotics-when-they-help) explains why.
+- **Expired medicines.** The US Food and Drug Administration advises against using them: the expiry date is a key guide to whether a medicine is still safe and will work as intended.[^7]
 - **Old prescription drugs.** Strong painkillers and sedatives left over from a past illness are a poisoning risk for children and visitors. A medicine take-back scheme, often run through pharmacies, is the best way to get rid of them.[^8]
 - **Mercury-in-glass thermometers.** The Red Cross list specifies a thermometer that contains neither mercury nor glass.[^1]
 
 > [!DOCTOR]
-> A kit handles minor injuries, not every injury. Get medical care for a cut that is long, deep or gaping, will not stop bleeding despite firm pressure, has something stuck in it or was caused by a bite. Do the same if a wound becomes more red, swollen or painful, or starts to ooze pus.[^3]
+> A kit handles minor injuries, not every injury. Get medical care for a cut that is long, deep or gaping, will not stop bleeding despite firm pressure, has something stuck in it or was caused by a bite. Do the same if a wound becomes more red, swollen or painful, or starts to ooze pus.[^2][^3]
 
 ## The bottom line
 

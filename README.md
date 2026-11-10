@@ -75,9 +75,9 @@ validates every file: structure, lengths, citations, internal links and source d
 
 Every article and condition is marked `verified` or `pending`.
 
-- **Verified** (10 articles): every figure and link was checked against its source with a live web
-  search while it was written. Readers see a "Sources verified" badge.
-- **Pending** (109 articles and all 101 conditions): written from established medical knowledge
+- **Verified** (12 articles): every figure and link was checked against its source with a live web
+  search. Readers see a "Sources verified" badge.
+- **Pending** (107 articles and all 101 conditions): written from established medical knowledge
   under strict rules (mainstream guidance only, no invented numbers or links), but not yet checked
   line by line against the sources. They are published without the badge.
 
