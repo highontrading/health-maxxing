@@ -122,9 +122,11 @@ export default async function UsersPage({ searchParams }: PageProps<"/admin/user
                           <form action={userAction} className="inline-flex items-center gap-1">
                             <input type="hidden" name="id" value={u.id} />
                             <input type="hidden" name="_back" value={back} />
-                            <button type="submit" name="op" value="reset" className="btn btn-ghost btn-sm" title="Create a one-time link this member can use to choose a new password">
-                              Reset link
-                            </button>
+                            {isAdmin && (
+                              <button type="submit" name="op" value="reset" className="btn btn-ghost btn-sm" title="Create a one-time link this member can use to choose a new password">
+                                Reset link
+                              </button>
+                            )}
                             {u.banned ? (
                               <button type="submit" name="op" value="unban" className="btn btn-ghost btn-sm">
                                 Lift suspension

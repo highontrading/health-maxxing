@@ -224,6 +224,8 @@ export async function userAction(formData: FormData): Promise<void> {
     await run("UPDATE users SET banned = 0 WHERE id = ?", [id]);
   } else if (op === "reset") {
     // For members who cannot get into their account: a one-time link to pass on to them.
+    // Admins only, because whoever holds the link can take over the account.
+    if (me.role !== "admin") redirect(withNotice(back, "Only an admin can create password reset links.", "error"));
     const link = await createResetLink(id);
     await logActivity(actorOf(me), "created a password reset link", "user", id, `@${target.handle}`);
     redirect(withNotice(back, `Send this link to @${target.handle}. It works once, for one hour: ${link}`));
