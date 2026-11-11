@@ -1,2 +1,166 @@
-/* Motion for the "home" surfaces. Shared tokens, keyframes and classes live in
-   tokens.css, keyframes.css and utilities.css; add only what is specific here. */
+/* Motion for the "home" surfaces: the home page, the body map and the sticker
+   sheet. Shared tokens, keyframes and classes live in tokens.css, keyframes.css
+   and utilities.css; add only what is specific here. */
+
+@layer components {
+  /* ---------- Hero: stickers arriving ----------
+     .hero-pop goes with enter-pop (and stagger() for the order) on the hero's
+     decorative stickers. Once a sticker has landed the animation lets go of
+     it; the shared class would keep holding it, and a held property cannot
+     run a transition afterwards. */
+  .hero-pop {
+    animation-fill-mode: backwards;
+  }
+
+  /* ---------- Hero: loose stickers (Draggable.tsx) ----------
+     Three nested boxes with one job each, so their motion never fights:
+     .draggable is moved by the drag, .draggable-body lifts while held and
+     settles when dropped, .draggable-float bobs. */
+  .draggable-body {
+    transition: scale var(--dur-fast) var(--ease-enter);
+  }
+  .draggable[data-drag="held"] > .draggable-body {
+    scale: 1.08;
+  }
+  .draggable[data-drag="dropped"] > .draggable-body {
+    animation: draggable-settle var(--dur-slow) var(--ease-move);
+  }
+  /* An ambient loop, far slower than the interface tokens. Each sticker sets
+     its own length (--float) and starting point, so neighbors drift out of step. */
+  .draggable-float {
+    animation: floaty var(--float, 7s) ease-in-out var(--float-delay, 0s) infinite;
+  }
+  /* A held sticker stays exactly under the pointer. */
+  .draggable[data-drag="held"] .draggable-float {
+    animation-play-state: paused;
+  }
+
+  /* ---------- Hero: cover card ----------
+     Straightens with a little spring on hover (hover:rotate-0) and sinks when
+     pressed (active:translate-y-0.5). */
+  .hero-cover {
+    transition:
+      rotate var(--dur-slow) var(--ease-pop),
+      translate var(--dur-fast) var(--ease-enter);
+  }
+
+  /* ---------- Hero: stats ----------
+     The final number, unseen, holds the box (::before), and the number that
+     counts up (CountUp) is pinned to its right edge, next to its label. So
+     the row never shuffles while a number runs: the digits only grow
+     leftwards, into the gap. */
+  .hero-stat-num {
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+  }
+  .hero-stat-num::before {
+    content: attr(data-final);
+    visibility: hidden;
+  }
+  .hero-stat-num > span {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+  }
+
+  /* ---------- Body map (BodyMap.tsx) ----------
+     The map sets data-hot while a label is hovered or focused, and data-on on
+     that label and its wire. Lighting up and dimming start at once; going
+     back to rest waits a beat (the delay on opacity), so sweeping the pointer
+     across the labels does not make the whole map flicker. */
+  .body-map-label {
+    translate: 0 -50%; /* centered on its row */
+    background-color: var(--paper);
+    box-shadow: 0 2px 0 var(--ink);
+    transition:
+      translate var(--dur-fast) var(--ease-enter),
+      box-shadow var(--dur-fast) var(--ease-enter),
+      background-color var(--dur-fast) ease,
+      opacity var(--dur-fast) ease-out var(--dur-fast);
+  }
+  .body-map-label[data-on] {
+    z-index: 10;
+    background-color: var(--tone-soft);
+    transition-delay: 0s;
+  }
+  /* The face rises 1px off its shadow, like the buttons. Only where there is a
+     real pointer: after a tap the label would stay lifted under the finger. */
+  @media (hover: hover) {
+    .body-map-label[data-on] {
+      translate: 0 calc(-50% - 1px);
+      box-shadow: 0 3px 0 var(--ink);
+    }
+  }
+  .body-map[data-hot] .body-map-label:not([data-on]) {
+    opacity: 0.55;
+    transition-delay: 0s;
+  }
+  .body-map-label[data-on] .sticker {
+    scale: 1.12; /* .sticker brings the pop */
+  }
+
+  .body-map-wire {
+    transition: opacity var(--dur-fast) ease-out var(--dur-fast);
+  }
+  .body-map-wire[data-on] {
+    transition-delay: 0s;
+  }
+  .body-map[data-hot] .body-map-wire:not([data-on]) {
+    opacity: 0.35;
+    transition-delay: 0s;
+  }
+  /* The solid line over the dotted one, drawn from the label to the body. */
+  .body-map-wire-on {
+    opacity: 0;
+    stroke-dasharray: 1; /* the path has pathLength 1, so one dash is the whole line */
+    transition: opacity var(--dur-fast) var(--ease-exit);
+  }
+  .body-map-wire[data-on] .body-map-wire-on {
+    --dash: 1;
+    opacity: 1;
+    transition-timing-function: ease-out;
+    animation: draw-check var(--dur-base) var(--ease-enter) both;
+  }
+  .body-map-dot {
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: scale var(--dur-base) var(--ease-pop);
+  }
+  .body-map-wire[data-on] .body-map-dot {
+    scale: 1.5;
+  }
+
+  /* ---------- Sticker sheet page ----------
+     Press a sticker and it squashes, like pushing it back onto the sheet.
+     (Two classes on the sticker, to win over .sticker-hover:hover in globals.css.) */
+  .sticker-sheet .sticker.sticker-hover:active {
+    scale: 0.92;
+  }
+
+  /* ---------- Reduced motion ----------
+     globals.css already cuts every animation and transition to nothing, but an
+     animation still waits out its delay. The hero stickers must be there at
+     once, and nothing bobs. */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-pop,
+    .draggable-float {
+      animation: none;
+    }
+  }
+}
+
+/* CountUp asks for tabular figures so that a running number does not jiggle
+   its neighbors. The box above already sees to that, so the hero keeps its
+   proportional figures. Outside the layer to win over the utility class. */
+.hero-stat-num > span {
+  font-variant-numeric: normal;
+}
+
+/* A dropped sticker is pressed back onto the page: down past its size, a small
+   rock, then still. */
+@keyframes draggable-settle {
+  from { scale: 1.08; }
+  50% { scale: 0.96; rotate: -2deg; }
+  78% { scale: 1.015; rotate: 1.2deg; }
+}

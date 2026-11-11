@@ -16,12 +16,12 @@ export async function Header() {
         Skip to content
       </a>
       {announcement.enabled && announcement.text && (
-        <div className="bg-ink text-paper">
+        <div className="vt-site-notice bg-ink text-paper">
           <div className="container-hm flex min-h-10 items-center justify-center gap-2 py-2 text-center text-sm font-medium">
             <span className="pixel-tag bg-lime text-ink">New</span>
             {announcement.href ? (
               <Link href={announcement.href} className="inline-flex items-center gap-1 underline-offset-4 hover:underline">
-                {announcement.text} <Icon name="arrow-right" size={14} />
+                {announcement.text} <Icon name="arrow-right" size={14} className="nudge-x" />
               </Link>
             ) : (
               <span>{announcement.text}</span>

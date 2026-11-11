@@ -39,12 +39,20 @@ export default async function BodyPage() {
           <h2 className="display display-sm mt-4 md:mt-14">
             All systems, <span className="serif-accent">head to toe</span>
           </h2>
+          {/* A plain "reveal": RevealObserver brings each row in left to right as it appears. */}
           <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {systems.map((s, i) => (
-              <li key={s.slug} className="reveal" style={{ transitionDelay: `${(i % 3) * 40}ms` }}>
-                <Link href={`/body/${s.slug}`} className={cn(`tone-${s.color}`, "group flex h-full flex-col rounded-[24px] bg-tone-soft p-5 text-tone-ink transition-transform duration-300 hover:-translate-y-1")}>
+              <li key={s.slug} className="reveal">
+                <Link
+                  href={`/body/${s.slug}`}
+                  className={cn(
+                    `tone-${s.color}`,
+                    "group flex h-full flex-col rounded-[24px] bg-tone-soft p-5 text-tone-ink transition-[translate,scale] duration-(--dur-base) ease-enter hover:-translate-y-1 active:scale-[0.98]",
+                  )}
+                >
                   <span className="flex items-start justify-between gap-3">
-                    <Sticker name={s.sticker} size={64} rotate={i % 2 ? 8 : -8} className="transition-transform duration-300 group-hover:scale-110" />
+                    {/* No transition classes on stickers: .sticker brings its own (the scale pops). */}
+                    <Sticker name={s.sticker} size={64} rotate={i % 2 ? 8 : -8} className="group-hover:scale-110" />
                     <span className="rounded-full bg-paper px-3 py-1 text-xs font-bold text-ink">
                       {s.conditionCount} {s.conditionCount === 1 ? "condition" : "conditions"}
                     </span>
@@ -52,7 +60,7 @@ export default async function BodyPage() {
                   <span className="mt-4 text-[1.375rem] font-medium leading-tight tracking-[-0.02em] text-ink">{s.name}</span>
                   <span className="mt-2 text-[0.9375rem] leading-relaxed opacity-90">{s.description}</span>
                   <span className="mt-auto inline-flex items-center gap-1.5 pt-4 text-sm font-semibold">
-                    Explore <Icon name="arrow-right" size={16} className="transition-transform group-hover:translate-x-1" />
+                    Explore <Icon name="arrow-right" size={16} className="nudge-x" />
                   </span>
                 </Link>
               </li>

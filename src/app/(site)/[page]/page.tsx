@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import { StaticPageSkeleton } from "@/components/article/Skeletons";
 import { PageHero } from "@/components/PageHero";
 import { Prose } from "@/components/Prose";
 import { cn } from "@/lib/cn";
@@ -47,7 +48,7 @@ export default function StaticPage({ params }: Props) {
     <Suspense
       fallback={
         <PageTransition variant="skeleton">
-          <main className="min-h-[60vh] bg-sand" aria-busy="true" />
+          <StaticPageSkeleton />
         </PageTransition>
       }
     >
@@ -75,7 +76,7 @@ async function PageView({ params }: Pick<Props, "params">) {
                 <Link
                   href={`/${s.slug}`}
                   aria-current={s.slug === page.slug ? "page" : undefined}
-                  className={cn("block rounded-full px-3.5 py-2 text-[0.9375rem] font-medium", s.slug === page.slug ? "bg-ink text-paper" : "text-ink-2 hover:bg-sand")}
+                  className={cn("reading-link-pill block rounded-full px-3.5 py-2 text-[0.9375rem] font-medium", s.slug === page.slug ? "bg-ink text-paper" : "text-ink-2 hover:bg-sand")}
                 >
                   {s.label}
                 </Link>

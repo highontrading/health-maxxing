@@ -8,6 +8,12 @@ import type { ArticleCard as Card } from "@/lib/types";
 
 type CategoryLite = { slug: string; name: string; color: string };
 
+/*
+ * Hover and press motion for the three cards is in `src/app/styles/motion/reading.css`
+ * (.article-card, .article-row, .article-bento). Stickers keep their own transition from
+ * globals.css, which gives their hover growth a small overshoot.
+ */
+
 function Meta({ article, category, className }: { article: Card; category?: CategoryLite; className?: string }) {
   return (
     <p className={cn("flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.8125rem] font-medium text-ink-3", className)}>
@@ -28,18 +34,12 @@ export function ArticleCard({ article, category, className, headingLevel = 3 }: 
   const H = `h${headingLevel}` as "h2";
   const color = category?.color ?? "sand";
   return (
-    <article className={cn(`tone-${color}`, "group relative flex flex-col", className)}>
-      <Cover
-        seed={article.slug}
-        sticker={article.sticker}
-        color={color}
-        image={article.coverImage}
-        className="aspect-[4/3] rounded-[22px] transition-transform duration-300 group-hover:-translate-y-1 [&_.cover-hero]:group-hover:scale-110"
-      />
+    <article className={cn(`tone-${color}`, "article-card group relative flex flex-col", className)}>
+      <Cover seed={article.slug} sticker={article.sticker} color={color} image={article.coverImage} className="article-card-cover aspect-[4/3] rounded-[22px]" />
       <div className="flex flex-1 flex-col px-1 pt-4">
         <Meta article={article} category={category} />
         <H className="mt-2 text-[1.3125rem] font-semibold leading-[1.15] tracking-[-0.02em] text-balance">
-          <Link href={`/articles/${article.slug}`} className="after:absolute after:inset-0 after:rounded-[22px] group-hover:underline group-hover:decoration-tone-solid group-hover:decoration-[3px] group-hover:underline-offset-4">
+          <Link href={`/articles/${article.slug}`} className="article-card-title after:absolute after:inset-0 after:rounded-[22px]">
             {article.title}
           </Link>
         </H>
@@ -53,9 +53,9 @@ export function ArticleCard({ article, category, className, headingLevel = 3 }: 
 export function ArticleRow({ article, category, className }: { article: Card; category?: CategoryLite; className?: string }) {
   const color = category?.color ?? "sand";
   return (
-    <article className={cn(`tone-${color}`, "group relative flex items-center gap-4 rounded-[20px] p-2.5 transition-colors hover:bg-sand", className)}>
+    <article className={cn(`tone-${color}`, "article-row group relative flex items-center gap-4 rounded-[20px] p-2.5 hover:bg-sand", className)}>
       <span className="flex size-[72px] flex-none items-center justify-center rounded-2xl bg-tone-soft">
-        <Sticker name={article.sticker} size={48} flat className="transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110" />
+        <Sticker name={article.sticker} size={48} flat className="group-hover:-rotate-6 group-hover:scale-110" />
       </span>
       <div className="min-w-0">
         <Meta article={article} category={category} />
@@ -93,7 +93,7 @@ export function ArticleBento({
     <article
       className={cn(
         `tone-${color}`,
-        "group relative isolate flex min-h-[220px] flex-col overflow-hidden rounded-[26px] p-6 transition-transform duration-300 hover:-translate-y-1 md:p-7",
+        "article-bento group relative isolate flex min-h-[220px] flex-col overflow-hidden rounded-[26px] p-6 md:p-7",
         solid ? "bento-solid" : "bg-tone-soft text-tone-ink",
         lightText && "text-white",
         size === "lg" && "min-h-[420px] md:p-9",
@@ -127,17 +127,14 @@ export function ArticleBento({
       )}
       {/* Medium cards leave room above the link so the corner sticker never sits on the summary. */}
       <span className={cn("mt-auto inline-flex items-center gap-1.5 text-sm font-semibold", size === "md" ? "pt-12" : "pt-6", solid && !lightText && "text-ink")}>
-        Read it <Icon name="arrow-right" size={16} className="transition-transform group-hover:translate-x-1" />
+        Read it <Icon name="arrow-right" size={16} className="nudge-x" />
       </span>
       {size === "lg" && <span className="pointer-events-none absolute -bottom-[34%] -right-[16%] -z-10 aspect-square w-[62%] rounded-full bg-tone-solid opacity-25" aria-hidden="true" />}
       <Sticker
         name={article.sticker}
         size={size === "lg" ? 250 : size === "md" ? 112 : 96}
         rotate={size === "lg" ? -8 : 10}
-        className={cn(
-          "pointer-events-none absolute -z-0 transition-transform duration-300 group-hover:scale-110",
-          size === "lg" ? "-bottom-5 right-2 max-md:size-36!" : "-bottom-4 -right-3",
-        )}
+        className={cn("pointer-events-none absolute -z-0 group-hover:scale-110", size === "lg" ? "-bottom-5 right-2 max-md:size-36!" : "-bottom-4 -right-3")}
       />
     </article>
   );

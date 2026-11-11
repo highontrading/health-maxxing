@@ -2,11 +2,17 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { Suspense, useCallback, useEffect, useId, useRef, useState } from "react";
+import { Suspense, useCallback, useEffect, useId, useLayoutEffect, useRef, useState, type CSSProperties, type MouseEvent, type RefObject } from "react";
 import { signOutAction } from "@/app/actions/auth";
 import { Icon } from "@/components/Icon";
+import { MenuToggleIcon } from "@/components/motion/MenuToggleIcon";
+import { usePresence } from "@/components/motion/presence";
+import { useScrollLock } from "@/components/motion/scroll-lock";
+import { Spinner } from "@/components/motion/Spinner";
+import { stagger } from "@/components/motion/stagger";
 import { Sticker } from "@/components/stickers/Sticker";
 import { cn } from "@/lib/cn";
+import { useReducedMotion } from "@/lib/hooks";
 import { SEARCH_TYPE_LABEL } from "@/lib/labels";
 
 export type NavCategory = { slug: string; name: string; tagline: string; sticker: string; color: string };
@@ -27,12 +33,50 @@ const MORE_LINKS = [
   { href: "/newsletter", label: "Newsletter", sticker: "mail" },
 ];
 
-function useDismiss(open: boolean, close: () => void, ref: React.RefObject<HTMLElement | null>) {
+/* ------------------------------------------------------------------ */
+/* Layers: the menus, the phone sheet and the search dialog            */
+/* ------------------------------------------------------------------ */
+
+/** A closing layer stays mounted this long: just past its exit animation (--dur-fast). */
+const EXIT_MS = 140;
+
+/** The corner a menu grows from (read by `motion-menu`). */
+const FROM_TOP_LEFT = { "--origin": "top left" } as CSSProperties;
+const FROM_TOP_RIGHT = { "--origin": "top right" } as CSSProperties;
+
+/** Keeps a layer mounted while it animates out. With reduced motion there is no exit to wait for. */
+function useLayer(open: boolean) {
+  const reduced = useReducedMotion();
+  return usePresence(open, reduced ? 0 : EXIT_MS);
+}
+
+/**
+ * Gives keyboard focus back to the control that opened a layer, unless the visitor has already
+ * moved it to something outside the layer. `preventScroll` matters: the header is sticky and sits
+ * inside the page's scroll padding, so a plain focus() would scroll a long page back to the top.
+ */
+function returnFocus(trigger: HTMLElement | null, layer: HTMLElement | null) {
+  const active = document.activeElement;
+  if (!active || active === document.body || layer?.contains(active)) trigger?.focus({ preventScroll: true });
+}
+
+/** True when a click inside a layer followed a link, so the layer can close at once (also when the link leads to the page already open). */
+const followedLink = (e: MouseEvent) => (e.target as Element).closest("a") !== null;
+
+/**
+ * Closes a menu on Escape and on a press outside `wrap`, the element that holds the trigger and
+ * the menu. Escape also hands focus back to the trigger.
+ */
+function useDismiss(open: boolean, close: () => void, wrap: RefObject<HTMLElement | null>, trigger: RefObject<HTMLElement | null>) {
   useEffect(() => {
     if (!open) return;
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && close();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      returnFocus(trigger.current, wrap.current);
+      close();
+    };
     const onDown = (e: PointerEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) close();
+      if (wrap.current && !wrap.current.contains(e.target as Node)) close();
     };
     document.addEventListener("keydown", onKey);
     document.addEventListener("pointerdown", onDown);
@@ -40,7 +84,7 @@ function useDismiss(open: boolean, close: () => void, ref: React.RefObject<HTMLE
       document.removeEventListener("keydown", onKey);
       document.removeEventListener("pointerdown", onDown);
     };
-  }, [open, close, ref]);
+  }, [open, close, wrap, trigger]);
 }
 
 function PathReader({ onChange }: { onChange: (pathname: string) => void }) {
@@ -66,6 +110,67 @@ function PathWatcher({ onChange }: { onChange: (pathname: string) => void }) {
 /* Desktop navigation                                                  */
 /* ------------------------------------------------------------------ */
 
+/** Reads a motion token for script: "--dur-base" gives "200ms", "--ease-move" its curve. */
+function motionToken(el: Element, name: string): string {
+  return getComputedStyle(el).getPropertyValue(name).trim();
+}
+const toMs = (duration: string) => parseFloat(duration) * (duration.endsWith("ms") ? 1 : 1000);
+
+/**
+ * Plays the active pill's move from the link `from` to the link `to` (either may be missing). The
+ * pill is each link's ::before, already in its final place; this only animates how it got there.
+ */
+function movePill(root: HTMLElement, from: HTMLElement | null, to: HTMLElement | null) {
+  const a = from?.getBoundingClientRect();
+  const b = to?.getBoundingClientRect();
+  const pill = { pseudoElement: "::before" };
+  try {
+    const base = toMs(motionToken(root, "--dur-base"));
+    if (to && b?.width) {
+      if (a?.width) {
+        // The new link's pill starts over the old link, at the old link's size, and travels home.
+        to.animate(
+          {
+            translate: [`${a.left + a.width / 2 - (b.left + b.width / 2)}px ${a.top + a.height / 2 - (b.top + b.height / 2)}px`, "0 0"],
+            scale: [`${a.width / b.width} ${a.height / b.height}`, "1 1"],
+          },
+          { ...pill, duration: base, easing: motionToken(root, "--ease-move") },
+        );
+      } else {
+        // No link was active before: the pill pops in where it is.
+        to.animate({ opacity: [0, 1], scale: [0.9, 1] }, { ...pill, duration: base, easing: motionToken(root, "--ease-pop") });
+      }
+    } else if (from && a?.width) {
+      // No link is active now: the old pill fades away.
+      from.animate({ opacity: [1, 0] }, { ...pill, duration: toMs(motionToken(root, "--dur-fast")), easing: motionToken(root, "--ease-exit") });
+    }
+  } catch {
+    // The move is decoration. If a token is missing or the browser refuses, the pill is simply in its new place.
+  }
+}
+
+/**
+ * Lets the dark pill behind the active nav link glide from the old link to the new one. CSS draws
+ * the pill (`.site-nav-link::before`), so it is in the right place without this hook; the hook
+ * only plays the move. Nothing is measured ahead of time: both links are read at the moment of
+ * the change, so late fonts and resized windows cannot leave the pill in the wrong place.
+ */
+function useActivePill(nav: RefObject<HTMLElement | null>, activeKey: string | null) {
+  // undefined until the first run, then the link that was active last time (or null for none).
+  const last = useRef<HTMLElement | null | undefined>(undefined);
+  useLayoutEffect(() => {
+    const root = nav.current;
+    if (!root) return;
+    const to = root.querySelector<HTMLElement>('[data-active="true"]');
+    const from = last.current;
+    last.current = to;
+    // Nothing moves when the page first loads, when the same link stays active, or under reduced motion.
+    if (from === undefined || from === to) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    movePill(root, from, to);
+  }, [nav, activeKey]);
+}
+
 export function DesktopNav({ categories }: { categories: NavCategory[] }) {
   // Without a known pathname (a route whose params arrive at request time) the
   // prerendered shell shows the nav with no active link, then fills it in.
@@ -84,46 +189,56 @@ function DesktopNavView({ categories, pathname }: { categories: NavCategory[]; p
   // The panel remembers the page it was opened on, so navigating closes it.
   const [openOn, setOpenOn] = useState<string | null>(null);
   const open = openOn === pathname;
+  const panel = useLayer(open);
+  const nav = useRef<HTMLElement>(null);
   const wrap = useRef<HTMLDivElement>(null);
+  const trigger = useRef<HTMLButtonElement>(null);
   const close = useCallback(() => setOpenOn(null), []);
   const panelId = useId();
-  useDismiss(open, close, wrap);
+  useDismiss(open, close, wrap, trigger);
 
   const linkClass = (active: boolean) =>
-    cn(
-      "rounded-full px-3 py-2 text-[0.9375rem] font-medium transition-colors",
-      active ? "bg-ink text-paper" : "text-ink-2 hover:bg-sand-2 hover:text-ink",
-    );
+    cn("site-nav-link rounded-full px-3 py-2 text-[0.9375rem] font-medium", active ? "text-paper" : "text-ink-2 hover:bg-sand-2 hover:text-ink");
+  const isActive = (href: string) => pathname === href || pathname.startsWith(href + "/");
   const topicsActive = pathname.startsWith("/topics") || pathname.startsWith("/articles");
+  useActivePill(nav, topicsActive ? "topics" : (PRIMARY_LINKS.find((l) => isActive(l.href))?.href ?? null));
 
   return (
-    <nav aria-label="Main" className="hidden items-center gap-0.5 lg:flex">
+    <nav ref={nav} aria-label="Main" className="hidden items-center gap-0.5 lg:flex">
       <div ref={wrap} className="relative">
         <button
+          ref={trigger}
           type="button"
           className={cn(linkClass(topicsActive), "inline-flex items-center gap-1")}
+          data-active={topicsActive || undefined}
           aria-expanded={open}
           aria-controls={panelId}
           onClick={() => setOpenOn(open ? null : pathname)}
         >
           Topics
-          <Icon name="chevron-down" size={16} className={cn("transition-transform", open && "rotate-180")} />
+          <Icon name="chevron-down" size={16} className={cn("transition-[rotate] duration-(--dur-base) ease-pop", open && "rotate-180")} />
         </button>
-        {open && (
+        {panel.mounted && (
+          // Width: 820px, or less on a narrow desktop window, so the panel ends inside the page gutter
+          // (it starts about 230px from the left edge, after the logo).
           <div
             id={panelId}
-            className="absolute left-0 top-[calc(100%+12px)] z-50 w-[min(820px,92vw)] rounded-[26px] border border-line bg-paper p-4 shadow-pop"
-            style={{ animation: "rise 0.18s ease both" }}
+            className="motion-menu absolute left-0 top-[calc(100%+12px)] z-50 w-[min(820px,calc(100vw-270px))] rounded-[26px] border border-line bg-paper p-4 shadow-pop"
+            style={FROM_TOP_LEFT}
+            data-state={panel.state}
+            inert={!open}
+            onClick={(e) => followedLink(e) && close()}
           >
             <div className="grid grid-cols-[1fr_210px] gap-4">
               <ul className="grid grid-cols-2 gap-1">
-                {categories.map((c) => (
-                  <li key={c.slug}>
+                {categories.map((c, i) => (
+                  // Row by row, and the last rows together, so the whole panel has arrived in about 300 ms.
+                  <li key={c.slug} className="site-nav-cascade" style={stagger(Math.min(Math.floor(i / 2), 5))}>
                     <Link
                       href={`/topics/${c.slug}`}
-                      className={cn(`tone-${c.color}`, "group flex items-center gap-3 rounded-2xl p-2 transition-colors hover:bg-tone-soft")}
+                      className={cn(`tone-${c.color}`, "group flex items-center gap-3 rounded-2xl p-2 transition-colors duration-(--dur-fast) hover:bg-tone-soft")}
                     >
-                      <Sticker name={c.sticker} size={38} flat className="transition-transform group-hover:-rotate-6 group-hover:scale-110" />
+                      <Sticker name={c.sticker} size={38} flat className="group-hover:-rotate-6 group-hover:scale-110" />
                       <span className="min-w-0">
                         <span className="block truncate text-[0.9375rem] font-semibold leading-tight">{c.name}</span>
                         <span className="block truncate text-xs text-ink-3">{c.tagline}</span>
@@ -132,13 +247,13 @@ function DesktopNavView({ categories, pathname }: { categories: NavCategory[]; p
                   </li>
                 ))}
               </ul>
-              <div className="rounded-2xl bg-sand p-3">
+              <div className="site-nav-cascade rounded-2xl bg-sand p-3" style={stagger(1)}>
                 <p className="eyebrow px-2 pb-2 pt-1 text-ink-3">Also here</p>
                 <ul>
                   {MORE_LINKS.map((l) => (
                     <li key={l.href}>
-                      <Link href={l.href} className="flex items-center gap-2.5 rounded-xl p-2 text-[0.9375rem] font-medium hover:bg-paper">
-                        <Sticker name={l.sticker} size={26} flat />
+                      <Link href={l.href} className="group flex items-center gap-2.5 rounded-xl p-2 text-[0.9375rem] font-medium transition-colors duration-(--dur-fast) hover:bg-paper">
+                        <Sticker name={l.sticker} size={26} flat className="group-hover:scale-110" />
                         {l.label}
                       </Link>
                     </li>
@@ -150,7 +265,7 @@ function DesktopNavView({ categories, pathname }: { categories: NavCategory[]; p
         )}
       </div>
       {PRIMARY_LINKS.map((l) => (
-        <Link key={l.href} href={l.href} className={linkClass(pathname === l.href || pathname.startsWith(l.href + "/"))}>
+        <Link key={l.href} href={l.href} className={linkClass(isActive(l.href))} data-active={isActive(l.href) || undefined}>
           {l.label}
         </Link>
       ))}
@@ -164,56 +279,100 @@ function DesktopNavView({ categories, pathname }: { categories: NavCategory[]; p
 
 export function MobileMenu({ categories }: { categories: NavCategory[] }) {
   const [open, setOpen] = useState(false);
+  // Where the sheet starts: the header's bottom edge. That is lower than --header-h while the
+  // announcement bar is on screen, so it is measured when the menu opens, not assumed.
+  const [top, setTop] = useState<number | null>(null);
+  const sheet = useLayer(open);
+  const button = useRef<HTMLButtonElement>(null);
+  const panel = useRef<HTMLDivElement>(null);
   const close = useCallback(() => setOpen(false), []);
+  const measure = useCallback(() => {
+    const header = button.current?.closest("header");
+    // The bottom of the header's background, so the sheet also covers the hairline border below it:
+    // the border is see-through, and the page would show between the two.
+    if (header) setTop(header.getBoundingClientRect().top + header.clientTop + header.clientHeight);
+  }, []);
+  useScrollLock(open);
+
   useEffect(() => {
     if (!open) return;
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
-    document.addEventListener("keydown", onKey);
-    return () => {
-      document.body.style.overflow = prev;
-      document.removeEventListener("keydown", onKey);
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      returnFocus(button.current, panel.current);
+      setOpen(false);
     };
-  }, [open]);
+    // The header can still move while the menu is open: the window is resized or turned, or the
+    // browser lets the page scroll in spite of the lock. On a wide window the menu button is gone,
+    // so the menu closes instead of holding the page still with nothing to show for it.
+    const onMove = () => (button.current?.offsetParent ? measure() : setOpen(false));
+    document.addEventListener("keydown", onKey);
+    window.addEventListener("resize", onMove);
+    window.addEventListener("scroll", onMove, { passive: true });
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      window.removeEventListener("resize", onMove);
+      window.removeEventListener("scroll", onMove);
+    };
+  }, [open, measure]);
 
   return (
     <>
       <PathWatcher onChange={close} />
       <button
+        ref={button}
         type="button"
-        className="inline-flex size-11 items-center justify-center rounded-full hover:bg-sand-2 lg:hidden"
+        className="site-icon-button site-menu-button inline-flex size-11 items-center justify-center rounded-full hover:bg-sand-2 lg:hidden"
         aria-label={open ? "Close menu" : "Open menu"}
         aria-expanded={open}
-        onClick={() => setOpen((v) => !v)}
+        onClick={() => {
+          if (!open) measure();
+          setOpen(!open);
+        }}
       >
-        <Icon name={open ? "close" : "menu"} size={24} />
+        <MenuToggleIcon open={open} size={24} />
       </button>
-      {open && (
-        <div className="fixed inset-x-0 bottom-0 top-[var(--header-h)] z-50 overflow-y-auto overscroll-contain bg-sand lg:hidden" role="dialog" aria-modal="true" aria-label="Menu">
+      {sheet.mounted && (
+        <div
+          ref={panel}
+          className="site-menu-sheet fixed inset-x-0 bottom-0 top-[var(--header-h)] z-50 overflow-y-auto overscroll-contain bg-sand lg:hidden"
+          style={top === null ? undefined : { top }}
+          data-state={sheet.state}
+          inert={!open}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menu"
+          onClick={(e) => {
+            if (!followedLink(e)) return;
+            returnFocus(button.current, panel.current);
+            close();
+          }}
+        >
           <div className="container-hm py-6">
             <ul className="grid gap-1">
-              {[{ href: "/articles", label: "All articles" }, ...PRIMARY_LINKS, { href: "/myths", label: "Myth or fact" }, { href: "/glossary", label: "Glossary" }].map((l) => (
-                <li key={l.href}>
-                  <Link href={l.href} className="flex items-center justify-between rounded-2xl bg-paper px-4 py-3.5 text-lg font-medium">
+              {[{ href: "/articles", label: "All articles" }, ...PRIMARY_LINKS, { href: "/myths", label: "Myth or fact" }, { href: "/glossary", label: "Glossary" }].map((l, i) => (
+                // The first rows arrive one by one, the rest together: everything is in place in about 300 ms.
+                <li key={l.href} className="site-nav-cascade" style={stagger(Math.min(i, 5))}>
+                  <Link href={l.href} className="site-menu-row flex items-center justify-between rounded-2xl bg-paper px-4 py-3.5 text-lg font-medium active:bg-sand-2">
                     {l.label}
-                    <Icon name="arrow-right" size={18} className="text-ink-3" />
+                    <Icon name="arrow-right" size={18} className="nudge-x text-ink-3" />
                   </Link>
                 </li>
               ))}
             </ul>
-            <p className="eyebrow mt-8 text-ink-3">Topics</p>
-            <ul className="mt-3 grid grid-cols-2 gap-2">
+            <p className="site-nav-cascade eyebrow mt-8 text-ink-3" style={stagger(5)}>
+              Topics
+            </p>
+            <ul className="site-nav-cascade mt-3 grid grid-cols-2 gap-2" style={stagger(5)}>
               {categories.map((c) => (
                 <li key={c.slug}>
-                  <Link href={`/topics/${c.slug}`} className={cn(`tone-${c.color}`, "flex items-center gap-2.5 rounded-2xl bg-tone-soft p-3 text-[0.9375rem] font-semibold leading-tight text-tone-ink")}>
+                  <Link href={`/topics/${c.slug}`} className={cn(`tone-${c.color}`, "pressable flex items-center gap-2.5 rounded-2xl bg-tone-soft p-3 text-[0.9375rem] font-semibold leading-tight text-tone-ink")}>
                     <Sticker name={c.sticker} size={32} flat />
                     {c.name}
                   </Link>
                 </li>
               ))}
             </ul>
-            <div className="mt-8 grid grid-cols-2 gap-2">
+            <div className="site-nav-cascade mt-8 grid grid-cols-2 gap-2" style={stagger(5)}>
               <Link href="/login" className="btn btn-outline">Sign in</Link>
               <Link href="/newsletter" className="btn btn-primary">Subscribe</Link>
             </div>
@@ -230,13 +389,17 @@ export function MobileMenu({ categories }: { categories: NavCategory[] }) {
 
 type Me = { name: string; handle: string; role: string; sticker: string; color: string } | null;
 
+const ACCOUNT_ROW = "flex items-center gap-2.5 rounded-xl px-3 py-2 text-[0.9375rem] font-medium transition-colors duration-(--dur-fast) hover:bg-sand";
+
 export function AccountButton() {
   const [me, setMe] = useState<Me | undefined>(undefined);
   const [open, setOpen] = useState(false);
+  const menu = useLayer(open);
   const wrap = useRef<HTMLDivElement>(null);
+  const trigger = useRef<HTMLButtonElement>(null);
   const latest = useRef(0);
   const close = useCallback(() => setOpen(false), []);
-  useDismiss(open, close, wrap);
+  useDismiss(open, close, wrap, trigger);
 
   // Signing in or out always navigates, so re-checking on navigation is enough.
   const onNavigate = useCallback(() => {
@@ -257,11 +420,12 @@ export function AccountButton() {
       </>
     );
   }
+  // Whichever control replaces the placeholder fades in (animate-fade), so the swap is not a blink.
   if (me === null) {
     return (
       <>
         {watcher}
-        <Link href="/login" className="btn btn-ghost btn-sm hidden sm:inline-flex">
+        <Link href="/login" className="btn btn-ghost btn-sm hidden animate-fade sm:inline-flex">
           Sign in
         </Link>
       </>
@@ -272,34 +436,41 @@ export function AccountButton() {
     <div ref={wrap} className="relative">
       {watcher}
       <button
+        ref={trigger}
         type="button"
-        className={cn(`tone-${me.color}`, "flex size-10 items-center justify-center rounded-full bg-tone-soft ring-2 ring-transparent transition hover:ring-ink")}
+        className={cn(`tone-${me.color}`, "site-icon-button group flex size-10 animate-fade items-center justify-center rounded-full bg-tone-soft ring-2 ring-transparent hover:ring-ink")}
         aria-label={`Account menu for ${me.name}`}
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
       >
-        <Sticker name={me.sticker} size={28} flat />
+        <Sticker name={me.sticker} size={28} flat className="group-hover:scale-110" />
       </button>
-      {open && (
-        <div className="absolute right-0 top-[calc(100%+10px)] z-50 w-60 rounded-3xl border border-line bg-paper p-2 shadow-pop" style={{ animation: "rise 0.18s ease both" }}>
+      {menu.mounted && (
+        <div
+          className="motion-menu absolute right-0 top-[calc(100%+10px)] z-50 w-60 rounded-3xl border border-line bg-paper p-2 shadow-pop"
+          style={FROM_TOP_RIGHT}
+          data-state={menu.state}
+          inert={!open}
+          onClick={(e) => followedLink(e) && close()}
+        >
           <div className="px-3 pb-2 pt-2">
             <p className="truncate font-semibold leading-tight">{me.name}</p>
             <p className="truncate text-sm text-ink-3">@{me.handle}</p>
           </div>
           <div className="dotted-rule mx-2 my-1" />
-          <Link href="/account" className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-[0.9375rem] font-medium hover:bg-sand">
+          <Link href="/account" className={ACCOUNT_ROW}>
             <Icon name="user" size={18} /> My account
           </Link>
-          <Link href="/saved" className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-[0.9375rem] font-medium hover:bg-sand">
+          <Link href="/saved" className={ACCOUNT_ROW}>
             <Icon name="bookmark" size={18} /> Saved reads
           </Link>
           {staff && (
-            <Link href="/admin" className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-[0.9375rem] font-medium hover:bg-sand">
+            <Link href="/admin" className={ACCOUNT_ROW}>
               <Icon name="settings" size={18} /> Admin panel
             </Link>
           )}
           <form action={signOutAction}>
-            <button type="submit" className="flex w-full items-center gap-2.5 rounded-xl px-3 py-2 text-left text-[0.9375rem] font-medium hover:bg-sand">
+            <button type="submit" className={cn(ACCOUNT_ROW, "w-full text-left")}>
               <Icon name="logout" size={18} /> Sign out
             </button>
           </form>
@@ -356,10 +527,10 @@ export function SearchHitRow({ hit, colorOf, active, onNavigate }: { hit: Hit; c
     <Link
       href={hit.href}
       onClick={onNavigate}
-      className={cn(`tone-${color}`, "group flex items-start gap-3 rounded-2xl p-2.5 transition-colors hover:bg-sand", active && "bg-sand")}
+      className={cn(`tone-${color}`, "group flex items-start gap-3 rounded-2xl p-2.5 transition-colors duration-(--dur-fast) hover:bg-sand", active && "bg-sand")}
     >
       <span className="flex size-11 flex-none items-center justify-center rounded-xl bg-tone-soft">
-        <Sticker name={hit.sticker || TYPE_STICKER[hit.type] || "magnifier"} size={30} flat />
+        <Sticker name={hit.sticker || TYPE_STICKER[hit.type] || "magnifier"} size={30} flat className="group-hover:scale-110" />
       </span>
       <span className="min-w-0 flex-1">
         <span className="flex items-center gap-2">
@@ -378,10 +549,19 @@ export function SearchButton({ colorOf }: { colorOf: Record<string, string> }) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [cursor, setCursor] = useState(0);
+  const layer = useLayer(open);
+  const button = useRef<HTMLButtonElement>(null);
+  const dialog = useRef<HTMLDivElement>(null);
   const input = useRef<HTMLInputElement>(null);
   const router = useRouter();
   const close = useCallback(() => setOpen(false), []);
+  // Closing without going anywhere (Escape, the Esc button, a click on the backdrop) hands focus back to the search button.
+  const dismiss = useCallback(() => {
+    returnFocus(button.current, dialog.current);
+    setOpen(false);
+  }, []);
   const { hits, loading } = useSearch(query);
+  useScrollLock(open);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -389,20 +569,15 @@ export function SearchButton({ colorOf }: { colorOf: Record<string, string> }) {
       if ((e.key === "k" && (e.metaKey || e.ctrlKey)) || (e.key === "/" && !typing)) {
         e.preventDefault();
         setOpen(true);
-      } else if (e.key === "Escape") setOpen(false);
+      } else if (e.key === "Escape" && open) dismiss();
     };
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
-  }, []);
+  }, [open, dismiss]);
   useEffect(() => {
     if (!open) return;
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
     const t = setTimeout(() => input.current?.focus(), 30);
-    return () => {
-      document.body.style.overflow = prev;
-      clearTimeout(t);
-    };
+    return () => clearTimeout(t);
   }, [open]);
 
   const visible = hits.slice(0, 8);
@@ -415,16 +590,20 @@ export function SearchButton({ colorOf }: { colorOf: Record<string, string> }) {
     <>
       <PathWatcher onChange={close} />
       <button
+        ref={button}
         type="button"
-        className="inline-flex size-11 items-center justify-center rounded-full hover:bg-sand-2"
+        className="site-icon-button inline-flex size-11 items-center justify-center rounded-full hover:bg-sand-2"
         aria-label="Search"
         onClick={() => setOpen(true)}
       >
         <Icon name="search" size={22} />
       </button>
-      {open && (
-        <div className="fixed inset-0 z-[60] flex items-start justify-center bg-ink/40 p-3 pt-[8vh] backdrop-blur-sm" onPointerDown={(e) => e.target === e.currentTarget && setOpen(false)}>
-          <div role="dialog" aria-modal="true" aria-label="Search" className="w-full max-w-2xl overflow-hidden rounded-[28px] bg-paper shadow-pop" style={{ animation: "rise 0.2s ease both" }}>
+      {layer.mounted && (
+        // The backdrop and the dialog are side by side, not nested, so each has its own way in and
+        // out: the backdrop fades while the dialog settles. What is typed never animates.
+        <div className="fixed inset-0 z-[60] flex items-start justify-center p-3 pt-[8vh] data-[state=closed]:pointer-events-none" data-state={layer.state} inert={!open}>
+          <div className="site-search-scrim motion-fade absolute inset-0 bg-ink/40 backdrop-blur-sm" data-state={layer.state} onClick={dismiss} />
+          <div ref={dialog} role="dialog" aria-modal="true" aria-label="Search" className="motion-dialog relative w-full max-w-2xl overflow-hidden rounded-[28px] bg-paper shadow-pop" data-state={layer.state}>
             <form
               className="flex items-center gap-3 border-b border-line px-5"
               onSubmit={(e) => {
@@ -459,7 +638,7 @@ export function SearchButton({ colorOf }: { colorOf: Record<string, string> }) {
                 autoComplete="off"
                 enterKeyHint="search"
               />
-              <button type="button" className="eyebrow flex-none rounded-md border border-line-strong px-2 py-1.5 text-ink-3 hover:bg-sand" onClick={() => setOpen(false)}>
+              <button type="button" className="eyebrow flex-none rounded-md border border-line-strong px-2 py-1.5 text-ink-3 transition-colors duration-(--dur-fast) hover:bg-sand" onClick={dismiss}>
                 Esc
               </button>
             </form>
@@ -469,7 +648,7 @@ export function SearchButton({ colorOf }: { colorOf: Record<string, string> }) {
                   <p className="eyebrow text-ink-3">Try</p>
                   <div className="mt-3 flex flex-wrap gap-2">
                     {SUGGESTIONS.map((s) => (
-                      <button key={s} type="button" className="chip chip-outline hover:border-ink hover:text-ink" onClick={() => setQuery(s)}>
+                      <button key={s} type="button" className="chip chip-outline pressable hover:border-ink hover:text-ink" onClick={() => setQuery(s)}>
                         {s}
                       </button>
                     ))}
@@ -485,13 +664,20 @@ export function SearchButton({ colorOf }: { colorOf: Record<string, string> }) {
                     ))}
                   </ul>
                   {hits.length > visible.length && (
-                    <button type="button" className="mt-1 flex w-full items-center justify-center gap-2 rounded-2xl p-3 text-sm font-semibold hover:bg-sand" onClick={() => go(query.trim())}>
-                      See all {hits.length} results <Icon name="arrow-right" size={16} />
+                    <button
+                      type="button"
+                      className="mt-1 flex w-full items-center justify-center gap-2 rounded-2xl p-3 text-sm font-semibold transition-colors duration-(--dur-fast) hover:bg-sand"
+                      onClick={() => go(query.trim())}
+                    >
+                      See all {hits.length} results <Icon name="arrow-right" size={16} className="nudge-x" />
                     </button>
                   )}
                 </>
               ) : (
-                <p className="p-6 text-center text-ink-3">{loading ? "Searching…" : `Nothing for "${query.trim()}" yet. Try a broader word.`}</p>
+                <p className="flex items-center justify-center gap-2 p-6 text-center text-ink-3">
+                  {loading && <Spinner />}
+                  {loading ? "Searching…" : `Nothing for "${query.trim()}" yet. Try a broader word.`}
+                </p>
               )}
             </div>
           </div>

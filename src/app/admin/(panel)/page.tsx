@@ -26,7 +26,7 @@ function Tile({ label, value, note, href }: { label: string; value: number; note
     </>
   );
   return href ? (
-    <Link href={href} className="admin-card block p-4 transition-colors hover:border-ink-3">
+    <Link href={href} className="admin-card block p-4 transition-colors duration-(--dur-fast) hover:border-ink-3">
       {body}
     </Link>
   ) : (
@@ -91,7 +91,7 @@ function RankedBars({ rows, unit }: { rows: { key: string; label: string; value:
 function Todo({ href, icon, label, count, quiet }: { href: string; icon: string; label: string; count: number; quiet: string }) {
   return (
     <li>
-      <Link href={href} className="flex items-center gap-3 rounded-xl px-2 py-2 hover:bg-sand">
+      <Link href={href} className="flex items-center gap-3 rounded-xl px-2 py-2 transition-colors duration-(--dur-fast) hover:bg-sand">
         <span className={cn("flex size-9 flex-none items-center justify-center rounded-full", count ? "bg-[var(--pink-soft)] text-[var(--pink-ink)]" : "bg-sand-2 text-ink-3")}>
           <Icon name={count ? icon : "check"} size={18} />
         </span>
@@ -133,7 +133,7 @@ export default async function DashboardPage({ searchParams }: PageProps<"/admin"
         />
         <Notice query={query} />
         {one(query.denied) && (
-          <p role="alert" className="mb-5 rounded-2xl bg-[var(--yellow-soft)] px-4 py-3 text-[0.9375rem] font-medium text-[var(--yellow-ink)]">
+          <p role="alert" className="admin-banner mb-5 rounded-2xl bg-[var(--yellow-soft)] px-4 py-3 text-[0.9375rem] font-medium text-[var(--yellow-ink)]">
             That page is for admins only.
           </p>
         )}
@@ -160,7 +160,10 @@ export default async function DashboardPage({ searchParams }: PageProps<"/admin"
                     href={r === 30 ? "/admin" : `/admin?range=${r}`}
                     scroll={false}
                     aria-current={r === range ? "true" : undefined}
-                    className={cn("rounded-full px-3.5 py-1.5 text-sm font-semibold", r === range ? "bg-paper shadow-sm" : "text-ink-2 hover:text-ink")}
+                    className={cn(
+                      "rounded-full px-3.5 py-1.5 text-sm font-semibold transition-[color,background-color,box-shadow] duration-(--dur-fast)",
+                      r === range ? "bg-paper shadow-sm" : "text-ink-2 hover:text-ink",
+                    )}
                   >
                     {r} days
                   </Link>

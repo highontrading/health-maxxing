@@ -31,15 +31,17 @@ export default function ToolsPage() {
         />
         <div className="container-hm py-10 md:py-14">
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {/* Cards below the fold rise in as they are scrolled to; a row arriving together cascades (RevealObserver).
+                Hover and press: .tool-card in styles/motion/tools.css. */}
             {TOOLS.map((t, i) => (
-              <li key={t.slug} className="reveal" style={{ transitionDelay: `${(i % 3) * 40}ms` }}>
+              <li key={t.slug} className="tool-card-slot reveal">
                 <Link
                   href={`/tools/${t.slug}`}
-                  className={cn(`tone-${t.color}`, "group relative flex h-full min-h-[200px] flex-col overflow-hidden rounded-[26px] bg-tone-soft p-6 text-tone-ink transition-transform duration-300 hover:-translate-y-1")}
+                  className={cn(`tone-${t.color}`, "tool-card relative flex h-full min-h-[200px] flex-col overflow-hidden rounded-[26px] bg-tone-soft p-6 text-tone-ink")}
                 >
                   <span className="flex items-start justify-between">
-                    <Sticker name={t.sticker} size={64} rotate={i % 2 ? 8 : -8} className="transition-transform duration-300 group-hover:scale-110" />
-                    <span className="flex size-10 items-center justify-center rounded-full border-[1.5px] border-ink bg-paper text-ink transition-colors group-hover:bg-ink group-hover:text-paper">
+                    <Sticker name={t.sticker} size={64} rotate={i % 2 ? 8 : -8} />
+                    <span className="tool-card-arrow flex size-10 items-center justify-center rounded-full border-[1.5px] border-ink">
                       <Icon name="arrow-up-right" size={18} />
                     </span>
                   </span>

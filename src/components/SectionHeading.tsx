@@ -32,7 +32,7 @@ export function SectionHeading({
       </div>
       {href && (
         <Link href={href} className="btn btn-outline flex-none self-start md:self-auto">
-          {cta ?? "See all"} <Icon name="arrow-right" size={16} />
+          {cta ?? "See all"} <Icon name="arrow-right" size={16} className="nudge-x" />
         </Link>
       )}
     </div>

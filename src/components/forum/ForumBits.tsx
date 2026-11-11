@@ -23,9 +23,14 @@ export function AuthorName({ author }: { author: ForumAuthor }) {
   );
 }
 
+/**
+ * One thread in a list. The whole row is the link: it tints on hover, on
+ * keyboard focus and while it is pressed, and its avatar sticker leans in
+ * (`.thread-row` in styles/motion/forms.css).
+ */
 export function ThreadRow({ thread, now, showBoard = false }: { thread: ForumThread; now: number; showBoard?: boolean }) {
   return (
-    <li className={cn(`tone-${thread.boardColor}`, "group relative flex items-start gap-4 rounded-[20px] p-3 transition-colors hover:bg-sand sm:p-4")}>
+    <li className={cn(`tone-${thread.boardColor}`, "thread-row group relative flex items-start gap-4 rounded-[20px] p-3 transition-colors duration-(--dur-fast) hover:bg-sand active:bg-sand has-[a:focus-visible]:bg-sand sm:p-4")}>
       <Avatar author={thread.author} />
       <div className="min-w-0 flex-1">
         <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.8125rem] text-ink-3">
@@ -64,6 +69,24 @@ export function ThreadRow({ thread, now, showBoard = false }: { thread: ForumThr
   );
 }
 
+/** Placeholder rows shaped like ThreadRow, for the loading states of the forum lists. */
+export function ThreadRowsSkeleton({ rows = 5 }: { rows?: number }) {
+  return (
+    <div className="divide-y divide-line">
+      {Array.from({ length: rows }, (_, i) => (
+        <div key={i} className="flex items-start gap-4 p-3 sm:p-4">
+          <div className="skeleton size-11 flex-none rounded-full" />
+          <div className="min-w-0 flex-1 space-y-2.5 py-1">
+            <div className="skeleton h-3 w-40 max-w-full rounded-full" />
+            <div className="skeleton h-5 w-3/5 rounded-full" />
+            <div className="skeleton h-4 w-11/12 rounded-full" />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export function Pagination({ page, total, perPage, base }: { page: number; total: number; perPage: number; base: string }) {
   const pages = Math.max(1, Math.ceil(total / perPage));
   if (pages <= 1) return null;
@@ -71,8 +94,8 @@ export function Pagination({ page, total, perPage, base }: { page: number; total
   return (
     <nav aria-label="Pagination" className="mt-8 flex items-center justify-between gap-4">
       {page > 1 ? (
-        <Link href={href(page - 1)} className="btn btn-outline btn-sm">
-          <Icon name="arrow-left" size={15} /> Newer
+        <Link href={href(page - 1)} className="btn btn-outline btn-sm" transitionTypes={["nav-back"]}>
+          <Icon name="arrow-left" size={15} className="nudge-back" /> Newer
         </Link>
       ) : (
         <span />
@@ -81,8 +104,8 @@ export function Pagination({ page, total, perPage, base }: { page: number; total
         Page {page} of {pages}
       </span>
       {page < pages ? (
-        <Link href={href(page + 1)} className="btn btn-outline btn-sm">
-          Older <Icon name="arrow-right" size={15} />
+        <Link href={href(page + 1)} className="btn btn-outline btn-sm" transitionTypes={["nav-forward"]}>
+          Older <Icon name="arrow-right" size={15} className="nudge-x" />
         </Link>
       ) : (
         <span />

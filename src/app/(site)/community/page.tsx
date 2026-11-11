@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { connection } from "next/server";
 import { Suspense } from "react";
-import { ThreadRow } from "@/components/forum/ForumBits";
+import { ThreadRow, ThreadRowsSkeleton } from "@/components/forum/ForumBits";
 import { Icon } from "@/components/Icon";
 import { PageHero } from "@/components/PageHero";
 import { Sticker } from "@/components/stickers/Sticker";
@@ -10,7 +10,7 @@ import { cn } from "@/lib/cn";
 import { forumStats, listBoards, listThreads, timeAgo } from "@/lib/forum";
 import { formatNumber } from "@/lib/format";
 import { requestTime } from "@/lib/now";
-import { PageTransition } from "@/components/motion/PageTransition";
+import { PageTransition, Swap } from "@/components/motion/PageTransition";
 
 export const metadata: Metadata = {
   title: "Community",
@@ -44,8 +44,16 @@ export default function CommunityPage() {
           </div>
         </PageHero>
         <div className="container-hm py-10 md:py-14">
-          <Suspense fallback={<ForumSkeleton />}>
-            <CommunityHome />
+          <Suspense
+            fallback={
+              <Swap>
+                <ForumSkeleton />
+              </Swap>
+            }
+          >
+            <Swap>
+              <CommunityHome />
+            </Swap>
           </Suspense>
         </div>
       </main>
@@ -53,12 +61,30 @@ export default function CommunityPage() {
   );
 }
 
+/** Shaped like the page it stands in for (numbers, board cards, a few threads), so little moves when the real one arrives. */
 function ForumSkeleton() {
   return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" aria-busy="true">
-      {Array.from({ length: 8 }).map((_, i) => (
-        <div key={i} className="h-40 animate-pulse rounded-[24px] bg-sand" />
-      ))}
+    <div aria-busy="true">
+      <div className="flex flex-wrap gap-x-10 gap-y-3">
+        {[0, 1, 2].map((i) => (
+          <div key={i} className="skeleton h-8 w-28 rounded-full" />
+        ))}
+      </div>
+      <div className="skeleton mt-10 h-7 w-28 rounded-full" />
+      <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {Array.from({ length: 8 }, (_, i) => (
+          <div key={i} className="flex min-h-[190px] flex-col rounded-[24px] bg-sand p-5">
+            <div className="skeleton size-[52px] rounded-2xl" />
+            <div className="skeleton mt-4 h-5 w-3/5 rounded-full" />
+            <div className="skeleton mt-3 h-3.5 w-11/12 rounded-full" />
+            <div className="skeleton mt-2 h-3.5 w-2/3 rounded-full" />
+          </div>
+        ))}
+      </div>
+      <div className="skeleton mt-14 h-7 w-56 max-w-full rounded-full" />
+      <div className="mt-4">
+        <ThreadRowsSkeleton rows={4} />
+      </div>
     </div>
   );
 }
@@ -69,7 +95,7 @@ async function CommunityHome() {
   const now = await requestTime();
 
   return (
-    <>
+    <div>
       <dl className="flex flex-wrap gap-x-10 gap-y-3">
         {[
           { label: "members", n: stats.members },
@@ -88,10 +114,11 @@ async function CommunityHome() {
       </h2>
       <ul className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {boards.map((b, i) => (
-          <li key={b.slug}>
-            <Link href={`/community/${b.slug}`} className={cn(`tone-${b.color}`, "group flex h-full min-h-[190px] flex-col rounded-[24px] bg-tone-soft p-5 text-tone-ink transition-transform duration-300 hover:-translate-y-1")}>
+          <li key={b.slug} className="reveal">
+            {/* The card lifts and its sticker leans in on hover (`.board-card` in styles/motion/forms.css). */}
+            <Link href={`/community/${b.slug}`} className={cn(`tone-${b.color}`, "board-card card-lift flex h-full min-h-[190px] flex-col rounded-[24px] bg-tone-soft p-5 text-tone-ink")}>
               <span className="flex items-start justify-between">
-                <Sticker name={b.sticker} size={52} rotate={i % 2 ? 8 : -8} className="transition-transform duration-300 group-hover:scale-110" />
+                <Sticker name={b.sticker} size={52} rotate={i % 2 ? 8 : -8} />
                 <span className="rounded-full bg-paper px-2.5 py-1 text-xs font-bold text-ink">
                   {b.threadCount} {b.threadCount === 1 ? "thread" : "threads"}
                 </span>
@@ -130,6 +157,6 @@ async function CommunityHome() {
         Posts are members&apos; own views. They are not checked for accuracy and are not medical advice. If you think you may have a medical
         emergency, call your local emergency number.
       </p>
-    </>
+    </div>
   );
 }

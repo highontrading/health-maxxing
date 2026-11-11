@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { usePresence } from "@/components/motion/presence";
 import { cn } from "@/lib/cn";
 
 export type DayPoint = { day: string; views: number };
@@ -36,11 +37,19 @@ const compact = (v: number) => (v >= 10_000 ? `${Math.round(v / 1000)}K` : v.toL
  * Page views per day: one series, so one colour and no legend. Marks are drawn
  * in a stretched SVG; every label is HTML so text never distorts. Hover, focus
  * and the arrow keys move a crosshair; the table view lists the same numbers.
+ * Motion is opacity only: the crosshair and tooltip fade, the two views swap
+ * with a fade, and the line itself is drawn once and stays still.
  */
 export function ViewsChart({ series }: { series: DayPoint[] }) {
   const [active, setActive] = useState<number | null>(null);
   const [table, setTable] = useState(false);
+  // The chart the page arrives with stays still. A view only fades in once the button has swapped it.
+  const [swapped, setSwapped] = useState(false);
   const plot = useRef<HTMLDivElement>(null);
+  // The crosshair fades out where it last was, so the day is remembered after the pointer has left.
+  const hover = usePresence(active !== null);
+  const [held, setHeld] = useState(0);
+  if (active !== null && active !== held) setHeld(active);
 
   const count = series.length;
   const total = series.reduce((sum, p) => sum + p.views, 0);
@@ -60,20 +69,31 @@ export function ViewsChart({ series }: { series: DayPoint[] }) {
     const fraction = Math.min(1, Math.max(0, (clientX - rect.left) / rect.width));
     setActive(Math.round(fraction * (count - 1)));
   };
-  const shown = active === null ? null : series[active];
+  const at = Math.min(active ?? held, count - 1);
+  const shown = series[at];
   const last = series[count - 1];
 
   return (
     <figure className="viz-root">
       <div className="mb-3 flex items-center justify-between gap-3">
         <figcaption className="text-[0.9375rem] font-semibold">Page views per day</figcaption>
-        <button type="button" className="btn btn-ghost btn-sm" aria-pressed={table} onClick={() => setTable((v) => !v)}>
+        {/* min-w fits the longer label, so the button keeps its width (and stays under the pointer) when the words change. */}
+        <button
+          type="button"
+          className="btn btn-ghost btn-sm min-w-28"
+          aria-pressed={table}
+          onClick={() => {
+            setTable((v) => !v);
+            setSwapped(true);
+          }}
+        >
           {table ? "Show chart" : "Show as table"}
         </button>
       </div>
 
+      {/* The two views are the same height, so swapping them moves nothing below. */}
       {table ? (
-        <div className="max-h-[272px] overflow-y-auto rounded-xl border border-line">
+        <div key="table" className="views-chart-view max-h-[248px] overflow-y-auto rounded-xl border border-line">
           <table className="admin-table">
             <thead className="sticky top-0 bg-paper">
               <tr>
@@ -92,7 +112,7 @@ export function ViewsChart({ series }: { series: DayPoint[] }) {
           </table>
         </div>
       ) : (
-        <div>
+        <div key="chart" className={cn(swapped && "views-chart-view")}>
           <div className="flex">
             <div className="relative h-[220px] w-10 flex-none" aria-hidden="true">
               {ticks.map((t) => (
@@ -138,7 +158,7 @@ export function ViewsChart({ series }: { series: DayPoint[] }) {
               )}
 
               {/* The latest value, labelled at the end of the line. */}
-              {total > 0 && shown === null && (
+              {total > 0 && active === null && (
                 <>
                   <span className="absolute size-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--viz-series)] ring-2 ring-[var(--viz-surface)]" style={{ left: "100%", top: `${y(last.views)}%` }} />
                   <span
@@ -150,24 +170,25 @@ export function ViewsChart({ series }: { series: DayPoint[] }) {
                 </>
               )}
 
-              {shown && active !== null && (
-                <>
-                  <span className="absolute inset-y-0 w-px bg-ink-3" style={{ left: `${x(active)}%` }} />
-                  <span className="absolute size-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--viz-series)] ring-2 ring-[var(--viz-surface)]" style={{ left: `${x(active)}%`, top: `${y(shown.views)}%` }} />
+              {/* Crosshair, point and tooltip fade in and out as one layer. It follows the pointer at once; only its opacity eases. */}
+              {hover.mounted && shown && (
+                <div className="views-chart-hover motion-fade pointer-events-none absolute inset-0" data-state={hover.state}>
+                  <span className="absolute inset-y-0 w-px bg-ink-3" style={{ left: `${x(at)}%` }} />
+                  <span className="absolute size-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--viz-series)] ring-2 ring-[var(--viz-surface)]" style={{ left: `${x(at)}%`, top: `${y(shown.views)}%` }} />
                   <div
                     role="status"
                     className={cn(
                       "pointer-events-none absolute top-1 z-10 whitespace-nowrap rounded-xl border border-line bg-[var(--viz-surface)] px-3 py-2 shadow-[var(--shadow-card)]",
-                      x(active) > 55 ? "-translate-x-[calc(100%+10px)]" : "translate-x-[10px]",
+                      x(at) > 55 ? "-translate-x-[calc(100%+10px)]" : "translate-x-[10px]",
                     )}
-                    style={{ left: `${x(active)}%` }}
+                    style={{ left: `${x(at)}%` }}
                   >
                     <p className="text-[1.0625rem] font-semibold leading-tight text-ink">
                       {shown.views.toLocaleString("en-US")} <span className="text-sm font-medium text-ink-2">{shown.views === 1 ? "view" : "views"}</span>
                     </p>
                     <p className="text-xs text-ink-3">{longDay(shown.day)}</p>
                   </div>
-                </>
+                </div>
               )}
             </div>
           </div>

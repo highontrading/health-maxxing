@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { ArticleRow } from "@/components/ArticleCard";
 import { ShareButton, Toc, ViewTracker } from "@/components/article/ArticleClient";
+import { ConditionSkeleton } from "@/components/article/Skeletons";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Icon } from "@/components/Icon";
 import { JsonLd } from "@/components/JsonLd";
@@ -41,7 +42,7 @@ export default function ConditionPage({ params }: Props) {
     <Suspense
       fallback={
         <PageTransition variant="skeleton">
-          <main className="min-h-[60vh] bg-sand" aria-busy="true" />
+          <ConditionSkeleton />
         </PageTransition>
       }
     >
@@ -115,7 +116,7 @@ async function ConditionView({ params }: Pick<Props, "params">) {
                 <ShareButton title={condition.name} />
               </div>
             </div>
-            <Sticker name={system?.sticker ?? "stethoscope"} size={150} rotate={8} className="hidden flex-none md:block" />
+            <Sticker name={system?.sticker ?? "stethoscope"} size={150} rotate={8} className="enter-pop hidden flex-none md:block" />
           </div>
         </div>
       </header>
@@ -173,7 +174,7 @@ async function ConditionView({ params }: Pick<Props, "params">) {
                   <div className="flex items-center justify-between gap-3">
                     <dt className="text-ink-3">Body system</dt>
                     <dd>
-                      <Link href={`/body/${system.slug}`} className="font-semibold underline-offset-4 hover:underline">
+                      <Link href={`/body/${system.slug}`} className="link-draw font-semibold">
                         {system.name}
                       </Link>
                     </dd>
@@ -183,7 +184,7 @@ async function ConditionView({ params }: Pick<Props, "params">) {
                   <div className="flex items-center justify-between gap-3">
                     <dt className="text-ink-3">Topic</dt>
                     <dd>
-                      <Link href={`/topics/${category.slug}`} className="font-semibold underline-offset-4 hover:underline">
+                      <Link href={`/topics/${category.slug}`} className="link-draw font-semibold">
                         {category.name}
                       </Link>
                     </dd>
@@ -206,7 +207,8 @@ async function ConditionView({ params }: Pick<Props, "params">) {
                 <h2 className="display display-sm">
                   Related <span className="serif-accent">reading</span>
                 </h2>
-                <div className="mt-5 space-y-1">
+                {/* Each list rises in as one block when the reader reaches it; the headings hold still. */}
+                <div className="reveal mt-5 space-y-1">
                   {articles.map((a) => (
                     <ArticleRow key={a.slug} article={a} category={category} className="hover:bg-paper" />
                   ))}
@@ -218,12 +220,12 @@ async function ConditionView({ params }: Pick<Props, "params">) {
                 <h2 className="display display-sm">
                   More in <span className="serif-accent">{system.name.toLowerCase()}</span>
                 </h2>
-                <ul className="mt-5 flex flex-wrap gap-2">
+                <ul className="reveal mt-5 flex flex-wrap gap-2">
                   {others.map((c) => (
                     <li key={c.slug}>
-                      <Link href={`/conditions/${c.slug}`} className={cn("inline-flex items-center gap-2 rounded-full border-[1.5px] border-ink bg-paper px-4 py-2 text-[0.9375rem] font-semibold transition-colors hover:bg-tone-soft")}>
+                      <Link href={`/conditions/${c.slug}`} className={cn("reading-link-pill inline-flex items-center gap-2 rounded-full border-[1.5px] border-ink bg-paper px-4 py-2 text-[0.9375rem] font-semibold hover:bg-tone-soft")}>
                         {c.name}
-                        <Icon name="arrow-right" size={14} />
+                        <Icon name="arrow-right" size={14} className="nudge-x" />
                       </Link>
                     </li>
                   ))}

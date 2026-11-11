@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import { FoodSkeleton } from "@/components/article/Skeletons";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Icon } from "@/components/Icon";
 import { Sticker } from "@/components/stickers/Sticker";
@@ -34,7 +35,7 @@ export default function FoodPage({ params }: Props) {
     <Suspense
       fallback={
         <PageTransition variant="skeleton">
-          <main className="min-h-[60vh] bg-sand" aria-busy="true" />
+          <FoodSkeleton />
         </PageTransition>
       }
     >
@@ -90,7 +91,7 @@ async function FoodView({ params }: Pick<Props, "params">) {
             <h1 className="display display-lg mt-3 text-ink">{food.name}</h1>
             <p className="mt-4 max-w-[56ch] text-[clamp(1.0625rem,1.5vw,1.25rem)] leading-[1.5] text-tone-ink">{food.note}</p>
           </div>
-          <Sticker name={group.sticker} size={140} rotate={8} className="hidden flex-none md:block" />
+          <Sticker name={group.sticker} size={140} rotate={8} className="enter-pop hidden flex-none md:block" />
         </div>
       </header>
 
@@ -142,10 +143,13 @@ async function FoodView({ params }: Pick<Props, "params">) {
             <h2 className="display display-sm">
               Where the calories <span className="serif-accent">come from</span>
             </h2>
-            <div className="mt-5 flex h-6 overflow-hidden rounded-full border-[1.5px] border-ink" aria-hidden="true">
-              {bars.map((b) => (
-                <div key={b.name} style={{ width: `${b.pct}%`, background: b.color }} />
-              ))}
+            <div className="mt-5 h-6 overflow-hidden rounded-full border-[1.5px] border-ink" aria-hidden="true">
+              {/* Fills from the left when it scrolls into view (.food-macro-fill in reading.css); the figures are in the list below. */}
+              <div className="reveal food-macro-fill flex h-full">
+                {bars.map((b) => (
+                  <div key={b.name} style={{ width: `${b.pct}%`, background: b.color }} />
+                ))}
+              </div>
             </div>
             <ul className="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-[0.9375rem] font-medium">
               {bars.map((b) => (
@@ -162,17 +166,17 @@ async function FoodView({ params }: Pick<Props, "params">) {
             <ul className="mt-3 space-y-2 text-[0.9375rem] font-semibold">
               <li>
                 <Link href="/tools/macros" className="inline-flex items-center gap-1.5 underline-offset-4 hover:underline">
-                  Work out your daily macros <Icon name="arrow-right" size={15} />
+                  Work out your daily macros <Icon name="arrow-right" size={15} className="nudge-x" />
                 </Link>
               </li>
               <li>
                 <Link href="/articles/how-much-protein-do-you-need" className="inline-flex items-center gap-1.5 underline-offset-4 hover:underline">
-                  How much protein you actually need <Icon name="arrow-right" size={15} />
+                  How much protein you actually need <Icon name="arrow-right" size={15} className="nudge-x" />
                 </Link>
               </li>
               <li>
                 <Link href="/articles/how-to-read-a-nutrition-label" className="inline-flex items-center gap-1.5 underline-offset-4 hover:underline">
-                  How to read a nutrition label <Icon name="arrow-right" size={15} />
+                  How to read a nutrition label <Icon name="arrow-right" size={15} className="nudge-x" />
                 </Link>
               </li>
             </ul>
@@ -184,7 +188,7 @@ async function FoodView({ params }: Pick<Props, "params">) {
               <ul className="mt-3 flex flex-wrap gap-2">
                 {peers.map((f) => (
                   <li key={f.slug}>
-                    <Link href={`/foods/${f.slug}`} className="inline-flex rounded-full border-[1.5px] border-line-strong px-3.5 py-1.5 text-sm font-semibold hover:border-ink hover:bg-tone-soft">
+                    <Link href={`/foods/${f.slug}`} className="reading-link-pill inline-flex rounded-full border-[1.5px] border-line-strong px-3.5 py-1.5 text-sm font-semibold hover:border-ink hover:bg-tone-soft">
                       {f.name}
                     </Link>
                   </li>

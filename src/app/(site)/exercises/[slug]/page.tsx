@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import { ExerciseSkeleton } from "@/components/article/Skeletons";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Icon } from "@/components/Icon";
 import { JsonLd } from "@/components/JsonLd";
@@ -35,7 +36,7 @@ export default function ExercisePage({ params }: Props) {
     <Suspense
       fallback={
         <PageTransition variant="skeleton">
-          <main className="min-h-[60vh] bg-sand" aria-busy="true" />
+          <ExerciseSkeleton />
         </PageTransition>
       }
     >
@@ -86,7 +87,7 @@ async function ExerciseView({ params }: Pick<Props, "params">) {
             <h1 className="display display-lg mt-3 text-ink">{exercise.name}</h1>
             <p className="mt-4 max-w-[56ch] text-[clamp(1.0625rem,1.5vw,1.25rem)] leading-[1.5] text-tone-ink">{exercise.summary}</p>
           </div>
-          <Sticker name={type.sticker} size={140} rotate={8} className="hidden flex-none md:block" />
+          <Sticker name={type.sticker} size={140} rotate={8} className="enter-pop hidden flex-none md:block" />
         </div>
       </header>
 
@@ -195,9 +196,9 @@ async function ExerciseView({ params }: Pick<Props, "params">) {
               <ul className="mt-3 space-y-1.5">
                 {similar.map((e) => (
                   <li key={e.slug}>
-                    <Link href={`/exercises/${e.slug}`} className={cn("flex items-center justify-between gap-3 rounded-2xl border border-line px-4 py-3 text-[0.9375rem] font-semibold transition-colors hover:border-ink hover:bg-tone-soft")}>
+                    <Link href={`/exercises/${e.slug}`} className={cn("reading-link-card flex items-center justify-between gap-3 rounded-2xl border border-line px-4 py-3 text-[0.9375rem] font-semibold hover:border-ink hover:bg-tone-soft")}>
                       {e.name}
-                      <Icon name="arrow-right" size={15} />
+                      <Icon name="arrow-right" size={15} className="nudge-x" />
                     </Link>
                   </li>
                 ))}

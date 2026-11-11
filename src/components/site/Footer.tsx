@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { cacheLife } from "next/cache";
 import { getCategories, getSettings } from "@/lib/data";
+import { stagger } from "@/components/motion/stagger";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { Sticker } from "@/components/stickers/Sticker";
 import { Logo } from "./Logo";
@@ -10,6 +11,11 @@ async function currentYear(): Promise<number> {
   cacheLife("days");
   return new Date().getFullYear();
 }
+
+/** Footer links: the underline draws itself and the colour fades (see .site-footer-link in styles/motion/chrome.css). */
+const FOOTER_LINK = "site-footer-link link-draw";
+/** The two stickers beside the prescription card pop in on scroll and lean into the pointer. */
+const FOOTER_STICKER = "reveal reveal-pop absolute hover:scale-110 hover:rotate-[calc(var(--r)+6deg)]";
 
 const SOCIAL_LABELS: Record<string, string> = {
   instagram: "Instagram",
@@ -69,8 +75,9 @@ export async function Footer() {
             <p className="mt-4 max-w-md text-white/70">{settings.newsletter.blurb}</p>
             <NewsletterForm source="footer" dark className="mt-6" />
           </div>
+          {/* Decoration: the card and its stickers arrive as the footer scrolls into view, and answer the pointer. */}
           <div className="relative hidden lg:block" aria-hidden="true">
-            <div className="absolute right-6 top-2 flex w-[300px] rotate-3 flex-col gap-3 rounded-[26px] bg-paper p-5 text-ink shadow-pop">
+            <div className="reveal absolute right-6 top-2 flex w-[300px] rotate-3 flex-col gap-3 rounded-[26px] bg-paper p-5 text-ink shadow-pop transition-[rotate] duration-(--dur-slow) ease-pop hover:rotate-0">
               <div className="flex items-center justify-between">
                 <span className="eyebrow">Rx</span>
                 <span className="pixel-tag">Repeat weekly</span>
@@ -79,8 +86,8 @@ export async function Footer() {
               <div className="dotted-rule" />
               <p className="eyebrow text-ink-3">Side effects: feeling informed</p>
             </div>
-            <Sticker name="pill" size={96} rotate={-18} className="absolute right-[300px] top-0" />
-            <Sticker name="mail" size={84} rotate={10} className="absolute right-0 top-[170px]" />
+            <Sticker name="pill" size={96} rotate={-18} className={`${FOOTER_STICKER} right-[300px] top-0`} style={stagger(1)} />
+            <Sticker name="mail" size={84} rotate={10} className={`${FOOTER_STICKER} right-0 top-[170px]`} style={stagger(2)} />
           </div>
         </div>
 
@@ -96,7 +103,7 @@ export async function Footer() {
                       href={url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex h-11 items-center rounded-full bg-sand px-4 text-sm font-semibold text-ink transition-transform hover:-translate-y-0.5"
+                      className="inline-flex h-11 items-center rounded-full bg-sand px-4 text-sm font-semibold text-ink transition-transform duration-(--dur-fast) ease-enter hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.97]"
                     >
                       {SOCIAL_LABELS[key] ?? key}
                     </a>
@@ -111,13 +118,13 @@ export async function Footer() {
               <ul className="mt-4 space-y-2.5 text-[0.9375rem]">
                 {categories.slice(0, 8).map((c) => (
                   <li key={c.slug}>
-                    <Link href={`/topics/${c.slug}`} className="text-white/85 underline-offset-4 hover:text-lime hover:underline">
+                    <Link href={`/topics/${c.slug}`} className={`${FOOTER_LINK} text-white/85 hover:text-lime`}>
                       {c.name}
                     </Link>
                   </li>
                 ))}
                 <li>
-                  <Link href="/topics" className="font-semibold text-lime underline-offset-4 hover:underline">
+                  <Link href="/topics" className={`${FOOTER_LINK} font-semibold text-lime`}>
                     All {categories.length} topics
                   </Link>
                 </li>
@@ -129,7 +136,7 @@ export async function Footer() {
                 <ul className="mt-4 space-y-2.5 text-[0.9375rem]">
                   {col.links.map((l) => (
                     <li key={l.href}>
-                      <Link href={l.href} className="text-white/85 underline-offset-4 hover:text-lime hover:underline">
+                      <Link href={l.href} className={`${FOOTER_LINK} text-white/85 hover:text-lime`}>
                         {l.label}
                       </Link>
                     </li>
@@ -144,7 +151,7 @@ export async function Footer() {
           <strong className="font-semibold text-white/90">Health Maxxing is for information only.</strong> Nothing here is medical advice, a
           diagnosis or a substitute for seeing a qualified health professional. If you think you may have a medical emergency, call your local
           emergency number.{" "}
-          <Link href="/medical-disclaimer" className="text-white underline underline-offset-4 hover:text-lime">
+          <Link href="/medical-disclaimer" className="text-white underline underline-offset-4 transition-colors duration-(--dur-fast) hover:text-lime">
             Read the full disclaimer
           </Link>
           .
@@ -155,10 +162,10 @@ export async function Footer() {
             © {year} {settings.site.name}. All rights reserved.
           </p>
           <ul className="flex flex-wrap gap-x-5 gap-y-2">
-            <li><Link href="/privacy" className="hover:text-white">Privacy</Link></li>
-            <li><Link href="/terms" className="hover:text-white">Terms</Link></li>
-            <li><Link href="/community-guidelines" className="hover:text-white">Community guidelines</Link></li>
-            <li><a href="/rss.xml" className="hover:text-white">RSS</a></li>
+            <li><Link href="/privacy" className={`${FOOTER_LINK} hover:text-white`}>Privacy</Link></li>
+            <li><Link href="/terms" className={`${FOOTER_LINK} hover:text-white`}>Terms</Link></li>
+            <li><Link href="/community-guidelines" className={`${FOOTER_LINK} hover:text-white`}>Community guidelines</Link></li>
+            <li><a href="/rss.xml" className={`${FOOTER_LINK} hover:text-white`}>RSS</a></li>
           </ul>
         </div>
       </div>

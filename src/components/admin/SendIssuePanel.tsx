@@ -4,7 +4,9 @@ import { useActionState } from "react";
 import { EMPTY } from "@/app/actions/types";
 import { sendIssueAction, sendTestIssueAction } from "@/app/admin/actions";
 import { Icon } from "@/components/Icon";
+import { Spinner } from "@/components/motion/Spinner";
 import { ConfirmSubmit } from "./ConfirmSubmit";
+import { useAnswerCount } from "./motion";
 
 type Status = { configured: boolean; published: boolean; subscribers: number; sent: number; remaining: number };
 
@@ -12,6 +14,7 @@ type Status = { configured: boolean; published: boolean; subscribers: number; se
 export function SendIssuePanel({ issueId, status, defaultTo }: { issueId: number; status: Status; defaultTo: string }) {
   const [test, testAction, testing] = useActionState(sendTestIssueAction, EMPTY);
   const [send, sendAction, sending] = useActionState(sendIssueAction, EMPTY);
+  const testAnswer = useAnswerCount(test);
 
   if (!status.configured) {
     return (
@@ -42,11 +45,12 @@ export function SendIssuePanel({ issueId, status, defaultTo }: { issueId: number
           <div className="flex gap-2">
             <input id="test-to" name="to" type="email" className="input min-w-0 flex-1" defaultValue={test.values?.to ?? defaultTo} required />
             <button type="submit" className="btn btn-outline" disabled={testing}>
+              {testing && <Spinner size={14} />}
               {testing ? "Sending…" : "Send test"}
             </button>
           </div>
           {(test.errors?.to || test.message) && (
-            <p role={test.ok ? "status" : "alert"} className={test.ok ? "mt-1.5 text-sm font-semibold text-[var(--green-ink)]" : "field-error"}>
+            <p key={testAnswer} role={test.ok ? "status" : "alert"} className={test.ok ? "admin-result mt-1.5 text-sm font-semibold text-[var(--green-ink)]" : "field-error admin-result"}>
               {test.errors?.to ?? test.message}
             </p>
           )}
@@ -55,7 +59,10 @@ export function SendIssuePanel({ issueId, status, defaultTo }: { issueId: number
           <input type="hidden" name="id" value={issueId} />
           <p className="field-label">2. Send to the list</p>
           {sending ? (
-            <p className="text-sm text-ink-2">Sending… keep this tab open.</p>
+            <p className="flex items-center gap-2 text-sm text-ink-2">
+              <Spinner />
+              Sending… keep this tab open.
+            </p>
           ) : status.remaining && status.published ? (
             <ConfirmSubmit className="btn btn-primary" confirmClassName="btn btn-primary" confirm={`Yes, email ${status.remaining.toLocaleString("en-US")} ${status.remaining === 1 ? "person" : "people"}`}>
               <Icon name="mail" size={16} /> {status.sent ? "Continue sending" : `Send to ${status.remaining.toLocaleString("en-US")} ${status.remaining === 1 ? "subscriber" : "subscribers"}`}
@@ -64,7 +71,7 @@ export function SendIssuePanel({ issueId, status, defaultTo }: { issueId: number
             <p className="text-sm text-ink-2">{status.published ? "Everyone on the list has this issue." : "Set the issue to Published and save it first."}</p>
           )}
           {send.message && !sending && (
-            <p role={send.ok ? "status" : "alert"} className={send.ok ? "mt-1.5 text-sm font-semibold text-[var(--green-ink)]" : "field-error"}>
+            <p role={send.ok ? "status" : "alert"} className={send.ok ? "admin-result mt-1.5 text-sm font-semibold text-[var(--green-ink)]" : "field-error admin-result"}>
               {send.message}
             </p>
           )}

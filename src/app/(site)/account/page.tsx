@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
 import { signOutAction } from "@/app/actions/auth";
-import { PasswordForm, ProfileForm } from "@/components/auth/AuthForms";
+import { PasswordForm, ProfileForm, SignOutButton } from "@/components/auth/AuthForms";
 import { Icon } from "@/components/Icon";
 import { isStaff, requireUser } from "@/lib/auth";
 import { query, queryOne } from "@/lib/db";
 import { formatDate } from "@/lib/format";
-import { PageTransition } from "@/components/motion/PageTransition";
+import { PageTransition, Swap } from "@/components/motion/PageTransition";
 
 export const metadata: Metadata = { title: "Your account", robots: { index: false } };
 
@@ -17,12 +17,52 @@ export default function AccountPage() {
       <main className="bg-sand">
         <div className="container-narrow py-10 md:py-16">
           <p className="eyebrow text-ink-3">Your account</p>
-          <Suspense fallback={<div className="mt-6 h-96 animate-pulse rounded-[28px] bg-paper" aria-busy="true" />}>
-            <Account />
+          <Suspense
+            fallback={
+              <Swap>
+                <AccountSkeleton />
+              </Swap>
+            }
+          >
+            <Swap>
+              <Account />
+            </Swap>
           </Suspense>
         </div>
       </main>
     </PageTransition>
+  );
+}
+
+/** The greeting and the three cards of the account page, as placeholders. */
+function AccountSkeleton() {
+  return (
+    <div aria-busy="true">
+      <div className="skeleton mt-4 h-10 w-72 max-w-full rounded-2xl md:h-11" />
+      <div className="skeleton mt-3 h-4 w-96 max-w-full rounded-full" />
+      <div className="mt-8 grid gap-5">
+        <div className="rounded-[26px] bg-paper p-6 md:p-8">
+          <div className="skeleton h-6 w-24 rounded-full" />
+          <div className="mt-5 flex items-center gap-4">
+            <div className="skeleton size-20 flex-none rounded-full" />
+            <div className="skeleton h-11 flex-1 rounded-[14px]" />
+          </div>
+          <div className="skeleton mt-6 h-24 rounded-[14px]" />
+          <div className="skeleton mt-5 h-20 rounded-[14px]" />
+          <div className="skeleton mt-5 h-11 w-32 rounded-full" />
+        </div>
+        <div className="rounded-[26px] bg-paper p-6 md:p-8">
+          <div className="skeleton h-6 w-32 rounded-full" />
+          <div className="skeleton mt-5 h-4 w-3/4 rounded-full" />
+          <div className="skeleton mt-4 h-4 w-36 rounded-full" />
+        </div>
+        <div className="rounded-[26px] bg-paper p-6 md:p-8">
+          <div className="skeleton h-6 w-28 rounded-full" />
+          <div className="skeleton mt-5 h-11 max-w-sm rounded-[14px]" />
+          <div className="skeleton mt-4 h-11 max-w-sm rounded-[14px]" />
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -36,7 +76,7 @@ async function Account() {
     ),
   ]);
   return (
-    <>
+    <div>
       <h1 className="display display-md mt-4">
         Hello, <span className="serif-accent">{user.name}.</span>
       </h1>
@@ -52,7 +92,7 @@ async function Account() {
               <span className="eyebrow text-lime">Staff</span>
               <span className="mt-1 block text-xl font-medium">Open the admin panel</span>
             </span>
-            <Icon name="arrow-right" size={22} />
+            <Icon name="arrow-right" size={22} className="nudge-x" />
           </Link>
         )}
         <section className="rounded-[26px] bg-paper p-6 md:p-8">
@@ -97,9 +137,7 @@ async function Account() {
         </section>
 
         <form action={signOutAction}>
-          <button type="submit" className="btn btn-outline">
-            <Icon name="logout" size={16} /> Sign out
-          </button>
+          <SignOutButton />
         </form>
         <p className="text-sm text-ink-3">
           To delete your account and data,{" "}
@@ -109,6 +147,6 @@ async function Account() {
           .
         </p>
       </div>
-    </>
+    </div>
   );
 }

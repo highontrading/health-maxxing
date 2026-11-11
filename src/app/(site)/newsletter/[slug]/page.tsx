@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import { IssueSkeleton } from "@/components/article/Skeletons";
 import { Icon } from "@/components/Icon";
 import { NewsletterBand } from "@/components/NewsletterBand";
 import { Prose } from "@/components/Prose";
@@ -12,6 +13,10 @@ import { renderMarkdown } from "@/lib/markdown";
 import { PageTransition } from "@/components/motion/PageTransition";
 
 type Props = PageProps<"/newsletter/[slug]">;
+
+/** Transition types: back for the link up to the newsletter and for the previous edition, forward for the next one (see PageTransition). */
+const BACK = ["nav-back"];
+const FORWARD = ["nav-forward"];
 
 export async function generateStaticParams() {
   const issues = await listNewsletterIssues();
@@ -30,7 +35,7 @@ export default function IssuePage({ params }: Props) {
     <Suspense
       fallback={
         <PageTransition variant="skeleton">
-          <main className="min-h-[60vh] bg-sand" aria-busy="true" />
+          <IssueSkeleton />
         </PageTransition>
       }
     >
@@ -54,11 +59,11 @@ async function IssueView({ params }: Pick<Props, "params">) {
   return (
     <main className="tone-lime bg-sand">
       <div className="container-narrow py-10 md:py-16">
-        <Link href="/newsletter" className="inline-flex items-center gap-1.5 text-sm font-semibold underline-offset-4 hover:underline">
-          <Icon name="arrow-left" size={15} /> {settings.newsletter.name}
+        <Link href="/newsletter" transitionTypes={BACK} className="link-draw inline-flex items-center gap-1.5 text-sm font-semibold">
+          <Icon name="arrow-left" size={15} className="nudge-back" /> {settings.newsletter.name}
         </Link>
         <article className="relative mt-6 rounded-[30px] border-[1.5px] border-ink bg-paper p-6 shadow-[0_8px_0_var(--ink)] md:p-12">
-          <Sticker name={issue.sticker} size={84} rotate={10} className="absolute -right-1 -top-6 md:-right-6" />
+          <Sticker name={issue.sticker} size={84} rotate={10} className="enter-pop absolute -right-1 -top-6 md:-right-6" />
           <p className="flex flex-wrap items-center gap-3 text-sm text-ink-3">
             <span className="pixel-tag">No. {String(issue.number).padStart(3, "0")}</span>
             {formatDate(issue.publishedAt)}
@@ -71,7 +76,7 @@ async function IssueView({ params }: Pick<Props, "params">) {
 
         <nav aria-label="More editions" className="mt-8 grid gap-3 sm:grid-cols-2">
           {older ? (
-            <Link href={`/newsletter/${older.slug}`} className="rounded-[20px] bg-paper p-4 hover:bg-[var(--lime-soft)]">
+            <Link href={`/newsletter/${older.slug}`} transitionTypes={BACK} className="reading-link-card rounded-[20px] bg-paper p-4 hover:bg-[var(--lime-soft)]">
               <span className="eyebrow text-ink-3">Previous edition</span>
               <span className="mt-1 block font-semibold leading-snug">{older.title}</span>
             </Link>
@@ -79,7 +84,7 @@ async function IssueView({ params }: Pick<Props, "params">) {
             <span />
           )}
           {newer && (
-            <Link href={`/newsletter/${newer.slug}`} className="rounded-[20px] bg-paper p-4 text-right hover:bg-[var(--lime-soft)]">
+            <Link href={`/newsletter/${newer.slug}`} transitionTypes={FORWARD} className="reading-link-card rounded-[20px] bg-paper p-4 text-right hover:bg-[var(--lime-soft)]">
               <span className="eyebrow text-ink-3">Next edition</span>
               <span className="mt-1 block font-semibold leading-snug">{newer.title}</span>
             </Link>

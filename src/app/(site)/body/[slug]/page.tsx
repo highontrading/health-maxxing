@@ -76,6 +76,8 @@ async function SystemView({ params }: Pick<Props, "params">) {
         </ul>
       </PageHero>
 
+      {/* Cards on this page carry a plain "reveal": the ones on the first screen stay as they are,
+          RevealObserver brings the rest in row by row as they scroll into view. */}
       <div className="container-hm py-10 md:py-14">
         <h2 className="display display-sm">
           Conditions <span className="serif-accent">we cover</span>
@@ -83,13 +85,16 @@ async function SystemView({ params }: Pick<Props, "params">) {
         {conditions.length ? (
           <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {conditions.map((c) => (
-              <li key={c.slug}>
-                <Link href={`/conditions/${c.slug}`} className="group flex h-full flex-col rounded-[20px] border-[1.5px] border-line-strong p-5 transition-colors hover:border-ink hover:bg-tone-soft">
+              <li key={c.slug} className="reveal">
+                <Link
+                  href={`/conditions/${c.slug}`}
+                  className="group flex h-full flex-col rounded-[20px] border-[1.5px] border-line-strong p-5 transition-[background-color,border-color,scale] duration-(--dur-fast) ease-enter hover:border-ink hover:bg-tone-soft active:scale-[0.98]"
+                >
                   <span className="text-xl font-semibold leading-tight tracking-[-0.015em]">{c.name}</span>
                   {c.aka.length > 0 && <span className="mt-1 text-xs text-ink-3">Also: {c.aka.slice(0, 2).join(", ")}</span>}
                   <span className="mt-2 line-clamp-3 text-[0.9375rem] leading-snug text-ink-2">{c.summary}</span>
                   <span className="mt-auto inline-flex items-center gap-1.5 pt-4 text-sm font-semibold">
-                    Read more <Icon name="arrow-right" size={15} className="transition-transform group-hover:translate-x-1" />
+                    Read more <Icon name="arrow-right" size={15} className="nudge-x" />
                   </span>
                 </Link>
               </li>
@@ -108,9 +113,16 @@ async function SystemView({ params }: Pick<Props, "params">) {
             </h2>
             <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {topics.map((c) => (
-                <li key={c.slug}>
-                  <Link href={`/topics/${c.slug}`} className={cn(`tone-${c.color}`, "group flex items-center gap-4 rounded-[22px] bg-paper p-4 transition-colors hover:bg-tone-soft")}>
-                    <Sticker name={c.sticker} size={52} rotate={-6} className="transition-transform group-hover:scale-110" />
+                <li key={c.slug} className="reveal">
+                  <Link
+                    href={`/topics/${c.slug}`}
+                    className={cn(
+                      `tone-${c.color}`,
+                      "group flex items-center gap-4 rounded-[22px] bg-paper p-4 transition-[background-color,scale] duration-(--dur-fast) ease-enter hover:bg-tone-soft active:scale-[0.98]",
+                    )}
+                  >
+                    {/* No transition classes on stickers: .sticker brings its own (the scale pops). */}
+                    <Sticker name={c.sticker} size={52} rotate={-6} className="group-hover:scale-110" />
                     <span>
                       <span className="block text-lg font-semibold leading-tight">{c.name}</span>
                       <span className="block text-sm text-ink-3">{c.tagline}</span>
@@ -122,7 +134,7 @@ async function SystemView({ params }: Pick<Props, "params">) {
             {articles.length > 0 && (
               <div className="mt-12 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
                 {articles.map((a) => (
-                  <ArticleCard key={a.slug} article={a} category={cat.get(a.category)} />
+                  <ArticleCard key={a.slug} article={a} category={cat.get(a.category)} className="reveal" />
                 ))}
               </div>
             )}
@@ -130,11 +142,22 @@ async function SystemView({ params }: Pick<Props, "params">) {
         </section>
       )}
 
+      {/* Previous and next: the new page slides in from the side the visitor is heading to
+          (transitionTypes, see PageTransition). */}
       <nav aria-label="More body systems" className="border-t border-line bg-paper py-10">
         <div className="container-hm grid gap-3 sm:grid-cols-2">
           {neighbors.map((s, i) => (
-            <Link key={s.slug} href={`/body/${s.slug}`} className={cn(`tone-${s.color}`, "group flex items-center gap-4 rounded-[22px] bg-tone-soft p-5", i === 1 && "sm:flex-row-reverse sm:text-right")}>
-              <Sticker name={s.sticker} size={56} rotate={i ? 8 : -8} className="transition-transform group-hover:scale-110" />
+            <Link
+              key={s.slug}
+              href={`/body/${s.slug}`}
+              transitionTypes={[i === 0 ? "nav-back" : "nav-forward"]}
+              className={cn(
+                `tone-${s.color}`,
+                "group flex items-center gap-4 rounded-[22px] bg-tone-soft p-5 transition-[scale] duration-(--dur-fast) ease-enter active:scale-[0.98]",
+                i === 1 && "sm:flex-row-reverse sm:text-right",
+              )}
+            >
+              <Sticker name={s.sticker} size={56} rotate={i ? 8 : -8} className="group-hover:scale-110" />
               <span>
                 <span className="eyebrow block text-tone-ink">{i === 0 ? "Previous" : "Next"}</span>
                 <span className="mt-1 block text-xl font-medium tracking-[-0.02em]">{s.name}</span>

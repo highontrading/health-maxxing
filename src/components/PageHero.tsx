@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Breadcrumbs, type Crumb } from "@/components/Breadcrumbs";
+import { stagger } from "@/components/motion/stagger";
 import { Sticker } from "@/components/stickers/Sticker";
 import { cn } from "@/lib/cn";
 
@@ -15,7 +16,7 @@ type Props = {
   className?: string;
 };
 
-/** Coloured band that opens index and hub pages. */
+/** Coloured band that opens index and hub pages. The title and lede hold still; only the stickers pop in. */
 export function PageHero({ eyebrow, title, lede, color = "sand", stickers = [], crumbs, children, className }: Props) {
   const spots = [
     { size: 150, rotate: -8, cls: "right-[14%] top-[10%]" },
@@ -33,9 +34,9 @@ export function PageHero({ eyebrow, title, lede, color = "sand", stickers = [], 
           {children && <div className="mt-7">{children}</div>}
         </div>
         {stickers.length > 0 && (
-          <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[38%] lg:block" aria-hidden="true">
+          <div className="page-hero-stickers pointer-events-none absolute inset-y-0 right-0 hidden w-[38%] lg:block" aria-hidden="true">
             {stickers.slice(0, 3).map((name, i) => (
-              <Sticker key={name + i} name={name} size={spots[i].size} rotate={spots[i].rotate} className={cn("absolute", spots[i].cls)} />
+              <Sticker key={name + i} name={name} size={spots[i].size} rotate={spots[i].rotate} className={cn("enter-pop absolute", spots[i].cls)} style={stagger(i)} />
             ))}
           </div>
         )}

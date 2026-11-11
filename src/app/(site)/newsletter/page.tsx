@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Icon } from "@/components/Icon";
 import { NewsletterForm } from "@/components/NewsletterForm";
+import { stagger } from "@/components/motion/stagger";
 import { Sticker } from "@/components/stickers/Sticker";
 import { getSettings, listNewsletterIssues } from "@/lib/data";
 import { formatDate } from "@/lib/format";
@@ -41,8 +42,9 @@ export default async function NewsletterPage() {
                 ))}
               </ul>
             </div>
-            <div className="relative mx-auto hidden h-[420px] w-full max-w-[440px] lg:block" aria-hidden="true">
-              <div className="absolute left-6 top-8 w-[320px] -rotate-3 rounded-[26px] bg-paper p-6 text-ink shadow-pop">
+            {/* Decoration only: the card rises in, then the stickers pop in around it. The heading and the form hold still. */}
+            <div className="newsletter-hero-art relative mx-auto hidden h-[420px] w-full max-w-[440px] lg:block" aria-hidden="true">
+              <div className="enter-rise absolute left-6 top-8 w-[320px] -rotate-3 rounded-[26px] bg-paper p-6 text-ink shadow-pop">
                 <div className="flex items-center justify-between">
                   <span className="eyebrow">Rx · {newsletter.name}</span>
                   <span className="pixel-tag">Repeat weekly</span>
@@ -52,9 +54,9 @@ export default async function NewsletterPage() {
                 <div className="dotted-rule my-5" />
                 <p className="eyebrow text-ink-3">Refills: unlimited</p>
               </div>
-              <Sticker name="pill" size={120} rotate={-18} className="absolute right-0 top-0" />
-              <Sticker name="mail" size={132} rotate={10} className="absolute bottom-4 right-4" />
-              <Sticker name="coffee" size={92} rotate={-8} className="absolute bottom-0 left-0" />
+              <Sticker name="pill" size={120} rotate={-18} className="enter-pop absolute right-0 top-0" style={stagger(2)} />
+              <Sticker name="mail" size={132} rotate={10} className="enter-pop absolute bottom-4 right-4" style={stagger(3)} />
+              <Sticker name="coffee" size={92} rotate={-8} className="enter-pop absolute bottom-0 left-0" style={stagger(4)} />
             </div>
           </div>
         </section>
@@ -66,18 +68,18 @@ export default async function NewsletterPage() {
           {issues.length ? (
             <ul className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {issues.map((issue) => (
-                <li key={issue.slug}>
-                  <Link href={`/newsletter/${issue.slug}`} className="group flex h-full flex-col rounded-[24px] border-[1.5px] border-ink p-6 transition-colors hover:bg-[var(--lime-soft)]">
+                <li key={issue.slug} className="reveal">
+                  <Link href={`/newsletter/${issue.slug}`} className="reading-link-card group flex h-full flex-col rounded-[24px] border-[1.5px] border-ink p-6 hover:bg-[var(--lime-soft)]">
                     <span className="flex items-center justify-between">
                       <span className="pixel-tag">No. {String(issue.number).padStart(3, "0")}</span>
-                      <Sticker name={issue.sticker} size={48} rotate={8} className="transition-transform group-hover:scale-110" />
+                      <Sticker name={issue.sticker} size={48} rotate={8} className="group-hover:scale-110" />
                     </span>
                     <span className="mt-5 text-[1.375rem] font-medium leading-tight tracking-[-0.02em]">{issue.title}</span>
                     <span className="mt-2 text-[0.9375rem] leading-relaxed text-ink-2">{issue.preheader}</span>
                     <span className="mt-auto flex items-center justify-between pt-5 text-sm">
                       <span className="text-ink-3">{formatDate(issue.publishedAt)}</span>
                       <span className="inline-flex items-center gap-1 font-semibold">
-                        Read <Icon name="arrow-right" size={15} className="transition-transform group-hover:translate-x-1" />
+                        Read <Icon name="arrow-right" size={15} className="nudge-x" />
                       </span>
                     </span>
                   </Link>

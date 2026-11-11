@@ -1,2 +1,114 @@
-/* Motion for the "chrome" surfaces. Shared tokens, keyframes and classes live in
-   tokens.css, keyframes.css and utilities.css; add only what is specific here. */
+/* Motion for the "chrome" surfaces: site header, navigation, search, footer, the newsletter band
+   and the not-found page. Shared tokens, keyframes and classes live in tokens.css, keyframes.css
+   and utilities.css; this file holds only what is specific to these components. */
+@layer components {
+  /* ---------- Desktop nav links ----------
+     The dark pill behind the active link is a layer of its own (::before), so it can glide from
+     the old link to the new one: see useActivePill in HeaderClient.tsx. At rest it is plain CSS
+     and needs no script. z-index -1 puts every pill under every label (the header is the stacking
+     context), so a pill that starts behind a neighbour never covers the neighbour's text. */
+  .site-nav-link {
+    position: relative;
+    /* The label of the link being left darkens in the middle of the pill's trip, while the pill
+       slides out from under it. */
+    transition:
+      color calc(var(--dur-base) / 2) ease calc(var(--dur-base) / 4),
+      background-color var(--dur-fast) ease,
+      scale var(--dur-fast) var(--ease-enter);
+  }
+  /* Hover answers at once. */
+  .site-nav-link:hover {
+    transition-delay: 0s;
+  }
+  /* The new label waits a little longer and turns white as the pill arrives. Keep this rule after
+     the hover rule: the link that was just clicked is hovered too. */
+  .site-nav-link[data-active="true"] {
+    transition-delay: calc(var(--dur-base) * 0.4), 0s, 0s;
+  }
+  .site-nav-link::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background: var(--ink);
+    opacity: 0;
+  }
+  .site-nav-link[data-active="true"]::before {
+    opacity: 1;
+  }
+  .site-nav-link:active {
+    scale: 0.96;
+  }
+
+  /* ---------- Header icon buttons (search, menu, avatar) ----------
+     The tint and the avatar ring fade; the button gives a little under the finger. */
+  .site-icon-button {
+    transition:
+      background-color var(--dur-fast) ease,
+      box-shadow var(--dur-fast) ease,
+      scale var(--dur-fast) var(--ease-enter);
+  }
+  .site-icon-button:active {
+    scale: 0.92;
+  }
+
+  /* ---------- Rows inside a layer that has just opened ----------
+     Topics panel rows and phone menu rows drop in one after another, the way the layer itself
+     comes down from the header. Quicker than the shared enter-* classes (--dur-base, half the
+     usual gap between items): a menu has to be usable at once. Order with style={stagger(i)}. */
+  .site-nav-cascade {
+    --rise: var(--rise-sm);
+    animation: drop-in var(--dur-base) var(--ease-enter) backwards;
+    animation-delay: calc(var(--i, 0) * var(--stagger) / 2);
+  }
+
+  /* ---------- Phone menu ----------
+     A full-screen sheet under the header. Shorter than motion-sheet both ways: it is the main way
+     around the site on a phone, and it covers the page, so it must not linger. */
+  .site-menu-sheet {
+    --sheet-from: 0 calc(var(--rise-sm) * -1);
+  }
+  .site-menu-sheet[data-state="open"] {
+    animation: sheet-in var(--dur-base) var(--ease-enter) backwards;
+  }
+  .site-menu-sheet[data-state="closed"] {
+    animation: sheet-out var(--dur-fast) var(--ease-exit) forwards;
+    pointer-events: none;
+  }
+  /* Wide rows give less than .pressable would: 4% of a full-width row is a lot of movement. The
+     darker tint under the finger is a utility on the link (active:bg-sand-2): a background set
+     here would lose to the row's own bg-paper utility. */
+  .site-menu-row {
+    transition:
+      scale var(--dur-fast) var(--ease-enter),
+      background-color var(--dur-fast) ease;
+  }
+  .site-menu-row:active {
+    scale: 0.98;
+  }
+
+  /* ---------- Footer links ----------
+     link-draw (the underline) plus a colour fade. A transition utility on the link would replace
+     link-draw's own transition, so the pair is listed here. */
+  .site-footer-link {
+    transition:
+      background-size var(--dur-base) var(--ease-enter),
+      color var(--dur-fast) ease;
+  }
+
+  /* ---------- Reduced motion ----------
+     The global rule (globals.css) shortens every animation and transition but keeps its delay.
+     Without this a cascade would still arrive in steps, and a nav label would change colour a
+     moment after its pill had already switched. Here everything changes together. */
+  @media (prefers-reduced-motion: reduce) {
+    .site-nav-cascade,
+    .site-lost-stickers > .enter-pop {
+      animation-delay: 0s;
+    }
+    .site-nav-link,
+    .site-nav-link[data-active="true"] {
+      transition-delay: 0s;
+    }
+  }
+}

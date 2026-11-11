@@ -1,3 +1,4 @@
+import { stagger } from "@/components/motion/stagger";
 import { Sticker } from "@/components/stickers/Sticker";
 import { cn } from "@/lib/cn";
 import { hash } from "@/lib/format";
@@ -14,6 +15,8 @@ type Props = {
   alt?: string;
   /** Scale of the main sticker relative to the frame width. */
   scale?: number;
+  /** Pop the stickers in, one after another, when the cover appears. For a page's own header: covers in a list stay still. */
+  enter?: boolean;
   className?: string;
   priority?: boolean;
 };
@@ -22,26 +25,30 @@ type Props = {
  * Sticker-art cover. Each article gets a tone, a hero sticker and a backdrop
  * chosen from its slug, so covers are varied but stable between renders.
  */
-export function Cover({ seed, sticker, color, image, alt = "", scale = 0.46, className }: Props) {
+export function Cover({ seed, sticker, color, image, alt = "", scale = 0.46, enter = false, className }: Props) {
   const h = hash(seed);
   const variant = h % 5;
   const tilt = ((h >> 3) % 21) - 10;
   const accentA = ACCENTS[(h >> 5) % ACCENTS.length];
   const accentB = ACCENTS[(h >> 8) % ACCENTS.length];
   const flip = (h >> 11) % 2 === 0;
+  const square = { height: "auto", aspectRatio: "1 / 1" };
+  const pop = enter && "enter-pop";
+  /** A sticker's box, with its turn in the entrance when there is one. */
+  const box = (order: number) => (enter ? { ...square, ...stagger(order) } : square);
 
   if (image) {
     return (
       <div className={cn(`tone-${color}`, "relative isolate overflow-hidden bg-tone-soft", className)}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={image} alt={alt} loading="lazy" decoding="async" className="absolute inset-0 size-full object-cover" />
-        <Sticker name={sticker} size="22%" rotate={tilt} className="absolute bottom-[6%] right-[5%]" style={{ height: "auto", aspectRatio: "1 / 1" }} />
+        <Sticker name={sticker} size="22%" rotate={tilt} className={cn("absolute bottom-[6%] right-[5%]", pop)} style={square} />
       </div>
     );
   }
 
   return (
-    <div className={cn(`tone-${color}`, "relative isolate overflow-hidden bg-tone-soft", className)} aria-hidden="true">
+    <div className={cn(`tone-${color}`, "relative isolate overflow-hidden bg-tone-soft", enter && "cover-enter", className)} aria-hidden="true">
       {variant === 0 && <span className="absolute -bottom-[30%] -right-[18%] aspect-square w-[78%] rounded-full bg-tone-solid opacity-30" />}
       {variant === 1 && (
         <>
@@ -71,24 +78,19 @@ export function Cover({ seed, sticker, color, image, alt = "", scale = 0.46, cla
         name={accentA}
         size="13%"
         rotate={flip ? -18 : 16}
-        className={cn("absolute", flip ? "left-[9%] top-[12%]" : "right-[9%] top-[13%]")}
-        style={{ height: "auto", aspectRatio: "1 / 1" }}
+        className={cn("absolute", flip ? "left-[9%] top-[12%]" : "right-[9%] top-[13%]", pop)}
+        style={box(1)}
       />
       <Sticker
         name={accentB === accentA ? "sparkle" : accentB}
         size="10%"
         rotate={flip ? 14 : -12}
-        className={cn("absolute", flip ? "bottom-[13%] right-[11%]" : "bottom-[14%] left-[10%]")}
-        style={{ height: "auto", aspectRatio: "1 / 1" }}
+        className={cn("absolute", flip ? "bottom-[13%] right-[11%]" : "bottom-[14%] left-[10%]", pop)}
+        style={box(2)}
       />
       <span className="absolute inset-0 flex items-center justify-center">
-        <Sticker
-          name={sticker}
-          size={`${Math.round(scale * 100)}%`}
-          rotate={tilt}
-          className="cover-hero transition-transform duration-300 ease-out"
-          style={{ height: "auto", aspectRatio: "1 / 1" }}
-        />
+        {/* Grows on hover inside an ArticleCard (reading.css); the sticker's own transition gives it the overshoot. */}
+        <Sticker name={sticker} size={`${Math.round(scale * 100)}%`} rotate={tilt} className={cn("cover-hero", pop)} style={box(0)} />
       </span>
     </div>
   );

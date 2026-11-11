@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { ArticleBento, ArticleCard } from "@/components/ArticleCard";
+import { TopicSkeleton } from "@/components/article/Skeletons";
 import { Icon } from "@/components/Icon";
 import { MythCard } from "@/components/MythCard";
 import { PageHero } from "@/components/PageHero";
@@ -13,6 +14,10 @@ import { TOOLS } from "@/lib/tools";
 import { PageTransition } from "@/components/motion/PageTransition";
 
 type Props = PageProps<"/topics/[slug]">;
+
+/** Transition types for the links between neighbouring topics (see PageTransition). */
+const PREVIOUS = ["nav-back"];
+const NEXT = ["nav-forward"];
 
 export async function generateStaticParams() {
   const categories = await getCategories();
@@ -36,7 +41,7 @@ export default function TopicPage({ params }: Props) {
     <Suspense
       fallback={
         <PageTransition variant="skeleton">
-          <main className="min-h-[60vh] bg-sand" aria-busy="true" />
+          <TopicSkeleton />
         </PageTransition>
       }
     >
@@ -120,9 +125,9 @@ async function TopicView({ params }: Pick<Props, "params">) {
             </h2>
             <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {tools.map((t) => (
-                <li key={t.slug}>
-                  <Link href={`/tools/${t.slug}`} className={cn(`tone-${t.color}`, "group flex h-full items-center gap-4 rounded-[22px] bg-paper p-4 transition-colors hover:bg-tone-soft")}>
-                    <Sticker name={t.sticker} size={48} rotate={-6} className="transition-transform group-hover:scale-110" />
+                <li key={t.slug} className="reveal">
+                  <Link href={`/tools/${t.slug}`} className={cn(`tone-${t.color}`, "reading-link-card group flex h-full items-center gap-4 rounded-[22px] bg-paper p-4 hover:bg-tone-soft")}>
+                    <Sticker name={t.sticker} size={48} rotate={-6} className="group-hover:scale-110" />
                     <span className="min-w-0">
                       <span className="block font-semibold leading-tight">{t.short}</span>
                       <span className="line-clamp-2 block text-sm text-ink-3">{t.summary}</span>
@@ -143,13 +148,13 @@ async function TopicView({ params }: Pick<Props, "params">) {
                 Related <span className="serif-accent">conditions</span>
               </h2>
               <Link href="/conditions" className="btn btn-outline btn-sm flex-none">
-                A to Z <Icon name="arrow-right" size={14} />
+                A to Z <Icon name="arrow-right" size={14} className="nudge-x" />
               </Link>
             </div>
             <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {conditions.map((c) => (
-                <li key={c.slug}>
-                  <Link href={`/conditions/${c.slug}`} className="group flex h-full flex-col rounded-[20px] border-[1.5px] border-line-strong p-4 transition-colors hover:border-ink hover:bg-tone-soft">
+                <li key={c.slug} className="reveal">
+                  <Link href={`/conditions/${c.slug}`} className="reading-link-card group flex h-full flex-col rounded-[20px] border-[1.5px] border-line-strong p-4 hover:border-ink hover:bg-tone-soft">
                     <span className="eyebrow text-ink-3">{systemName.get(c.system) ?? "Condition"}</span>
                     <span className="mt-2 text-lg font-semibold leading-tight tracking-[-0.01em]">{c.name}</span>
                     <span className="mt-1.5 line-clamp-2 text-sm leading-snug text-ink-2">{c.summary}</span>
@@ -169,12 +174,12 @@ async function TopicView({ params }: Pick<Props, "params">) {
                 Myth or <span className="serif-accent">fact?</span>
               </h2>
               <Link href="/myths" className="btn btn-outline btn-sm flex-none">
-                All myths <Icon name="arrow-right" size={14} />
+                All myths <Icon name="arrow-right" size={14} className="nudge-x" />
               </Link>
             </div>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
               {myths.slice(0, 3).map((m) => (
-                <MythCard key={m.slug} myth={m} detailed />
+                <MythCard key={m.slug} myth={m} detailed className="reveal" />
               ))}
             </div>
           </div>
@@ -189,14 +194,14 @@ async function TopicView({ params }: Pick<Props, "params">) {
                 Words worth <span className="serif-accent">knowing</span>
               </h2>
               <Link href="/glossary" className="btn btn-outline btn-sm flex-none">
-                Glossary <Icon name="arrow-right" size={14} />
+                Glossary <Icon name="arrow-right" size={14} className="nudge-x" />
               </Link>
             </div>
             <dl className="mt-6 grid gap-x-10 gap-y-6 md:grid-cols-2">
               {terms.map((t) => (
                 <div key={t.slug} className="border-t-[1.5px] border-ink pt-4">
                   <dt className="text-lg font-semibold tracking-[-0.01em]">
-                    <Link href={`/glossary#${t.slug}`} className="underline-offset-4 hover:underline">
+                    <Link href={`/glossary#${t.slug}`} className="link-draw">
                       {t.term}
                     </Link>
                   </dt>
@@ -210,9 +215,15 @@ async function TopicView({ params }: Pick<Props, "params">) {
 
       <nav aria-label="More topics" className="border-t border-line bg-paper py-10">
         <div className="container-hm grid gap-3 sm:grid-cols-2">
+          {/* The page change leans the way the link points: back for the previous topic, forward for the next. */}
           {neighbors.map((c, i) => (
-            <Link key={c.slug} href={`/topics/${c.slug}`} className={cn(`tone-${c.color}`, "group flex items-center gap-4 rounded-[22px] bg-tone-soft p-5", i === 1 && "sm:flex-row-reverse sm:text-right")}>
-              <Sticker name={c.sticker} size={56} rotate={i ? 8 : -8} className="transition-transform group-hover:scale-110" />
+            <Link
+              key={c.slug}
+              href={`/topics/${c.slug}`}
+              transitionTypes={i === 0 ? PREVIOUS : NEXT}
+              className={cn(`tone-${c.color}`, "reading-link-card group flex items-center gap-4 rounded-[22px] bg-tone-soft p-5", i === 1 && "sm:flex-row-reverse sm:text-right")}
+            >
+              <Sticker name={c.sticker} size={56} rotate={i ? 8 : -8} className="group-hover:scale-110" />
               <span>
                 <span className="eyebrow block text-tone-ink">{i === 0 ? "Previous topic" : "Next topic"}</span>
                 <span className="mt-1 block text-xl font-medium tracking-[-0.02em]">{c.name}</span>

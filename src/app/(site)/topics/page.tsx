@@ -32,20 +32,21 @@ export default async function TopicsPage() {
         />
         <div className="container-hm py-10 md:py-14">
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {/* Cards below the first screen rise in as they are reached; RevealObserver cascades the ones that arrive together. */}
             {categories.map((c, i) => (
-              <li key={c.slug} className="reveal" style={{ transitionDelay: `${(i % 3) * 40}ms` }}>
+              <li key={c.slug} className="reveal">
                 <Link
                   href={`/topics/${c.slug}`}
-                  className={cn(`tone-${c.color}`, "group relative flex h-full min-h-[230px] flex-col overflow-hidden rounded-[26px] bg-tone-soft p-6 text-tone-ink transition-transform duration-300 hover:-translate-y-1")}
+                  className={cn(`tone-${c.color}`, "reading-link-card group relative flex h-full min-h-[230px] flex-col overflow-hidden rounded-[26px] bg-tone-soft p-6 text-tone-ink hover:-translate-y-1 active:translate-y-0")}
                 >
                   <p className="eyebrow">{c.tagline}</p>
                   <h2 className="mt-3 text-[1.875rem] font-medium leading-none tracking-[-0.03em] text-ink">{c.name}</h2>
                   <p className="mt-3 max-w-[34ch] text-[0.9375rem] leading-relaxed opacity-90">{c.description}</p>
                   <span className="mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-semibold">
                     {c.articleCount} {c.articleCount === 1 ? "article" : "articles"}
-                    <Icon name="arrow-right" size={16} className="transition-transform group-hover:translate-x-1" />
+                    <Icon name="arrow-right" size={16} className="nudge-x" />
                   </span>
-                  <Sticker name={c.sticker} size={104} rotate={i % 2 ? 10 : -10} className="absolute -bottom-3 -right-2 transition-transform duration-300 group-hover:scale-110" />
+                  <Sticker name={c.sticker} size={104} rotate={i % 2 ? 10 : -10} className="absolute -bottom-3 -right-2 group-hover:scale-110" />
                 </Link>
               </li>
             ))}

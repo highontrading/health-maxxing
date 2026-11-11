@@ -3,10 +3,14 @@
 import { useId, useRef, useState, useTransition } from "react";
 import { previewMarkdownAction, uploadMediaAction } from "@/app/admin/actions";
 import { Icon } from "@/components/Icon";
+import { Collapse } from "@/components/motion/Collapse";
+import { usePresence } from "@/components/motion/presence";
+import { Spinner } from "@/components/motion/Spinner";
 import { STICKER_ART } from "@/components/stickers/art";
 import { Sticker } from "@/components/stickers/Sticker";
 import { cn } from "@/lib/cn";
-import { useMounted } from "@/lib/hooks";
+import { useMounted, useReducedMotion } from "@/lib/hooks";
+import { FOLD_MS } from "./motion";
 
 /* ------------------------------------------------------------------ */
 /* Markdown editor                                                     */
@@ -95,7 +99,10 @@ export function MarkdownEditor({ name, initial, rows = 22, invalid }: { name: st
               role="tab"
               aria-selected={tab === t}
               onClick={() => (t === "preview" ? showPreview() : setTab("write"))}
-              className={cn("rounded-full px-3 py-1 text-[0.8125rem] font-semibold capitalize", tab === t ? "bg-paper shadow-sm" : "text-ink-2 hover:text-ink")}
+              className={cn(
+                "rounded-full px-3 py-1 text-[0.8125rem] font-semibold capitalize transition-[color,background-color,box-shadow] duration-(--dur-fast)",
+                tab === t ? "bg-paper shadow-sm" : "text-ink-2 hover:text-ink",
+              )}
             >
               {t}
             </button>
@@ -110,7 +117,7 @@ export function MarkdownEditor({ name, initial, rows = 22, invalid }: { name: st
                 title={t.title}
                 aria-label={t.label}
                 onClick={() => apply(t.run)}
-                className="inline-flex h-8 min-w-8 items-center justify-center rounded-lg px-1.5 text-[0.8125rem] font-bold text-ink-2 hover:bg-sand-2 hover:text-ink"
+                className="inline-flex h-8 min-w-8 items-center justify-center rounded-lg px-1.5 text-[0.8125rem] font-bold text-ink-2 transition-colors duration-(--dur-fast) hover:bg-sand-2 hover:text-ink"
               >
                 {t.icon ? <Icon name={t.icon} size={16} /> : t.text}
               </button>
@@ -148,8 +155,9 @@ export function MarkdownEditor({ name, initial, rows = 22, invalid }: { name: st
         spellCheck
         className={cn("block w-full resize-y border-0 bg-paper px-4 py-3 font-mono text-[0.875rem] leading-relaxed outline-none", tab === "preview" && "hidden")}
       />
+      {/* Fades in when the tab is chosen (markdown-preview), and dims while a newer preview is on its way. */}
       {tab === "preview" && (
-        <div className={cn("min-h-64 px-5 py-4 transition-opacity", loading && "opacity-50")}>
+        <div className={cn("markdown-preview min-h-64 px-5 py-4 transition-opacity duration-(--dur-base)", loading && "opacity-50")}>
           {html ? (
             <div data-prose className="prose-hm prose-compact max-w-[70ch]" dangerouslySetInnerHTML={{ __html: html }} />
           ) : (
@@ -172,51 +180,63 @@ export function StickerPicker({ name, initial }: { name: string; initial: string
   const [open, setOpen] = useState(false);
   const [filter, setFilter] = useState("");
   const panel = useId();
+  const opener = useRef<HTMLButtonElement>(null);
+  // The panel (every sticker) is only in the page while open, and for the moment it takes to fold shut.
+  const reduced = useReducedMotion();
+  const life = usePresence(open, reduced ? 0 : FOLD_MS);
   const shown = STICKER_NAMES.filter((s) => s.includes(filter.trim().toLowerCase()));
   return (
     <div>
       <input type="hidden" name={name} value={value} />
       <button
+        ref={opener}
         type="button"
         aria-expanded={open}
         aria-controls={panel}
         onClick={() => setOpen((v) => !v)}
-        className="flex w-full items-center gap-3 rounded-2xl border-[1.5px] border-line-strong bg-paper px-3 py-2 text-left hover:border-ink-3"
+        className="flex w-full items-center gap-3 rounded-2xl border-[1.5px] border-line-strong bg-paper px-3 py-2 text-left transition-colors duration-(--dur-fast) hover:border-ink-3"
       >
         <Sticker name={value} size={38} flat />
         <span className="min-w-0 flex-1 truncate text-[0.9375rem] font-medium capitalize">{value.replace(/-/g, " ")}</span>
-        <Icon name="chevron-down" size={16} className={cn("text-ink-3 transition-transform", open && "rotate-180")} />
+        <Icon name="chevron-down" size={16} className={cn("text-ink-3 transition-transform duration-(--dur-base) ease-move", open && "rotate-180")} />
       </button>
-      {open && (
-        <div id={panel} className="mt-2 rounded-2xl border border-line bg-sand p-2">
-          <input
-            type="search"
-            value={filter}
-            onChange={(e) => setFilter(e.target.value)}
-            placeholder="Find a sticker"
-            aria-label="Find a sticker"
-            className="input mb-2 h-9 text-sm"
-          />
-          <div className="grid max-h-56 grid-cols-6 gap-1 overflow-y-auto">
-            {shown.map((s) => (
-              <button
-                key={s}
-                type="button"
-                title={s}
-                aria-label={`Use the ${s} sticker`}
-                aria-pressed={value === s}
-                onClick={() => {
-                  setValue(s);
-                  setOpen(false);
-                }}
-                className={cn("flex aspect-square items-center justify-center rounded-xl border-[1.5px]", value === s ? "border-ink bg-paper" : "border-transparent hover:bg-paper")}
-              >
-                <Sticker name={s} size={30} flat />
-              </button>
-            ))}
-            {!shown.length && <p className="col-span-6 p-2 text-sm text-ink-3">No sticker matches.</p>}
+      {life.mounted && (
+        <Collapse id={panel} open={open} className="sticker-picker-panel">
+          <div className="mt-2 rounded-2xl border border-line bg-sand p-2">
+            <input
+              type="search"
+              value={filter}
+              onChange={(e) => setFilter(e.target.value)}
+              placeholder="Find a sticker"
+              aria-label="Find a sticker"
+              className="input mb-2 h-9 text-sm"
+            />
+            <div className="grid max-h-56 grid-cols-6 gap-1 overflow-y-auto">
+              {shown.map((s) => (
+                <button
+                  key={s}
+                  type="button"
+                  title={s}
+                  aria-label={`Use the ${s} sticker`}
+                  aria-pressed={value === s}
+                  onClick={() => {
+                    setValue(s);
+                    setOpen(false);
+                    // The panel is folding away under the focus: hand it back to the button that opened it.
+                    opener.current?.focus();
+                  }}
+                  className={cn(
+                    "flex aspect-square items-center justify-center rounded-xl border-[1.5px] transition-colors duration-(--dur-fast)",
+                    value === s ? "border-ink bg-paper" : "border-transparent hover:bg-paper",
+                  )}
+                >
+                  <Sticker name={s} size={30} flat />
+                </button>
+              ))}
+              {!shown.length && <p className="col-span-6 p-2 text-sm text-ink-3">No sticker matches.</p>}
+            </div>
           </div>
-        </div>
+        </Collapse>
       )}
     </div>
   );
@@ -278,6 +298,8 @@ export function Repeatable({
   const [rows, setRows] = useState<RepeatRow[]>(() =>
     initial.map((r) => Object.fromEntries(columns.map((c) => [c.key, r[c.key] == null ? "" : String(r[c.key])]))),
   );
+  // Where the last "Add" put its row. Only that row rises in; the rows the page arrived with stay still.
+  const [added, setAdded] = useState<number | null>(null);
   const update = (i: number, key: string, value: string) => setRows((rs) => rs.map((r, j) => (j === i ? { ...r, [key]: value } : r)));
   const move = (i: number, by: number) =>
     setRows((rs) => {
@@ -294,7 +316,7 @@ export function Repeatable({
       {rows.length > 0 && (
         <ol className="space-y-2">
           {rows.map((row, i) => (
-            <li key={i} className="flex gap-2 rounded-2xl bg-sand p-2.5">
+            <li key={i} className={cn("flex gap-2 rounded-2xl bg-sand p-2.5", i === added && "repeat-row-new")}>
               {numbered && <span className="mt-2 w-6 flex-none text-center text-sm font-bold tabular-nums text-ink-3">{i + 1}</span>}
               <div className="grid min-w-0 flex-1 grid-cols-12 gap-2">
                 {columns.map((c) => {
@@ -328,13 +350,13 @@ export function Repeatable({
                 })}
               </div>
               <div className="flex flex-none flex-col gap-0.5">
-                <button type="button" className="rounded-lg p-1.5 text-ink-3 hover:bg-sand-2 hover:text-ink disabled:opacity-30" aria-label={`Move row ${i + 1} up`} disabled={i === 0} onClick={() => move(i, -1)}>
+                <button type="button" className="rounded-lg p-1.5 text-ink-3 transition-colors duration-(--dur-fast) hover:bg-sand-2 hover:text-ink disabled:opacity-30" aria-label={`Move row ${i + 1} up`} disabled={i === 0} onClick={() => move(i, -1)}>
                   <Icon name="chevron-down" size={16} className="rotate-180" />
                 </button>
-                <button type="button" className="rounded-lg p-1.5 text-ink-3 hover:bg-sand-2 hover:text-ink disabled:opacity-30" aria-label={`Move row ${i + 1} down`} disabled={i === rows.length - 1} onClick={() => move(i, 1)}>
+                <button type="button" className="rounded-lg p-1.5 text-ink-3 transition-colors duration-(--dur-fast) hover:bg-sand-2 hover:text-ink disabled:opacity-30" aria-label={`Move row ${i + 1} down`} disabled={i === rows.length - 1} onClick={() => move(i, 1)}>
                   <Icon name="chevron-down" size={16} />
                 </button>
-                <button type="button" className="rounded-lg p-1.5 text-ink-3 hover:bg-[var(--pink-soft)] hover:text-[var(--pink-ink)]" aria-label={`Remove row ${i + 1}`} onClick={() => setRows((rs) => rs.filter((_, j) => j !== i))}>
+                <button type="button" className="rounded-lg p-1.5 text-ink-3 transition-colors duration-(--dur-fast) hover:bg-[var(--pink-soft)] hover:text-[var(--pink-ink)]" aria-label={`Remove row ${i + 1}`} onClick={() => setRows((rs) => rs.filter((_, j) => j !== i))}>
                   <Icon name="trash" size={16} />
                 </button>
               </div>
@@ -342,7 +364,15 @@ export function Repeatable({
           ))}
         </ol>
       )}
-      <button type="button" className="btn btn-outline btn-sm mt-2" disabled={rows.length >= max} onClick={() => setRows((rs) => [...rs, blank()])}>
+      <button
+        type="button"
+        className="btn btn-outline btn-sm mt-2"
+        disabled={rows.length >= max}
+        onClick={() => {
+          setAdded(rows.length);
+          setRows((rs) => [...rs, blank()]);
+        }}
+      >
         <Icon name="plus" size={14} /> {addLabel}
       </button>
     </div>
@@ -441,7 +471,7 @@ export function ImageField({ name, initial }: { name: string; initial: string })
       />
       <div className="mt-2 flex flex-wrap gap-2">
         <button type="button" className="btn btn-outline btn-sm" disabled={busy} onClick={() => file.current?.click()}>
-          <Icon name="upload" size={14} /> {busy ? "Uploading…" : "Upload image"}
+          {busy ? <Spinner size={14} /> : <Icon name="upload" size={14} />} {busy ? "Uploading…" : "Upload image"}
         </button>
         {value && (
           <button type="button" className="btn btn-ghost btn-sm" onClick={() => setValue("")}>
@@ -450,7 +480,7 @@ export function ImageField({ name, initial }: { name: string; initial: string })
         )}
       </div>
       {error && (
-        <p role="alert" className="field-error">
+        <p role="alert" className="field-error admin-result">
           {error}
         </p>
       )}

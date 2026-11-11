@@ -5,10 +5,14 @@ import { useActionState } from "react";
 import { EMPTY } from "@/app/actions/types";
 import { addTopicAction, createTokenAction, runAutopilotAction, suggestTopicsAction } from "@/app/admin/actions";
 import { Icon } from "@/components/Icon";
+import { Spinner } from "@/components/motion/Spinner";
 import { CopyButton } from "./MediaClient";
+import { useAnswerCount } from "./motion";
 
 export function AddTopicForm({ categories }: { categories: { value: string; label: string }[] }) {
   const [state, action, pending] = useActionState(addTopicAction, EMPTY);
+  // Messages are keyed by this, so each answer fades in afresh (admin-result).
+  const answer = useAnswerCount(state);
   // After a successful add the fields start empty again.
   const v = state.ok ? {} : (state.values ?? {});
   return (
@@ -19,7 +23,7 @@ export function AddTopicForm({ categories }: { categories: { value: string; labe
         </label>
         <input id="ap-topic" name="topic" className="input" maxLength={200} required placeholder="Is cold-water swimming actually good for you?" defaultValue={v.topic} aria-invalid={!!state.errors?.topic || undefined} />
         {state.errors?.topic && (
-          <p className="field-error" role="alert">
+          <p key={answer} className="field-error admin-result" role="alert">
             {state.errors.topic}
           </p>
         )}
@@ -50,7 +54,7 @@ export function AddTopicForm({ categories }: { categories: { value: string; labe
           <Icon name="plus" size={16} /> {pending ? "Adding…" : "Add to queue"}
         </button>
         {state.ok && (
-          <p role="status" className="text-sm font-semibold text-[var(--green-ink)]">
+          <p key={answer} role="status" className="admin-result text-sm font-semibold text-[var(--green-ink)]">
             {state.message}
           </p>
         )}
@@ -68,18 +72,19 @@ export function RunControls({ ready, waiting }: { ready: boolean; waiting: numbe
       <div className="flex flex-wrap gap-2">
         <form action={runAction}>
           <button type="submit" className="btn btn-primary" disabled={!ready || busy || waiting === 0}>
-            <Icon name="bot" size={16} /> {running ? "Researching and writing…" : "Draft the next topic now"}
+            {running ? <Spinner /> : <Icon name="bot" size={16} />} {running ? "Researching and writing…" : "Draft the next topic now"}
           </button>
         </form>
         <form action={suggestAction}>
           <button type="submit" className="btn btn-outline" disabled={!ready || busy}>
-            <Icon name="sparkles" size={16} /> {suggesting ? "Thinking of topics…" : "Suggest 5 topics"}
+            {suggesting ? <Spinner /> : <Icon name="sparkles" size={16} />} {suggesting ? "Thinking of topics…" : "Suggest 5 topics"}
           </button>
         </form>
       </div>
-      {running && <p className="mt-2 text-sm text-ink-2">This takes a few minutes. Keep this tab open until it finishes.</p>}
+      {running && <p className="admin-result mt-2 text-sm text-ink-2">This takes a few minutes. Keep this tab open until it finishes.</p>}
+      {/* The results are removed while a run is busy, so each one arrives fresh and fades in. */}
       {!busy && run.message && (
-        <p role={run.ok ? "status" : "alert"} className={run.ok ? "mt-2 text-sm font-semibold text-[var(--green-ink)]" : "field-error mt-2"}>
+        <p role={run.ok ? "status" : "alert"} className={run.ok ? "admin-result mt-2 text-sm font-semibold text-[var(--green-ink)]" : "field-error admin-result mt-2"}>
           {run.message}{" "}
           {run.ok && run.values?.articleId && (
             <Link href={`/admin/c/articles/${run.values.articleId}`} className="underline underline-offset-4">
@@ -89,7 +94,7 @@ export function RunControls({ ready, waiting }: { ready: boolean; waiting: numbe
         </p>
       )}
       {!busy && suggest.message && (
-        <p role={suggest.ok ? "status" : "alert"} className={suggest.ok ? "mt-2 text-sm font-semibold text-[var(--green-ink)]" : "field-error mt-2"}>
+        <p role={suggest.ok ? "status" : "alert"} className={suggest.ok ? "admin-result mt-2 text-sm font-semibold text-[var(--green-ink)]" : "field-error admin-result mt-2"}>
           {suggest.message}
         </p>
       )}
@@ -101,6 +106,7 @@ export function RunControls({ ready, waiting }: { ready: boolean; waiting: numbe
 
 export function TokenCreator() {
   const [state, action, pending] = useActionState(createTokenAction, EMPTY);
+  const answer = useAnswerCount(state);
   return (
     <div>
       <form action={action} className="flex flex-wrap items-end gap-3">
@@ -115,12 +121,12 @@ export function TokenCreator() {
         </button>
       </form>
       {state.errors?.name && (
-        <p className="field-error" role="alert">
+        <p key={answer} className="field-error admin-result" role="alert">
           {state.errors.name}
         </p>
       )}
       {state.ok && state.values?.token && (
-        <div role="status" className="mt-4 rounded-2xl bg-[var(--lime-soft)] p-4 text-[var(--lime-ink)]">
+        <div key={answer} role="status" className="admin-banner mt-4 rounded-2xl bg-[var(--lime-soft)] p-4 text-[var(--lime-ink)]">
           <p className="font-semibold">{state.message}</p>
           <div className="mt-2 flex flex-wrap items-center gap-2">
             <code className="break-all rounded-lg bg-paper px-3 py-2 font-mono text-sm text-ink">{state.values.token}</code>

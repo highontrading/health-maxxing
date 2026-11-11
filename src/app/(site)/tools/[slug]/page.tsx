@@ -39,7 +39,7 @@ export default function ToolPage({ params }: Props) {
     <Suspense
       fallback={
         <PageTransition variant="skeleton">
-          <main className="min-h-[60vh] bg-sand" aria-busy="true" />
+          <ToolSkeleton />
         </PageTransition>
       }
     >
@@ -47,6 +47,37 @@ export default function ToolPage({ params }: Props) {
         <ToolView params={params} />
       </PageTransition>
     </Suspense>
+  );
+}
+
+/** The shape of a tool page while it loads: the header band, then the calculator card with a few fields and a result box. */
+function ToolSkeleton() {
+  return (
+    <main className="min-h-[60vh]" aria-busy="true">
+      <div className="bg-sand">
+        <div className="container-hm pb-10 pt-8 md:pb-14 md:pt-12">
+          <div className="skeleton h-4 w-44 max-w-full rounded-full" />
+          <div className="skeleton mt-6 h-11 w-[30rem] max-w-full rounded-2xl md:h-16" />
+          <div className="skeleton mt-4 h-5 w-[36rem] max-w-full rounded-full" />
+        </div>
+      </div>
+      <div className="container-hm py-8 md:py-12">
+        <div className="rounded-[30px] border-[1.5px] border-line-strong bg-paper p-5 md:p-9">
+          <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
+            <div className="space-y-5">
+              <div className="skeleton h-9 w-40 rounded-full" />
+              {[0, 1].map((i) => (
+                <div key={i}>
+                  <div className="skeleton h-3.5 w-20 rounded-full" />
+                  <div className="skeleton mt-2 h-12 rounded-[14px]" />
+                </div>
+              ))}
+            </div>
+            <div className="skeleton min-h-[180px] rounded-[24px]" />
+          </div>
+        </div>
+      </div>
+    </main>
   );
 }
 
@@ -83,7 +114,8 @@ async function ToolView({ params }: Pick<Props, "params">) {
             <h1 className="display display-lg mt-6 text-ink">{tool.name}</h1>
             <p className="mt-4 max-w-[56ch] text-[clamp(1.0625rem,1.5vw,1.25rem)] leading-[1.5] text-tone-ink">{tool.summary}</p>
           </div>
-          <Sticker name={tool.sticker} size={140} rotate={8} className="hidden flex-none md:block" />
+          {/* Decoration: pops in just after the page has arrived (the delay is .tool-header-sticker in tools.css). */}
+          <Sticker name={tool.sticker} size={140} rotate={8} className="tool-header-sticker enter-pop hidden flex-none md:block" />
         </div>
       </header>
 
@@ -107,7 +139,7 @@ async function ToolView({ params }: Pick<Props, "params">) {
                       <span className="mt-[0.5em] size-2 flex-none rotate-12 rounded-[2px] bg-tone-solid" aria-hidden="true" />
                       <span>
                         {s.url ? (
-                          <a href={s.url} target="_blank" rel="noopener noreferrer" className="font-medium underline decoration-line-strong underline-offset-[3px] hover:decoration-ink">
+                          <a href={s.url} target="_blank" rel="noopener noreferrer" className="font-medium underline decoration-line-strong underline-offset-[3px] transition-colors duration-(--dur-fast) hover:decoration-ink">
                             {s.title}
                           </a>
                         ) : (
@@ -130,9 +162,10 @@ async function ToolView({ params }: Pick<Props, "params">) {
             </p>
           </div>
 
+          {/* The side column is links, not reading text: its two blocks rise in when they are scrolled to. */}
           <aside className="space-y-10">
             {related.length > 0 && (
-              <section>
+              <section className="reveal">
                 <h2 className="eyebrow text-ink-3">Read next</h2>
                 <div className="mt-3 space-y-1">
                   {related.map((a) => (
@@ -141,12 +174,12 @@ async function ToolView({ params }: Pick<Props, "params">) {
                 </div>
               </section>
             )}
-            <section>
+            <section className="reveal">
               <h2 className="eyebrow text-ink-3">More tools</h2>
               <ul className="mt-3 flex flex-wrap gap-2">
                 {others.map((t) => (
                   <li key={t.slug}>
-                    <Link href={`/tools/${t.slug}`} className={cn(`tone-${t.color}`, "chip py-1.5 pl-1.5 pr-3")}>
+                    <Link href={`/tools/${t.slug}`} className={cn(`tone-${t.color}`, "tool-chip chip pressable py-1.5 pl-1.5 pr-3")}>
                       <Sticker name={t.sticker} size={22} flat />
                       {t.short}
                     </Link>
@@ -154,7 +187,7 @@ async function ToolView({ params }: Pick<Props, "params">) {
                 ))}
               </ul>
               <Link href="/tools" className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold underline-offset-4 hover:underline">
-                All calculators <Icon name="arrow-right" size={15} />
+                All calculators <Icon name="arrow-right" size={15} className="nudge-x" />
               </Link>
             </section>
           </aside>

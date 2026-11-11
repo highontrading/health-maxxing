@@ -5,22 +5,35 @@ import { useId, useMemo, useState, type ReactNode } from "react";
 import * as c from "@/lib/calc";
 import { cn } from "@/lib/cn";
 import { useToday } from "@/lib/hooks";
-import { ChoiceList, EmptyResult, Field, fmt, HeightInput, LengthInput, NumberInput, parseNum, Result, ScaleBar, Segmented, Stat, UnitToggle, useUnits, WeightInput } from "./ui";
+import { CalculatorMotion, LiveNumber, OptionalField } from "./motion";
+import { ChoiceList, EmptyResult, Field, fmt, HeightInput, LengthInput, NumberInput, parseNum, Result, ScaleBar, Segmented, SplitBar, Stat, UnitToggle, useUnits, WeightInput } from "./ui";
 
-/** Inputs on the left, result on the right (stacked on small screens). */
+/**
+ * Inputs on the left, result on the right (stacked on small screens).
+ * CalculatorMotion follows the visitor's changes, so the first result can pop
+ * in and its numbers (<LiveNumber>) can count: the rules are at the top of
+ * motion.tsx. Ranges in tiles, clock times and dates stay plain text.
+ */
 function Layout({ inputs, result, units = true }: { inputs: ReactNode; result: ReactNode; units?: boolean }) {
   return (
-    <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
+    <CalculatorMotion className="grid gap-6 lg:grid-cols-2 lg:gap-8">
       <div className="space-y-5">
         {units && <UnitToggle />}
         {inputs}
       </div>
       <div className="lg:sticky lg:top-[calc(var(--header-h)+24px)] lg:self-start">{result}</div>
-    </div>
+    </CalculatorMotion>
   );
 }
 
 const ageOk = (a: number | null): a is number => a !== null && a >= 14 && a <= 110;
+
+/**
+ * For an <OptionalField>: it clips its content while it slides, which would
+ * also cut an input's focus glow at the sides. This widens the clip by 6px
+ * each side; give the content inside `px-1.5` to keep it where it was.
+ */
+const FIELD_BLEED = "-mx-1.5";
 
 /* ================================================================== BMI */
 function BmiCalculator() {
@@ -43,7 +56,7 @@ function BmiCalculator() {
       }
       result={
         value !== null && band && range ? (
-          <Result tone={band.tone} label="Your BMI" value={fmt(value, 1)} verdict={band.label}>
+          <Result tone={band.tone} label="Your BMI" value={<LiveNumber value={value} decimals={1} />} verdict={band.label}>
             <ScaleBar
               min={15}
               max={40}
@@ -99,12 +112,12 @@ function TdeeCalculator() {
       }
       result={
         bmr !== null && total !== null ? (
-          <Result tone="good" label="Estimated daily burn" value={fmt(total, 0)} unit="kcal a day">
+          <Result tone="good" label="Estimated daily burn" value={<LiveNumber value={total} />} unit="kcal a day">
             <div className="grid grid-cols-2 gap-2">
-              <Stat label="At rest (BMR)" value={fmt(bmr, 0)} sub="kcal a day" />
-              <Stat label="Gentle loss" value={fmt(total - 250, 0)} sub="about 250 kcal under" />
-              <Stat label="Steady loss" value={fmt(Math.max(total - 500, bmr * 0.9), 0)} sub="about 500 kcal under" />
-              <Stat label="Slow gain" value={fmt(total + 250, 0)} sub="about 250 kcal over" />
+              <Stat label="At rest (BMR)" value={<LiveNumber value={bmr} />} sub="kcal a day" />
+              <Stat label="Gentle loss" value={<LiveNumber value={total - 250} />} sub="about 250 kcal under" />
+              <Stat label="Steady loss" value={<LiveNumber value={Math.max(total - 500, bmr * 0.9)} />} sub="about 500 kcal under" />
+              <Stat label="Slow gain" value={<LiveNumber value={total + 250} />} sub="about 250 kcal over" />
             </div>
             <p>Equations like this are usually within about 10%. Use it as a starting point and adjust to what your weight actually does over two to three weeks.</p>
           </Result>
@@ -147,12 +160,17 @@ function MacroCalculator() {
       }
       result={
         m ? (
-          <Result tone="good" label="Daily targets" value={`${fmt(m.protein, 0)} g`} unit="protein">
-            <div className="flex h-5 overflow-hidden rounded-full border-[1.5px] border-ink" aria-hidden="true">
-              {rows.map((r) => (
-                <div key={r.name} style={{ width: `${r.pct}%`, background: r.color }} />
-              ))}
-            </div>
+          <Result
+            tone="good"
+            label="Daily targets"
+            value={
+              <>
+                <LiveNumber value={m.protein} /> g
+              </>
+            }
+            unit="protein"
+          >
+            <SplitBar parts={rows} />
             <table className="w-full text-left text-[0.9375rem]">
               <tbody>
                 {rows.map((r) => (
@@ -161,8 +179,12 @@ function MacroCalculator() {
                       <span className="mr-2 inline-block size-2.5 rounded-full" style={{ background: r.color }} />
                       {r.name}
                     </th>
-                    <td className="py-2 text-right font-semibold tabular-nums">{fmt(r.g, 0)} g</td>
-                    <td className="w-16 py-2 text-right tabular-nums opacity-80">{fmt(r.pct, 0)}%</td>
+                    <td className="py-2 text-right font-semibold tabular-nums">
+                      <LiveNumber value={r.g} /> g
+                    </td>
+                    <td className="w-16 py-2 text-right tabular-nums opacity-80">
+                      <LiveNumber value={r.pct} />%
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -195,7 +217,16 @@ function ProteinCalculator() {
       }
       result={
         r ? (
-          <Result tone="good" label="Daily protein" value={`${fmt(r.min, 0)}–${fmt(r.max, 0)}`} unit="g a day">
+          <Result
+            tone="good"
+            label="Daily protein"
+            value={
+              <span className="whitespace-nowrap">
+                <LiveNumber value={r.min} />–<LiveNumber value={r.max} />
+              </span>
+            }
+            unit="g a day"
+          >
             <div className="grid grid-cols-2 gap-2">
               <Stat label="Per kilogram" value={`${r.goal.min}–${r.goal.max}`} sub="g per kg body weight" />
               <Stat label="Per meal" value={`${fmt(r.perMealMin, 0)}–${fmt(r.perMealMax, 0)} g`} sub="across 3 to 4 meals" />
@@ -221,7 +252,8 @@ function WaterCalculator() {
   const valid = kg !== null && kg >= 20 && kg <= 400 && mins <= 600;
   const r = valid ? c.waterRange(kg, mins, hot === "yes") : null;
   const id = useId();
-  const vol = (l: number) => (units === "metric" ? `${fmt(l, 1)}` : `${fmt(l * 33.814, 0)}`);
+  // Liters or fluid ounces. A change of unit swaps the figure at once (snapKey): nothing was measured again.
+  const vol = (l: number) => <LiveNumber value={units === "metric" ? l : l * 33.814} decimals={units === "metric" ? 1 : 0} snapKey={units} />;
 
   return (
     <Layout
@@ -236,7 +268,16 @@ function WaterCalculator() {
       }
       result={
         r ? (
-          <Result tone="low" label="Fluids from all drinks" value={`${vol(r.min)}–${vol(r.max)}`} unit={units === "metric" ? "liters a day" : "fl oz a day"}>
+          <Result
+            tone="low"
+            label="Fluids from all drinks"
+            value={
+              <span className="whitespace-nowrap">
+                {vol(r.min)}–{vol(r.max)}
+              </span>
+            }
+            unit={units === "metric" ? "liters a day" : "fl oz a day"}
+          >
             <div className="grid grid-cols-2 gap-2">
               <Stat label="In glasses" value={`${fmt(r.min / 0.25, 0)}–${fmt(r.max / 0.25, 0)}`} sub="of about 250 mL (8 fl oz)" />
               <Stat label="Quick check" value="Pale yellow" sub="urine color to aim for" />
@@ -283,7 +324,7 @@ function HeartRateCalculator() {
       }
       result={
         zones ? (
-          <Result tone="urgent" label="Estimated maximum heart rate" value={fmt(zones.max, 0)} unit="bpm">
+          <Result tone="urgent" label="Estimated maximum heart rate" value={<LiveNumber value={zones.max} />} unit="bpm">
             <table className="w-full overflow-hidden rounded-2xl text-left text-[0.9375rem]">
               <caption className="sr-only">Training zones</caption>
               <tbody>
@@ -340,10 +381,24 @@ function OneRepMaxCalculator() {
       }
       result={
         est ? (
-          <Result tone="high" label="Estimated one-rep max" value={fmt(est.average, 0)} unit={unit}>
+          <Result tone="high" label="Estimated one-rep max" value={<LiveNumber value={est.average} />} unit={unit}>
             <div className="grid grid-cols-2 gap-2">
-              <Stat label="Epley formula" value={`${fmt(est.epley, 1)} ${unit}`} />
-              <Stat label="Brzycki formula" value={`${fmt(est.brzycki, 1)} ${unit}`} />
+              <Stat
+                label="Epley formula"
+                value={
+                  <>
+                    <LiveNumber value={est.epley} decimals={1} /> {unit}
+                  </>
+                }
+              />
+              <Stat
+                label="Brzycki formula"
+                value={
+                  <>
+                    <LiveNumber value={est.brzycki} decimals={1} /> {unit}
+                  </>
+                }
+              />
             </div>
             <table className="w-full text-left text-[0.9375rem]">
               <caption className="pb-1 text-left text-xs font-semibold uppercase tracking-wide opacity-70">Loading chart</caption>
@@ -359,7 +414,7 @@ function OneRepMaxCalculator() {
                   <tr key={row.pct} className="border-b border-ink/10 last:border-0">
                     <td className="py-1.5 tabular-nums">{row.pct}%</td>
                     <td className="py-1.5 text-right font-semibold tabular-nums">
-                      {fmt(snap((est.average * row.pct) / 100), units === "metric" ? 1 : 0)} {unit}
+                      <LiveNumber value={snap((est.average * row.pct) / 100)} decimals={units === "metric" ? 1 : 0} snapKey={units} /> {unit}
                     </td>
                     <td className="py-1.5 text-right tabular-nums">{row.reps}</td>
                   </tr>
@@ -388,7 +443,11 @@ function BodyFatCalculator() {
   const pct = ready ? c.navyBodyFat({ sex, heightCm: height, neckCm: neck, waistCm: waist, hipCm: hip ?? undefined }) : null;
   const ok = pct !== null && pct > 2 && pct < 65;
   const band = ok ? c.bodyFatBand(sex, pct) : null;
-  const mass = (v: number) => (units === "metric" ? `${fmt(v, 1)} kg` : `${fmt(c.kgToLb(v), 0)} lb`);
+  const mass = (v: number) => (
+    <>
+      <LiveNumber value={units === "metric" ? v : c.kgToLb(v)} decimals={units === "metric" ? 1 : 0} snapKey={units} /> {units === "metric" ? "kg" : "lb"}
+    </>
+  );
 
   return (
     <Layout
@@ -397,14 +456,21 @@ function BodyFatCalculator() {
           <Segmented label="Sex (for the equation)" value={sex} onChange={setSex} options={[{ value: "female", label: "Female" }, { value: "male", label: "Male" }]} />
           <HeightInput key={`h-${units}`} cm={height} onChange={setHeight} units={units} />
           <LengthInput key={`n-${units}`} cm={neck} onChange={setNeck} units={units} label="Neck" hint="Just below the Adam's apple, tape sloping slightly down at the front." />
-          <LengthInput key={`wa-${units}`} cm={waist} onChange={setWaist} units={units} label="Waist" hint={sex === "male" ? "At the navel." : "At the narrowest point."} />
-          {sex === "female" && <LengthInput key={`hi-${units}`} cm={hip} onChange={setHip} units={units} label="Hips" hint="At the widest point." />}
+          {/* The hips field belongs to the waist field's block, so its gap opens and closes with it. */}
+          <div>
+            <LengthInput key={`wa-${units}`} cm={waist} onChange={setWaist} units={units} label="Waist" hint={sex === "male" ? "At the navel." : "At the narrowest point."} />
+            <OptionalField show={sex === "female"} className={FIELD_BLEED}>
+              <div className="px-1.5 pt-5">
+                <LengthInput key={`hi-${units}`} cm={hip} onChange={setHip} units={units} label="Hips" hint="At the widest point." />
+              </div>
+            </OptionalField>
+          </div>
           <WeightInput key={`w-${units}`} kg={kg} onChange={setKg} units={units} label="Weight (optional)" hint="Adds fat mass and lean mass to the result." />
         </>
       }
       result={
         ok && band ? (
-          <Result tone={band.tone} label="Estimated body fat" value={fmt(pct, 1)} unit="%" verdict={band.label}>
+          <Result tone={band.tone} label="Estimated body fat" value={<LiveNumber value={pct} decimals={1} />} unit="%" verdict={band.label}>
             {kg !== null && kg > 20 && (
               <div className="grid grid-cols-2 gap-2">
                 <Stat label="Fat mass" value={mass((kg * pct) / 100)} />
@@ -443,7 +509,7 @@ function WaistToHeightCalculator() {
       }
       result={
         ratio !== null && band && height !== null ? (
-          <Result tone={band.tone} label="Waist-to-height ratio" value={fmt(ratio, 2)} verdict={band.label}>
+          <Result tone={band.tone} label="Waist-to-height ratio" value={<LiveNumber value={ratio} decimals={2} />} verdict={band.label}>
             <ScaleBar
               min={0.3}
               max={0.75}
@@ -553,17 +619,24 @@ function DueDateCalculator() {
               { value: "ivf", label: "IVF transfer" },
             ]}
           />
-          <Field label={labels[method]} htmlFor={dateId}>
-            <input id={dateId} type="date" value={date} onChange={(e) => setDate(e.target.value)} className="input h-12 text-lg font-medium" />
-          </Field>
-          {method === "lmp" && (
-            <Field label="Usual cycle length" htmlFor={cycleId} hint="Count from the first day of one period to the first day of the next.">
-              <NumberInput id={cycleId} value={cycle} onChange={setCycle} suffix="days" min={21} max={45} step={1} />
+          {/* The extra field of a method belongs to the date field's block, so its gap opens and closes with it. */}
+          <div>
+            <Field label={labels[method]} htmlFor={dateId}>
+              <input id={dateId} type="date" value={date} onChange={(e) => setDate(e.target.value)} className="input h-12 text-lg font-medium" />
             </Field>
-          )}
-          {method === "ivf" && (
-            <Segmented label="Embryo age at transfer" value={embryo} onChange={setEmbryo} options={[{ value: "5", label: "Day 5" }, { value: "3", label: "Day 3" }]} />
-          )}
+            <OptionalField show={method === "lmp"} className={FIELD_BLEED}>
+              <div className="px-1.5 pt-5">
+                <Field label="Usual cycle length" htmlFor={cycleId} hint="Count from the first day of one period to the first day of the next.">
+                  <NumberInput id={cycleId} value={cycle} onChange={setCycle} suffix="days" min={21} max={45} step={1} />
+                </Field>
+              </div>
+            </OptionalField>
+            <OptionalField show={method === "ivf"} className={FIELD_BLEED}>
+              <div className="px-1.5 pt-5">
+                <Segmented label="Embryo age at transfer" value={embryo} onChange={setEmbryo} options={[{ value: "5", label: "Day 5" }, { value: "3", label: "Day 3" }]} />
+              </div>
+            </OptionalField>
+          </div>
         </>
       }
       result={
@@ -631,7 +704,7 @@ function BloodPressureCalculator() {
             </thead>
             <tbody>
               {rows.map((r) => (
-                <tr key={r.key} className={cn("border-t border-line", band?.key === r.key && "bg-tone-soft font-semibold")}>
+                <tr key={r.key} className={cn("border-t border-line transition-colors duration-(--dur-base)", band?.key === r.key && "bg-tone-soft font-semibold")}>
                   <th scope="row" className="px-3 py-2 font-semibold">{r.label}</th>
                   <td className="px-3 py-2 tabular-nums">{r.sys}</td>
                   <td className="px-1 py-2 text-xs text-ink-3">{r.join}</td>
@@ -695,10 +768,17 @@ function CaloriesBurnedCalculator() {
       }
       result={
         kcal !== null && m !== null ? (
-          <Result tone="high" label="Energy used" value={fmt(kcal, 0)} unit="kcal">
+          <Result tone="high" label="Energy used" value={<LiveNumber value={kcal} />} unit="kcal">
             <div className="grid grid-cols-2 gap-2">
               <Stat label="Intensity" value={`${act.met} METs`} sub={act.met < 3 ? "light" : act.met < 6 ? "moderate" : "vigorous"} />
-              <Stat label="Per hour" value={`${fmt((kcal / m) * 60, 0)} kcal`} />
+              <Stat
+                label="Per hour"
+                value={
+                  <>
+                    <LiveNumber value={(kcal / m) * 60} /> kcal
+                  </>
+                }
+              />
             </div>
             <p>This includes the calories you would have burned at rest anyway. Individual results commonly differ by 10 to 20%.</p>
           </Result>
@@ -742,30 +822,41 @@ function PaceCalculator() {
               <option value="custom">Custom distance</option>
             </select>
           </Field>
-          {dist === "custom" && (
-            <div className="grid grid-cols-[1fr_auto] items-end gap-2">
-              <Field label="Custom distance" htmlFor={cid}>
-                <NumberInput id={cid} value={custom} onChange={setCustom} suffix={customUnit} min={0} />
-              </Field>
-              <Segmented label="Unit" value={customUnit} onChange={setCustomUnit} options={[{ value: "km", label: "km" }, { value: "mi", label: "mi" }]} />
-            </div>
-          )}
-          <fieldset>
-            <legend className="field-label">Finish time</legend>
-            <div className="grid grid-cols-3 gap-2">
-              <NumberInput value={h} onChange={setH} suffix="h" min={0} max={99} step={1} ariaLabel="Hours" />
-              <NumberInput value={m} onChange={setM} suffix="min" min={0} max={59} step={1} ariaLabel="Minutes" />
-              <NumberInput value={s} onChange={setS} suffix="s" min={0} max={59} step={1} ariaLabel="Seconds" />
-            </div>
-          </fieldset>
+          {/* The custom distance row sits above the finish time in one block, so its gap opens and closes with it. */}
+          <div>
+            <OptionalField show={dist === "custom"} className={FIELD_BLEED}>
+              <div className="grid grid-cols-[1fr_auto] items-end gap-2 px-1.5 pb-5">
+                <Field label="Custom distance" htmlFor={cid}>
+                  <NumberInput id={cid} value={custom} onChange={setCustom} suffix={customUnit} min={0} />
+                </Field>
+                <Segmented label="Unit" value={customUnit} onChange={setCustomUnit} options={[{ value: "km", label: "km" }, { value: "mi", label: "mi" }]} />
+              </div>
+            </OptionalField>
+            <fieldset>
+              <legend className="field-label">Finish time</legend>
+              <div className="grid grid-cols-3 gap-2">
+                <NumberInput value={h} onChange={setH} suffix="h" min={0} max={99} step={1} ariaLabel="Hours" />
+                <NumberInput value={m} onChange={setM} suffix="min" min={0} max={59} step={1} ariaLabel="Minutes" />
+                <NumberInput value={s} onChange={setS} suffix="s" min={0} max={59} step={1} ariaLabel="Seconds" />
+              </div>
+            </fieldset>
+          </div>
         </>
       }
       result={
         pace && km !== null ? (
-          <Result tone="watch" label="Your pace" value={c.formatDuration(pace.perKm)} unit="per km">
+          <Result tone="watch" label="Your pace" value={<LiveNumber value={pace.perKm} format={c.formatDuration} />} unit="per km">
             <div className="grid grid-cols-2 gap-2">
-              <Stat label="Per mile" value={c.formatDuration(pace.perMile)} />
-              <Stat label="Speed" value={`${fmt(pace.kmh, 1)} km/h`} sub={`${fmt(pace.mph, 1)} mph`} />
+              <Stat label="Per mile" value={<LiveNumber value={pace.perMile} format={c.formatDuration} />} />
+              <Stat
+                label="Speed"
+                value={
+                  <>
+                    <LiveNumber value={pace.kmh} decimals={1} /> km/h
+                  </>
+                }
+                sub={`${fmt(pace.mph, 1)} mph`}
+              />
             </div>
             <table className="w-full text-left text-[0.9375rem]">
               <caption className="pb-1 text-left text-xs font-semibold uppercase tracking-wide opacity-70">Predicted times at other distances</caption>
@@ -773,7 +864,9 @@ function PaceCalculator() {
                 {c.RACE_DISTANCES.filter((d) => Math.abs(d.km - km) > 0.01).map((d) => (
                   <tr key={d.key} className="border-b border-ink/10 last:border-0">
                     <th scope="row" className="py-1.5 font-medium">{d.label}</th>
-                    <td className="py-1.5 text-right font-semibold tabular-nums">{c.formatDuration(c.riegel(seconds, km, d.km))}</td>
+                    <td className="py-1.5 text-right font-semibold tabular-nums">
+                      <LiveNumber value={c.riegel(seconds, km, d.km)} format={c.formatDuration} />
+                    </td>
                   </tr>
                 ))}
               </tbody>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Sticker } from "@/components/stickers/Sticker";
 import { UnsubscribeForm } from "@/components/UnsubscribeForm";
 import { PageTransition } from "@/components/motion/PageTransition";
+import { stagger } from "@/components/motion/stagger";
 
 export const metadata: Metadata = {
   title: "Unsubscribe",
@@ -13,7 +14,7 @@ export default function UnsubscribePage() {
     <PageTransition>
       <main className="bg-sand">
         <div className="container-narrow flex flex-col items-center py-16 text-center md:py-24">
-          <Sticker name="mail" size={96} rotate={-8} />
+          <Sticker name="mail" size={96} rotate={-8} className="enter-pop" style={stagger(3)} />
           <h1 className="display display-md mt-6">
             Leaving so <span className="serif-accent">soon?</span>
           </h1>

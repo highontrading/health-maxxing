@@ -6,6 +6,7 @@ import { Icon } from "@/components/Icon";
 import { Sticker } from "@/components/stickers/Sticker";
 import { cn } from "@/lib/cn";
 import type { ConditionCard } from "@/lib/types";
+import { EmptyState, ResultCount, useResultWave } from "./results";
 
 type System = { slug: string; name: string; color: string; sticker: string };
 const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
@@ -14,6 +15,8 @@ const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 export function ConditionExplorer({ conditions, systems }: { conditions: ConditionCard[]; systems: System[] }) {
   const [query, setQuery] = useState("");
   const [system, setSystem] = useState("all");
+  // A body-system chip lets the list fade in again as one region; typing swaps it at once.
+  const wave = useResultWave();
   const sys = useMemo(() => new Map(systems.map((s) => [s.slug, s])), [systems]);
 
   const filtered = useMemo(() => {
@@ -45,7 +48,10 @@ export function ConditionExplorer({ conditions, systems }: { conditions: Conditi
         <input
           type="search"
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => {
+            setQuery(e.target.value);
+            wave.still();
+          }}
           placeholder="Find a condition, e.g. migraine or reflux"
           className="input h-14 rounded-full pl-13 text-lg"
           style={{ paddingLeft: "3.25rem" }}
@@ -53,16 +59,27 @@ export function ConditionExplorer({ conditions, systems }: { conditions: Conditi
       </label>
 
       <div className="scrollbar-none -mx-[var(--gutter)] mt-5 flex gap-2 overflow-x-auto px-[var(--gutter)] py-1" role="group" aria-label="Filter by body system">
-        <button type="button" className={cn("chip chip-outline flex-none py-2", system === "all" && "chip-active")} aria-pressed={system === "all"} onClick={() => setSystem("all")}>
+        <button
+          type="button"
+          className={cn("chip chip-outline filter-chip pressable flex-none py-2", system === "all" && "chip-active")}
+          aria-pressed={system === "all"}
+          onClick={() => {
+            if (system !== "all") wave.replay();
+            setSystem("all");
+          }}
+        >
           Whole body
         </button>
         {systems.map((s) => (
           <button
             key={s.slug}
             type="button"
-            className={cn(`tone-${s.color}`, "chip flex-none py-2", system === s.slug ? "ring-2 ring-ink" : "opacity-90")}
+            className={cn(`tone-${s.color}`, "chip filter-chip pressable flex-none py-2", system === s.slug ? "ring-2 ring-ink" : "opacity-90")}
             aria-pressed={system === s.slug}
-            onClick={() => setSystem(system === s.slug ? "all" : s.slug)}
+            onClick={() => {
+              setSystem(system === s.slug ? "all" : s.slug);
+              wave.replay();
+            }}
           >
             <Sticker name={s.sticker} size={18} flat />
             {s.name}
@@ -75,7 +92,7 @@ export function ConditionExplorer({ conditions, systems }: { conditions: Conditi
           {LETTERS.map((l) => (
             <li key={l}>
               {present.has(l) ? (
-                <a href={`#letter-${l}`} className="flex size-9 items-center justify-center rounded-full text-sm font-bold hover:bg-ink hover:text-paper">
+                <a href={`#letter-${l}`} className="az-letter flex size-9 items-center justify-center rounded-full text-sm font-bold hover:bg-ink hover:text-paper">
                   {l}
                 </a>
               ) : (
@@ -88,22 +105,21 @@ export function ConditionExplorer({ conditions, systems }: { conditions: Conditi
         </ul>
       </nav>
 
-      <p className="mt-6 text-sm text-ink-3" aria-live="polite">
-        {filtered.length} {filtered.length === 1 ? "condition" : "conditions"}
-        {system !== "all" && sys.get(system) ? ` in ${sys.get(system)!.name}` : ""}
-      </p>
+      <ResultCount
+        text={`${filtered.length} ${filtered.length === 1 ? "condition" : "conditions"}${system !== "all" && sys.get(system) ? ` in ${sys.get(system)!.name}` : ""}`}
+        fade={wave.on}
+      />
 
       {groups.length === 0 ? (
-        <div className="mt-8 flex flex-col items-center rounded-[26px] bg-sand px-6 py-16 text-center">
-          <Sticker name="stethoscope" size={84} rotate={-8} />
+        <EmptyState sticker="stethoscope" enter={wave.touched}>
           <p className="mt-5 text-xl font-medium">We have not written that one up yet.</p>
           <p className="mt-2 max-w-md text-ink-3">Try a different spelling, or search the whole site.</p>
           <Link href={`/search?q=${encodeURIComponent(query)}`} className="btn btn-outline mt-5">
             Search everything
           </Link>
-        </div>
+        </EmptyState>
       ) : (
-        <div className="mt-6 space-y-10">
+        <div className={cn("mt-6 space-y-10", wave.region)}>
           {groups.map(([letter, items]) => (
             <section key={letter} id={`letter-${letter}`} className="scroll-mt-36 grid gap-4 md:grid-cols-[80px_1fr]">
               <h2 className="display text-[3.5rem] leading-none text-ink">{letter}</h2>
@@ -114,9 +130,9 @@ export function ConditionExplorer({ conditions, systems }: { conditions: Conditi
                     <li key={c.slug}>
                       <Link
                         href={`/conditions/${c.slug}`}
-                        className={cn(`tone-${s?.color ?? "sand"}`, "group flex h-full gap-3 rounded-[20px] border-[1.5px] border-line-strong p-4 transition-colors hover:border-ink hover:bg-tone-soft")}
+                        className={cn(`tone-${s?.color ?? "sand"}`, "explore-card group flex h-full gap-3 rounded-[20px] border-[1.5px] border-line-strong p-4 hover:border-ink hover:bg-tone-soft")}
                       >
-                        <span className="flex size-11 flex-none items-center justify-center rounded-xl bg-tone-soft transition-colors group-hover:bg-paper">
+                        <span className="flex size-11 flex-none items-center justify-center rounded-xl bg-tone-soft transition-colors duration-(--dur-fast) group-hover:bg-paper">
                           <Sticker name={s?.sticker ?? "stethoscope"} size={28} flat />
                         </span>
                         <span className="min-w-0">

@@ -1,2 +1,159 @@
-/* Motion for the "explore" surfaces. Shared tokens, keyframes and classes live in
-   tokens.css, keyframes.css and utilities.css; add only what is specific here. */
+/* Motion for the "explore" surfaces: the index and filter pages (articles, conditions,
+   exercises, foods, myths, glossary, search). Shared tokens, keyframes and classes live in
+   tokens.css, keyframes.css and utilities.css; this file holds only what is specific here.
+
+   The rule for these pages: a list in the server-rendered page never animates on load, and
+   typing in a filter box never animates anything. Motion answers a discrete control (a chip,
+   a select, a sort, "Show more", "Clear filters"). */
+
+/* Results entering again after a filter change (useResultWave in components/explorers/results.tsx).
+   "a" and "b" are the same animation: switching the name is what replays it on rows that stay,
+   without rebuilding the list. From-only, so a row with neither class is simply visible. */
+@keyframes explore-rise-a {
+  from { opacity: 0; translate: 0 var(--rise-sm); }
+}
+@keyframes explore-rise-b {
+  from { opacity: 0; translate: 0 var(--rise-sm); }
+}
+@keyframes explore-fade-a {
+  from { opacity: 0; }
+}
+@keyframes explore-fade-b {
+  from { opacity: 0; }
+}
+
+/* Glossary: a stronger tint that settles into the soft one. */
+@keyframes glossary-term-flash {
+  0%, 30% { background-color: color-mix(in srgb, var(--tone-solid) 40%, var(--tone-soft)); }
+}
+
+@layer components {
+  /* ---------- Result lists ---------- */
+  /* Cards and rows: a short rise, one after another. Fill "backwards" hides a row only while it
+     waits its turn and leaves nothing applied afterwards. */
+  .result-enter-a,
+  .result-enter-b {
+    animation-duration: var(--dur-base);
+    animation-timing-function: var(--ease-enter);
+    animation-fill-mode: backwards;
+    /* Half the usual stagger: results answer a click, so six steps must end near 300 ms, not 500. */
+    animation-delay: calc(var(--wave-step, 0) * var(--stagger) / 2);
+  }
+  .result-enter-a { animation-name: explore-rise-a; }
+  .result-enter-b { animation-name: explore-rise-b; }
+
+  /* Long lists and the food table body: one fade for the whole region, never row by row. */
+  .results-fade-a { animation: explore-fade-a var(--dur-base) ease-out backwards; }
+  .results-fade-b { animation: explore-fade-b var(--dur-base) ease-out backwards; }
+
+  /* The "12 articles" line: the new text fades in (ResultCount). */
+  .result-count-swap { animation: explore-fade-a var(--dur-base) ease-out backwards; }
+
+  /* The panel shown when a filter leaves nothing (EmptyState). Its sticker uses enter-pop. */
+  .empty-state-enter { animation: explore-rise-a var(--dur-base) var(--ease-enter) backwards; }
+
+  /* ---------- Filter chips ---------- */
+  /* `pressable` sets the pressed size. This lists everything that changes when a chip is picked,
+     so the dark fill or the ring fades in instead of snapping. Two classes, so it wins over
+     `pressable` whatever the order of the stylesheets. */
+  .chip.filter-chip {
+    transition:
+      scale var(--dur-fast) var(--ease-enter),
+      background-color var(--dur-fast) ease,
+      border-color var(--dur-fast) ease,
+      color var(--dur-fast) ease,
+      box-shadow var(--dur-fast) ease,
+      opacity var(--dur-fast) ease,
+      filter var(--dur-fast) ease;
+  }
+  /* A chip that is a label around a visually hidden checkbox shows the keyboard focus itself. */
+  .filter-chip:has(:focus-visible) {
+    outline: 2.5px solid var(--blue-solid);
+    outline-offset: 3px;
+  }
+
+  /* ---------- "Per 100 g / Per serving" ---------- */
+  /* One dark thumb slides under two equal halves; the labels swap colour as it passes. */
+  .basis-toggle-thumb {
+    transition: translate var(--dur-base) var(--ease-move);
+  }
+  .basis-toggle-option {
+    transition:
+      color var(--dur-base) ease,
+      scale var(--dur-fast) var(--ease-enter);
+  }
+  .basis-toggle-option:active {
+    scale: 0.96;
+  }
+
+  /* ---------- Food table ---------- */
+  /* The sort arrow turns over when the direction flips, and pops in on a newly sorted column. */
+  .sort-arrow {
+    transition: rotate var(--dur-base) var(--ease-pop);
+  }
+  .sort-arrow-enter {
+    animation: pop-in var(--dur-base) var(--ease-pop) backwards;
+  }
+
+  /* ---------- Condition and exercise cards ---------- */
+  /* Border and tint fade in on hover; the card gives slightly when pressed. */
+  .explore-card {
+    transition:
+      scale var(--dur-fast) var(--ease-enter),
+      border-color var(--dur-fast) ease,
+      background-color var(--dur-fast) ease;
+  }
+  .explore-card:active {
+    scale: 0.98;
+  }
+  @media (hover: hover) {
+    /* The sticker's own transition (globals.css) gives this its small overshoot. */
+    .explore-card:hover .sticker {
+      scale: 1.1;
+      rotate: calc(var(--r, 0deg) - 6deg);
+    }
+  }
+
+  /* ---------- A to Z bar ---------- */
+  /* The bar itself never moves: it is the fixed reference. A letter only answers the pointer. */
+  .az-letter {
+    transition:
+      scale var(--dur-fast) var(--ease-enter),
+      background-color var(--dur-fast) ease,
+      color var(--dur-fast) ease;
+  }
+  .az-letter:active {
+    scale: 0.9;
+  }
+
+  /* ---------- Glossary ---------- */
+  /* The term a link points at keeps a soft tint until another one is picked, and flashes once
+     when it comes on screen (GlossaryExplorer adds the class then). */
+  .glossary-term {
+    transition: background-color var(--dur-slow) ease;
+  }
+  .glossary-term-target {
+    background-color: var(--tone-soft);
+  }
+  .glossary-term-flash {
+    /* Twice the longest token on purpose: it is a pointer, and the eye needs a moment to find it. */
+    animation: glossary-term-flash calc(var(--dur-slower) * 2) ease-out;
+  }
+
+  /* Reduced motion: globals.css already cuts every duration to almost nothing, but an entrance
+     that starts hidden would still blank its element for one frame, and the stagger would still
+     hold rows back. Here results simply swap. */
+  @media (prefers-reduced-motion: reduce) {
+    .result-enter-a,
+    .result-enter-b,
+    .results-fade-a,
+    .results-fade-b,
+    .result-count-swap,
+    .empty-state-enter,
+    .empty-state-enter > .enter-pop,
+    .sort-arrow-enter,
+    .glossary-term-flash {
+      animation: none;
+    }
+  }
+}
