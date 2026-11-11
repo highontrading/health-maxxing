@@ -42,9 +42,12 @@ function client(): Client {
 
 async function migrate(c: Client): Promise<void> {
   if (isLocalDatabase()) {
-    // WAL lets the build's parallel workers read while something else writes.
-    await c.execute("PRAGMA journal_mode = WAL");
+    // Wait when the file is busy, and say so before anything else: the build opens the database from
+    // several workers at once, and after an unclean stop the first of them holds a lock while it
+    // recovers the journal. Without the timeout the others failed at once with "database is locked".
     await c.execute("PRAGMA busy_timeout = 8000");
+    // WAL lets those workers read while something else writes.
+    await c.execute("PRAGMA journal_mode = WAL");
     await c.execute("PRAGMA foreign_keys = ON");
   }
   await c.execute("CREATE TABLE IF NOT EXISTS meta (key TEXT PRIMARY KEY, value TEXT NOT NULL)");

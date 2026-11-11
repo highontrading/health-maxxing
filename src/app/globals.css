@@ -399,7 +399,9 @@
   .sticker-cut .ln-fat, .sticker-cut .ln-fat * { fill: none !important; stroke-width: 24px !important; }
   .sticker-cut .nocut { display: none; }
   .sticker-flat { filter: none; }
-  .sticker-hover:hover .sticker, .sticker.sticker-hover:hover { scale: 1.08; rotate: calc(var(--r, 0deg) + 6deg); }
+  @media (hover: hover) {
+    .sticker-hover:hover .sticker, .sticker.sticker-hover:hover { scale: 1.08; rotate: calc(var(--r, 0deg) + 6deg); }
+  }
 
   .label-sticker {
     display: inline-flex;
@@ -425,7 +427,9 @@
     width: max-content;
     animation: var(--animate-marquee);
   }
-  .marquee:hover .marquee-track { animation-play-state: paused; }
+  @media (hover: hover) {
+    .marquee:hover .marquee-track { animation-play-state: paused; }
+  }
 
   /* ---------- Article prose ---------- */
   .prose-hm {

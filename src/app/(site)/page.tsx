@@ -42,7 +42,7 @@ export default async function HomePage() {
         {/* ------------------------------------------------ Hero */}
         <section className="relative overflow-hidden bg-paper">
           <div className="container-hm relative grid gap-14 pb-16 pt-10 md:pt-16 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:gap-10 lg:pb-24 lg:pt-20">
-            <div className="relative z-10 min-w-0">
+            <div className="pointer-events-none relative z-10 min-w-0 *:pointer-events-auto">
               <p className="eyebrow inline-flex items-center gap-2 rounded-full bg-sand px-3 py-2 text-ink-2">
                 <span className="size-2 rounded-full bg-[var(--pink-solid)]" />
                 {home.eyebrow}

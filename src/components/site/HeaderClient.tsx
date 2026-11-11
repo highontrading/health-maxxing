@@ -63,6 +63,12 @@ function returnFocus(trigger: HTMLElement | null, layer: HTMLElement | null) {
 /** True when a click inside a layer followed a link, so the layer can close at once (also when the link leads to the page already open). */
 const followedLink = (e: MouseEvent) => (e.target as Element).closest("a") !== null;
 
+/** True when that link leads to the page already open, so no page change will come to close the layer. */
+const followedLinkToThisPage = (e: MouseEvent) => {
+  const link = (e.target as Element).closest("a");
+  return link !== null && link.pathname === window.location.pathname;
+};
+
 /**
  * Closes a menu on Escape and on a press outside `wrap`, the element that holds the trigger and
  * the menu. Escape also hands focus back to the trigger.
@@ -85,6 +91,38 @@ function useDismiss(open: boolean, close: () => void, wrap: RefObject<HTMLElemen
       document.removeEventListener("pointerdown", onDown);
     };
   }, [open, close, wrap, trigger]);
+}
+
+const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), select, textarea, [tabindex]:not([tabindex="-1"])';
+
+/**
+ * Keeps the Tab key inside an open modal layer (plus its trigger, when the trigger stays on screen
+ * as the way to close it). Without this, focus walks on into the page behind the layer.
+ */
+function useFocusTrap(open: boolean, layer: RefObject<HTMLElement | null>, trigger?: RefObject<HTMLElement | null>) {
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Tab" || !layer.current) return;
+      const stops = [...(trigger?.current ? [trigger.current] : []), ...layer.current.querySelectorAll<HTMLElement>(FOCUSABLE)].filter((el) => el.getClientRects().length > 0);
+      if (stops.length === 0) return;
+      const first = stops[0];
+      const last = stops[stops.length - 1];
+      const at = document.activeElement;
+      if (!stops.includes(at as HTMLElement)) {
+        e.preventDefault();
+        (e.shiftKey ? last : first).focus();
+      } else if (!e.shiftKey && at === last) {
+        e.preventDefault();
+        first.focus();
+      } else if (e.shiftKey && at === first) {
+        e.preventDefault();
+        last.focus();
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [open, layer, trigger]);
 }
 
 function PathReader({ onChange }: { onChange: (pathname: string) => void }) {
@@ -137,8 +175,12 @@ function movePill(root: HTMLElement, from: HTMLElement | null, to: HTMLElement |
           { ...pill, duration: base, easing: motionToken(root, "--ease-move") },
         );
       } else {
-        // No link was active before: the pill pops in where it is.
-        to.animate({ opacity: [0, 1], scale: [0.9, 1] }, { ...pill, duration: base, easing: motionToken(root, "--ease-pop") });
+        // No link was active before: the pill pops in where it is. The label must turn white at once
+        // then: the delay in chrome.css is for a pill that is still travelling, and here it would
+        // leave dark text on a dark pill.
+        to.style.transitionDelay = "0s";
+        const pop = to.animate({ opacity: [0, 1], scale: [0.9, 1] }, { ...pill, duration: base, easing: motionToken(root, "--ease-pop") });
+        pop.finished.then(() => to.style.removeProperty("transition-delay")).catch(() => to.style.removeProperty("transition-delay"));
       }
     } else if (from && a?.width) {
       // No link is active now: the old pill fades away.
@@ -188,6 +230,9 @@ function DesktopNavAtPath({ categories }: { categories: NavCategory[] }) {
 function DesktopNavView({ categories, pathname }: { categories: NavCategory[]; pathname: string }) {
   // The panel remembers the page it was opened on, so navigating closes it.
   const [openOn, setOpenOn] = useState<string | null>(null);
+  // Forget it as soon as the page changes, however the visitor left (search, the logo, Back):
+  // otherwise the panel would open by itself when they return to that page.
+  if (openOn !== null && openOn !== pathname) setOpenOn(null);
   const open = openOn === pathname;
   const panel = useLayer(open);
   const nav = useRef<HTMLElement>(null);
@@ -198,7 +243,7 @@ function DesktopNavView({ categories, pathname }: { categories: NavCategory[]; p
   useDismiss(open, close, wrap, trigger);
 
   const linkClass = (active: boolean) =>
-    cn("site-nav-link rounded-full px-3 py-2 text-[0.9375rem] font-medium", active ? "text-paper" : "text-ink-2 hover:bg-sand-2 hover:text-ink");
+    cn("site-nav-link whitespace-nowrap rounded-full px-2 py-2 text-sm font-medium xl:px-3 xl:text-[0.9375rem]", active ? "text-paper" : "text-ink-2 hover:bg-sand-2 hover:text-ink");
   const isActive = (href: string) => pathname === href || pathname.startsWith(href + "/");
   const topicsActive = pathname.startsWith("/topics") || pathname.startsWith("/articles");
   useActivePill(nav, topicsActive ? "topics" : (PRIMARY_LINKS.find((l) => isActive(l.href))?.href ?? null));
@@ -227,7 +272,8 @@ function DesktopNavView({ categories, pathname }: { categories: NavCategory[]; p
             style={FROM_TOP_LEFT}
             data-state={panel.state}
             inert={!open}
-            onClick={(e) => followedLink(e) && close()}
+            // A link to another page closes the panel when that page is on screen (see openOn above).
+            onClick={(e) => followedLinkToThisPage(e) && close()}
           >
             <div className="grid grid-cols-[1fr_210px] gap-4">
               <ul className="grid grid-cols-2 gap-1">
@@ -293,6 +339,7 @@ export function MobileMenu({ categories }: { categories: NavCategory[] }) {
     if (header) setTop(header.getBoundingClientRect().top + header.clientTop + header.clientHeight);
   }, []);
   useScrollLock(open);
+  useFocusTrap(open, panel, button);
 
   useEffect(() => {
     if (!open) return;
@@ -342,7 +389,9 @@ export function MobileMenu({ categories }: { categories: NavCategory[] }) {
           aria-modal="true"
           aria-label="Menu"
           onClick={(e) => {
-            if (!followedLink(e)) return;
+            // A link to another page: the sheet stays until that page is on screen (PathWatcher closes
+            // it then), so the page being left does not flash between the menu and the new page.
+            if (!followedLinkToThisPage(e)) return;
             returnFocus(button.current, panel.current);
             close();
           }}
@@ -447,7 +496,7 @@ export function AccountButton() {
       </button>
       {menu.mounted && (
         <div
-          className="motion-menu absolute right-0 top-[calc(100%+10px)] z-50 w-60 rounded-3xl border border-line bg-paper p-2 shadow-pop"
+          className="motion-menu absolute right-0 top-[calc(100%+10px)] z-[55] w-60 rounded-3xl border border-line bg-paper p-2 shadow-pop"
           style={FROM_TOP_RIGHT}
           data-state={menu.state}
           inert={!open}
@@ -562,6 +611,7 @@ export function SearchButton({ colorOf }: { colorOf: Record<string, string> }) {
   }, []);
   const { hits, loading } = useSearch(query);
   useScrollLock(open);
+  useFocusTrap(open, dialog);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
