@@ -12,7 +12,7 @@ export default function ErrorPage({ error, reset }: { error: Error & { digest?: 
   return (
     <main className="flex min-h-[70dvh] items-center justify-center bg-sand px-4 py-16">
       <div className="w-full max-w-xl text-center">
-        <Sticker name="thermometer" size={104} rotate={-10} />
+        <Sticker name="thermometer" size={104} rotate={-10} className="enter-pop" />
         <h1 className="display display-lg mt-6">
           Something went <span className="serif-accent">wrong.</span>
         </h1>

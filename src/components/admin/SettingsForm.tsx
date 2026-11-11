@@ -5,6 +5,7 @@ import { EMPTY } from "@/app/actions/types";
 import { saveSettingsAction } from "@/app/admin/actions";
 import { SETTING_SECTIONS } from "@/lib/admin/settings-fields";
 import type { SettingsGroup } from "@/lib/settings";
+import { useAnswerCount } from "./motion";
 
 type Value = string | number | boolean | string[];
 
@@ -13,6 +14,8 @@ export function SettingsForm({ groups, values, submitLabel = "Save settings" }: 
   // A long form keeps its save button in view; a single short section does not need that.
   const sticky = groups.length > 1;
   const [state, action, pending] = useActionState(saveSettingsAction, EMPTY);
+  // The messages are keyed by this, so every save answers with a fresh fade, even when the words repeat.
+  const answer = useAnswerCount(state);
   const errors = state.errors ?? {};
   const sections = SETTING_SECTIONS.filter((s) => groups.includes(s.group));
 
@@ -34,7 +37,7 @@ export function SettingsForm({ groups, values, submitLabel = "Save settings" }: 
               const stored = values[name];
               const error = errors[name];
               const note = error ? (
-                <p className="field-error" role="alert">
+                <p key={answer} className="field-error admin-result" role="alert">
                   {error}
                 </p>
               ) : (
@@ -90,7 +93,7 @@ export function SettingsForm({ groups, values, submitLabel = "Save settings" }: 
           {pending ? "Saving…" : submitLabel}
         </button>
         {state.message && (
-          <p role={state.ok ? "status" : "alert"} className={state.ok ? "text-sm font-semibold text-[var(--green-ink)]" : "text-sm font-medium text-[#c21f48]"}>
+          <p key={answer} role={state.ok ? "status" : "alert"} className={state.ok ? "admin-result text-sm font-semibold text-[var(--green-ink)]" : "admin-result text-sm font-medium text-[#c21f48]"}>
             {state.message}
           </p>
         )}

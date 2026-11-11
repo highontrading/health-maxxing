@@ -32,8 +32,9 @@ export function ConfirmSubmit({
       </button>
     );
   }
+  // The pair fades in without moving (admin-confirm), so the second click lands where it was aimed.
   return (
-    <span className="inline-flex items-center gap-1">
+    <span className="admin-confirm inline-flex items-center gap-1">
       <button type="submit" name={name} value={value} className={confirmClassName} autoFocus onBlur={() => setArmed(false)}>
         {confirm}
       </button>

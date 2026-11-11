@@ -3,19 +3,22 @@
 import { useActionState } from "react";
 import { subscribeAction } from "@/app/actions/newsletter";
 import { EMPTY } from "@/app/actions/types";
+import { SubmitLabel, useAnswerCount } from "@/components/auth/FormFeedback";
 import { Icon } from "@/components/Icon";
 import { cn } from "@/lib/cn";
 
 /** Email capture. `dark` is for charcoal backgrounds. */
 export function NewsletterForm({ source = "site", dark = false, className, cta = "Subscribe" }: { source?: string; dark?: boolean; className?: string; cta?: string }) {
   const [state, action, pending] = useActionState(subscribeAction, EMPTY);
+  const answers = useAnswerCount(state);
 
   if (state.ok) {
+    // The pill pops in and its check mark draws itself (`.newsletter-done` in styles/motion/forms.css).
     return (
       <p
         role="status"
         className={cn(
-          "inline-flex items-center gap-2.5 rounded-full px-5 py-3.5 font-semibold",
+          "newsletter-done inline-flex items-center gap-2.5 rounded-full px-5 py-3.5 font-semibold",
           dark ? "bg-lime text-ink" : "bg-lime-soft text-[var(--lime-ink)]",
           className,
         )}
@@ -36,7 +39,7 @@ export function NewsletterForm({ source = "site", dark = false, className, cta =
       </div>
       <div
         className={cn(
-          "flex items-center gap-1.5 rounded-full border-[1.5px] p-1.5 pl-5 transition-shadow focus-within:shadow-[0_0_0_4px_var(--lime-soft)]",
+          "flex items-center gap-1.5 rounded-full border-[1.5px] p-1.5 pl-5 transition-[box-shadow,border-color] duration-(--dur-fast) focus-within:shadow-[0_0_0_4px_var(--lime-soft)]",
           dark ? "border-white/25 bg-white/10 focus-within:border-lime focus-within:shadow-[0_0_0_4px_rgba(196,240,74,0.25)]" : "border-ink bg-paper",
         )}
       >
@@ -54,11 +57,11 @@ export function NewsletterForm({ source = "site", dark = false, className, cta =
           className={cn("h-11 min-w-0 flex-1 bg-transparent text-base outline-none", dark ? "text-paper placeholder:text-white/50" : "placeholder:text-ink-3")}
         />
         <button type="submit" disabled={pending} className={cn("btn flex-none", dark ? "btn-lime" : "btn-primary")}>
-          {pending ? "Adding…" : cta}
+          <SubmitLabel pending={pending} idle={cta} busy="Adding…" />
         </button>
       </div>
       {state.message && (
-        <p role="alert" className={cn("mt-2 pl-5 text-sm font-medium", dark ? "text-[#ff9db4]" : "text-[#c21f48]")}>
+        <p key={answers} role="alert" className={cn("shake mt-2 pl-5 text-sm font-medium", dark ? "text-[#ff9db4]" : "text-[#c21f48]")}>
           {state.message}
         </p>
       )}

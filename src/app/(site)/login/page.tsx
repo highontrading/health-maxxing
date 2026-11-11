@@ -3,6 +3,7 @@ import Link from "next/link";
 import { SignInForm } from "@/components/auth/AuthForms";
 import { Sticker } from "@/components/stickers/Sticker";
 import { PageTransition } from "@/components/motion/PageTransition";
+import { stagger } from "@/components/motion/stagger";
 
 export const metadata: Metadata = { title: "Sign in", robots: { index: false } };
 
@@ -12,7 +13,7 @@ export default function LoginPage() {
       <main className="bg-sand">
         <div className="container-hm flex justify-center py-12 md:py-20">
           <div className="relative w-full max-w-md rounded-[30px] border-[1.5px] border-ink bg-paper p-7 shadow-[0_8px_0_var(--ink)] md:p-9">
-            <Sticker name="smile" size={76} rotate={10} className="absolute -right-2 -top-7 sm:-right-4" />
+            <Sticker name="smile" size={76} rotate={10} className="enter-pop absolute -right-2 -top-7 sm:-right-4" style={stagger(3)} />
             <p className="eyebrow text-ink-3">Welcome back</p>
             <h1 className="display display-md mt-3">
               Sign <span className="serif-accent">in.</span>

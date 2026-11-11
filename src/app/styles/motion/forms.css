@@ -1,2 +1,168 @@
-/* Motion for the "forms" surfaces. Shared tokens, keyframes and classes live in
-   tokens.css, keyframes.css and utilities.css; add only what is specific here. */
+/* Motion for the "forms" surfaces: the forum, sign-in and sign-up, the account
+   page, contact and newsletter forms. Shared tokens, keyframes and classes live
+   in tokens.css, keyframes.css and utilities.css; add only what is specific here.
+   Entrances fill "backwards" only: once an element has arrived, the animation
+   lets go of it, so its own hover styles and stacking apply again. */
+@layer components {
+  /* ---------- Form feedback (src/components/auth/FormFeedback.tsx) ----------
+     Fields and labels never move. Only the words under them do. */
+
+  /* A field the server sent back, in a form marked `site-form`. Border and
+     ring fade to pink through the transition `.input` already has. A focused
+     field keeps the usual focus look, so the focus ring always reads the same. */
+  .site-form :is(.input, .textarea, .select)[aria-invalid="true"]:not(:focus) {
+    border-color: var(--pink-solid);
+    box-shadow: 0 0 0 4px var(--pink-soft);
+  }
+
+  /* The line under a field (FieldError) and short good news ("Profile saved.")
+     rise in a little. */
+  .field-error-in,
+  .form-status-in {
+    --rise: var(--rise-sm);
+    animation: rise-in var(--dur-base) var(--ease-enter) backwards;
+  }
+
+  /* SubmitLabel. Both wordings are measured all the time (invisible, no
+     height), so the button is as wide as the wider one and never changes
+     width when it switches to "Sending…". */
+  .submit-label {
+    display: inline-grid;
+    place-items: center;
+  }
+  .submit-label > *,
+  .submit-label::before,
+  .submit-label::after {
+    grid-area: 1 / 1;
+  }
+  .submit-label::before,
+  .submit-label::after {
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+  }
+  .submit-label::before {
+    content: attr(data-idle);
+  }
+  .submit-label::after {
+    content: attr(data-busy);
+    padding-inline-start: 1.5rem; /* the spinner (16px) and its gap */
+  }
+  .submit-label-busy {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    animation: fade-in var(--dur-fast) ease-out backwards;
+  }
+  /* A button with one wording only: the spinner takes the label's place. */
+  .submit-label-waiting {
+    opacity: 0;
+  }
+
+  /* ---------- Forum: like ---------- */
+  .like-button {
+    transition:
+      scale var(--dur-fast) var(--ease-enter),
+      color var(--dur-fast) ease,
+      background-color var(--dur-fast) ease,
+      border-color var(--dur-fast) ease;
+  }
+  .like-button:active:not(:disabled) {
+    scale: 0.94;
+  }
+  /* The new number, after a click changed the count. */
+  .like-count-in {
+    animation: fade-in var(--dur-fast) ease-out backwards;
+  }
+
+  /* ---------- Forum: the quiet buttons under a post (Report, Delete) ---------- */
+  .post-action {
+    transition:
+      scale var(--dur-fast) var(--ease-enter),
+      color var(--dur-fast) ease,
+      background-color var(--dur-fast) ease;
+  }
+  .post-action:active {
+    scale: 0.96;
+  }
+
+  /* ---------- Forum: report form (a <Collapse> under the action row) ----------
+     It leaves faster than it arrives. REPORT_EXIT_MS in ForumClient.tsx must
+     stay a little longer than this. */
+  .report-panel[data-open="false"] {
+    transition-duration: var(--dur-fast);
+    transition-timing-function: var(--ease-exit);
+  }
+  .report-panel[data-open="false"] > * {
+    transition-delay: var(--dur-fast);
+  }
+
+  /* ---------- Forum: delete confirmation ----------
+     Opacity only. It appears where the button was, and the next click must
+     land on something that is not moving. */
+  .delete-confirm {
+    animation: fade-in var(--dur-fast) ease-out backwards;
+  }
+
+  /* ---------- Forum: a reply that has just been posted ----------
+     ReplyForm adds this class once the reply is on screen, and removes it
+     when the highlight has faded. */
+  .reply-new {
+    animation: reply-flash var(--dur-slower) var(--ease-exit) backwards;
+  }
+
+  /* ---------- Forum: lists ----------
+     The avatar or board sticker leans in when its row or card is pointed at. */
+  .thread-row:has(a:focus-visible) .sticker {
+    rotate: -8deg;
+    scale: 1.1;
+  }
+  @media (hover: hover) {
+    .thread-row:hover .sticker {
+      rotate: -8deg;
+      scale: 1.1;
+    }
+    .board-card:hover .sticker {
+      rotate: calc(var(--r, 0deg) * 1.6);
+      scale: 1.08;
+    }
+  }
+
+  /* ---------- Account: sticker and colour pickers ---------- */
+  .avatar-pick {
+    transition:
+      scale var(--dur-fast) var(--ease-enter),
+      background-color var(--dur-fast) ease,
+      border-color var(--dur-fast) ease,
+      box-shadow var(--dur-fast) ease;
+  }
+  .avatar-pick:active {
+    scale: 0.92;
+  }
+
+  /* ---------- Newsletter: "You're in" ----------
+     The pill pops in and its check mark draws itself. */
+  .newsletter-done {
+    animation: pop-in var(--dur-slow) var(--ease-pop) backwards;
+  }
+  .newsletter-done svg path {
+    stroke-dasharray: 24; /* a little longer than the check mark */
+    animation: draw-check var(--dur-slow) var(--ease-enter) var(--dur-fast) backwards;
+  }
+
+  /* ---------- Contact: "Message sent." ---------- */
+  .contact-done {
+    animation: rise-in var(--dur-slow) var(--ease-enter) backwards;
+    /* It is scrolled into view while it is still this much too low. */
+    scroll-margin-top: var(--rise);
+  }
+}
+
+/* The highlight holds for a moment, then fades back to the reply's own look. */
+@keyframes reply-flash {
+  from,
+  40% {
+    background-color: var(--lime-soft);
+    box-shadow: 0 0 0 3px var(--lime-solid);
+  }
+}

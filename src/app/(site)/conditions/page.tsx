@@ -30,7 +30,7 @@ export default async function ConditionsPage() {
           crumbs={[{ href: "/", label: "Home" }, { label: "Conditions" }]}
         >
           <Link href="/body" className="btn btn-primary">
-            Browse by body part <Icon name="arrow-right" size={16} />
+            Browse by body part <Icon name="arrow-right" size={16} className="nudge-x" />
           </Link>
         </PageHero>
         <div className="container-hm py-10 md:py-14">

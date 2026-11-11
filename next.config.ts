@@ -16,8 +16,10 @@ const nextConfig: NextConfig = {
   experimental: {
     // Image uploads in the admin panel go through a Server Action (4 MB limit plus form overhead).
     serverActions: { bodySizeLimit: "5mb" },
-    // A warm Turbopack cache once served an out-of-date stylesheet after a CSS-only change. A build takes
-    // about half a minute without it, so builds and dev servers always start clean.
+    // Turbopack's disk cache has served an out-of-date stylesheet twice here: to a build after a
+    // CSS-only change, and to a dev server that restored a cache from before the change. So builds
+    // and dev servers always start clean. The price: a dev server cannot release memory without that
+    // cache, and a very busy session grew past 11 GB, so restart a dev server that has run for hours.
     turbopackFileSystemCacheForBuild: false,
     turbopackFileSystemCacheForDev: false,
   },

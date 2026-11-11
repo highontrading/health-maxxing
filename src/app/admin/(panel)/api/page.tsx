@@ -22,8 +22,9 @@ export default async function ApiTokensPage({ searchParams }: PageProps<"/admin/
         description="Tokens let a script or an AI agent read and change content without signing in. Anything a token creates starts as a draft unless it asks to publish."
       />
       <Notice query={query} />
+      {/* min-w-0 on both columns: the table and the command blocks scroll inside their cards, not the page. */}
       <div className="grid items-start gap-5 xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-        <div className="space-y-5">
+        <div className="min-w-0 space-y-5">
           <Card title="Create a token">
             <TokenCreator />
             <p className="field-help mt-3">A token can do everything an editor can do with content. Treat it like a password, and revoke it here if it leaks.</p>
@@ -73,7 +74,7 @@ export default async function ApiTokensPage({ searchParams }: PageProps<"/admin/
           </Card>
         </div>
 
-        <Card title="Using the API">
+        <Card title="Using the API" className="min-w-0">
           <div className="space-y-4 text-sm">
             <p className="text-ink-2">
               Send the token in the <code className="rounded bg-sand-2 px-1">Authorization</code> header. <code className="rounded bg-sand-2 px-1">GET {base}</code> describes every collection and its fields.

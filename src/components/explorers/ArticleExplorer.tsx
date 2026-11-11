@@ -8,6 +8,7 @@ import { Sticker } from "@/components/stickers/Sticker";
 import { cn } from "@/lib/cn";
 import { KIND_LABEL } from "@/lib/format";
 import type { ArticleCard as Card } from "@/lib/types";
+import { EmptyState, ResultCount, useResultWave } from "./results";
 
 type Cat = { slug: string; name: string; color: string; sticker: string };
 const PAGE = 18;
@@ -22,6 +23,8 @@ export function ArticleExplorer({ articles, categories }: { articles: Card[]; ca
   const [sort, setSort] = useState<"new" | "quick" | "az">("new");
   const [query, setQuery] = useState("");
   const [shown, setShown] = useState(PAGE);
+  // Controls let the cards enter again; typing swaps them at once.
+  const wave = useResultWave();
   const cat = useMemo(() => new Map(categories.map((c) => [c.slug, c])), [categories]);
 
   const kinds = useMemo(() => Array.from(new Set(articles.map((a) => a.kind))), [articles]);
@@ -52,6 +55,7 @@ export function ArticleExplorer({ articles, categories }: { articles: Card[]; ca
             onChange={(e) => {
               setQuery(e.target.value);
               reset();
+              wave.still();
             }}
             placeholder="Filter by word, e.g. protein"
             className="input rounded-full pl-11"
@@ -68,6 +72,7 @@ export function ArticleExplorer({ articles, categories }: { articles: Card[]; ca
             onChange={(e) => {
               setKind(e.target.value);
               reset();
+              wave.replay();
             }}
           >
             <option value="all">All formats</option>
@@ -80,7 +85,15 @@ export function ArticleExplorer({ articles, categories }: { articles: Card[]; ca
           <label className="sr-only" htmlFor="sort">
             Sort
           </label>
-          <select id="sort" className="select w-auto rounded-full py-2 text-sm font-medium" value={sort} onChange={(e) => setSort(e.target.value as typeof sort)}>
+          <select
+            id="sort"
+            className="select w-auto rounded-full py-2 text-sm font-medium"
+            value={sort}
+            onChange={(e) => {
+              setSort(e.target.value as typeof sort);
+              wave.replay();
+            }}
+          >
             <option value="new">Newest first</option>
             <option value="quick">Quickest reads</option>
             <option value="az">A to Z</option>
@@ -91,9 +104,10 @@ export function ArticleExplorer({ articles, categories }: { articles: Card[]; ca
       <div className="scrollbar-none -mx-[var(--gutter)] mt-5 flex gap-2 overflow-x-auto px-[var(--gutter)] pb-1 pt-1" role="group" aria-label="Filter by topic">
         <button
           type="button"
-          className={cn("chip chip-outline flex-none py-2", topic === "all" && "chip-active")}
+          className={cn("chip chip-outline filter-chip pressable flex-none py-2", topic === "all" && "chip-active")}
           aria-pressed={topic === "all"}
           onClick={() => {
+            if (topic !== "all") wave.replay();
             setTopic("all");
             reset();
           }}
@@ -104,11 +118,12 @@ export function ArticleExplorer({ articles, categories }: { articles: Card[]; ca
           <button
             key={c.slug}
             type="button"
-            className={cn(`tone-${c.color}`, "chip flex-none py-2", topic === c.slug ? "ring-2 ring-ink" : "opacity-90")}
+            className={cn(`tone-${c.color}`, "chip filter-chip pressable flex-none py-2", topic === c.slug ? "ring-2 ring-ink" : "opacity-90")}
             aria-pressed={topic === c.slug}
             onClick={() => {
               setTopic(topic === c.slug ? "all" : c.slug);
               reset();
+              wave.replay();
             }}
           >
             <Sticker name={c.sticker} size={18} flat />
@@ -117,20 +132,22 @@ export function ArticleExplorer({ articles, categories }: { articles: Card[]; ca
         ))}
       </div>
 
-      <p className="mt-6 text-sm text-ink-3" aria-live="polite">
-        {filtered.length} {filtered.length === 1 ? "article" : "articles"}
-        {topic !== "all" && cat.get(topic) ? ` in ${cat.get(topic)!.name}` : ""}
-      </p>
+      <ResultCount
+        text={`${filtered.length} ${filtered.length === 1 ? "article" : "articles"}${topic !== "all" && cat.get(topic) ? ` in ${cat.get(topic)!.name}` : ""}`}
+        fade={wave.on}
+      />
 
       {filtered.length ? (
         <div className="mt-6 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-          {filtered.slice(0, shown).map((a) => (
-            <ArticleCard key={a.slug} article={a} category={cat.get(a.category)} headingLevel={2} />
+          {/* The wrapper carries the entrance, so the card keeps its own hover and press motion. */}
+          {filtered.slice(0, shown).map((a, i) => (
+            <div key={a.slug} {...wave.row(i)}>
+              <ArticleCard article={a} category={cat.get(a.category)} headingLevel={2} className="h-full" />
+            </div>
           ))}
         </div>
       ) : (
-        <div className="mt-8 flex flex-col items-center rounded-[26px] bg-sand px-6 py-16 text-center">
-          <Sticker name="magnifier" size={84} rotate={-8} />
+        <EmptyState sticker="magnifier" enter={wave.touched}>
           <p className="mt-5 text-xl font-medium">Nothing matches that yet.</p>
           <button
             type="button"
@@ -140,16 +157,25 @@ export function ArticleExplorer({ articles, categories }: { articles: Card[]; ca
               setKind("all");
               setQuery("");
               reset();
+              wave.replay();
             }}
           >
             Clear filters
           </button>
-        </div>
+        </EmptyState>
       )}
 
       {filtered.length > shown && (
         <div className="mt-12 flex justify-center">
-          <button type="button" className="btn btn-outline btn-lg" onClick={() => setShown((s) => s + PAGE)}>
+          <button
+            type="button"
+            className="btn btn-outline btn-lg"
+            onClick={() => {
+              // Only the cards that are added enter; the ones already on screen stay still.
+              wave.extend(shown);
+              setShown((s) => s + PAGE);
+            }}
+          >
             Show more <span className="text-ink-3">({filtered.length - shown} left)</span>
           </button>
         </div>

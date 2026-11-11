@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { Icon } from "@/components/Icon";
-import { Sticker } from "@/components/stickers/Sticker";
 import { cn } from "@/lib/cn";
+import { useReducedMotion } from "@/lib/hooks";
 import type { GlossaryTerm } from "@/lib/types";
+import { EmptyState } from "./results";
 
 type Cat = { slug: string; name: string; color: string };
 const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
@@ -16,20 +17,47 @@ const slugOf = (term: string) =>
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
 
+const onHashChange = (notify: () => void) => {
+  window.addEventListener("hashchange", notify);
+  return () => window.removeEventListener("hashchange", notify);
+};
+/** The term named in the address (`#hba1c`), or "" for none. A badly encoded address names nothing. */
+const readHash = () => {
+  try {
+    return decodeURIComponent(window.location.hash.slice(1));
+  } catch {
+    return "";
+  }
+};
+const noHash = () => "";
+
 /** A to Z glossary with a text filter. Each term has an anchor so it can be linked to. */
 export function GlossaryExplorer({ terms, categories }: { terms: GlossaryTerm[]; categories: Cat[] }) {
   const [query, setQuery] = useState("");
-  const [flash, setFlash] = useState("");
+  // The term named in the URL hash is tinted, including after in-page jumps.
+  const target = useSyncExternalStore(onHashChange, readHash, noHash);
+  // It also flashes once, when it comes on screen: a jump across this long page takes a moment to arrive.
+  // The last term that flashed is remembered, so coming back to this page with Back does not flash it again.
+  const [flashing, setFlashing] = useState("");
+  const lastFlashed = useRef("");
+  const reducedMotion = useReducedMotion();
+  useEffect(() => {
+    const el = target ? document.getElementById(target) : null;
+    if (!el || target === lastFlashed.current || reducedMotion || !("IntersectionObserver" in window)) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        observer.disconnect();
+        lastFlashed.current = target;
+        setFlashing(target);
+      },
+      { threshold: 0.6 },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [target, reducedMotion]);
   const cat = useMemo(() => new Map(categories.map((c) => [c.slug, c])), [categories]);
   const known = useMemo(() => new Set(terms.map((t) => t.slug)), [terms]);
-
-  // Highlight the term named in the URL hash, including after in-page jumps.
-  useEffect(() => {
-    const apply = () => setFlash(decodeURIComponent(window.location.hash.slice(1)));
-    apply();
-    window.addEventListener("hashchange", apply);
-    return () => window.removeEventListener("hashchange", apply);
-  }, []);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -53,7 +81,18 @@ export function GlossaryExplorer({ terms, categories }: { terms: GlossaryTerm[];
       <label className="relative block w-full max-w-xl">
         <span className="sr-only">Find a term</span>
         <Icon name="search" size={20} className="pointer-events-none absolute left-5 top-1/2 -translate-y-1/2 text-ink-3" />
-        <input type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Find a term, e.g. HbA1c" className="input h-14 rounded-full text-lg" style={{ paddingLeft: "3.25rem" }} />
+        <input
+          type="search"
+          value={query}
+          onChange={(e) => {
+            setQuery(e.target.value);
+            // Typing rebuilds the rows: a term that comes back into the list keeps its tint but has had its flash.
+            setFlashing("");
+          }}
+          placeholder="Find a term, e.g. HbA1c"
+          className="input h-14 rounded-full text-lg"
+          style={{ paddingLeft: "3.25rem" }}
+        />
       </label>
 
       <nav aria-label="Jump to letter" className="sticky top-[var(--header-h)] z-20 -mx-[var(--gutter)] mt-6 border-y border-line bg-paper/95 px-[var(--gutter)] py-2.5 backdrop-blur">
@@ -61,7 +100,7 @@ export function GlossaryExplorer({ terms, categories }: { terms: GlossaryTerm[];
           {LETTERS.map((l) => (
             <li key={l}>
               {present.has(l) ? (
-                <a href={`#letter-${l}`} className="flex size-9 items-center justify-center rounded-full text-sm font-bold hover:bg-ink hover:text-paper">
+                <a href={`#letter-${l}`} className="az-letter flex size-9 items-center justify-center rounded-full text-sm font-bold hover:bg-ink hover:text-paper">
                   {l}
                 </a>
               ) : (
@@ -79,10 +118,9 @@ export function GlossaryExplorer({ terms, categories }: { terms: GlossaryTerm[];
       </p>
 
       {groups.length === 0 ? (
-        <div className="mt-8 flex flex-col items-center rounded-[26px] bg-sand px-6 py-16 text-center">
-          <Sticker name="chat" size={84} rotate={-8} />
+        <EmptyState sticker="chat" enter={query.trim() !== ""}>
           <p className="mt-5 text-xl font-medium">We have not defined that one yet.</p>
-        </div>
+        </EmptyState>
       ) : (
         <div className="mt-6 space-y-12">
           {groups.map(([letter, items]) => (
@@ -92,7 +130,17 @@ export function GlossaryExplorer({ terms, categories }: { terms: GlossaryTerm[];
                 {items.map((t) => {
                   const c = cat.get(t.category);
                   return (
-                    <div key={t.slug} id={t.slug} className={cn(`tone-${c?.color ?? "sand"}`, "scroll-mt-40 border-t-[1.5px] border-ink px-3 py-4 transition-colors duration-700", flash === t.slug && "bg-tone-soft")}>
+                    <div
+                      key={t.slug}
+                      id={t.slug}
+                      className={cn(
+                        `tone-${c?.color ?? "sand"}`,
+                        "glossary-term scroll-mt-40 border-t-[1.5px] border-ink px-3 py-4",
+                        target === t.slug && "glossary-term-target",
+                        target === t.slug && flashing === t.slug && "glossary-term-flash",
+                      )}
+                      onAnimationEnd={flashing === t.slug ? () => setFlashing("") : undefined}
+                    >
                       <dt className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
                         <span className="text-[1.1875rem] font-semibold tracking-[-0.015em]">{t.term}</span>
                         {c && <span className="eyebrow text-tone-ink">{c.name}</span>}

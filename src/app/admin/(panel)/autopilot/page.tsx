@@ -156,7 +156,8 @@ export default async function AutopilotPage({ searchParams }: PageProps<"/admin/
           )}
         </div>
 
-        <div className="space-y-5">
+        {/* min-w-0: the command block below must scroll inside its card, not widen the page on a phone. */}
+        <div className="min-w-0 space-y-5">
           <SettingsForm groups={["autopilot"]} values={flattenSettings(settings, ["autopilot"])} submitLabel="Save autopilot settings" />
 
           <Card title="Run it on a schedule">

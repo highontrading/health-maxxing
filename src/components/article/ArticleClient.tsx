@@ -1,42 +1,64 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect, useState, useSyncExternalStore } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
 import { Icon } from "@/components/Icon";
+import { stagger } from "@/components/motion/stagger";
 import { cn } from "@/lib/cn";
 import type { TocItem } from "@/lib/markdown";
 
+/* The motion for everything in this file is in `src/app/styles/motion/reading.css`. */
+
 /* ---------------- Reading progress ---------------- */
 
-/** A thin bar showing how far through `#article-body` the reader is. */
+/**
+ * A thin bar showing how far through `#article-body` the reader is. The
+ * article is measured when the page changes size, not while it scrolls: a
+ * scroll only reads the scroll position and sets one transform, so it costs
+ * no layout and no re-render.
+ */
 export function ReadingProgress() {
-  const [pct, setPct] = useState(0);
+  const bar = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    const el = document.getElementById("article-body");
-    if (!el) return;
+    const fill = bar.current;
+    // Look inside this page only: the page before it may still be in the document, hidden.
+    const el = fill?.closest("main")?.querySelector<HTMLElement>("#article-body");
+    if (!fill || !el) return;
+    let top = 0;
+    let height = 0;
     let frame = 0;
-    const update = () => {
+    const paint = () => {
       frame = 0;
+      const total = height - window.innerHeight * 0.6;
+      const done = Math.min(Math.max(window.scrollY - top + window.innerHeight * 0.25, 0), Math.max(total, 1));
+      fill.style.scale = `${total > 0 ? done / total : 0} 1`;
+    };
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(paint);
+    };
+    const measure = () => {
       const rect = el.getBoundingClientRect();
-      const total = rect.height - window.innerHeight * 0.6;
-      const done = Math.min(Math.max(-rect.top + window.innerHeight * 0.25, 0), Math.max(total, 1));
-      setPct(total > 0 ? (done / total) * 100 : 0);
+      top = rect.top + window.scrollY;
+      height = rect.height;
+      schedule();
     };
-    const onScroll = () => {
-      if (!frame) frame = requestAnimationFrame(update);
-    };
-    update();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
+    measure();
+    // The article reflows (fonts, a narrower window), or something above it opens and moves it down.
+    const sizes = new ResizeObserver(measure);
+    sizes.observe(el);
+    sizes.observe(document.body);
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", measure);
     return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      sizes.disconnect();
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", measure);
       if (frame) cancelAnimationFrame(frame);
     };
   }, []);
   return (
-    <div className="pointer-events-none fixed inset-x-0 top-0 z-50 h-1" aria-hidden="true">
-      <div className="h-full origin-left bg-tone-solid transition-[width] duration-100" style={{ width: `${pct}%` }} />
+    <div className="reading-progress pointer-events-none fixed inset-x-0 top-0 z-50 h-1" aria-hidden="true">
+      <div ref={bar} className="reading-progress-bar h-full bg-tone-solid" />
     </div>
   );
 }
@@ -45,13 +67,23 @@ export function ReadingProgress() {
 
 export function Toc({ items, className }: { items: TocItem[]; className?: string }) {
   const [active, setActive] = useState(items[0]?.id ?? "");
+  const list = useRef<HTMLDivElement>(null);
+
+  // The section being read is the last heading that has passed a line about a third of the way down the
+  // screen. The observer only says when a heading crosses that line; positions are read then, not on scroll.
   useEffect(() => {
-    const headings = items.map((i) => document.getElementById(i.id)).filter((el): el is HTMLElement => !!el);
+    // Look inside this page only: the page before it may still be in the document, with the same ids.
+    const scope: ParentNode = list.current?.closest("main") ?? document;
+    const headings = items.map((i) => scope.querySelector<HTMLElement>(`#${CSS.escape(i.id)}`)).filter((el): el is HTMLElement => !!el);
     if (!headings.length) return;
     const io = new IntersectionObserver(
-      (entries) => {
-        const visible = entries.filter((e) => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-        if (visible[0]) setActive(visible[0].target.id);
+      () => {
+        const line = window.innerHeight * 0.35;
+        let current = headings[0];
+        for (const heading of headings) {
+          if (heading.getBoundingClientRect().top <= line) current = heading;
+        }
+        setActive(current.id);
       },
       { rootMargin: "-90px 0px -65% 0px", threshold: 0 },
     );
@@ -59,26 +91,51 @@ export function Toc({ items, className }: { items: TocItem[]; className?: string
     return () => io.disconnect();
   }, [items]);
 
+  // Slide the marker to the active link. Links wrap to different heights, so its place is measured.
+  useLayoutEffect(() => {
+    const el = list.current;
+    if (!el) return;
+    const place = () => {
+      const link = el.querySelector<HTMLElement>('a[data-active="true"]');
+      if (!link || !link.offsetHeight) {
+        // Nothing to point at, or the list is not displayed (a narrow screen): the link shows the bar itself.
+        el.removeAttribute("data-marker");
+        return;
+      }
+      el.style.setProperty("--toc-y", String(link.offsetTop));
+      el.style.setProperty("--toc-h", String(link.offsetHeight));
+      el.dataset.marker = "on";
+    };
+    place();
+    const sizes = new ResizeObserver(place);
+    sizes.observe(el);
+    return () => sizes.disconnect();
+  }, [active]);
+
   if (items.length < 2) return null;
   return (
     <nav aria-label="On this page" className={className}>
       <p className="eyebrow mb-3 text-ink-3">On this page</p>
-      <ol className="space-y-0.5 border-l-[1.5px] border-line">
-        {items.map((item) => (
-          <li key={item.id}>
-            <a
-              href={`#${item.id}`}
-              className={cn(
-                "-ml-[1.5px] block border-l-[2.5px] py-1.5 text-[0.875rem] leading-snug transition-colors",
-                item.level === 3 ? "pl-6" : "pl-3.5",
-                active === item.id ? "border-tone-solid font-semibold text-ink" : "border-transparent text-ink-3 hover:text-ink",
-              )}
-            >
-              {item.text}
-            </a>
-          </li>
-        ))}
-      </ol>
+      <div ref={list} className="toc-list">
+        <ol className="space-y-0.5 border-l-[1.5px] border-line">
+          {items.map((item) => (
+            <li key={item.id}>
+              <a
+                href={`#${item.id}`}
+                data-active={active === item.id}
+                className={cn(
+                  "toc-link -ml-[1.5px] block py-1.5 text-[0.875rem] leading-snug",
+                  item.level === 3 ? "pl-6" : "pl-3.5",
+                  active === item.id ? "font-semibold text-ink" : "text-ink-3 hover:text-ink",
+                )}
+              >
+                {item.text}
+              </a>
+            </li>
+          ))}
+        </ol>
+        <span className="toc-marker" aria-hidden="true" />
+      </div>
     </nav>
   );
 }
@@ -132,24 +189,52 @@ export function useSaved() {
   return {
     items,
     isSaved: (slug: string) => items.some((i) => i.slug === slug),
-    toggle: (item: SavedItem) => write(items.some((i) => i.slug === item.slug) ? items.filter((i) => i.slug !== item.slug) : [item, ...items]),
-    remove: (slug: string) => write(items.filter((i) => i.slug !== slug)),
+    // Both change the list as it is now, not as it was at the last render: a row is removed a moment
+    // after the click (SavedList), and must not undo whatever changed in between.
+    toggle: (item: SavedItem) => {
+      const now = snapshot();
+      write(now.some((i) => i.slug === item.slug) ? now.filter((i) => i.slug !== item.slug) : [item, ...now]);
+    },
+    remove: (slug: string) => write(snapshot().filter((i) => i.slug !== slug)),
   };
 }
 
 export function SaveButton({ item, className }: { item: SavedItem; className?: string }) {
   const { isSaved, toggle } = useSaved();
   const saved = isSaved(item.slug);
+  // Clicks so far, and how many of them saved. The bookmark bumps for a click that saves and the
+  // label fades for any click, but never on load, when a returning reader's "Saved" simply appears.
+  const [clicks, setClicks] = useState({ any: false, saves: 0 });
   return (
-    <button type="button" className={cn("btn btn-sm", saved ? "btn-primary" : "btn-outline", className)} aria-pressed={saved} onClick={() => toggle(item)}>
-      <Icon name="bookmark" size={15} fill={saved ? "currentColor" : "none"} />
-      {saved ? "Saved" : "Save"}
+    <button
+      type="button"
+      className={cn("btn btn-sm", saved ? "btn-primary" : "btn-outline", className)}
+      aria-pressed={saved}
+      onClick={() => {
+        setClicks((c) => ({ any: true, saves: saved ? c.saves : c.saves + 1 }));
+        toggle(item);
+      }}
+    >
+      {/* A new key replays the bump. */}
+      <span key={clicks.saves} className={cn("flex", clicks.saves > 0 && "bump")}>
+        <Icon name="bookmark" size={15} fill="currentColor" className="save-icon" style={{ fillOpacity: saved ? 1 : 0 }} />
+      </span>
+      {/* data-reserve holds the button at the width of the longer wording. */}
+      <span className="save-label" data-reserve="Saved">
+        <span key={saved ? "saved" : "save"} className={clicks.any ? "reading-swap-in" : undefined}>
+          {saved ? "Saved" : "Save"}
+        </span>
+      </span>
     </button>
   );
 }
 
 export function ShareButton({ title, className }: { title: string; className?: string }) {
-  const [copied, setCopied] = useState(false);
+  // "idle" until the link has been copied once, so nothing moves on load; then "copied" and back to "ready".
+  const [state, setState] = useState<"idle" | "copied" | "ready">("idle");
+  const reset = useRef<number | undefined>(undefined);
+  const copied = state === "copied";
+  const used = state !== "idle";
   return (
     <button
       type="button"
@@ -162,15 +247,25 @@ export function ShareButton({ title, className }: { title: string; className?: s
             return;
           }
           await navigator.clipboard.writeText(url);
-          setCopied(true);
-          setTimeout(() => setCopied(false), 1800);
+          setState("copied");
+          // A second click restarts the wait instead of cutting the message short.
+          window.clearTimeout(reset.current);
+          reset.current = window.setTimeout(() => setState("ready"), 1800);
         } catch {
           /* cancelled or blocked */
         }
       }}
     >
-      <Icon name={copied ? "check" : "share"} size={15} />
-      <span aria-live="polite">{copied ? "Link copied" : "Share"}</span>
+      {/* The tick pops in; the share icon fades back. stagger(0): it answers a click, so it never waits its turn. */}
+      <span key={copied ? "copied" : "share"} className={cn("flex", used && (copied ? "enter-pop" : "reading-swap-in"))} style={stagger(0)}>
+        <Icon name={copied ? "check" : "share"} size={15} />
+      </span>
+      {/* The live region stays; only the wording inside it is replaced, which is what gets announced. */}
+      <span aria-live="polite">
+        <span key={copied ? "copied" : "share"} className={used ? "reading-swap-in" : undefined}>
+          {copied ? "Link copied" : "Share"}
+        </span>
+      </span>
     </button>
   );
 }

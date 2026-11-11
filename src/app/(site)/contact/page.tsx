@@ -38,7 +38,7 @@ export default async function ContactPage() {
             <ContactForm />
           </div>
           <aside className="space-y-4">
-            <div className="rounded-[24px] bg-sand p-6">
+            <div className="reveal rounded-[24px] bg-sand p-6">
               <h2 className="eyebrow text-ink-3">Before you write</h2>
               <ul className="mt-4 space-y-3 text-[0.9375rem] leading-relaxed">
                 <li>
@@ -54,7 +54,7 @@ export default async function ContactPage() {
               </ul>
             </div>
             {email && (
-              <div className="rounded-[24px] border-[1.5px] border-ink p-6">
+              <div className="reveal rounded-[24px] border-[1.5px] border-ink p-6">
                 <h2 className="eyebrow text-ink-3">Prefer email?</h2>
                 <a href={`mailto:${email}`} className="mt-3 block text-lg font-semibold underline underline-offset-4">
                   {email}

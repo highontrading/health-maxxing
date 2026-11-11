@@ -1,2 +1,234 @@
 /* Motion for the "tools" surfaces. Shared tokens, keyframes and classes live in
-   tokens.css, keyframes.css and utilities.css; add only what is specific here. */
+   tokens.css, keyframes.css and utilities.css; add only what is specific here.
+
+   The calculators (src/components/tools) follow three rules:
+   - Nothing that is on the page when it opens animates. `[data-enter]` is put
+     only on what the visitor's own input brought in (the first result with
+     its content, or something that joins a result later), and it is removed
+     when the entrance ends: see components/tools/motion.tsx.
+   - Inputs never move, shake or change colour while a number is half typed.
+   - Markers and bars travel with translate and scale, never with layout. */
+
+@layer components {
+  /* ---------- Tools index: cards ----------
+     A small lift, the sticker tilts and the arrow leans out. Keyboard focus
+     gets the same cues except the lift. The hover is read from the slot (the
+     list item), which stays put: a card that lifts from under the pointer
+     would flicker at its bottom edge. */
+  .tool-card {
+    transition:
+      translate var(--dur-base) var(--ease-enter),
+      scale var(--dur-fast) var(--ease-enter);
+  }
+  .tool-card:active {
+    scale: 0.985;
+  }
+  /* The arrow's colours live here, not in utility classes, so the hover below can invert them. */
+  .tool-card-arrow {
+    background: var(--paper);
+    color: var(--ink);
+    transition:
+      background-color var(--dur-fast) ease,
+      color var(--dur-fast) ease;
+  }
+  .tool-card-arrow svg {
+    transition: translate var(--dur-base) var(--ease-enter);
+  }
+  .tool-card:focus-visible .tool-card-arrow {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .tool-card:focus-visible .tool-card-arrow svg {
+    translate: 2px -2px;
+  }
+  @media (hover: hover) {
+    .tool-card-slot:hover .tool-card {
+      translate: 0 -4px;
+    }
+    .tool-card-slot:hover .sticker {
+      scale: 1.08;
+      rotate: calc(var(--r, 0deg) + 6deg);
+    }
+    .tool-card-slot:hover .tool-card-arrow {
+      background: var(--ink);
+      color: var(--paper);
+    }
+    .tool-card-slot:hover .tool-card-arrow svg {
+      translate: 2px -2px;
+    }
+    .tool-card-slot:hover .tool-card:active {
+      translate: 0 -1px;
+    }
+  }
+
+  /* ---------- Tool page header: the sticker (enter-pop) lands just after the page has arrived ---------- */
+  .tool-header-sticker {
+    --enter-delay: var(--dur-fast);
+  }
+
+  /* ---------- "More tools" chips on a tool page: the small sticker tilts ---------- */
+  @media (hover: hover) {
+    .tool-chip:hover .sticker {
+      scale: 1.12;
+      rotate: 10deg;
+    }
+  }
+
+  /* ---------- Unit toggle: the thumb slides between two equal halves ----------
+     Where the thumb sits is set in the component (UnitToggle); this is only how it gets there.
+     It moves only after a click (data-moved): a saved preference is applied while the page
+     loads, and then the thumb and the label colours must simply be in place. */
+  .tool-units[data-moved] .tool-units-thumb {
+    transition: translate var(--dur-base) var(--ease-pop);
+  }
+  .tool-units:not([data-moved]) .tool-option {
+    transition: scale var(--dur-fast) var(--ease-enter);
+  }
+
+  /* ---------- Options: unit buttons, segmented choices, choice cards ---------- */
+  .tool-option,
+  .tool-choice {
+    transition:
+      color var(--dur-fast) ease,
+      background-color var(--dur-fast) ease,
+      border-color var(--dur-fast) ease,
+      scale var(--dur-fast) var(--ease-enter);
+  }
+  .tool-option:active {
+    scale: 0.96;
+  }
+  /* A choice card is as wide as its column, so it gives less. */
+  .tool-choice:active {
+    scale: 0.985;
+  }
+  .tool-choice-ring {
+    transition: background-color var(--dur-fast) ease;
+  }
+  /* The radio dot: leaves quickly, pops in. Its size (nothing or full) is set in the component. */
+  .tool-choice-dot {
+    transition: scale var(--dur-fast) var(--ease-exit);
+  }
+  .tool-choice[data-checked="true"] .tool-choice-dot {
+    transition: scale var(--dur-slow) var(--ease-pop);
+  }
+
+  /* ---------- Result panel ---------- */
+  /* The tone class changes with the verdict band; the colours it sets fade. */
+  .tool-result {
+    transition:
+      background-color var(--dur-base) ease,
+      color var(--dur-base) ease;
+  }
+  .tool-result[data-enter] {
+    animation: scale-in var(--dur-slow) var(--ease-pop) backwards;
+  }
+  .tool-verdict[data-enter] {
+    animation: pop-in var(--dur-slow) var(--ease-pop) backwards;
+  }
+
+  /* Tiles: a short cascade, each a small rise. */
+  .tool-stat[data-enter] {
+    --rise: var(--rise-sm);
+    animation: rise-in var(--dur-base) var(--ease-enter) backwards;
+    /* Half a stagger step, so four tiles are in place before the panel has settled. */
+    animation-delay: calc(var(--tool-stat-i, 0) * var(--stagger) / 2);
+  }
+  .tool-stat:nth-child(2) {
+    --tool-stat-i: 1;
+  }
+  .tool-stat:nth-child(3) {
+    --tool-stat-i: 2;
+  }
+  .tool-stat:nth-child(4) {
+    --tool-stat-i: 3;
+  }
+
+  /* ---------- Scale marker ----------
+     ScaleBar places it with a translate measured in the bar's own width, so a
+     new value slides without touching layout. No overshoot here: at either end
+     of the scale it would carry the marker off the bar. */
+  .tool-scale-marker {
+    transition: translate var(--dur-slow) var(--ease-enter);
+  }
+  /* With a new result the marker sweeps in from the low end while the number counts up. */
+  .tool-scale-marker[data-enter] {
+    animation: tool-scale-sweep var(--dur-slow) var(--ease-enter) backwards;
+  }
+  /* Browsers without container units: the right place, without the slide.
+     !important because it has to beat the component's own left and translate. */
+  @supports not (width: 1cqw) {
+    .tool-scale-marker {
+      left: calc(var(--tool-scale-at, 0) * 1%) !important;
+      translate: -50% 0 !important;
+      transition: none;
+    }
+  }
+
+  /* ---------- Split bar (SplitBar): layers scaled from the left edge ---------- */
+  .tool-split-part {
+    transition: scale var(--dur-slow) var(--ease-move);
+  }
+  .tool-split-part[data-enter] {
+    animation: tool-split-grow var(--dur-slow) var(--ease-enter) backwards;
+  }
+
+  /* ---------- Live numbers (LiveNumber) ----------
+     The exact value stays in the page as ordinary inline text, so it reads
+     and copies as part of its line ("84 g") and tests always find it. While
+     a count runs it is painted transparent, and the ticker (an empty,
+     aria-hidden span in front of it) draws the running figure from its
+     data-shown attribute, twice:
+     - ::before, an invisible line of no height, makes the box as wide as the
+       wider of the two figures, so a longer running figure never overlaps
+       what follows and nothing is pushed around;
+     - ::after paints the figure over the value. */
+  .tool-num {
+    position: relative;
+    display: inline-block;
+  }
+  .tool-num-ticker {
+    display: contents;
+  }
+  .tool-num[data-counting] > .tool-num-value {
+    color: transparent;
+  }
+  .tool-num[data-counting] > .tool-num-ticker::before,
+  .tool-num[data-counting] > .tool-num-ticker::after {
+    content: attr(data-shown);
+    white-space: nowrap;
+  }
+  .tool-num[data-counting] > .tool-num-ticker::before {
+    display: block;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+  }
+  .tool-num[data-counting] > .tool-num-ticker::after {
+    position: absolute;
+    inset: 0 0 auto;
+  }
+  /* Forced colours repaint the transparent value, so there the count is not drawn over it. */
+  @media (forced-colors: active) {
+    .tool-num[data-counting] > .tool-num-ticker::before,
+    .tool-num[data-counting] > .tool-num-ticker::after {
+      content: none;
+    }
+  }
+
+  /* Reduced motion: durations are already cut to nothing in globals.css; drop this area's delays too. */
+  @media (prefers-reduced-motion: reduce) {
+    .tool-stat[data-enter] {
+      animation-delay: 0s;
+    }
+    .tool-header-sticker {
+      --enter-delay: 0ms;
+    }
+  }
+}
+
+@keyframes tool-scale-sweep {
+  from { translate: -50% 0; }
+}
+@keyframes tool-split-grow {
+  from { scale: 0 1; }
+}

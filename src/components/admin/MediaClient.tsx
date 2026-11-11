@@ -4,9 +4,12 @@ import { useActionState, useState } from "react";
 import { EMPTY } from "@/app/actions/types";
 import { uploadMediaAction } from "@/app/admin/actions";
 import { Icon } from "@/components/Icon";
+import { Spinner } from "@/components/motion/Spinner";
+import { useAnswerCount } from "./motion";
 
 export function MediaUploader() {
   const [state, action, pending] = useActionState(uploadMediaAction, EMPTY);
+  const answer = useAnswerCount(state);
   return (
     <form action={action} className="grid gap-3 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto] sm:items-end">
       <div>
@@ -22,10 +25,10 @@ export function MediaUploader() {
         <input id="media-alt" name="alt" className="input" maxLength={200} placeholder="A bowl of oats with berries" />
       </div>
       <button type="submit" className="btn btn-primary" disabled={pending}>
-        <Icon name="upload" size={16} /> {pending ? "Uploading…" : "Upload"}
+        {pending ? <Spinner /> : <Icon name="upload" size={16} />} {pending ? "Uploading…" : "Upload"}
       </button>
       {state.message && (
-        <p role={state.ok ? "status" : "alert"} className={state.ok ? "text-sm font-semibold text-[var(--green-ink)] sm:col-span-3" : "field-error sm:col-span-3"}>
+        <p key={answer} role={state.ok ? "status" : "alert"} className={state.ok ? "admin-result text-sm font-semibold text-[var(--green-ink)] sm:col-span-3" : "field-error admin-result sm:col-span-3"}>
           {state.message} {state.ok && state.values?.url ? `It is at ${state.values.url}` : ""}
         </p>
       )}
@@ -50,7 +53,16 @@ export function CopyButton({ text, label = "Copy link" }: { text: string; label?
         }
       }}
     >
-      <Icon name={copied ? "check" : "copy"} size={14} /> {copied ? "Copied" : label}
+      {copied ? (
+        // "Copied" fades in over the label it replaces (admin-swap). No pop: this is the admin.
+        <span className="admin-swap inline-flex items-center gap-2">
+          <Icon name="check" size={14} /> Copied
+        </span>
+      ) : (
+        <>
+          <Icon name="copy" size={14} /> {label}
+        </>
+      )}
     </button>
   );
 }

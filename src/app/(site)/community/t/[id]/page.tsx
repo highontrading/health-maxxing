@@ -5,7 +5,7 @@ import { connection } from "next/server";
 import { Suspense } from "react";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { AuthorName, Avatar } from "@/components/forum/ForumBits";
-import { DeletePostButton, LikeButton, ReplyForm, ReportButton } from "@/components/forum/ForumClient";
+import { PostActions, ReplyForm } from "@/components/forum/ForumClient";
 import { Icon } from "@/components/Icon";
 import { getSessionUser, isStaff } from "@/lib/auth";
 import { getSettings } from "@/lib/data";
@@ -13,7 +13,7 @@ import { run } from "@/lib/db";
 import { getThread, hasLiked, listPosts, timeAgo } from "@/lib/forum";
 import { renderUserText } from "@/lib/markdown";
 import { requestTime } from "@/lib/now";
-import { PageTransition } from "@/components/motion/PageTransition";
+import { PageTransition, Swap } from "@/components/motion/PageTransition";
 
 type Props = PageProps<"/community/t/[id]">;
 
@@ -23,11 +23,61 @@ export default function ThreadPage({ params }: Props) {
   return (
     <PageTransition>
       <main>
-        <Suspense fallback={<div className="min-h-[60vh] animate-pulse bg-sand" aria-busy="true" />}>
-          <ThreadView params={params} />
+        <Suspense
+          fallback={
+            <Swap>
+              <ThreadSkeleton />
+            </Swap>
+          }
+        >
+          <Swap>
+            <ThreadView params={params} />
+          </Swap>
         </Suspense>
       </main>
     </PageTransition>
+  );
+}
+
+/** The board's colour is only known once the thread has loaded, so the placeholder band is plain sand. A screen tall, so the footer stays below the fold. */
+function ThreadSkeleton() {
+  return (
+    <div className="min-h-dvh" aria-busy="true">
+      <div className="bg-sand">
+        <div className="container-narrow pb-8 pt-8 md:pb-10 md:pt-12">
+          <div className="skeleton h-4 w-64 max-w-full rounded-full" />
+          <div className="skeleton mt-6 h-10 w-full max-w-md rounded-2xl md:h-12" />
+          <div className="skeleton mt-4 h-4 w-36 rounded-full" />
+        </div>
+      </div>
+      <div className="container-narrow py-8 md:py-12">
+        <div className="rounded-[24px] border-[1.5px] border-line-strong p-5 md:p-7">
+          <div className="flex items-center gap-3">
+            <div className="skeleton size-12 flex-none rounded-full" />
+            <div className="flex-1 space-y-2">
+              <div className="skeleton h-4 w-44 max-w-full rounded-full" />
+              <div className="skeleton h-3 w-24 rounded-full" />
+            </div>
+          </div>
+          <div className="mt-6 space-y-3">
+            <div className="skeleton h-4 rounded-full" />
+            <div className="skeleton h-4 w-11/12 rounded-full" />
+            <div className="skeleton h-4 w-2/3 rounded-full" />
+          </div>
+          <div className="skeleton mt-7 h-9 w-16 rounded-full" />
+        </div>
+        <div className="mt-6 rounded-[24px] bg-sand p-5 md:p-6">
+          <div className="flex items-center gap-3">
+            <div className="skeleton size-10 flex-none rounded-full" />
+            <div className="skeleton h-4 w-40 max-w-full rounded-full" />
+          </div>
+          <div className="mt-5 space-y-3">
+            <div className="skeleton h-4 rounded-full" />
+            <div className="skeleton h-4 w-3/4 rounded-full" />
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -89,10 +139,7 @@ async function ThreadView({ params }: Pick<Props, "params">) {
           <div className="mt-5">
             <UserText text={thread.body} />
           </div>
-          <footer className="mt-6 flex flex-wrap items-center gap-2">
-            <LikeButton type="thread" id={thread.id} count={thread.likeCount} liked={liked} disabled={!user} />
-            {user && <ReportButton type="thread" id={thread.id} />}
-          </footer>
+          <PostActions className="mt-6" type="thread" id={thread.id} count={thread.likeCount} liked={liked} signedIn={!!user} canReport={!!user} />
         </article>
 
         {posts.length > 0 && (
@@ -112,11 +159,16 @@ async function ThreadView({ params }: Pick<Props, "params">) {
                 <div className="mt-4">
                   <UserText text={post.body} />
                 </div>
-                <footer className="mt-4 flex flex-wrap items-center gap-2">
-                  <LikeButton type="post" id={post.id} count={post.likeCount} liked={post.liked} disabled={!user} />
-                  {user && post.author.id !== user.id && <ReportButton type="post" id={post.id} />}
-                  {user && (post.author.id === user.id || staff) && <DeletePostButton id={post.id} />}
-                </footer>
+                <PostActions
+                  className="mt-4"
+                  type="post"
+                  id={post.id}
+                  count={post.likeCount}
+                  liked={post.liked}
+                  signedIn={!!user}
+                  canReport={!!user && post.author.id !== user.id}
+                  canDelete={!!user && (post.author.id === user.id || staff)}
+                />
               </li>
             ))}
           </ol>

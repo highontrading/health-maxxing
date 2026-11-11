@@ -1,2 +1,348 @@
-/* Motion for the "reading" surfaces. Shared tokens, keyframes and classes live in
-   tokens.css, keyframes.css and utilities.css; add only what is specific here. */
+/* Motion for the "reading" surfaces: article, condition, topic, newsletter, exercise, food and
+   static pages, and the components they are made of. Shared tokens, keyframes and classes live
+   in tokens.css, keyframes.css and utilities.css; this file holds only what is specific here.
+
+   The rule for these pages: the text (headings, ledes, body, callouts) never moves. Motion is
+   for what surrounds the reading: cards, stickers, the table of contents, questions and
+   answers, save and share, and citations. */
+
+/* A cited source: a stronger tint that holds while the page scrolls to it, then settles into the
+   soft one (the same tint as a glossary term). */
+@keyframes source-flash {
+  0%, 60% { background-color: color-mix(in srgb, var(--tone-solid) 40%, var(--tone-soft)); }
+}
+
+@layer components {
+  /* ---------- Article cards (ArticleCard.tsx) ----------
+     Hover lifts the picture, never the link under the pointer, and the title's underline
+     fades in. A press sets the picture back down and squeezes it a little. */
+  .article-card-cover {
+    transition:
+      translate var(--dur-base) var(--ease-enter),
+      scale var(--dur-fast) var(--ease-enter);
+  }
+  .article-card-title {
+    text-decoration-line: underline;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 4px;
+    transition: text-decoration-color var(--dur-base) ease;
+  }
+  .article-card-title:focus-visible {
+    text-decoration-color: var(--tone-solid);
+  }
+  @media (hover: hover) {
+    .article-card:hover .article-card-cover {
+      translate: 0 -4px;
+    }
+    /* The sticker's own transition (globals.css) gives this its small overshoot. */
+    .article-card:hover .cover-hero {
+      scale: 1.1;
+    }
+    .article-card:hover .article-card-title {
+      text-decoration-color: var(--tone-solid);
+    }
+  }
+  .article-card:active .article-card-cover {
+    translate: none;
+    scale: 0.98;
+  }
+
+  /* Rows: the tint fades in, and the row gives a little under a press. */
+  .article-row {
+    transition:
+      background-color var(--dur-fast) ease,
+      scale var(--dur-fast) var(--ease-enter);
+  }
+  .article-row:active {
+    scale: 0.98;
+  }
+
+  /* Bento blocks lift as one piece. */
+  .article-bento {
+    transition:
+      translate var(--dur-base) var(--ease-enter),
+      scale var(--dur-fast) var(--ease-enter);
+  }
+  @media (hover: hover) {
+    .article-bento:hover {
+      translate: 0 -4px;
+    }
+  }
+  .article-bento:active {
+    translate: none;
+    scale: 0.98;
+  }
+
+  /* ---------- Link cards and pills on topic, condition, newsletter, exercise and food pages ----------
+     Tint and border fade in on hover, and the link gives a little when pressed (less for a wide
+     card than for a pill). Stickers inside use their own transition (globals.css) for the pop. */
+  .reading-link-card,
+  .reading-link-pill {
+    transition:
+      background-color var(--dur-fast) ease,
+      border-color var(--dur-fast) ease,
+      color var(--dur-fast) ease,
+      translate var(--dur-base) var(--ease-enter),
+      scale var(--dur-fast) var(--ease-enter);
+  }
+  .reading-link-card:active {
+    scale: 0.98;
+  }
+  .reading-link-pill:active {
+    scale: 0.96;
+  }
+
+  /* ---------- Breadcrumbs ----------
+     link-draw (the underline) plus a fade up from the muted colour. A transition utility on the
+     link would replace link-draw's own transition, so the pair is listed here. */
+  .breadcrumb-link {
+    transition:
+      background-size var(--dur-base) var(--ease-enter),
+      opacity var(--dur-fast) ease;
+  }
+
+  /* ---------- Questions and the phone "On this page" list ----------
+     Native <details>: they work without JavaScript, and find-in-page can open them. Where the
+     browser can animate the hidden part (::details-content with interpolate-size) the answer
+     grows open and fades in, and closes a little faster. Elsewhere it opens at once, as before.
+     The part is clipped only while it is closed or moving, so focus rings inside are whole. */
+  .faq-item,
+  .toc-details {
+    interpolate-size: allow-keywords;
+  }
+  .faq-item::details-content,
+  .toc-details::details-content {
+    block-size: 0;
+    overflow: clip;
+    opacity: 0;
+    transition:
+      block-size var(--dur-base) var(--ease-move),
+      opacity var(--dur-fast) ease-out,
+      content-visibility var(--dur-base) allow-discrete;
+  }
+  .faq-item[open]::details-content,
+  .toc-details[open]::details-content {
+    block-size: auto;
+    overflow: visible;
+    opacity: 1;
+    transition:
+      block-size var(--dur-slow) var(--ease-move),
+      opacity var(--dur-base) ease-out,
+      content-visibility var(--dur-slow) allow-discrete,
+      overflow var(--dur-slow) step-end allow-discrete;
+  }
+
+  /* The row tints while its answer is open; the plus turns into a cross with a small spring. */
+  .faq-item {
+    transition: background-color var(--dur-base) ease;
+  }
+  .faq-toggle {
+    transition:
+      rotate var(--dur-base) var(--ease-pop),
+      scale var(--dur-fast) var(--ease-enter),
+      background-color var(--dur-fast) ease,
+      color var(--dur-fast) ease;
+  }
+  .faq-item > summary:active .faq-toggle {
+    scale: 0.92;
+  }
+  @media (hover: hover) {
+    .faq-item:not([open]) > summary:hover .faq-toggle {
+      background-color: var(--tone-soft);
+    }
+  }
+  .toc-details-chevron {
+    transition: rotate var(--dur-base) var(--ease-pop);
+  }
+
+  /* ---------- Table of contents (Toc in ArticleClient.tsx) ----------
+     One bar slides to the heading being read. Without JavaScript, and until the list has been
+     measured, the active link carries the bar itself, so nothing depends on the script. */
+  .toc-list {
+    position: relative;
+  }
+  .toc-link {
+    border-left: 2.5px solid transparent;
+    transition: color var(--dur-fast) ease;
+  }
+  .toc-link[data-active="true"] {
+    border-left-color: var(--tone-solid);
+  }
+  .toc-list[data-marker="on"] .toc-link {
+    border-left-color: transparent;
+  }
+  /* One pixel tall and scaled to the link's height, so it only ever moves with transforms. */
+  .toc-marker {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2.5px;
+    height: 1px;
+    background: var(--tone-solid);
+    transform-origin: 0 0;
+    translate: 0 calc(var(--toc-y, 0) * 1px);
+    scale: 1 var(--toc-h, 0);
+    transition:
+      translate var(--dur-base) var(--ease-move),
+      scale var(--dur-base) var(--ease-move);
+  }
+  .toc-list[data-marker="on"] > .toc-marker {
+    display: block;
+  }
+
+  /* ---------- Reading progress (ReadingProgress in ArticleClient.tsx) ----------
+     A scaled bar, so following the scroll costs no layout. It steps aside while a dialog or the
+     phone menu holds the page (html.scroll-locked, see useScrollLock). */
+  .reading-progress {
+    transition: opacity var(--dur-base) ease;
+  }
+  html.scroll-locked .reading-progress {
+    opacity: 0;
+  }
+  .reading-progress-bar {
+    transform-origin: 0 50%;
+    scale: 0 1;
+    /* A short, even follow smooths the steps of a mouse wheel without trailing behind a drag. */
+    transition: scale var(--dur-fast) linear;
+  }
+
+  /* ---------- Save and share (ArticleClient.tsx) ----------
+     The label keeps the width of its longer wording (data-reserve), so "Save" and "Saved" swap
+     without the button, or the one beside it, moving. */
+  .save-label {
+    display: inline-grid;
+  }
+  .save-label > *,
+  .save-label::after {
+    grid-area: 1 / 1;
+  }
+  .save-label::after {
+    content: attr(data-reserve);
+    visibility: hidden;
+  }
+  /* The bookmark empties with a short fade; it fills at once, with a bump. */
+  .save-icon {
+    transition: fill-opacity var(--dur-fast) ease;
+  }
+  /* New wording or a new icon arriving in place after a click (also the myth card's tag).
+     Quicker than enter-fade: it sits under the pointer. */
+  .reading-swap-in {
+    animation: fade-in var(--dur-fast) ease-out both;
+  }
+
+  /* ---------- Collapsing boxes on these pages (myth answers, saved rows) ----------
+     Clipped by the box, not by its row. While a collapse moves, its row is a fraction of 1fr, and
+     Chromium sizes such a row against the box it has just sized: at half way the box is half the
+     content's height but the row only a quarter. Content clipped to the row would leave an empty
+     band under it; clipped to the box, it is revealed exactly as the box grows. */
+  .myth-answer,
+  .saved-item {
+    overflow: hidden;
+  }
+  .myth-answer > *,
+  .saved-item > * {
+    overflow: visible;
+  }
+
+  /* ---------- Myth cards (MythCard.tsx) ----------
+     The answer is in the page only while it is open (usePresence), so it is given a starting
+     point to grow from. It closes faster than it opens. */
+  @starting-style {
+    .myth-answer[data-open="true"] {
+      grid-template-rows: 0fr;
+    }
+  }
+  .myth-answer:not([data-open="true"]) {
+    transition-duration: var(--dur-base);
+  }
+  /* The plus folds into a minus: its upright bar lies down. */
+  .myth-toggle-icon line:last-child {
+    transform-box: view-box;
+    transform-origin: 12px 12px;
+    transition: rotate var(--dur-base) var(--ease-pop);
+  }
+  .myth-toggle-icon[data-open="true"] line:last-child {
+    rotate: 90deg;
+  }
+
+  /* ---------- Sources and citations ----------
+     A citation jumps down to its source, which flashes and then keeps its soft tint. */
+  .source-item:target {
+    /* Longer than any token on purpose: the page is still scrolling to the row when this starts,
+       and a jump from the top of a long article takes about a second. */
+    animation: source-flash calc(var(--dur-slower) * 3) ease-out;
+  }
+  .source-link {
+    transition: text-decoration-color var(--dur-fast) ease;
+  }
+  /* The citation chip gives under the finger (its colours are set in globals.css). */
+  .prose-hm sup.cite a {
+    transition:
+      scale var(--dur-fast) var(--ease-enter),
+      background-color var(--dur-fast) ease,
+      color var(--dur-fast) ease;
+  }
+  .prose-hm sup.cite a:active {
+    scale: 0.9;
+  }
+
+  /* ---------- Saved reads (SavedList.tsx) ----------
+     A removed row fades and closes up before it leaves the list. */
+  .saved-item:not([data-open="true"]) {
+    transition-duration: var(--dur-base);
+  }
+  .saved-row {
+    transition: opacity var(--dur-fast) ease-out;
+  }
+  .saved-item:not([data-open="true"]) .saved-row {
+    opacity: 0;
+  }
+  .saved-remove {
+    transition:
+      scale var(--dur-fast) var(--ease-enter),
+      background-color var(--dur-fast) ease,
+      color var(--dur-fast) ease;
+  }
+  .saved-remove:active {
+    scale: 0.92;
+  }
+  /* The "Nothing saved yet" panel that takes the place of the last row. Its sticker uses enter-pop. */
+  .saved-empty-enter {
+    animation: rise-in var(--dur-slow) var(--ease-enter) both;
+  }
+
+  /* ---------- Food page: where the calories come from ----------
+     The bar fills from the left when it scrolls into view (see the reveal rule below). */
+  .food-macro-fill {
+    transform-origin: 0 50%;
+  }
+
+  /* ---------- Reduced motion ----------
+     globals.css already cuts every animation and transition to nothing, with two gaps closed
+     here: it does not reach ::details-content, and an animation still waits out its delay, so
+     stickers that arrive one after another would still arrive late. */
+  @media (prefers-reduced-motion: reduce) {
+    .faq-item::details-content,
+    .faq-item[open]::details-content,
+    .toc-details::details-content,
+    .toc-details[open]::details-content {
+      transition: none;
+    }
+    .page-hero-stickers > .enter-pop,
+    .cover-enter .enter-pop,
+    .newsletter-hero-art > :is(.enter-pop, .enter-rise) {
+      animation: none;
+    }
+  }
+}
+
+/* The macro bar fills from the left as it scrolls into view, instead of fading and rising
+   (the --reveal-* hooks are described in utilities.css). */
+.reveal.food-macro-fill {
+  --reveal-opacity: 1;
+  --reveal-translate: none;
+  --reveal-scale: 0 1;
+  transform-origin: 0 50%;
+}

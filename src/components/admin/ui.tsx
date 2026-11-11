@@ -9,7 +9,7 @@ export function PageHeader({ title, description, actions, back }: { title: strin
   return (
     <header className="mb-6">
       {back && (
-        <Link href={back.href} className="mb-2 inline-flex items-center gap-1 text-sm font-medium text-ink-3 hover:text-ink">
+        <Link href={back.href} className="mb-2 inline-flex items-center gap-1 text-sm font-medium text-ink-3 transition-colors duration-(--dur-fast) hover:text-ink">
           <Icon name="arrow-left" size={14} /> {back.label}
         </Link>
       )}
@@ -34,9 +34,11 @@ export function Notice({ query }: { query: Query }) {
   if (!error && !notice) return null;
   return (
     <p
+      // Keyed by its words: a different result is a new banner and rises in again, instead of the text changing in place.
+      key={error || notice}
       role={error ? "alert" : "status"}
       className={cn(
-        "mb-5 flex items-start gap-2 rounded-2xl px-4 py-3 text-[0.9375rem] font-medium",
+        "admin-banner mb-5 flex items-start gap-2 rounded-2xl px-4 py-3 text-[0.9375rem] font-medium",
         error ? "bg-[var(--pink-soft)] text-[var(--pink-ink)]" : "bg-[var(--lime-soft)] text-[var(--lime-ink)]",
       )}
     >
@@ -97,7 +99,7 @@ export function FilterTabs({ base, query, name, tabs }: { base: string; query: Q
   return (
     <div className="flex flex-wrap gap-1.5">
       {tabs.map((t) => (
-        <Link key={t.value || "all"} href={href(t.value)} className={cn("chip", current === t.value ? "chip-active" : "chip-outline")} aria-current={current === t.value ? "true" : undefined}>
+        <Link key={t.value || "all"} href={href(t.value)} className={cn("chip admin-filter-chip", current === t.value ? "chip-active" : "chip-outline")} aria-current={current === t.value ? "true" : undefined}>
           {t.label}
           {t.count !== undefined && <span className="tabular-nums opacity-70">{t.count.toLocaleString("en-US")}</span>}
         </Link>

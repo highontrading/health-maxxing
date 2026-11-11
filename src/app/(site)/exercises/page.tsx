@@ -30,7 +30,7 @@ export default async function ExercisesPage() {
           crumbs={[{ href: "/", label: "Home" }, { label: "Exercises" }]}
         >
           <Link href="/articles/strength-training-for-beginners" className="btn btn-primary">
-            New to lifting? Start here <Icon name="arrow-right" size={16} />
+            New to lifting? Start here <Icon name="arrow-right" size={16} className="nudge-x" />
           </Link>
         </PageHero>
         <div className="container-hm py-10 md:py-14">

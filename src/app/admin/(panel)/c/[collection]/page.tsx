@@ -179,14 +179,14 @@ export default async function CollectionListPage({ params, searchParams }: Props
                         {def.hasViews && <td className="num">{(row.views ?? 0).toLocaleString("en-US")}</td>}
                         <td className="whitespace-nowrap text-ink-2">{day(row.updatedAt)}</td>
                         <td className="whitespace-nowrap text-right">
-                          <Link href={`${base}/${row.id}`} className="inline-flex size-8 items-center justify-center rounded-lg text-ink-3 hover:bg-sand-2 hover:text-ink" aria-label={`Edit ${row.title}`} title="Edit">
+                          <Link href={`${base}/${row.id}`} className="inline-flex size-8 items-center justify-center rounded-lg text-ink-3 transition-colors duration-(--dur-fast) hover:bg-sand-2 hover:text-ink" aria-label={`Edit ${row.title}`} title="Edit">
                             <Icon name="edit" size={16} />
                           </Link>
                           {def.publicPath && row.status === "published" && !scheduled && (
                             <Link
                               href={def.publicPath.replace("{slug}", row.slug)}
                               target="_blank"
-                              className="inline-flex size-8 items-center justify-center rounded-lg text-ink-3 hover:bg-sand-2 hover:text-ink"
+                              className="inline-flex size-8 items-center justify-center rounded-lg text-ink-3 transition-colors duration-(--dur-fast) hover:bg-sand-2 hover:text-ink"
                               aria-label={`View ${row.title} on the site`}
                               title="View on the site"
                             >

@@ -26,7 +26,7 @@ export default function AdminLoginPage() {
             <SignInForm area="admin" />
           </div>
           <p className="mt-5 text-center text-sm text-ink-3">
-            <Link href="/" className="underline underline-offset-4 hover:text-ink">
+            <Link href="/" className="underline underline-offset-4 transition-colors duration-(--dur-fast) hover:text-ink">
               Back to the site
             </Link>
           </p>

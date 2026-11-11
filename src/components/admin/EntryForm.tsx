@@ -1,13 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { useActionState, useEffect, useRef, useState } from "react";
-import { EMPTY } from "@/app/actions/types";
+import { useActionState, useEffect, useRef, useState, type MouseEvent, type ReactNode } from "react";
+import { flushSync } from "react-dom";
+import { EMPTY, type FormState } from "@/app/actions/types";
 import { deleteEntryAction, saveEntryAction } from "@/app/admin/actions";
 import { Icon } from "@/components/Icon";
+import { Collapse } from "@/components/motion/Collapse";
+import { usePresence } from "@/components/motion/presence";
 import { getCollection, type FieldDef, type Option } from "@/lib/admin/collections";
 import { cn } from "@/lib/cn";
+import { useReducedMotion } from "@/lib/hooks";
 import { ColorPicker, DateTimeField, ImageField, MarkdownEditor, Repeatable, StickerPicker, type RepeatColumn } from "./fields";
+import { FOLD_MS, useAnswerCount } from "./motion";
 
 type Props = {
   collectionKey: string;
@@ -119,7 +124,7 @@ function FieldRow({ field, value, echoed, error, options }: { field: FieldDef; v
       <Control field={field} value={value} echoed={echoed} options={options} invalid={!!error} />
       <div id={`${field.name}-note`}>
         {error ? (
-          <p className="field-error" role="alert">
+          <p className="field-error admin-result" role="alert">
             {error}
           </p>
         ) : (
@@ -127,6 +132,84 @@ function FieldRow({ field, value, echoed, error, options }: { field: FieldDef; v
         )}
       </div>
     </div>
+  );
+}
+
+/**
+ * A titled group of fields that folds shut. It stays a native <details>: it
+ * opens before the page's scripts have loaded, and the browser can open it by
+ * itself (find in page, a link to a field inside). With scripts the change of
+ * height is animated: the content folds inside a <Collapse> while the
+ * <details> stays open, and the <details> closes once the fold has finished.
+ */
+function Section({
+  title,
+  startOpen,
+  result,
+  hasError,
+  bodyClass,
+  children,
+}: {
+  title: string;
+  startOpen: boolean;
+  /** The latest answer from saving. A new one with a problem in this section opens it. */
+  result: FormState;
+  hasError: boolean;
+  bodyClass: string;
+  children: ReactNode;
+}) {
+  const [open, setOpen] = useState(startOpen);
+  // True for an instant before the section unfolds, so its height has somewhere to grow from.
+  const [folded, setFolded] = useState(false);
+  const reduced = useReducedMotion();
+  const shell = usePresence(open, reduced ? 0 : FOLD_MS);
+  const closing = !open && shell.mounted;
+
+  const [seen, setSeen] = useState(result);
+  if (seen !== result) {
+    setSeen(result);
+    if (hasError) setOpen(true);
+  }
+
+  const toggle = (e: MouseEvent<HTMLElement>) => {
+    // The browser would open or close it at once. Fold and unfold instead.
+    e.preventDefault();
+    const details = e.currentTarget.parentElement as HTMLDetailsElement;
+    if (details.open && !closing) {
+      // If the browser opened it before React was listening, catch up first.
+      if (!open) flushSync(() => setOpen(true));
+      setOpen(false);
+      return;
+    }
+    // Open it still folded, let the browser lay that out, then unfold: the height grows from nothing.
+    flushSync(() => {
+      setOpen(true);
+      setFolded(true);
+    });
+    details.open = true;
+    void details.offsetHeight;
+    setFolded(false);
+  };
+
+  return (
+    <details
+      className="admin-card entry-section"
+      open={shell.mounted}
+      data-closing={closing || undefined}
+      onToggle={(e) => {
+        // The browser opened it by itself: follow.
+        if (e.currentTarget.open && !shell.mounted) setOpen(true);
+      }}
+    >
+      <summary onClick={toggle} className="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 font-semibold [&::-webkit-details-marker]:hidden">
+        {title}
+        <Icon name="chevron-down" size={18} className="entry-section-chevron text-ink-3" />
+      </summary>
+      {/* While the <details> is closed its content stays unfolded, ready for the browser to show. */}
+      <Collapse open={shell.mounted ? open && !folded : true}>
+        <div className={bodyClass}>{children}</div>
+      </Collapse>
+    </details>
   );
 }
 
@@ -153,6 +236,8 @@ export function EntryForm({ collectionKey, id, initial, options, publicUrl, fact
     setTouched(true);
   };
   const failed = !state.ok && (errorNames.length > 0 || !!state.message);
+  // Each failed save shows the error summary afresh, so it rises in (and is read out) again.
+  const attempt = useAnswerCount(state);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -198,7 +283,7 @@ export function EntryForm({ collectionKey, id, initial, options, publicUrl, fact
 
       <div className="min-w-0 space-y-5">
         {errorNames.length > 0 && (
-          <div role="alert" className="rounded-2xl border-[1.5px] border-[#c21f48] bg-[var(--pink-soft)] p-4 text-[var(--pink-ink)]">
+          <div key={attempt} role="alert" className="admin-banner rounded-2xl border-[1.5px] border-[#c21f48] bg-[var(--pink-soft)] p-4 text-[var(--pink-ink)]">
             <p className="font-semibold">{state.message}</p>
             <ul className="mt-1 list-disc pl-5 text-sm">
               {errorNames.map((name) => (
@@ -212,24 +297,32 @@ export function EntryForm({ collectionKey, id, initial, options, publicUrl, fact
             </ul>
           </div>
         )}
-        {sections.map((s, i) =>
-          s.title ? (
-            <details key={s.title} className="admin-card group" open={i < 2 || s.fields.some((f) => errors[f.name]) || s.title === "Evidence" || s.title === "Per 100 g"}>
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 font-semibold [&::-webkit-details-marker]:hidden">
-                {s.title}
-                <Icon name="chevron-down" size={18} className="text-ink-3 transition-transform group-open:rotate-180" />
-              </summary>
-              <div className={cn("space-y-5 px-5 pb-5", s.title === "Per 100 g" && "grid gap-x-4 gap-y-4 space-y-0 sm:grid-cols-2 [&>div:last-child]:sm:col-span-2")}>{s.fields.map(row)}</div>
-            </details>
-          ) : (
-            <div key={`plain-${i}`} className="admin-card space-y-5 p-5">
+        {sections.map((s, i) => {
+          if (!s.title) {
+            return (
+              <div key={`plain-${i}`} className="admin-card space-y-5 p-5">
+                {s.fields.map(row)}
+              </div>
+            );
+          }
+          const hasError = s.fields.some((f) => errors[f.name]);
+          return (
+            <Section
+              key={s.title}
+              title={s.title}
+              startOpen={i < 2 || hasError || s.title === "Evidence" || s.title === "Per 100 g"}
+              result={state}
+              hasError={hasError}
+              bodyClass={cn("space-y-5 px-5 pb-5", s.title === "Per 100 g" && "grid gap-x-4 gap-y-4 space-y-0 sm:grid-cols-2 [&>div:last-child]:sm:col-span-2")}
+            >
               {s.fields.map(row)}
-            </div>
-          ),
-        )}
+            </Section>
+          );
+        })}
       </div>
 
-      <aside className="space-y-5 xl:sticky xl:top-5">
+      {/* min-w-0: on a narrow phone the date field would otherwise set the width of the whole form. */}
+      <aside className="min-w-0 space-y-5 xl:sticky xl:top-5">
         <div className="admin-card p-4">
           <div className="flex items-center gap-2">
             <button type="submit" className="btn btn-primary flex-1" disabled={pending}>
@@ -241,19 +334,28 @@ export function EntryForm({ collectionKey, id, initial, options, publicUrl, fact
               </Link>
             )}
           </div>
+          {/* Each new status is a fresh element, so it fades in (admin-swap). The one the page arrives with stays still. */}
           <p className="mt-2.5 min-h-5 text-sm" role="status">
             {pending ? (
-              <span className="text-ink-3">Saving…</span>
+              <span key="saving" className="admin-swap text-ink-3">
+                Saving…
+              </span>
             ) : failed && !touched ? (
-              <span className="font-medium text-[#c21f48]">{errorNames.length ? "Not saved. See the list above." : state.message}</span>
+              <span key="failed" className="admin-swap font-medium text-[#c21f48]">
+                {errorNames.length ? "Not saved. See the list above." : state.message}
+              </span>
             ) : dirty ? (
-              <span className="font-medium text-[var(--orange-ink)]">Unsaved changes</span>
+              <span key="dirty" className="admin-swap font-medium text-[var(--orange-ink)]">
+                Unsaved changes
+              </span>
             ) : state.ok ? (
-              <span className="inline-flex items-center gap-1 font-semibold text-[var(--green-ink)]">
+              <span key="saved" className="admin-swap inline-flex items-center gap-1 font-semibold text-[var(--green-ink)]">
                 <Icon name="check" size={16} /> Saved
               </span>
             ) : (
-              <span className="text-ink-3">{id ? "No changes yet" : "Fill in the form, then create."}</span>
+              <span key="idle" className="text-ink-3">
+                {id ? "No changes yet" : "Fill in the form, then create."}
+              </span>
             )}
           </p>
           {facts.length > 0 && (
@@ -276,7 +378,8 @@ export function EntryForm({ collectionKey, id, initial, options, publicUrl, fact
         {id && (
           <div className="admin-card p-4">
             {confirmDelete ? (
-              <div className="space-y-2">
+              // Fades in where it will stay (admin-confirm): nothing moves under the second click.
+              <div className="admin-confirm space-y-2">
                 <p className="text-sm font-medium">Delete this {def.singular} for good? This cannot be undone.</p>
                 <div className="flex gap-2">
                   <button type="submit" formAction={deleteEntryAction} formNoValidate className="btn btn-danger btn-sm">
@@ -288,7 +391,11 @@ export function EntryForm({ collectionKey, id, initial, options, publicUrl, fact
                 </div>
               </div>
             ) : (
-              <button type="button" className="inline-flex items-center gap-2 text-sm font-medium text-ink-3 hover:text-[#c21f48]" onClick={() => setConfirmDelete(true)}>
+              <button
+                type="button"
+                className="inline-flex items-center gap-2 text-sm font-medium text-ink-3 transition-colors duration-(--dur-fast) hover:text-[#c21f48]"
+                onClick={() => setConfirmDelete(true)}
+              >
                 <Icon name="trash" size={16} /> Delete this {def.singular}
               </button>
             )}

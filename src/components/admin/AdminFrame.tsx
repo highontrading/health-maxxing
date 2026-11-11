@@ -2,9 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Suspense, useCallback, useEffect, useState, type ReactNode } from "react";
+import { Suspense, useCallback, useEffect, useRef, useState, type MouseEvent, type ReactNode } from "react";
 import { signOutAction } from "@/app/actions/auth";
 import { Icon } from "@/components/Icon";
+import { MenuToggleIcon } from "@/components/motion/MenuToggleIcon";
+import { usePresence } from "@/components/motion/presence";
+import { useScrollLock } from "@/components/motion/scroll-lock";
 import { Sticker } from "@/components/stickers/Sticker";
 import { COLLECTION_GROUPS, COLLECTIONS } from "@/lib/admin/collections";
 import { cn } from "@/lib/cn";
@@ -67,14 +70,19 @@ export function AdminNav({ user, counts }: { user: FrameUser; counts: FrameCount
                         href={item.href}
                         aria-current={active ? "page" : undefined}
                         className={cn(
-                          "flex items-center gap-2.5 rounded-xl px-3 py-1.5 text-[0.9375rem] font-medium transition-colors",
+                          "flex items-center gap-2.5 rounded-xl px-3 py-1.5 text-[0.9375rem] font-medium transition-colors duration-(--dur-fast)",
                           active ? "bg-ink text-paper" : "text-ink-2 hover:bg-sand-2 hover:text-ink",
                         )}
                       >
                         <Icon name={item.icon} size={18} className="flex-none" />
                         <span className="min-w-0 flex-1 truncate">{item.label}</span>
                         {!!item.badge && (
-                          <span className={cn("rounded-full px-1.5 text-xs font-bold tabular-nums", active ? "bg-paper text-ink" : "bg-[var(--pink-solid)] text-white")}>
+                          <span
+                            className={cn(
+                              "rounded-full px-1.5 text-xs font-bold tabular-nums transition-colors duration-(--dur-fast)",
+                              active ? "bg-paper text-ink" : "bg-[var(--pink-solid)] text-white",
+                            )}
+                          >
                             {item.badge}
                           </span>
                         )}
@@ -116,7 +124,7 @@ export function AdminNavSkeleton() {
   return (
     <div className="flex-1 space-y-2 px-4 pt-3" aria-busy="true">
       {[70, 55, 62, 48, 66, 58, 44, 60].map((w, i) => (
-        <div key={i} className="h-7 animate-pulse rounded-lg bg-sand-2" style={{ width: `${w}%` }} />
+        <div key={i} className="skeleton h-7 rounded-lg" style={{ width: `${w}%` }} />
       ))}
     </div>
   );
@@ -136,6 +144,36 @@ function OnNavigate({ run }: { run: () => void }) {
 export function AdminFrame({ nav, children }: { nav: ReactNode; children: ReactNode }) {
   const [open, setOpen] = useState(false);
   const close = useCallback(() => setOpen(false), []);
+  const toggle = useRef<HTMLButtonElement>(null);
+  // The phone menu fades out before it is removed, and the page behind it holds still while it is open.
+  const menu = usePresence(open);
+  useScrollLock(open);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      setOpen(false);
+      toggle.current?.focus();
+    };
+    // On a wide screen the sidebar replaces the menu: close it, so the page is not left locked behind a hidden layer.
+    const wide = window.matchMedia("(min-width: 1024px)");
+    const onWide = () => {
+      if (wide.matches) setOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    wide.addEventListener("change", onWide);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      wide.removeEventListener("change", onWide);
+    };
+  }, [open]);
+
+  // A link to the address already showing does not navigate, so nothing else would close the menu.
+  const closeOnSamePage = (e: MouseEvent<HTMLElement>) => {
+    const link = (e.target as Element).closest<HTMLAnchorElement>("a[href]");
+    if (link && link.pathname === window.location.pathname) close();
+  };
 
   const brand = (
     <Link href="/admin" className="flex flex-none items-center gap-2 px-5 py-4">
@@ -154,7 +192,7 @@ export function AdminFrame({ nav, children }: { nav: ReactNode; children: ReactN
       </Suspense>
 
       {/* Desktop sidebar */}
-      <aside className="sticky top-0 hidden h-dvh flex-col border-r border-line bg-paper lg:flex">
+      <aside className="vt-steady sticky top-0 hidden h-dvh flex-col border-r border-line bg-paper lg:flex">
         {brand}
         {nav}
       </aside>
@@ -162,20 +200,27 @@ export function AdminFrame({ nav, children }: { nav: ReactNode; children: ReactN
       {/* Mobile bar */}
       <div className="vt-admin-bar sticky top-0 z-40 flex h-14 items-center gap-2 border-b border-line bg-paper px-2 lg:hidden">
         <button
+          ref={toggle}
           type="button"
-          className="inline-flex size-10 items-center justify-center rounded-full hover:bg-sand-2"
+          className="inline-flex size-10 items-center justify-center rounded-full transition-colors duration-(--dur-fast) hover:bg-sand-2"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
         >
-          <Icon name={open ? "close" : "menu"} size={22} />
+          <MenuToggleIcon open={open} />
         </button>
         <span className="font-semibold">Admin</span>
         <Link href="/" className="btn btn-ghost btn-sm ml-auto">
           View site <Icon name="external" size={14} />
         </Link>
+        {/* Inside the bar on purpose. The bar is its own layer during a page change (vt-admin-bar), so an
+            open menu stays above the page pictures; as a sibling, the old page flashed over it. */}
+        {menu.mounted && (
+          <div className="motion-fade fixed inset-x-0 bottom-0 top-14 flex flex-col bg-paper" data-state={menu.state} inert={!open} onClick={closeOnSamePage}>
+            {nav}
+          </div>
+        )}
       </div>
-      {open && <div className="fixed inset-x-0 bottom-0 top-14 z-40 flex flex-col bg-paper lg:hidden">{nav}</div>}
 
       <div className="min-w-0">
         <div className="hidden h-14 items-center justify-end gap-2 px-8 lg:flex">

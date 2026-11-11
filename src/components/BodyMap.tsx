@@ -65,13 +65,21 @@ function Figure() {
   );
 }
 
-/** An anatomy-chart style map: sticker labels wired to a figure. */
+/**
+ * An anatomy-chart style map: sticker labels wired to a figure.
+ *
+ * Hovering or focusing a label lights it up: a solid line is drawn to its
+ * point on the figure, the dot grows, the label lifts and the others dim. The
+ * component only says which label is active (data-hot on the map, data-on on
+ * the label and its wire); how that looks and moves is in
+ * `styles/motion/home.css`, under "Body map".
+ */
 export function BodyMap({ systems, className }: { systems: MapSystem[]; className?: string }) {
   const [active, setActive] = useState<string | null>(null);
   const placed = systems.filter((s) => LAYOUT[s.slug]);
 
   return (
-    <div className={cn("relative mx-auto w-full max-w-[860px]", className)} style={{ aspectRatio: `${W} / ${H}` }}>
+    <div className={cn("body-map relative mx-auto w-full max-w-[860px]", className)} style={{ aspectRatio: `${W} / ${H}` }} data-hot={active ? "" : undefined}>
       <svg viewBox={`0 0 ${W} ${H}`} className="absolute inset-0 size-full" aria-hidden="true" focusable="false">
         <ellipse cx="380" cy="604" rx="96" ry="9" fill="rgba(38,36,34,0.1)" />
         <Figure />
@@ -80,27 +88,27 @@ export function BodyMap({ systems, className }: { systems: MapSystem[]; classNam
           const [px, py] = l.point;
           const lx = l.side === "left" ? 218 : 542;
           const mid = l.side === "left" ? lx + 34 : lx - 34;
-          const on = active === s.slug;
+          const d = `M${lx} ${l.y} H${mid} L${px} ${py}`;
           return (
-            <g key={s.slug} className={`tone-${s.color}`}>
-              <path
-                d={`M${lx} ${l.y} H${mid} L${px} ${py}`}
-                fill="none"
-                stroke={INK}
-                strokeWidth={on ? 3 : 1.6}
-                strokeDasharray={on ? undefined : "2 5"}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                opacity={active && !on ? 0.25 : 1}
-              />
-              <circle cx={px} cy={py} r={on ? 9 : 6} fill="var(--tone-solid)" stroke={INK} strokeWidth="2.4" style={{ transition: "r 0.15s ease" }} />
+            <g
+              key={s.slug}
+              className={`body-map-wire tone-${s.color}`}
+              data-on={active === s.slug ? "" : undefined}
+              fill="none"
+              stroke={INK}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d={d} strokeWidth="1.6" strokeDasharray="2 5" />
+              {/* Shown only while active. pathLength 1 lets the stylesheet draw it without knowing its length. */}
+              <path d={d} className="body-map-wire-on" strokeWidth="3" pathLength={1} />
+              <circle className="body-map-dot" cx={px} cy={py} r="6" fill="var(--tone-solid)" strokeWidth="2.4" />
             </g>
           );
         })}
       </svg>
       {placed.map((s) => {
         const l = LAYOUT[s.slug];
-        const on = active === s.slug;
         return (
           <Link
             key={s.slug}
@@ -109,12 +117,11 @@ export function BodyMap({ systems, className }: { systems: MapSystem[]; classNam
             onPointerLeave={() => setActive(null)}
             onFocus={() => setActive(s.slug)}
             onBlur={() => setActive(null)}
+            data-on={active === s.slug ? "" : undefined}
             className={cn(
               `tone-${s.color}`,
-              "absolute flex max-w-[27%] -translate-y-1/2 items-center gap-2 rounded-full border-[1.5px] border-ink bg-paper py-1 text-left text-[clamp(0.6875rem,1.35vw,0.875rem)] font-semibold leading-tight transition-all duration-150",
+              "body-map-label absolute flex max-w-[27%] items-center gap-2 rounded-full border-[1.5px] border-ink py-1 text-left text-[clamp(0.6875rem,1.35vw,0.875rem)] font-semibold leading-tight",
               l.side === "left" ? "flex-row-reverse pl-3 pr-1 text-right" : "pl-1 pr-3",
-              on ? "z-10 bg-tone-soft shadow-[0_3px_0_var(--ink)]" : "shadow-[0_2px_0_var(--ink)]",
-              active && !on && "opacity-50",
             )}
             style={
               l.side === "left"

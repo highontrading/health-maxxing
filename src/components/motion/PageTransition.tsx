@@ -63,7 +63,10 @@ export function PageTransition({ children, variant = "page" }: { children: React
  *   </Suspense>
  *
  * Give it one child element. It only animates the hand-over; it does nothing
- * on its own when the page itself is entering.
+ * on its own when the page itself is entering. Like every view transition it
+ * pauses clicks on the whole page for its fraction of a second, so use it for
+ * a hand-over that happens once as a page loads, not for something that
+ * updates again and again.
  */
 export function Swap({ children }: { children: ReactNode }) {
   return (

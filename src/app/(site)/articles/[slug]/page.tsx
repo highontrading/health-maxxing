@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { ArticleCard } from "@/components/ArticleCard";
 import { ReadingProgress, SaveButton, ShareButton, Toc, ViewTracker } from "@/components/article/ArticleClient";
+import { ArticleSkeleton } from "@/components/article/Skeletons";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Cover } from "@/components/Cover";
 import { FaqList } from "@/components/FaqList";
@@ -63,19 +64,6 @@ export default function ArticlePage({ params }: Props) {
         <ArticleView params={params} />
       </PageTransition>
     </Suspense>
-  );
-}
-
-function ArticleSkeleton() {
-  return (
-    <main className="bg-sand" aria-busy="true">
-      <div className="container-hm py-14 md:py-20">
-        <div className="h-4 w-40 rounded-full bg-sand-3" />
-        <div className="mt-8 h-14 max-w-2xl rounded-2xl bg-sand-3" />
-        <div className="mt-4 h-14 max-w-xl rounded-2xl bg-sand-3" />
-        <div className="mt-8 h-5 max-w-lg rounded-full bg-sand-2" />
-      </div>
-    </main>
   );
 }
 
@@ -173,6 +161,7 @@ async function ArticleView({ params }: Pick<Props, "params">) {
             </div>
           </div>
           <div className="relative mx-auto w-full max-w-[420px] lg:max-w-none">
+            {/* The frame holds still; its stickers pop in one after another. */}
             <Cover
               seed={article.slug}
               sticker={article.sticker}
@@ -180,6 +169,7 @@ async function ArticleView({ params }: Pick<Props, "params">) {
               image={article.coverImage}
               alt={article.coverAlt}
               scale={0.52}
+              enter
               className="aspect-[4/3] rotate-2 rounded-[28px] border-[1.5px] border-ink bg-paper! shadow-[0_8px_0_var(--ink)]"
             />
             {article.coverCredit && <p className="mt-4 text-right text-xs text-tone-ink/80">{article.coverCredit}</p>}
@@ -198,7 +188,10 @@ async function ArticleView({ params }: Pick<Props, "params">) {
         <article className="min-w-0">
           {article.takeaways.length > 0 && (
             <section aria-labelledby="takeaways-heading" className="relative mb-10 rounded-[24px] border-[1.5px] border-ink bg-tone-soft p-6 md:p-7">
-              <Sticker name="check" size={52} rotate={10} className="absolute -right-3 -top-4" />
+              {/* Pops when it scrolls into view (on a phone it starts below the screen). */}
+              <span className="reveal reveal-pop absolute -right-3 -top-4 flex">
+                <Sticker name="check" size={52} rotate={10} />
+              </span>
               <h2 id="takeaways-heading" className="eyebrow text-tone-ink">
                 The short version
               </h2>
@@ -213,9 +206,13 @@ async function ArticleView({ params }: Pick<Props, "params">) {
             </section>
           )}
 
-          <details className="mb-8 rounded-2xl border border-line p-4 lg:hidden">
-            <summary className="eyebrow cursor-pointer text-ink-2">On this page</summary>
-            <ol className="mt-3 space-y-2 text-[0.9375rem]">
+          {/* A native <details>: it opens without JavaScript, and smoothly where the browser can (.toc-details in reading.css). */}
+          <details className="toc-details group mb-8 rounded-2xl border border-line lg:hidden">
+            <summary className="eyebrow flex cursor-pointer list-none items-center justify-between gap-3 p-4 text-ink-2 [&::-webkit-details-marker]:hidden">
+              On this page
+              <Icon name="chevron-down" size={16} className="toc-details-chevron flex-none group-open:rotate-180" />
+            </summary>
+            <ol className="-mt-1 space-y-2 px-4 pb-4 text-[0.9375rem]">
               {h2.map((t) => (
                 <li key={t.id}>
                   <a href={`#${t.id}`} className="underline-offset-4 hover:underline">
@@ -249,7 +246,7 @@ async function ArticleView({ params }: Pick<Props, "params">) {
               <ul className="mt-4 flex flex-wrap gap-2">
                 {article.tags.map((tag) => (
                   <li key={tag}>
-                    <Link href={`/search?q=${encodeURIComponent(tag)}`} className="chip chip-outline bg-paper hover:border-ink hover:text-ink">
+                    <Link href={`/search?q=${encodeURIComponent(tag)}`} className="chip chip-outline reading-link-pill bg-paper hover:border-ink hover:text-ink">
                       #{tag}
                     </Link>
                   </li>
@@ -279,13 +276,14 @@ async function ArticleView({ params }: Pick<Props, "params">) {
               </h2>
               {category && (
                 <Link href={`/topics/${category.slug}`} className={cn("btn btn-outline flex-none")}>
-                  More {category.name} <Icon name="arrow-right" size={16} />
+                  More {category.name} <Icon name="arrow-right" size={16} className="nudge-x" />
                 </Link>
               )}
             </div>
             <div className="mt-8 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+              {/* The cards rise in, one after another, when the reader reaches them. */}
               {related.map((a) => (
-                <ArticleCard key={a.slug} article={a} category={cat.get(a.category)} />
+                <ArticleCard key={a.slug} article={a} category={cat.get(a.category)} className="reveal" />
               ))}
             </div>
           </div>

@@ -1,9 +1,12 @@
 /* ------------------------------------------------------------------
    Shared keyframes
    Every "in" keyframe only states where the element comes FROM, and
-   every "out" keyframe only where it goes TO, so they compose with
-   whatever the element looks like at rest. Use them with fill-mode
-   "both" ("forwards" for exits).
+   every "out" keyframe only where it goes TO, so opacity runs to or
+   from whatever the element has at rest. While one runs it replaces
+   the element's own translate and scale, so keep them off elements
+   that are positioned with those properties.
+   Fill modes: "backwards" for the way in (hidden while a delay runs,
+   and nothing held afterwards), "forwards" for the way out.
 ------------------------------------------------------------------- */
 @keyframes fade-in {
   from { opacity: 0; }
@@ -72,6 +75,14 @@
 @keyframes shimmer {
   from { background-position: 180% 0; }
   to { background-position: -80% 0; }
+}
+@keyframes spinner-turn {
+  to { rotate: 360deg; }
+}
+
+/* Collapse: keeps the content clipped for exactly as long as the height moves. */
+@keyframes collapse-clip {
+  from, to { overflow: hidden; }
 }
 
 /* Route progress bar: creeps towards the end but never arrives on its own. */

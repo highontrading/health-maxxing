@@ -6,15 +6,13 @@
    how the two pictures swap. Browsers without the API change pages
    instantly, as before.
 
-   Keep every animation here SHORT. While a transition runs the page
-   cannot be clicked, and React waits for it before showing whatever
-   loads next (for example the article behind a loading skeleton).
+   Keep every animation here SHORT. While a transition runs nothing on
+   the page takes a click (the browser is showing pictures, not the
+   page), and React waits for it before showing whatever loads next,
+   for example the article behind a loading skeleton. A click on the
+   header or the admin bars during that moment is replayed afterwards
+   by <TransitionClicks>; anywhere else it is lost.
 ------------------------------------------------------------------- */
-
-/* The overlay must never swallow clicks meant for the page. */
-::view-transition {
-  pointer-events: none;
-}
 
 /* Everything that is not a page (the page background, the footer, anything
    named) cross-fades within the exit time instead of the browser's 250ms. */
@@ -62,7 +60,7 @@
    invisible for a quarter of a second, then fades in. Most pages arrive
    sooner, so the visitor sees one cross-fade, old page to new page. */
 .page-skeleton {
-  animation: fade-in var(--dur-base) ease-out 250ms both;
+  animation: fade-in var(--dur-base) ease-out 250ms backwards;
 }
 /* On the public site it fills the screen, so the footer stays below the fold
    instead of jumping up beside a short placeholder. */
@@ -76,7 +74,7 @@
   animation: 100ms var(--ease-exit) both fade-out;
 }
 ::view-transition-new(.panel-enter) {
-  animation: 160ms ease-out 30ms both fade-in;
+  animation: 160ms ease-out 30ms both panel-fade-in;
 }
 
 /* ---- Content that replaces a placeholder inside a page (see <Swap>). */
@@ -96,23 +94,67 @@
 :root:active-view-transition .vt-site-header {
   view-transition-name: site-header;
 }
+:root:active-view-transition .vt-site-notice {
+  view-transition-name: site-notice;
+}
 :root:active-view-transition .vt-admin-bar {
   view-transition-name: admin-bar;
 }
 ::view-transition-group(site-header),
+::view-transition-group(site-notice),
 ::view-transition-group(admin-bar) {
   animation: none;
   z-index: 100;
 }
 ::view-transition-old(site-header),
+::view-transition-old(site-notice),
 ::view-transition-old(admin-bar) {
   display: none;
 }
 ::view-transition-new(site-header),
+::view-transition-new(site-notice),
 ::view-transition-new(admin-bar) {
   animation: none;
 }
+/* When a bar exists on one side only (entering or leaving the site or the
+   admin panel), it fades with the layout instead of popping. */
+::view-transition-old(site-header):only-child,
+::view-transition-old(site-notice):only-child,
+::view-transition-old(admin-bar):only-child {
+  display: block;
+  animation: 100ms var(--ease-exit) both fade-out;
+}
+::view-transition-new(site-header):only-child,
+::view-transition-new(site-notice):only-child,
+::view-transition-new(admin-bar):only-child {
+  animation: 160ms ease-out 30ms both fade-in;
+}
 
+/* Any other fixed layer that lives in a layout (a toast, a floating button,
+   the route progress bar) belongs to the page background's picture, which is
+   drawn UNDER the pages while they change. Give it the class vt-layer and it
+   becomes a layer of its own on top. Browsers without match-element simply
+   keep it underneath for that moment. */
+:root:active-view-transition .vt-layer {
+  view-transition-name: match-element;
+  view-transition-class: vt-layer;
+}
+::view-transition-group(.vt-layer) {
+  animation: none;
+  z-index: 110;
+}
+::view-transition-old(.vt-layer) {
+  display: none;
+}
+::view-transition-new(.vt-layer) {
+  animation: none;
+}
+
+/* The same as fade-in under a name of its own, so the tests can tell an admin
+   page arriving from its loading skeleton arriving. */
+@keyframes panel-fade-in {
+  from { opacity: 0; }
+}
 @keyframes page-rise {
   from { translate: 0 var(--page-rise); }
 }

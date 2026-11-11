@@ -12,7 +12,9 @@ import { getBodySystems, getCategories, getSettings, getSiteStats, listArticles,
 import { formatMonthYear, formatNumber, hash } from "@/lib/format";
 import { TOOLS } from "@/lib/tools";
 import { cn } from "@/lib/cn";
+import { CountUp } from "@/components/motion/CountUp";
 import { PageTransition } from "@/components/motion/PageTransition";
+import { stagger } from "@/components/motion/stagger";
 
 export default async function HomePage() {
   const [settings, categories, articles, systems, myths, stats] = await Promise.all([
@@ -53,7 +55,7 @@ export default async function HomePage() {
               <p className="lede mt-6 max-w-[40ch]">{home.lede}</p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link href="/articles" className="btn btn-primary btn-lg">
-                  Start reading <Icon name="arrow-right" size={18} />
+                  Start reading <Icon name="arrow-right" size={18} className="nudge-x" />
                 </Link>
                 <Link href="/body" className="btn btn-outline btn-lg">
                   Explore the body map
@@ -69,7 +71,11 @@ export default async function HomePage() {
                   <div key={s.label}>
                     <dt className="sr-only">{s.label}</dt>
                     <dd className="flex items-baseline gap-2">
-                      <span className="text-[2rem] font-medium leading-none tracking-[-0.04em]">{formatNumber(s.n)}</span>
+                      {/* Counts up when it scrolls into view; a number already on screen stays put.
+                          data-final lets .hero-stat-num hold the final width from the start. */}
+                      <span className="hero-stat-num text-[2rem] font-medium leading-none tracking-[-0.04em]" data-final={formatNumber(s.n)}>
+                        <CountUp value={s.n} />
+                      </span>
                       <span className="text-sm text-ink-3">{s.label}</span>
                     </dd>
                   </div>
@@ -77,21 +83,23 @@ export default async function HomePage() {
               </dl>
             </div>
 
-            {/* Cover + loose stickers */}
+            {/* Cover + loose stickers. The card and its text are there at once; the stickers
+                (decoration) pop on one after another: enter-pop, in the order set by stagger(). */}
             <div className="relative mx-auto w-full min-w-0 max-w-[460px] lg:max-w-none">
               {cover && (
                 <article
                   className={cn(
                     `tone-${cat.get(cover.category)?.color ?? "lime"}`,
-                    "group relative mx-auto flex aspect-[4/5] w-full max-w-[400px] -rotate-2 flex-col rounded-[30px] border-[1.5px] border-ink bg-tone-soft p-6 shadow-[0_10px_0_var(--ink)] transition-transform duration-300 hover:rotate-0",
+                    "hero-cover group relative mx-auto flex aspect-[4/5] w-full max-w-[400px] -rotate-2 flex-col rounded-[30px] border-[1.5px] border-ink bg-tone-soft p-6 shadow-[0_10px_0_var(--ink)] hover:rotate-0 active:translate-y-0.5",
                   )}
                 >
                   <div className="flex items-center justify-between">
                     <span className="eyebrow">Health Maxxing</span>
                     <span className="pixel-tag">{formatMonthYear(cover.publishedAt) || "This month"}</span>
                   </div>
-                  <div className="flex flex-1 items-center justify-center py-2">
-                    <Sticker name={cover.sticker} size="58%" rotate={6} style={{ height: "auto", aspectRatio: "1 / 1" }} className="transition-transform duration-300 group-hover:scale-110" />
+                  {/* The pop is on this box, not on the sticker, so it never meets the sticker's own hover scale. */}
+                  <div className="hero-pop enter-pop flex flex-1 items-center justify-center py-2">
+                    <Sticker name={cover.sticker} size="58%" rotate={6} style={{ height: "auto", aspectRatio: "1 / 1" }} className="group-hover:scale-110" />
                   </div>
                   <p className="eyebrow">Cover story</p>
                   <h2 className="mt-2 text-[clamp(1.5rem,2.4vw,2rem)] font-medium leading-[1.05] tracking-[-0.03em] text-balance">
@@ -114,25 +122,25 @@ export default async function HomePage() {
                 </article>
               )}
               {/* On phones the loose stickers sit on the card's edges, clear of its text. */}
-              <Draggable className="absolute -left-3 -top-12 sm:-left-8 sm:top-[2%] lg:-left-10" style={{ animation: "floaty 7s ease-in-out infinite" }}>
+              <Draggable className="hero-pop enter-pop absolute -left-3 -top-12 sm:-left-8 sm:top-[2%] lg:-left-10" style={stagger(1)} float={7}>
                 <Sticker name="avocado" size={104} rotate={-14} className="max-sm:size-[68px]!" />
               </Draggable>
-              <Draggable className="absolute -right-2 -top-12 sm:-right-6 sm:top-[-3%]" style={{ animation: "floaty 8s ease-in-out -2s infinite" }}>
+              <Draggable className="hero-pop enter-pop absolute -right-2 -top-12 sm:-right-6 sm:top-[-3%]" style={stagger(2)} float={8} floatDelay={-2}>
                 <Sticker name="dumbbell" size={112} rotate={10} className="max-sm:size-[72px]!" />
               </Draggable>
-              <Draggable className="absolute -left-4 top-[30%] sm:-left-12 sm:bottom-[20%] sm:top-auto lg:-left-16" style={{ animation: "floaty 6.5s ease-in-out -1s infinite" }}>
+              <Draggable className="hero-pop enter-pop absolute -left-4 top-[30%] sm:-left-12 sm:bottom-[20%] sm:top-auto lg:-left-16" style={stagger(3)} float={6.5} floatDelay={-1}>
                 <Sticker name="moon" size={92} rotate={-8} className="max-sm:size-[60px]!" />
               </Draggable>
-              <Draggable className="absolute -right-4 top-[36%] sm:-right-8 sm:bottom-[6%] sm:top-auto" style={{ animation: "floaty 7.5s ease-in-out -3s infinite" }}>
+              <Draggable className="hero-pop enter-pop absolute -right-4 top-[36%] sm:-right-8 sm:bottom-[6%] sm:top-auto" style={stagger(4)} float={7.5} floatDelay={-3}>
                 <Sticker name="brain" size={104} rotate={12} className="max-sm:size-[64px]!" />
               </Draggable>
-              <Draggable className="absolute right-[2%] top-[34%] hidden sm:block lg:-right-4">
+              <Draggable className="hero-pop enter-pop absolute right-[2%] top-[34%] hidden sm:block lg:-right-4" style={stagger(5)}>
                 <LabelSticker rotate={9} className="text-sm">8 hrs or bust</LabelSticker>
               </Draggable>
-              <Draggable className="absolute -left-4 top-[40%] hidden sm:block lg:-left-12">
+              <Draggable className="hero-pop enter-pop absolute -left-4 top-[40%] hidden sm:block lg:-left-12" style={stagger(6)}>
                 <LabelSticker variant="tag" rotate={-9} className="text-[0.8125rem]">Hydrated</LabelSticker>
               </Draggable>
-              <Draggable className="absolute bottom-[-7%] left-[2%] hidden sm:block">
+              <Draggable className="hero-pop enter-pop absolute bottom-[-7%] left-[2%] hidden sm:block" style={stagger(6)}>
                 <LabelSticker variant="oval" rotate={-5} className="text-[0.9375rem]">fiber fan club</LabelSticker>
               </Draggable>
             </div>
@@ -153,17 +161,20 @@ export default async function HomePage() {
               href="/topics"
               cta="All topics"
             />
+            {/* Grids below carry a plain "reveal": RevealObserver brings each row in left to right
+                as it appears, whatever the number of columns at this width. */}
             <ul className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-8">
               {categories.map((c, i) => (
-                <li key={c.slug} className="reveal" style={{ transitionDelay: `${(i % 8) * 35}ms` }}>
+                <li key={c.slug} className="reveal">
                   <Link
                     href={`/topics/${c.slug}`}
                     className={cn(
                       `tone-${c.color}`,
-                      "kiss-cut group flex h-full flex-col items-center gap-3 bg-paper px-3 py-5 text-center transition-colors duration-200 hover:border-solid hover:border-ink hover:bg-tone-soft",
+                      "kiss-cut group flex h-full flex-col items-center gap-3 bg-paper px-3 py-5 text-center transition-[background-color,border-color,scale] duration-(--dur-fast) ease-enter hover:border-solid hover:border-ink hover:bg-tone-soft active:scale-[0.97]",
                     )}
                   >
-                    <Sticker name={c.sticker} size={68} rotate={((i * 7) % 15) - 7} className="transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110" />
+                    {/* No transition classes on stickers: .sticker brings its own (rotate eases, scale pops). */}
+                    <Sticker name={c.sticker} size={68} rotate={((i * 7) % 15) - 7} className="group-hover:-rotate-6 group-hover:scale-110" />
                     <span>
                       <span className="block text-[0.9375rem] font-semibold leading-tight">{c.name}</span>
                       <span className="mt-1 block text-xs text-ink-3">{c.articleCount} {c.articleCount === 1 ? "read" : "reads"}</span>
@@ -231,7 +242,7 @@ export default async function HomePage() {
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
                 <Link href="/body" className="btn btn-primary">
-                  Open the body map <Icon name="arrow-right" size={16} />
+                  Open the body map <Icon name="arrow-right" size={16} className="nudge-x" />
                 </Link>
                 <Link href="/conditions" className="btn btn-outline">
                   Conditions A to Z
@@ -240,7 +251,7 @@ export default async function HomePage() {
               <ul className="mt-8 flex flex-wrap gap-2 md:hidden">
                 {systems.map((s) => (
                   <li key={s.slug}>
-                    <Link href={`/body/${s.slug}`} className={cn(`tone-${s.color}`, "chip")}>
+                    <Link href={`/body/${s.slug}`} className={cn(`tone-${s.color}`, "chip pressable")}>
                       <Sticker name={s.sticker} size={18} flat />
                       {s.name}
                     </Link>
@@ -248,7 +259,7 @@ export default async function HomePage() {
                 ))}
               </ul>
             </div>
-            <div className="hidden rounded-[30px] bg-sand p-4 md:block lg:p-6">
+            <div className="reveal hidden rounded-[30px] bg-sand p-4 md:block lg:p-6">
               <BodyMap systems={systems.map((s) => ({ slug: s.slug, name: s.name, sticker: s.sticker, color: s.color, conditionCount: s.conditionCount }))} />
             </div>
           </div>
@@ -269,20 +280,23 @@ export default async function HomePage() {
               cta="All tools"
             />
             <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              {TOOLS.slice(0, 8).map((t, i) => (
-                <li key={t.slug} className="reveal" style={{ transitionDelay: `${(i % 4) * 40}ms` }}>
+              {TOOLS.slice(0, 8).map((t) => (
+                <li key={t.slug} className="reveal">
                   <Link
                     href={`/tools/${t.slug}`}
-                    className={cn(`tone-${t.color}`, "group relative flex h-full min-h-[176px] flex-col rounded-[24px] bg-paper p-5 transition-all duration-200 hover:-translate-y-1 hover:bg-tone-soft")}
+                    className={cn(
+                      `tone-${t.color}`,
+                      "group relative flex h-full min-h-[176px] flex-col rounded-[24px] bg-paper p-5 transition-[translate,scale,background-color] duration-(--dur-base) ease-enter hover:-translate-y-1 hover:bg-tone-soft active:scale-[0.98]",
+                    )}
                   >
                     <span className="flex items-start justify-between">
-                      <Sticker name={t.sticker} size={56} rotate={-6} className="transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110" />
-                      <span className="flex size-9 items-center justify-center rounded-full border-[1.5px] border-ink transition-colors group-hover:bg-ink group-hover:text-paper">
+                      <Sticker name={t.sticker} size={56} rotate={-6} className="group-hover:rotate-6 group-hover:scale-110" />
+                      <span className="flex size-9 items-center justify-center rounded-full border-[1.5px] border-ink transition-colors duration-(--dur-base) ease-enter group-hover:bg-ink group-hover:text-paper">
                         <Icon name="arrow-up-right" size={16} />
                       </span>
                     </span>
                     <span className="mt-auto block pt-4 text-lg font-semibold leading-tight tracking-[-0.015em]">{t.short}</span>
-                    <span className="mt-1 line-clamp-2 block text-sm leading-snug text-ink-3 group-hover:text-tone-ink">{t.summary}</span>
+                    <span className="mt-1 line-clamp-2 block text-sm leading-snug text-ink-3 transition-colors duration-(--dur-base) ease-enter group-hover:text-tone-ink">{t.summary}</span>
                   </Link>
                 </li>
               ))}
@@ -345,7 +359,7 @@ export default async function HomePage() {
               className="mx-auto mt-8 max-w-[22ch] text-[clamp(2rem,5.6vw,4.75rem)] font-normal leading-[1.08] tracking-[-0.035em] text-balance md:max-w-[24ch]"
             />
             <Link href="/about" className="btn btn-outline mt-12">
-              How we work <Icon name="arrow-right" size={16} />
+              How we work <Icon name="arrow-right" size={16} className="nudge-x" />
             </Link>
           </div>
         </section>
@@ -365,18 +379,19 @@ export default async function HomePage() {
                   </p>
                   <div className="mt-7 flex flex-wrap gap-3">
                     <Link href="/community" className="btn btn-primary">
-                      Visit the community <Icon name="arrow-right" size={16} />
+                      Visit the community <Icon name="arrow-right" size={16} className="nudge-x" />
                     </Link>
                     <Link href="/signup" className="btn btn-outline">
                       Create an account
                     </Link>
                   </div>
                 </div>
+                {/* The stickers pop on as the band scrolls into view. */}
                 <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[42%] md:block" aria-hidden="true">
-                  <Sticker name="chat" size={150} rotate={-8} className="absolute right-[38%] top-[14%]" />
-                  <Sticker name="smile" size={110} rotate={10} className="absolute right-[8%] top-[10%]" />
-                  <Sticker name="medal" size={104} rotate={-10} className="absolute bottom-[10%] right-[12%]" />
-                  <LabelSticker variant="lime" rotate={-6} className="absolute bottom-[18%] right-[46%] text-xs">
+                  <Sticker name="chat" size={150} rotate={-8} className="reveal reveal-pop absolute right-[38%] top-[14%]" />
+                  <Sticker name="smile" size={110} rotate={10} className="reveal reveal-pop absolute right-[8%] top-[10%]" />
+                  <Sticker name="medal" size={104} rotate={-10} className="reveal reveal-pop absolute bottom-[10%] right-[12%]" />
+                  <LabelSticker variant="lime" rotate={-6} className="reveal reveal-pop absolute bottom-[18%] right-[46%] text-xs">
                     be kind, cite sources
                   </LabelSticker>
                 </div>

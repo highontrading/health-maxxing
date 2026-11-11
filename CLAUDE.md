@@ -52,13 +52,19 @@ an API you have not used in this repository.
   page you left (for back and forward). `document.querySelector` and browser-test selectors can
   match its elements, so scope them to what is rendered.
 - **A link prefetches only the shell of a `[slug]` page** (its loading skeleton). `IntentPrefetch`
-  in the site layout fetches the whole page on hover, focus or touch, so it opens in one step.
+  in the site layout fetches the whole page on hover, focus or touch, and on touch screens also
+  the links in the middle of the screen once scrolling settles, so pages open in one step. Add a
+  new content section to its `CONTENT_PAGE` pattern, and a new top-level route to `RESERVED`.
 - **Page changes must not smooth-scroll.** `<html data-scroll-behavior="smooth">` makes navigation
   jump to the top while links within a page still scroll smoothly. Do not remove it.
 - **`backdrop-filter` (and `filter`, `transform`) turns an element into the box its `position: fixed`
   children are laid out in.** That squashed the phone menu inside the header once. Put the blur on a
   separate layer, never on an element that contains a fixed overlay.
-- **Turbopack's disk cache is off** (`next.config.ts`): a warm cache once served a stale stylesheet.
+- **Turbopack's disk cache is off** (`next.config.ts`): it served a stale stylesheet twice, once to a
+  build and once to a dev server that restored an old cache. Do not switch it back on. The price is
+  that a dev server cannot release memory: one very busy session grew past 11 GB and was killed, so
+  restart a dev server that has been running for hours. If styles ever look stale, stop the server,
+  delete `.next` and start again.
 - `generateStaticParams` must return at least one entry. Middleware is `proxy.ts`. `next lint` is gone.
 - **Test against a production build before calling something done.** Several bugs here appeared only
   in `next build` + `next start`. When restarting, kill the old `next-server` process first:
@@ -133,11 +139,17 @@ The site moves a little everywhere and it must never get in the way. Shared piec
 | `src/app/styles/motion/keyframes.css`, `utilities.css` | Shared keyframes and classes: `reveal`, `enter-*`, `motion-menu/dialog/fade/sheet`, `collapse-y`, `pressable`, `link-draw`, `skeleton` |
 | `src/app/styles/motion/page-transitions.css` | How one page swaps for the next |
 | `src/app/styles/motion/<area>.css` | Motion that belongs to one area (chrome, home, reading, explore, tools, forms, admin) |
-| `src/components/motion/` | `PageTransition`, `Swap`, `usePresence`, `Collapse`, `CountUp`, `Spinner`, `MenuToggleIcon`, `useScrollLock`, `stagger`, `IntentPrefetch`, `RouteProgress` |
+| `src/components/motion/` | `PageTransition`, `Swap`, `LayoutTransition`, `usePresence`, `Collapse`, `CountUp`, `Spinner`, `MenuToggleIcon`, `useScrollLock`, `stagger`, `IntentPrefetch`, `RouteProgress`, `TransitionClicks` |
 
 - **Every `page.tsx` wraps what it returns in `<PageTransition>`** (`variant="panel"` in the admin,
-  `variant="skeleton"` around a loading placeholder). It must be in the page, not a layout. A new
-  page without it changes with no animation. Read the comment in `PageTransition.tsx`.
+  `variant="skeleton"` or `"panel-skeleton"` around a loading placeholder). It must be in the page,
+  not a layout, with nothing between a `<Suspense>` and it. A new page without it changes with no
+  animation. Read the comment in `PageTransition.tsx`.
+- **Each layout wraps its root element in `<LayoutTransition>`.** A page's own transition does not
+  play when the layout around it appears or disappears in the same step (site to admin, signing
+  in), so the layout fades instead.
+- **A loading skeleton stays invisible for a quarter of a second** and is a full screen tall on the
+  public site. Most pages arrive sooner, so visitors see one cross-fade, not page, skeleton, page.
 - **Keep page transitions short.** While one runs the page cannot be clicked, and React waits for
   it before showing what loads next. They do not run on first load, back and forward, `refresh()`
   or a query-string change.
@@ -153,6 +165,12 @@ The site moves a little everywhere and it must never get in the way. Shared piec
   JavaScript must check `useReducedMotion()`.
 - Use the tokens, animate `opacity`, `translate`, `scale` and `rotate` (height only through
   `Collapse`), keep feedback within about 300 ms, and put hover movement inside `@media (hover: hover)`.
+- **Entrance classes take over `translate` and `scale` while they run.** Do not put `enter-*`,
+  `motion-*` or `reveal` on an element that is positioned with its own (`-translate-x-1/2`,
+  `scale-*`): wrap it. Entrances fill `backwards` only, so they let go of the element afterwards.
+- **A fixed layer that lives in a layout** (a toast, a floating button) is drawn under the pages
+  while they change. Put it inside the header or admin bar, or give it the class `vt-layer`.
+  Bars that hold still get `vt-steady`, so a click on them during a page change is replayed.
 - The admin panel is calmer than the public site: fades only.
 
 ## Writing for the interface
