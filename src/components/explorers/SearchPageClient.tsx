@@ -44,15 +44,6 @@ export function SearchPageClient({ colorOf }: { colorOf: Record<string, string> 
   }, [hits]);
   const visible = type === "all" ? hits : hits.filter((h) => h.type === type);
   const q = query.trim();
-  // An answer has arrived when loading ends. Noticed while rendering, so its rows carry the entrance from
-  // their first frame. The last answer is remembered, so coming back to this page with the same query
-  // (the address, and with it the query, is briefly different while the page is hidden) plays nothing.
-  const answered = !loading && q.length >= 2 ? q : "";
-  const [played, setPlayed] = useState("");
-  if (answered && answered !== played) {
-    setPlayed(answered);
-    wave.replay();
-  }
   const pickType = (next: string) => {
     if (next === type) return;
     setType(next);

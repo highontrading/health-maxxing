@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useActionState, useState } from "react";
+import { useActionState, useId, useState } from "react";
 import { useFormStatus } from "react-dom";
 import { changePasswordAction, requestPasswordResetAction, resetPasswordAction, signInAction, signUpAction, updateProfileAction } from "@/app/actions/auth";
 import { EMPTY } from "@/app/actions/types";
@@ -19,6 +19,8 @@ function useNext(): string {
 
 export function SignInForm({ area = "site" }: { area?: "site" | "admin" }) {
   const [state, action, pending] = useActionState(signInAction, EMPTY);
+  // Ids of their own: the sign-up page can be in the document too (hidden, kept for Back), with the same fields.
+  const uid = useId();
   const next = useNext();
   const justReset = useQueryParam("reset") === "1";
   return (
@@ -31,16 +33,16 @@ export function SignInForm({ area = "site" }: { area?: "site" | "admin" }) {
       <input type="hidden" name="next" value={next} />
       <input type="hidden" name="area" value={area} />
       <div>
-        <label htmlFor="email" className="field-label">
+        <label htmlFor={`${uid}-email`} className="field-label">
           Email
         </label>
-        <input id="email" name="email" type="email" autoComplete="email" className="input" required defaultValue={state.values?.email} />
+        <input id={`${uid}-email`} name="email" type="email" autoComplete="email" className="input" required defaultValue={state.values?.email} />
       </div>
       <div>
-        <label htmlFor="password" className="field-label">
+        <label htmlFor={`${uid}-password`} className="field-label">
           Password
         </label>
-        <input id="password" name="password" type="password" autoComplete="current-password" className="input" required />
+        <input id={`${uid}-password`} name="password" type="password" autoComplete="current-password" className="input" required />
       </div>
       <FormMessage state={state} />
       <button type="submit" className="btn btn-primary btn-lg w-full" disabled={pending}>
@@ -52,6 +54,7 @@ export function SignInForm({ area = "site" }: { area?: "site" | "admin" }) {
 
 export function SignUpForm() {
   const [state, action, pending] = useActionState(signUpAction, EMPTY);
+  const uid = useId();
   const next = useNext();
   const err = state.errors ?? {};
   return (
@@ -82,21 +85,21 @@ export function SignUpForm() {
         </div>
       </div>
       <div>
-        <label htmlFor="email" className="field-label">
+        <label htmlFor={`${uid}-email`} className="field-label">
           Email
         </label>
-        <input id="email" name="email" type="email" autoComplete="email" className="input" required aria-invalid={!!err.email} defaultValue={state.values?.email} />
+        <input id={`${uid}-email`} name="email" type="email" autoComplete="email" className="input" required aria-invalid={!!err.email} defaultValue={state.values?.email} />
         {err.email ? <FieldError>{err.email}</FieldError> : <p className="field-help">Never shown publicly.</p>}
       </div>
       <div>
-        <label htmlFor="password" className="field-label">
+        <label htmlFor={`${uid}-password`} className="field-label">
           Password
         </label>
-        <input id="password" name="password" type="password" autoComplete="new-password" className="input" required minLength={8} aria-invalid={!!err.password} />
+        <input id={`${uid}-password`} name="password" type="password" autoComplete="new-password" className="input" required minLength={8} aria-invalid={!!err.password} />
         {err.password ? <FieldError>{err.password}</FieldError> : <p className="field-help">At least 8 characters.</p>}
       </div>
       <label className="flex cursor-pointer items-start gap-3 text-[0.9375rem] leading-snug">
-        <input type="checkbox" name="agree" className="mt-0.5 size-5 flex-none accent-[var(--ink)]" />
+        <input type="checkbox" name="agree" className="mt-0.5 size-5 flex-none accent-[var(--ink)]" defaultChecked={state.values?.agree === "on"} />
         <span>
           I agree to the{" "}
           <Link href="/community-guidelines" className="font-semibold underline underline-offset-4" target="_blank">

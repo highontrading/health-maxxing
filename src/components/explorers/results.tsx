@@ -47,6 +47,9 @@ export function useResultWave() {
     timer = window.setTimeout(settle, WAVE_MS);
     return () => window.clearTimeout(timer);
   }, [wave.on, wave.id, wave.from]);
+  // When the page is hidden (the visitor follows a link) the timer above is cleared with the wave still
+  // on, and it would play again on Back. Switch it off as the page goes.
+  useEffect(() => () => setWave((w) => (w.on ? { ...w, on: false } : w)), []);
   // Two names for one animation: changing the name replays it on rows that stay. Rebuilding the list with a new
   // key would also work, but it would close every opened myth card and pop every sticker again.
   const name = wave.id % 2 ? "b" : "a";

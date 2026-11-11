@@ -246,13 +246,16 @@ export function LengthInput({ cm, onChange, units, label, hint }: { cm: number |
 }
 
 export function Segmented<T extends string>({ label, options, value, onChange, className }: { label: string; options: { value: T; label: string }[]; value: T; onChange: (v: T) => void; className?: string }) {
+  // A name of its own: the page the visitor came from stays in the document, hidden, and a group there
+  // with the same name (two calculators both ask for "Sex") would take the checked state away from this one.
+  const group = useId();
   return (
     <fieldset className={className}>
       <legend className="field-label">{label}</legend>
       <div className="inline-flex flex-wrap gap-1 rounded-2xl border-[1.5px] border-line-strong bg-paper p-1">
         {options.map((o) => (
           <label key={o.value} className={cn("tool-option cursor-pointer rounded-xl px-4 py-2 text-[0.9375rem] font-semibold has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-[var(--blue-solid)]", value === o.value ? "bg-ink text-paper" : "text-ink-2 hover:bg-sand")}>
-            <input type="radio" className="sr-only" name={label} value={o.value} checked={value === o.value} onChange={() => onChange(o.value)} />
+            <input type="radio" className="sr-only" name={group} value={o.value} checked={value === o.value} onChange={() => onChange(o.value)} />
             {o.label}
           </label>
         ))}
@@ -263,6 +266,7 @@ export function Segmented<T extends string>({ label, options, value, onChange, c
 
 /** A list of radio "cards" for choices that need a line of explanation. */
 export function ChoiceList<T extends string>({ label, options, value, onChange }: { label: string; options: readonly { key: T; label: string; detail: string }[]; value: T; onChange: (v: T) => void }) {
+  const group = useId(); // see Segmented
   return (
     <fieldset>
       <legend className="field-label">{label}</legend>
@@ -276,7 +280,7 @@ export function ChoiceList<T extends string>({ label, options, value, onChange }
               value === o.key ? "border-ink bg-tone-soft" : "border-line-strong hover:border-ink-3",
             )}
           >
-            <input type="radio" className="sr-only" name={label} value={o.key} checked={value === o.key} onChange={() => onChange(o.key)} />
+            <input type="radio" className="sr-only" name={group} value={o.key} checked={value === o.key} onChange={() => onChange(o.key)} />
             <span className={cn("tool-choice-ring flex size-5 flex-none items-center justify-center rounded-full border-[1.5px] border-ink", value === o.key && "bg-ink")}>
               {/* Always in the page, scaled to nothing unless checked, so choosing an option can pop it in. */}
               <span className={cn("tool-choice-dot size-2 rounded-full bg-paper", value === o.key ? "scale-100" : "scale-0")} />

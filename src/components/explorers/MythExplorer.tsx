@@ -90,7 +90,7 @@ export function MythExplorer({ myths, categories }: { myths: Myth[]; categories:
           ))}
         </div>
       ) : (
-        <EmptyState sticker="magnifier" enter={wave.touched}>
+        <EmptyState sticker="magnifier" enter={wave.on}>
           <p className="mt-5 text-xl font-medium">No claims match those filters.</p>
         </EmptyState>
       )}

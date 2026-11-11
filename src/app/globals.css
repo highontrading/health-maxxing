@@ -209,6 +209,18 @@
   hr {
     border-color: var(--line);
   }
+  /* Without JavaScript nothing swaps a loading placeholder for the content that was sent along with it
+     (React keeps that content in a hidden block until its script runs). Show the content and drop the
+     placeholder, so an article is readable. It appears after the footer: a known limitation. In this
+     layer on purpose, to beat Tailwind's own rule for [hidden]. */
+  @media (scripting: none) {
+    .page-skeleton {
+      display: none !important;
+    }
+    div[hidden][id^="S:"] {
+      display: block !important;
+    }
+  }
 }
 
 @layer components {

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { HistoryScroll } from "@/components/motion/HistoryScroll";
 import { SITE_NAME, SITE_TAGLINE, siteUrl } from "@/lib/site";
 
 const figtree = localFont({
@@ -56,7 +57,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       style={{ viewTransitionName: "root" }}
       className={`${figtree.variable} ${instrument.variable} ${pixelify.variable}`}
     >
-      <body className="min-h-dvh antialiased">{children}</body>
+      <body className="min-h-dvh antialiased">
+        <HistoryScroll />
+        {children}
+      </body>
     </html>
   );
 }

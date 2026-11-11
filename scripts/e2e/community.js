@@ -28,8 +28,8 @@ const { BASE } = require('./lib');
   console.log('empty signup errors:', await page.locator('.field-error').allInnerTexts());
   await page.locator('#name').fill('Test Runner');
   await page.locator('#handle').fill(handle);
-  await page.locator('#email').fill(email);
-  await page.locator('#password').fill('correct-horse-9');
+  await page.locator('main input[name="email"]:visible').fill(email);
+  await page.locator('main input[name="password"]:visible').fill('correct-horse-9');
   await page.getByRole('checkbox').check();
   await page.getByRole('button', { name: 'Create account' }).click();
   await page.waitForURL((u) => u.pathname === '/community/new', { timeout: 15000 });
@@ -78,12 +78,12 @@ const { BASE } = require('./lib');
   console.log('account while signed out ->', page.url().replace(BASE, ''));
 
   // Sign in: wrong then right
-  await page.locator('#email').fill(email);
-  await page.locator('#password').fill('wrong-password');
+  await page.locator('main input[name="email"]:visible').fill(email);
+  await page.locator('main input[name="password"]:visible').fill('wrong-password');
   await page.getByRole('button', { name: 'Sign in' }).click();
   await page.waitForTimeout(1000);
   console.log('wrong password ->', await page.locator('.field-error').allInnerTexts());
-  await page.locator('#password').fill('correct-horse-9');
+  await page.locator('main input[name="password"]:visible').fill('correct-horse-9');
   await page.getByRole('button', { name: 'Sign in' }).click();
   await page.waitForURL((u) => u.pathname === '/account', { timeout: 15000 });
   console.log('signed in ->', page.url().replace(BASE, ''));

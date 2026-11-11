@@ -111,7 +111,7 @@ export function ConditionExplorer({ conditions, systems }: { conditions: Conditi
       />
 
       {groups.length === 0 ? (
-        <EmptyState sticker="stethoscope" enter={wave.touched}>
+        <EmptyState sticker="stethoscope" enter={wave.on}>
           <p className="mt-5 text-xl font-medium">We have not written that one up yet.</p>
           <p className="mt-2 max-w-md text-ink-3">Try a different spelling, or search the whole site.</p>
           <Link href={`/search?q=${encodeURIComponent(query)}`} className="btn btn-outline mt-5">

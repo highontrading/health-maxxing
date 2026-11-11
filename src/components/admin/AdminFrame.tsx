@@ -7,6 +7,7 @@ import { signOutAction } from "@/app/actions/auth";
 import { Icon } from "@/components/Icon";
 import { MenuToggleIcon } from "@/components/motion/MenuToggleIcon";
 import { usePresence } from "@/components/motion/presence";
+import { useFocusTrap } from "@/components/motion/focus-trap";
 import { useScrollLock } from "@/components/motion/scroll-lock";
 import { Sticker } from "@/components/stickers/Sticker";
 import { COLLECTION_GROUPS, COLLECTIONS } from "@/lib/admin/collections";
@@ -148,6 +149,8 @@ export function AdminFrame({ nav, children }: { nav: ReactNode; children: ReactN
   // The phone menu fades out before it is removed, and the page behind it holds still while it is open.
   const menu = usePresence(open);
   useScrollLock(open);
+  const sheet = useRef<HTMLDivElement>(null);
+  useFocusTrap(open, sheet, toggle);
 
   useEffect(() => {
     if (!open) return;
@@ -216,7 +219,7 @@ export function AdminFrame({ nav, children }: { nav: ReactNode; children: ReactN
         {/* Inside the bar on purpose. The bar is its own layer during a page change (vt-admin-bar), so an
             open menu stays above the page pictures; as a sibling, the old page flashed over it. */}
         {menu.mounted && (
-          <div className="motion-fade fixed inset-x-0 bottom-0 top-14 flex flex-col bg-paper" data-state={menu.state} inert={!open} onClick={closeOnSamePage}>
+          <div ref={sheet} className="motion-fade fixed inset-x-0 bottom-0 top-14 flex flex-col bg-paper" data-state={menu.state} inert={!open} onClick={closeOnSamePage}>
             {nav}
           </div>
         )}

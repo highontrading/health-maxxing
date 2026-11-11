@@ -77,16 +77,6 @@
   animation: 160ms ease-out 30ms both panel-fade-in;
 }
 
-/* ---- Content that replaces a placeholder inside a page (see <Swap>). */
-::view-transition-old(.swap-exit) {
-  animation: 100ms var(--ease-exit) both fade-out;
-}
-::view-transition-new(.swap-enter) {
-  animation:
-    180ms ease-out 40ms both fade-in,
-    220ms var(--ease-enter) both swap-rise;
-}
-
 /* ---- Bars that stay put. Each is its own layer above the page pictures,
    otherwise a scrolled page would be drawn over it while it fades. They are
    named only while a transition runs: a permanent name would switch off the
@@ -163,9 +153,6 @@
 }
 @keyframes page-from-left {
   from { translate: -20px 0; }
-}
-@keyframes swap-rise {
-  from { translate: 0 var(--rise-sm); }
 }
 
 /* Reduced motion: pages swap at once. */

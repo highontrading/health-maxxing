@@ -247,13 +247,7 @@
   }
 
   /* ---------- Myth cards (MythCard.tsx) ----------
-     The answer is in the page only while it is open (usePresence), so it is given a starting
-     point to grow from. It closes faster than it opens. */
-  @starting-style {
-    .myth-answer[data-open="true"] {
-      grid-template-rows: 0fr;
-    }
-  }
+     The answer closes faster than it opens. */
   .myth-answer:not([data-open="true"]) {
     transition-duration: var(--dur-base);
   }

@@ -139,7 +139,7 @@ The site moves a little everywhere and it must never get in the way. Shared piec
 | `src/app/styles/motion/keyframes.css`, `utilities.css` | Shared keyframes and classes: `reveal`, `enter-*`, `motion-menu/dialog/fade/sheet`, `collapse-y`, `pressable`, `link-draw`, `skeleton` |
 | `src/app/styles/motion/page-transitions.css` | How one page swaps for the next |
 | `src/app/styles/motion/<area>.css` | Motion that belongs to one area (chrome, home, reading, explore, tools, forms, admin) |
-| `src/components/motion/` | `PageTransition`, `Swap`, `LayoutTransition`, `usePresence`, `Collapse`, `CountUp`, `Spinner`, `MenuToggleIcon`, `useScrollLock`, `stagger`, `IntentPrefetch`, `RouteProgress`, `TransitionClicks` |
+| `src/components/motion/` | `PageTransition`, `Swap`, `LayoutTransition`, `usePresence`, `Collapse`, `CountUp`, `Spinner`, `MenuToggleIcon`, `useScrollLock`, `useFocusTrap`, `stagger`, `IntentPrefetch`, `RouteProgress`, `TransitionClicks`, `HistoryScroll` |
 
 - **Every `page.tsx` wraps what it returns in `<PageTransition>`** (`variant="panel"` in the admin,
   `variant="skeleton"` or `"panel-skeleton"` around a loading placeholder). It must be in the page,
@@ -150,6 +150,11 @@ The site moves a little everywhere and it must never get in the way. Shared piec
   in), so the layout fades instead.
 - **A loading skeleton stays invisible for a quarter of a second** and is a full screen tall on the
   public site. Most pages arrive sooner, so visitors see one cross-fade, not page, skeleton, page.
+- **The admin placeholder shows at once** (`panel-skeleton`), so the page being left cross-fades to
+  it. With the quarter-second wait the panel was empty for a moment.
+- **`<Swap>` is a plain fade, not a view transition.** It wraps content that replaces a placeholder
+  inside a page (forum lists, the account page). As a second view transition it blocked clicks
+  again right after the page had arrived.
 - **Keep page transitions short.** While one runs the page cannot be clicked, and React waits for
   it before showing what loads next. They do not run on first load, back and forward, `refresh()`
   or a query-string change.
@@ -161,6 +166,17 @@ The site moves a little everywhere and it must never get in the way. Shared piec
   `enter-*` classes are for decoration, never the main heading or body text.
 - **Things that open also close with motion:** `usePresence(open)` plus a `motion-*` class and
   `data-state`. A closed layer is unmounted or `inert`; a closing one never blocks a click.
+- **A layer that covers the page keeps the keyboard inside it:** `useFocusTrap(open, layer, trigger)`
+  (phone menus, search). A menu or panel that holds links stays open until the new page is in
+  place, otherwise the old page shows for a moment.
+- **A page the visitor comes back to is shown again, not rebuilt.** A CSS animation or
+  `@starting-style` on it plays a second time, so take one-shot classes off when they finish
+  (`onAnimationEnd`), and give ids and radio `name`s from `useId()`: the hidden page still holds
+  its own. `HistoryScroll` in the root layout makes Back and Forward land on the old scroll
+  position at once instead of gliding there.
+- **Confirm in place, guarded.** `ConfirmSubmit` (and `guardConfirm` for hand-built pairs) puts "No"
+  where the button was and ignores a click that comes with the one that asked, so a double click
+  never deletes. Browser tests must wait about half a second before the confirming click.
 - **Reduced motion** is handled in CSS for every animation and transition. Motion driven from
   JavaScript must check `useReducedMotion()`.
 - Use the tokens, animate `opacity`, `translate`, `scale` and `rotate` (height only through

@@ -85,7 +85,9 @@ export function Toc({ items, className }: { items: TocItem[]; className?: string
         }
         setActive(current.id);
       },
-      { rootMargin: "-90px 0px -65% 0px", threshold: 0 },
+      // The huge top margin makes every heading above the line count, so a jump (End key, scrollbar drag,
+      // an instant scroll) updates the marker as well as a slow scroll does.
+      { rootMargin: "1000000px 0px -65% 0px", threshold: 0 },
     );
     headings.forEach((h) => io.observe(h));
     return () => io.disconnect();

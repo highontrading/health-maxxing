@@ -35,7 +35,7 @@ const signUpSchema = z.object({
 
 export async function signUpAction(_prev: FormState, formData: FormData): Promise<FormState> {
   if (String(formData.get("website") ?? "")) return { ok: true, message: "Thanks!" }; // honeypot
-  const values = echo(formData, ["name", "handle", "email"]);
+  const values = echo(formData, ["name", "handle", "email", "agree"]);
   const settings = await getSettings();
   if (!settings.community.signupsOpen) return { message: "New sign-ups are paused right now. Please check back soon.", values };
   if (!(await limitByClient("signup", 5, 3600))) return { message: "Too many attempts. Please try again in an hour.", values };

@@ -129,7 +129,7 @@ export function ViewsChart({ series }: { series: DayPoint[] }) {
               className="relative h-[220px] min-w-0 flex-1 cursor-crosshair touch-pan-y rounded-sm outline-offset-4"
               onPointerMove={(e) => pick(e.clientX)}
               onPointerDown={(e) => pick(e.clientX)}
-              onPointerLeave={() => setActive(null)}
+              onPointerLeave={(e) => e.pointerType === "mouse" && setActive(null)}
               onFocus={() => setActive((a) => a ?? count - 1)}
               onBlur={() => setActive(null)}
               onKeyDown={(e) => {

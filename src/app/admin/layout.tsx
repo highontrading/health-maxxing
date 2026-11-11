@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function AdminRootLayout({ children }: { children: ReactNode }) {
   return (
     <LayoutTransition>
-      <div className="min-h-dvh bg-sand text-ink">
+      <div className="admin-root min-h-dvh bg-sand text-ink">
         <RouteProgress />
         <TransitionClicks />
         {children}

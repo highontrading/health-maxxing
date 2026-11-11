@@ -153,7 +153,7 @@ export function ExerciseExplorer({ exercises }: { exercises: Exercise[] }) {
           })}
         </ul>
       ) : (
-        <EmptyState sticker="dumbbell" enter={wave.touched}>
+        <EmptyState sticker="dumbbell" enter={wave.on}>
           <p className="mt-5 text-xl font-medium">No exercises match those filters.</p>
           <button
             type="button"

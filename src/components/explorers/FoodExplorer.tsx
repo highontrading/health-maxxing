@@ -162,7 +162,7 @@ export function FoodExplorer({ foods }: { foods: Food[] }) {
       <ResultCount text={`${rows.length} ${rows.length === 1 ? "food" : "foods"} · values ${basis === "100g" ? "per 100 g" : "per typical serving"}`} fade={wave.on} />
 
       {rows.length === 0 ? (
-        <EmptyState sticker="apple" enter={wave.touched}>
+        <EmptyState sticker="apple" enter={wave.on}>
           <p className="mt-5 text-xl font-medium">That food is not in the database yet.</p>
         </EmptyState>
       ) : (

@@ -17,7 +17,9 @@ import { ViewTransition, type ReactNode } from "react";
  *   it leaves quietly, so the real content gets the entrance.
  * - `panel`: admin pages, a plain quick cross-fade. Wraps the page in a <div>
  *   so its many top-level blocks move as one.
- * - `panel-skeleton`: the admin loading placeholder, also invisible at first.
+ * - `panel-skeleton`: the admin loading placeholder. It shows at once: every
+ *   admin page loads its data after the click, so an invisible placeholder
+ *   left the panel empty for a moment on each page change.
  *
  * A page with a loading state uses both:
  *
@@ -32,7 +34,7 @@ export function PageTransition({ children, variant = "page" }: { children: React
   if (variant === "skeleton" || variant === "panel-skeleton") {
     return (
       <ViewTransition enter="skeleton-enter" exit="skeleton-exit" default="none">
-        <div className={variant === "skeleton" ? "page-skeleton page-skeleton-tall" : "page-skeleton"}>{children}</div>
+        <div className={variant === "skeleton" ? "page-skeleton page-skeleton-tall" : undefined}>{children}</div>
       </ViewTransition>
     );
   }
@@ -54,27 +56,7 @@ export function PageTransition({ children, variant = "page" }: { children: React
   );
 }
 
-/**
- * A quiet hand-over inside a page: wrap a Suspense fallback and the content
- * that replaces it, and the placeholder fades out while the content fades in.
- *
- *   <Suspense fallback={<Swap><ListSkeleton /></Swap>}>
- *     <Swap><List /></Swap>
- *   </Suspense>
- *
- * Give it one child element. It only animates the hand-over; it does nothing
- * on its own when the page itself is entering. Like every view transition it
- * pauses clicks on the whole page for its fraction of a second, so use it for
- * a hand-over that happens once as a page loads, not for something that
- * updates again and again.
- */
-export function Swap({ children }: { children: ReactNode }) {
-  return (
-    <ViewTransition enter="swap-enter" exit="swap-exit" default="none">
-      {children}
-    </ViewTransition>
-  );
-}
+export { Swap } from "./Swap";
 
 /**
  * Wraps the root element of a layout. A page's own <PageTransition> does not

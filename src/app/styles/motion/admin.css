@@ -34,8 +34,7 @@
      These only ever appear after a click or a save, so they may start hidden. */
   /* Banners: the ?notice= line, a form's error summary, a new API token. */
   .admin-banner {
-    --rise: var(--rise-sm);
-    animation: rise-in var(--dur-base) var(--ease-enter) both;
+    animation: fade-in var(--dur-base) ease-out backwards;
   }
   /* Short messages beside a control: "Settings saved.", a field error. */
   .admin-result {
@@ -96,8 +95,7 @@
   }
   /* A row added with "Add a ...". */
   .repeat-row-new {
-    --rise: var(--rise-sm);
-    animation: rise-in var(--dur-base) var(--ease-enter) both;
+    animation: fade-in var(--dur-base) ease-out backwards;
   }
 
   /* ---------- Views chart ---------- */
@@ -112,4 +110,12 @@
 
 @keyframes admin-unfold {
   from { grid-template-rows: 0fr; }
+}
+
+/* Steady targets: in the panel a button changes colour and shadow under the
+   pointer but does not move or shrink. Outside the layer, to win over .btn. */
+.admin-root .btn:hover,
+.admin-root .btn:active {
+  translate: none;
+  scale: none;
 }

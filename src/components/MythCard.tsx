@@ -2,16 +2,11 @@
 
 import { useState } from "react";
 import { Collapse } from "@/components/motion/Collapse";
-import { usePresence } from "@/components/motion/presence";
 import { stagger } from "@/components/motion/stagger";
 import { Sticker } from "@/components/stickers/Sticker";
 import { cn } from "@/lib/cn";
-import { useReducedMotion } from "@/lib/hooks";
 import { VERDICT } from "@/lib/labels";
 import type { Myth } from "@/lib/types";
-
-/** How long a closing answer stays in the page: a little over its --dur-base close (`.myth-answer` in reading.css). */
-const CLOSE_MS = 220;
 
 /** A claim you tap to reveal the verdict. `detailed` also shows the explanation and sources. */
 export function MythCard({ myth, detailed = false, className }: { myth: Myth; detailed?: boolean; className?: string }) {
@@ -19,9 +14,6 @@ export function MythCard({ myth, detailed = false, className }: { myth: Myth; de
   const [shown, setShown] = useState<boolean | null>(null);
   const open = shown === true;
   const touched = shown !== null;
-  const reduced = useReducedMotion();
-  // The answer is in the page only while open, plus the moment it takes to close.
-  const answer = usePresence(open, reduced ? 0 : CLOSE_MS);
   const v = VERDICT[myth.verdict] ?? VERDICT.false;
 
   return (
@@ -44,10 +36,11 @@ export function MythCard({ myth, detailed = false, className }: { myth: Myth; de
         <Sticker key={open ? "v" : "q"} name={open ? v.sticker : myth.sticker} size={44} rotate={open ? 8 : -8} className={touched ? "enter-pop" : undefined} style={stagger(0)} />
       </div>
       <p className="mt-4 text-[1.3125rem] font-medium leading-[1.2] tracking-[-0.02em] text-balance">“{myth.myth}”</p>
-      {answer.mounted && (
-        // Wider than the text by the negative margin, so the collapse does not clip the focus ring of a source link.
-        <Collapse open={answer.state === "open"} className="myth-answer -mx-2">
-          <div className="enter-fade space-y-2 px-2 pb-1 pt-3 text-[0.9375rem] leading-relaxed" style={stagger(0)}>
+      {/* Always in the page, closed until asked for: an answer that was mounted on opening grew open again
+          every time the visitor came back to the page, which also threw off the restored scroll position.
+          Wider than the text by the negative margin, so the collapse does not clip the focus ring of a source link. */}
+      <Collapse open={open} className="myth-answer -mx-2">
+          <div className="space-y-2 px-2 pb-1 pt-3 text-[0.9375rem] leading-relaxed">
             <p className="font-semibold">{myth.answer}</p>
             {detailed && <p className="opacity-90">{myth.explanation}</p>}
             {detailed && myth.sources.length > 0 && (
@@ -65,8 +58,7 @@ export function MythCard({ myth, detailed = false, className }: { myth: Myth; de
               </p>
             )}
           </div>
-        </Collapse>
-      )}
+      </Collapse>
       <button
         type="button"
         className="mt-auto inline-flex items-center gap-1.5 self-start pt-4 text-sm font-semibold underline-offset-4 hover:underline"

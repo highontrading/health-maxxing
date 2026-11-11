@@ -11,7 +11,7 @@ export const metadata: Metadata = { title: "Staff sign in" };
 
 export default function AdminLoginPage() {
   return (
-    <PageTransition>
+    <PageTransition variant="panel">
       <main className="flex min-h-dvh items-center justify-center px-4 py-12">
         <div className="w-full max-w-md">
           <div className="mb-6 flex flex-col items-center text-center">

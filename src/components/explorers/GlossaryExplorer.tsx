@@ -118,7 +118,7 @@ export function GlossaryExplorer({ terms, categories }: { terms: GlossaryTerm[];
       </p>
 
       {groups.length === 0 ? (
-        <EmptyState sticker="chat" enter={query.trim() !== ""}>
+        <EmptyState sticker="chat" enter={false}>
           <p className="mt-5 text-xl font-medium">We have not defined that one yet.</p>
         </EmptyState>
       ) : (

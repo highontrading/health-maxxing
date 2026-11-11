@@ -5,6 +5,7 @@ import { useActionState, useEffect, useRef, useState, type MouseEvent, type Reac
 import { flushSync } from "react-dom";
 import { EMPTY, type FormState } from "@/app/actions/types";
 import { deleteEntryAction, saveEntryAction } from "@/app/admin/actions";
+import { guardConfirm } from "@/components/admin/ConfirmSubmit";
 import { Icon } from "@/components/Icon";
 import { Collapse } from "@/components/motion/Collapse";
 import { usePresence } from "@/components/motion/presence";
@@ -220,6 +221,7 @@ export function EntryForm({ collectionKey, id, initial, options, publicUrl, fact
   const [dirty, setDirty] = useState(false);
   const [touched, setTouched] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState(false);
+  const deleteAskedAt = useRef(0);
   const form = useRef<HTMLFormElement>(null);
   const errors = state.errors ?? {};
   const errorNames = Object.keys(errors);
@@ -378,15 +380,17 @@ export function EntryForm({ collectionKey, id, initial, options, publicUrl, fact
         {id && (
           <div className="admin-card p-4">
             {confirmDelete ? (
-              // Fades in where it will stay (admin-confirm): nothing moves under the second click.
+              // The side column can grow upward when this opens, which puts these buttons where the
+              // trigger was. So "Keep it" comes first, and "Yes, delete" ignores a click that arrives
+              // with the one that asked (a double click).
               <div className="admin-confirm space-y-2">
                 <p className="text-sm font-medium">Delete this {def.singular} for good? This cannot be undone.</p>
                 <div className="flex gap-2">
-                  <button type="submit" formAction={deleteEntryAction} formNoValidate className="btn btn-danger btn-sm">
-                    Yes, delete
-                  </button>
                   <button type="button" className="btn btn-ghost btn-sm" onClick={() => setConfirmDelete(false)}>
                     Keep it
+                  </button>
+                  <button type="submit" formAction={deleteEntryAction} formNoValidate className="btn btn-danger btn-sm" onClick={(e) => guardConfirm(e, deleteAskedAt.current)}>
+                    Yes, delete
                   </button>
                 </div>
               </div>
@@ -394,7 +398,10 @@ export function EntryForm({ collectionKey, id, initial, options, publicUrl, fact
               <button
                 type="button"
                 className="inline-flex items-center gap-2 text-sm font-medium text-ink-3 transition-colors duration-(--dur-fast) hover:text-[#c21f48]"
-                onClick={() => setConfirmDelete(true)}
+                onClick={(e) => {
+                  deleteAskedAt.current = e.timeStamp;
+                  setConfirmDelete(true);
+                }}
               >
                 <Icon name="trash" size={16} /> Delete this {def.singular}
               </button>

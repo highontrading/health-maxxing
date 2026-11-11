@@ -147,7 +147,7 @@ export function ArticleExplorer({ articles, categories }: { articles: Card[]; ca
           ))}
         </div>
       ) : (
-        <EmptyState sticker="magnifier" enter={wave.touched}>
+        <EmptyState sticker="magnifier" enter={wave.on}>
           <p className="mt-5 text-xl font-medium">Nothing matches that yet.</p>
           <button
             type="button"

@@ -41,8 +41,8 @@ const api = (method, path, token, body) => {
   });
 
   await step('admin signs in', async () => {
-    await page.locator('#email').fill(EMAIL);
-    await page.locator('#password').fill(PASSWORD);
+    await page.locator('main input[name="email"]:visible').fill(EMAIL);
+    await page.locator('main input[name="password"]:visible').fill(PASSWORD);
     await page.getByRole('button', { name: 'Sign in' }).click();
     await page.waitForURL((u) => u.pathname === '/admin', { timeout: 30000 });
   });
@@ -108,6 +108,7 @@ const api = (method, path, token, body) => {
     await pub.close();
     expect(has, 'new term not on the public glossary');
     await page.getByRole('button', { name: 'Delete this term' }).click();
+    await page.waitForTimeout(500); // a confirm button ignores a click that comes with the one that asked
     await page.getByRole('button', { name: 'Yes, delete' }).click();
     await page.waitForURL((u) => u.pathname === '/admin/c/glossary', { timeout: 30000 });
     const pub2 = await ctx.newPage();
@@ -200,6 +201,7 @@ const api = (method, path, token, body) => {
     await page.waitForSelector('text=Added to the queue.', { timeout: 30000 });
     for (let i = 0; i < 2; i++) {
       await page.getByRole('button', { name: 'Remove', exact: true }).first().click();
+      await page.waitForTimeout(500); // a confirm button ignores a click that comes with the one that asked
       await page.getByRole('button', { name: 'Remove', exact: true }).first().click();
       await page.waitForURL(/notice=/, { timeout: 30000 });
       await go('/admin/autopilot');
@@ -210,6 +212,7 @@ const api = (method, path, token, body) => {
   await step('revoke the API token', async () => {
     await go('/admin/api');
     await page.getByRole('button', { name: 'Revoke' }).first().click();
+    await page.waitForTimeout(500);
     await page.getByRole('button', { name: 'Revoke' }).first().click();
     await page.waitForURL(/notice=/, { timeout: 30000 });
     expect(api('GET', '/api/v1', token).status === 401, 'revoked token still works');
@@ -231,6 +234,7 @@ const api = (method, path, token, body) => {
     const head = execFileSync('curl', ['-s', '-o', '/dev/null', '-w', '%{http_code} %{content_type} %{size_download}', BASE + url], { encoding: 'utf8' });
     expect(head.startsWith('200 image/png'), 'image fetch: ' + head);
     await page.getByRole('button', { name: 'Delete' }).first().click();
+    await page.waitForTimeout(500);
     await page.getByRole('button', { name: 'Delete' }).first().click();
     await page.waitForURL(/notice=/, { timeout: 30000 });
     const gone = execFileSync('curl', ['-s', '-o', '/dev/null', '-w', '%{http_code}', BASE + url], { encoding: 'utf8' });
