@@ -6,16 +6,22 @@ import { useEffect } from "react";
 const MAX_STEPS = 6;
 
 /**
- * Where each kind of reveal starts from. `offset: 0` matters: a lone keyframe
- * without it is read as the END of the animation. With it, the animation runs
- * from here to the element's own style.
+ * Where a reveal starts from; it always ends at the element's own style.
+ * `offset: 0` matters: a lone keyframe without it is read as the END of the
+ * animation. The element can replace any part with --reveal-opacity,
+ * --reveal-translate or --reveal-scale (see styles/motion/utilities.css).
  */
-function startOf(el: Element): Keyframe {
-  if (el.classList.contains("reveal-fade")) return { offset: 0, opacity: 0 };
-  if (el.classList.contains("reveal-pop")) return { offset: 0, opacity: 0, scale: 0.8 };
-  if (el.classList.contains("reveal-left")) return { offset: 0, opacity: 0, translate: "-16px 0" };
-  if (el.classList.contains("reveal-right")) return { offset: 0, opacity: 0, translate: "16px 0" };
-  return { offset: 0, opacity: 0, translate: "0 16px" };
+function startOf(el: Element, style: CSSStyleDeclaration): Keyframe {
+  const start: Keyframe = { offset: 0, opacity: 0 };
+  if (el.classList.contains("reveal-pop")) start.scale = "0.8";
+  else if (el.classList.contains("reveal-left")) start.translate = "-16px 0";
+  else if (el.classList.contains("reveal-right")) start.translate = "16px 0";
+  else if (!el.classList.contains("reveal-fade")) start.translate = "0 16px";
+  for (const part of ["opacity", "translate", "scale"] as const) {
+    const custom = style.getPropertyValue(`--reveal-${part}`).trim();
+    if (custom) start[part] = custom;
+  }
+  return start;
 }
 
 /** "520ms" or "0.52s" to milliseconds. */
@@ -35,12 +41,15 @@ function toMs(value: string, fallback: number): number {
  * - It works through the Web Animations API and never changes an element's
  *   class, style or attributes. React owns those, and rewrites or checks them
  *   when a component updates or hydrates.
- * - An element is hidden only by an animation this component is holding, so
- *   nothing can be left hidden: without JavaScript, with reduced motion or
- *   without IntersectionObserver everything is simply visible.
+ * - An element is hidden only by an animation this component is holding, and
+ *   shown as soon as any part of it enters the window, so nothing can be left
+ *   hidden: without JavaScript, with reduced motion or without
+ *   IntersectionObserver everything is simply visible.
  * - An element that is already on screen when it is found is left alone. That
  *   covers the first screen of every page, including one that has just opened
- *   through a page transition.
+ *   through a page transition. An element that has no box yet (a hidden
+ *   parent, or content React is still moving into place) is left alone too,
+ *   and judged again if it is added to the page later.
  * - New content is picked up whenever it is added to the page (a page change,
  *   a section that streams in, a filtered list), not only when the address
  *   changes.
@@ -66,6 +75,9 @@ export function RevealObserver() {
       animation?.cancel();
     };
 
+    // No margin: the test for "below the fold" (hide it) and the test for
+    // "arrived" (show it) must be the same line, or an element at the very end
+    // of a page could wait for ever.
     const observer = new IntersectionObserver(
       (entries) => {
         const arriving = entries
@@ -86,23 +98,31 @@ export function RevealObserver() {
           animation.finished.then(() => animation.cancel()).catch(() => {});
         });
       },
-      { rootMargin: "0px 0px -6% 0px", threshold: 0 },
+      { rootMargin: "0px", threshold: 0 },
     );
 
-    const consider = (el: HTMLElement) => {
-      if (seen.has(el)) return;
-      seen.add(el);
-      const rect = el.getBoundingClientRect();
-      const onScreen = (rect.width > 0 || rect.height > 0) && rect.top < window.innerHeight && rect.bottom > 0;
-      if (onScreen) return;
-      const animation = el.animate([startOf(el)], { duration, easing: el.classList.contains("reveal-pop") ? easePop : easeEnter, fill: "both" });
-      animation.pause();
-      waiting.set(el, animation);
-      observer.observe(el);
-    };
     const scan = (scope: Element | Document) => {
-      if (scope instanceof HTMLElement && scope.classList.contains("reveal")) consider(scope);
-      for (const el of scope.querySelectorAll<HTMLElement>(".reveal")) consider(el);
+      const found: HTMLElement[] = [];
+      if (scope instanceof HTMLElement && scope.classList.contains("reveal") && !seen.has(scope)) found.push(scope);
+      for (const el of scope.querySelectorAll<HTMLElement>(".reveal")) if (!seen.has(el)) found.push(el);
+      if (found.length === 0) return;
+
+      // Measure everything first and only then create the animations: an
+      // animation created between two measurements forces a fresh layout.
+      const height = window.innerHeight;
+      const hide = found.filter((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.width === 0 && rect.height === 0) return false; // no box yet: judge it when it has one
+        seen.add(el);
+        return rect.top >= height || rect.bottom <= 0;
+      });
+      const starts = hide.map((el) => startOf(el, getComputedStyle(el)));
+      hide.forEach((el, index) => {
+        const animation = el.animate([starts[index]], { duration, easing: el.classList.contains("reveal-pop") ? easePop : easeEnter, fill: "both" });
+        animation.pause();
+        waiting.set(el, animation);
+        observer.observe(el);
+      });
     };
 
     scan(document);

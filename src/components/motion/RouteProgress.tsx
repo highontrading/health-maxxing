@@ -25,7 +25,7 @@ export function RouteProgress() {
       <Suspense fallback={null}>
         <Arrived />
       </Suspense>
-      <div ref={bar} className="route-progress" data-state="idle" aria-hidden="true" />
+      <div ref={bar} className="route-progress vt-layer" data-state="idle" aria-hidden="true" />
     </>
   );
 }

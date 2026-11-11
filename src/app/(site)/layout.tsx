@@ -4,6 +4,7 @@ import { ProseLinkRouter } from "@/components/article/ArticleClient";
 import { IntentPrefetch } from "@/components/motion/IntentPrefetch";
 import { LayoutTransition } from "@/components/motion/PageTransition";
 import { RouteProgress } from "@/components/motion/RouteProgress";
+import { TransitionClicks } from "@/components/motion/TransitionClicks";
 import { RevealObserver } from "@/components/RevealObserver";
 
 export default function SiteLayout({ children }: LayoutProps<"/">) {
@@ -19,6 +20,7 @@ export default function SiteLayout({ children }: LayoutProps<"/">) {
         <RevealObserver />
         <ProseLinkRouter />
         <IntentPrefetch />
+        <TransitionClicks />
       </div>
     </LayoutTransition>
   );

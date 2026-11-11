@@ -147,9 +147,9 @@
   --animate-marquee: marquee 38s linear infinite;
   --animate-wiggle: wiggle 0.5s ease-in-out;
   --animate-float: floaty 6s ease-in-out infinite;
-  --animate-pop: pop var(--dur-slow) var(--ease-pop) both;
-  --animate-rise: rise var(--dur-slow) var(--ease-enter) both;
-  --animate-fade: fade-in var(--dur-base) ease-out both;
+  --animate-pop: pop var(--dur-slow) var(--ease-pop) backwards;
+  --animate-rise: rise var(--dur-slow) var(--ease-enter) backwards;
+  --animate-fade: fade-in var(--dur-base) ease-out backwards;
 }
 
 @keyframes marquee {
@@ -621,11 +621,21 @@
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  /* Nothing moves, and nothing waits either: a delay would leave staggered
+     content missing and then make it appear piece by piece. */
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
   }
+  /* Three waits are about timing, not movement, and stay: a placeholder and
+     the progress bar still hold back for a quick load, and a spinner still
+     turns, slowly, because a ring that stands still reads as stuck. */
+  .page-skeleton { animation-delay: 250ms !important; }
+  .route-progress[data-state="loading"] { animation-delay: 180ms !important; }
+  .spinner { animation-duration: 1.6s !important; animation-iteration-count: infinite !important; }
 }
 
 /* Draggable stickers: only for precise pointers, so touch scrolling is untouched. */

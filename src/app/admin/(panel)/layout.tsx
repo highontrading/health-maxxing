@@ -1,5 +1,6 @@
 import { Suspense, type ReactNode } from "react";
 import { AdminFrame, AdminNav, AdminNavSkeleton } from "@/components/admin/AdminFrame";
+import { LayoutTransition } from "@/components/motion/PageTransition";
 import { getNavCounts } from "@/lib/admin/queries";
 import { requireStaff } from "@/lib/auth";
 
@@ -10,15 +11,17 @@ import { requireStaff } from "@/lib/auth";
  */
 export default function PanelLayout({ children }: { children: ReactNode }) {
   return (
-    <AdminFrame
-      nav={
-        <Suspense fallback={<AdminNavSkeleton />}>
-          <Menu />
-        </Suspense>
-      }
-    >
-      {children}
-    </AdminFrame>
+    <LayoutTransition>
+      <AdminFrame
+        nav={
+          <Suspense fallback={<AdminNavSkeleton />}>
+            <Menu />
+          </Suspense>
+        }
+      >
+        {children}
+      </AdminFrame>
+    </LayoutTransition>
   );
 }
 

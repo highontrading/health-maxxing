@@ -32,13 +32,14 @@ function wantsFullPrefetch(pathname: string): boolean {
 
 /**
  * Fetches the whole page when a visitor shows they are about to open it
- * (pointer resting on a link, keyboard focus, or a finger touching it), so the
- * page change goes straight from the old page to the new one. Without this
- * the visitor sees the old page, a pause, then the content.
+ * (a pointer resting on a link, or keyboard focus), so the page change goes
+ * straight from the old page to the new one. Without this the visitor sees
+ * the old page, a pause, then the content.
  *
- * A touch screen has no hover and a tap gives almost no warning, so there it
- * also fetches the one or two content pages whose links are nearest the middle
- * of the screen each time scrolling settles, up to a small budget per page.
+ * A touch screen has no hover, and a finger landing on a link is usually the
+ * start of a scroll, not a tap. So there it fetches the one or two content
+ * pages whose links are nearest the middle of the screen each time scrolling
+ * settles, up to a small budget per page.
  *
  * Mounted once in the site layout; it works for every link, including the
  * ones inside article text. It does nothing when the visitor has asked to
@@ -119,7 +120,6 @@ export function IntentPrefetch() {
 
     document.addEventListener("pointerover", onPointerOver, { passive: true });
     document.addEventListener("focusin", onIntent);
-    document.addEventListener("touchstart", onIntent, { passive: true });
     if (touchFirst) {
       window.addEventListener("scroll", onScroll, { passive: true });
       settle = setTimeout(lookAhead, 1200);
@@ -129,7 +129,6 @@ export function IntentPrefetch() {
       clearTimeout(settle);
       document.removeEventListener("pointerover", onPointerOver);
       document.removeEventListener("focusin", onIntent);
-      document.removeEventListener("touchstart", onIntent);
       window.removeEventListener("scroll", onScroll);
     };
   }, [router]);

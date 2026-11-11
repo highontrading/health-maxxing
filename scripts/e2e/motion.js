@@ -40,7 +40,11 @@ async function settled(page) {
   let quiet = 0;
   for (let i = 0; i < 100 && quiet < 4; i++) {
     await page.waitForTimeout(90);
-    const busy = await page.evaluate(() => window.__vt.some((r) => r.end === undefined && !r.error));
+    const busy = await page.evaluate(
+      () =>
+        window.__vt.some((r) => r.end === undefined && !r.error) ||
+        [...document.querySelectorAll('[aria-busy="true"]')].some((el) => el.getBoundingClientRect().height > 0),
+    );
     quiet = busy ? 0 : quiet + 1;
   }
 }
@@ -159,7 +163,7 @@ async function visit(page, path, { enter, maxAnimation }) {
   await page.click('button[type="submit"]');
   await page.waitForURL("**/admin");
   await page.waitForTimeout(800);
-  for (const path of ADMIN) await visit(page, path, { enter: ["fade-in"], maxAnimation: 260 });
+  for (const path of ADMIN) await visit(page, path, { enter: ["panel-fade-in"], maxAnimation: 260 });
   await context.close();
 
   console.log("\nReduced motion");

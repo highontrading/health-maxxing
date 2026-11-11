@@ -2,15 +2,25 @@
    Shared motion classes
    In the components layer, so a Tailwind utility on the same element
    still wins. Everything here is safe without JavaScript and under
-   prefers-reduced-motion (globals.css shortens every animation and
-   transition to nothing).
+   prefers-reduced-motion (globals.css cuts every animation and
+   transition to nothing and drops their delays).
+
+   Two rules for all of them:
+   - Classes that move an element in (enter-*, motion-*, reveal) take over
+     its `translate` and `scale` while they run. Never put them on an
+     element that has its own (a Tailwind translate-* or scale-* class, a
+     dialog centred with -translate-x-1/2): wrap that element instead.
+   - Entrances fill "backwards" only. Once finished they let go of the
+     element, so its hover styles work and it is not left as a stacking
+     context or as the box its fixed children are laid out in.
 ------------------------------------------------------------------- */
 @layer components {
   /* ---------- Entrances ----------
      Play once when the element appears: on first load, after a page change
-     and when a hidden parent is shown. For decoration and secondary content
+     and when a hidden parent is shown (so also when the visitor comes back
+     to a page the browser kept). For decoration and secondary content
      (stickers, badges, cards), never for the main heading or body text,
-     which must be readable at once. Stagger siblings with style={{ "--i": n }}. */
+     which must be readable at once. Stagger siblings with style={stagger(i)}. */
   .enter-fade,
   .enter-rise,
   .enter-drop,
@@ -20,7 +30,7 @@
   .enter-scale {
     animation-duration: var(--dur-slower);
     animation-timing-function: var(--ease-enter);
-    animation-fill-mode: both;
+    animation-fill-mode: backwards;
     animation-delay: calc(var(--i, 0) * var(--stagger) + var(--enter-delay, 0ms));
   }
   .enter-fade { animation-name: fade-in; animation-duration: var(--dur-slow); animation-timing-function: ease-out; }
@@ -34,9 +44,10 @@
   /* ---------- Open and close ----------
      For anything that appears and disappears: pair with usePresence() and put
      its `state` on data-state. "open" plays the way in; "closed" plays the way
-     out while the element is still mounted. */
+     out while the element is still mounted, and holds the end of it until the
+     element is removed. */
   .motion-menu[data-state="open"] {
-    animation: menu-in var(--dur-base) var(--ease-enter) both;
+    animation: menu-in var(--dur-base) var(--ease-enter) backwards;
     transform-origin: var(--origin, top center);
   }
   .motion-menu[data-state="closed"] {
@@ -45,14 +56,14 @@
     pointer-events: none;
   }
   .motion-dialog[data-state="open"] {
-    animation: dialog-in var(--dur-base) var(--ease-enter) both;
+    animation: dialog-in var(--dur-base) var(--ease-enter) backwards;
   }
   .motion-dialog[data-state="closed"] {
     animation: dialog-out var(--dur-fast) var(--ease-exit) forwards;
     pointer-events: none;
   }
   .motion-fade[data-state="open"] {
-    animation: fade-in var(--dur-base) ease-out both;
+    animation: fade-in var(--dur-base) ease-out backwards;
   }
   .motion-fade[data-state="closed"] {
     animation: fade-out var(--dur-fast) var(--ease-exit) forwards;
@@ -61,7 +72,7 @@
   /* Full-height panels. Set the side with style={{ "--sheet-from": "100% 0" }} (from the right),
      "-100% 0" (left), "0 100%" (bottom) or a few pixels for a gentler arrival. */
   .motion-sheet[data-state="open"] {
-    animation: sheet-in var(--dur-slow) var(--ease-enter) both;
+    animation: sheet-in var(--dur-slow) var(--ease-enter) backwards;
   }
   .motion-sheet[data-state="closed"] {
     animation: sheet-out var(--dur-base) var(--ease-exit) forwards;
@@ -71,7 +82,9 @@
   /* ---------- Collapse ----------
      Animates height from nothing to "auto". Structure: an outer element with
      `collapse-y` and data-open, and exactly one child that holds the content.
-     <Collapse> in src/components/motion does this for you. */
+     <Collapse> in src/components/motion does this for you. The content is
+     clipped only while the height is changing: at rest, focus rings, shadows
+     and menus inside an open section are free to reach past its edges. */
   .collapse-y {
     display: grid;
     grid-template-rows: 0fr;
@@ -87,8 +100,10 @@
     transition: visibility 0s linear var(--dur-slow);
   }
   .collapse-y[data-open="true"] > * {
+    overflow: visible;
     visibility: visible;
     transition-delay: 0s;
+    animation: collapse-clip var(--dur-slow);
   }
 
   /* ---------- Small touches ---------- */
@@ -108,10 +123,14 @@
     background-size: 0 1.5px;
     transition: background-size var(--dur-base) var(--ease-enter);
   }
-  .link-draw:hover,
   .link-draw:focus-visible,
   .link-draw[aria-current="page"] {
     background-size: 100% 1.5px;
+  }
+  @media (hover: hover) {
+    .link-draw:hover {
+      background-size: 100% 1.5px;
+    }
   }
 
   /* An icon that leans the way its link is going. Put it on the icon; the
@@ -127,10 +146,11 @@
     translate: -3px 0;
   }
 
-  /* MenuToggleIcon: three bars fold into a cross. */
+  /* MenuToggleIcon: three bars fold into a cross. Each bar turns about its own
+     middle, then moves to the middle of the icon. */
   .menu-toggle-icon line {
-    transform-box: view-box;
-    transform-origin: 12px 12px;
+    transform-box: fill-box;
+    transform-origin: center;
     transition:
       translate var(--dur-base) var(--ease-move),
       rotate var(--dur-base) var(--ease-move),
@@ -148,12 +168,20 @@
     rotate: -45deg;
   }
 
-  /* One-shot feedback. Re-run by changing the element's React key. */
+  /* One-shot feedback: they start and end at rest. Re-run one by changing the
+     element's React key. Like every CSS animation, they play again if the
+     visitor returns to a page the browser kept hidden. */
   .shake {
-    animation: shake-x 380ms var(--ease-move) both;
+    animation: shake-x 380ms var(--ease-move);
   }
   .bump {
-    animation: bump 340ms var(--ease-pop) both;
+    animation: bump 340ms var(--ease-pop);
+  }
+
+  /* <Spinner>: keeps turning, slowly, under reduced motion too, because a
+     ring that stands still reads as stuck (see globals.css). */
+  .spinner {
+    animation: spinner-turn 0.8s linear infinite;
   }
 
   /* Loading placeholder with a slow sheen. */
@@ -183,9 +211,12 @@
     opacity: 1;
     animation: progress-creep 8s cubic-bezier(0.1, 0.6, 0.2, 1) 180ms both;
   }
+  /* Arrived: run to the end, then fade. */
   .route-progress[data-state="done"] {
+    opacity: 1;
     scale: 1 1;
-    animation: fade-out var(--dur-base) ease-out forwards;
+    transition: scale var(--dur-base) var(--ease-enter);
+    animation: fade-out var(--dur-base) ease-out var(--dur-base) forwards;
   }
 }
 
@@ -193,12 +224,29 @@
    Add `reveal` to an element below the fold and RevealObserver shows it as it
    scrolls into view. Modifiers: reveal-fade (no movement), reveal-pop
    (stickers), reveal-left, reveal-right. Siblings that arrive together
-   cascade; set the order yourself with style={stagger(i)}.
+   cascade; set the order yourself with style={stagger(i)}. For a different
+   starting point set any of --reveal-opacity, --reveal-translate and
+   --reveal-scale on the element (for example a bar that grows from the left:
+   --reveal-opacity: 1; --reveal-translate: none; --reveal-scale: 0 1).
    The classes are only markers: the observer hides and shows through the Web
-   Animations API (src/components/RevealObserver.tsx), so an element is never
-   hidden unless something is waiting to show it. Without JavaScript, under
-   reduced motion or already on screen, it is simply visible. Paper has no
-   scrolling, so print shows everything. */
+   Animations API (src/components/RevealObserver.tsx) and sets no attribute or
+   class, so an element is never hidden unless something is waiting to show
+   it. Without JavaScript, under reduced motion or already on screen, it is
+   simply visible. Paper has no scrolling, so print shows everything. */
+/* Set on the element itself: these must not leak from a parent to the
+   reveal elements inside it. */
+@property --reveal-opacity {
+  syntax: "*";
+  inherits: false;
+}
+@property --reveal-translate {
+  syntax: "*";
+  inherits: false;
+}
+@property --reveal-scale {
+  syntax: "*";
+  inherits: false;
+}
 @media print {
   .reveal {
     opacity: 1 !important;
@@ -208,11 +256,14 @@
 }
 
 /* ---------- Scroll lock (useScrollLock) ----------
-   The gutter keeps the page the same width while its scrollbar is gone, so
-   opening a dialog does not nudge everything sideways. */
+   The hook measures the scrollbar it removes and the page keeps that much
+   room on the right, so nothing shifts sideways and a full-screen backdrop
+   really covers the full width. */
 html.scroll-locked {
   overflow: hidden;
-  scrollbar-gutter: stable;
+}
+html.scroll-locked body {
+  padding-right: var(--scrollbar-gap, 0px);
 }
 
 /* Hover movement only where there is a real pointer: on touch screens a
@@ -221,5 +272,24 @@ html.scroll-locked {
   .nudge-x,
   .nudge-back {
     translate: none !important;
+  }
+}
+
+/* High-contrast themes drop background images and repaint backgrounds, which
+   would erase these three. */
+@media (forced-colors: active) {
+  .skeleton {
+    outline: 1px solid CanvasText;
+    outline-offset: -1px;
+    animation: none;
+  }
+  .route-progress {
+    forced-color-adjust: none;
+    background: CanvasText;
+  }
+  .link-draw:hover,
+  .link-draw:focus-visible,
+  .link-draw[aria-current="page"] {
+    text-decoration: underline;
   }
 }
