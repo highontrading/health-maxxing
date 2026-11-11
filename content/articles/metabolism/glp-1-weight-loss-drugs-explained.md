@@ -33,43 +33,43 @@ sources:
   - title: "Once-Weekly Semaglutide in Adults with Overweight or Obesity"
     publisher: "The New England Journal of Medicine"
     year: 2021
-    url: "https://pubmed.ncbi.nlm.nih.gov/?term=Once-Weekly+Semaglutide+in+Adults+with+Overweight+or+Obesity"
+    url: "https://doi.org/10.1056/NEJMoa2032183"
   - title: "Tirzepatide Once Weekly for the Treatment of Obesity"
     publisher: "The New England Journal of Medicine"
     year: 2022
-    url: "https://pubmed.ncbi.nlm.nih.gov/?term=Tirzepatide+Once+Weekly+for+the+Treatment+of+Obesity"
+    url: "https://doi.org/10.1056/NEJMoa2206038"
   - title: "Tirzepatide as Compared with Semaglutide for the Treatment of Obesity"
     publisher: "The New England Journal of Medicine"
     year: 2025
-    url: "https://pubmed.ncbi.nlm.nih.gov/?term=Tirzepatide+as+Compared+with+Semaglutide+for+the+Treatment+of+Obesity"
+    url: "https://doi.org/10.1056/NEJMoa2416394"
   - title: "Semaglutide and Cardiovascular Outcomes in Obesity without Diabetes"
     publisher: "The New England Journal of Medicine"
     year: 2023
-    url: "https://pubmed.ncbi.nlm.nih.gov/?term=Semaglutide+and+Cardiovascular+Outcomes+in+Obesity+without+Diabetes"
+    url: "https://doi.org/10.1056/NEJMoa2307563"
   - title: "Weight regain and cardiometabolic effects after withdrawal of semaglutide: The STEP 1 trial extension"
     publisher: "Diabetes, Obesity and Metabolism"
     year: 2022
-    url: "https://pubmed.ncbi.nlm.nih.gov/?term=Weight+regain+and+cardiometabolic+effects+after+withdrawal+of+semaglutide%3A+The+STEP+1+trial+extension"
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9542252/"
   - title: "Continued Treatment With Tirzepatide for Maintenance of Weight Reduction in Adults With Obesity: The SURMOUNT-4 Randomized Clinical Trial"
     publisher: "JAMA"
     year: 2024
-    url: "https://pubmed.ncbi.nlm.nih.gov/?term=Continued+Treatment+With+Tirzepatide+for+Maintenance+of+Weight+Reduction+in+Adults+With+Obesity%3A+The+SURMOUNT-4+Randomized+Clinical+Trial"
+    url: "https://doi.org/10.1001/jama.2023.24945"
   - title: "Semaglutide for managing overweight and obesity (TA875)"
     publisher: "National Institute for Health and Care Excellence"
     year: 2023
-    url: "https://www.nice.org.uk/guidance/ta875"
+    url: "https://www.nice.org.uk/guidance/ta875/chapter/1-Recommendations"
   - title: "FDA's Concerns with Unapproved GLP-1 Drugs Used for Weight Loss"
     publisher: "US Food and Drug Administration"
     year: 2025
-    url: "https://www.fda.gov/drugs/postmarket-drug-safety-information-patients-and-providers/fdas-concerns-unapproved-glp-1-drugs-used-weight-loss"
+    url: "https://www.fda.gov/drugs/drug-alerts-and-statements/fdas-concerns-unapproved-glp-1-drugs-used-weight-loss"
   - title: "Oral semaglutide 50 mg taken once per day in adults with overweight or obesity (OASIS 1): a randomised, double-blind, placebo-controlled, phase 3 trial"
     publisher: "The Lancet"
     year: 2023
-    url: "https://pubmed.ncbi.nlm.nih.gov/?term=Oral+semaglutide+50+mg+taken+once+per+day+in+adults+with+overweight+or+obesity+%28OASIS+1%29%3A+a+randomised%2C+double-blind%2C+placebo-controlled%2C+phase+3+trial"
+    url: "https://pubmed.ncbi.nlm.nih.gov/37385278/"
   - title: "Orforglipron, an Oral Small-Molecule GLP-1 Receptor Agonist for Obesity Treatment"
     publisher: "The New England Journal of Medicine"
     year: 2025
-    url: "https://pubmed.ncbi.nlm.nih.gov/?term=Orforglipron%2C+an+Oral+Small-Molecule+GLP-1+Receptor+Agonist+for+Obesity+Treatment"
+    url: "https://doi.org/10.1056/NEJMoa2511774"
   - title: "Triple-Hormone-Receptor Agonist Retatrutide for Obesity - A Phase 2 Trial"
     publisher: "The New England Journal of Medicine"
     year: 2023
@@ -92,14 +92,14 @@ The net effect is that people feel less hungry, feel full sooner and eat less. T
 
 ## What the trials show
 
-The main trials were large, randomized and placebo-controlled. They were funded by the manufacturers, and every participant, including those on placebo, was given diet and activity counseling.
+The main trials were large and randomized, and all but the head-to-head trial compared the medicine with placebo. They were funded by the manufacturers, and in the weight-loss trials every participant, including those on placebo, was given diet and activity counseling.
 
 | Trial | Who took part | Main result |
 | --- | --- | --- |
 | STEP 1 (semaglutide)[^2] | 1,961 adults with obesity or overweight, without diabetes | 14.9% average weight loss at 68 weeks, compared with 2.4% on placebo |
 | SURMOUNT-1 (tirzepatide)[^3] | 2,539 adults with obesity or overweight, without diabetes | 15.0% to 20.9% at 72 weeks depending on dose, compared with 3.1% on placebo |
 | SURMOUNT-5 (head to head)[^4] | 751 adults with obesity, without diabetes | 20.2% with tirzepatide and 13.7% with semaglutide at 72 weeks |
-| SELECT (semaglutide)[^5] | 17,604 adults with cardiovascular disease and a BMI of 27 or more, without diabetes | 20% fewer heart attacks, strokes and cardiovascular deaths over about three years |
+| SELECT (semaglutide)[^5] | 17,604 adults with cardiovascular disease and a BMI of 27 or more, without diabetes | 20% fewer heart attacks, strokes and cardiovascular deaths over an average of 40 months |
 
 > [!STAT] 14.9%
 > Average weight loss with weekly semaglutide over 68 weeks in STEP 1, compared with 2.4% with placebo.[^2]
@@ -108,7 +108,7 @@ Two things are worth drawing out. First, averages hide a wide spread: in STEP 1 
 
 ## Side effects and warnings
 
-The common side effects come from the gut. In STEP 1, nausea affected about 44% of people on semaglutide and 17% on placebo, and diarrhea, vomiting and constipation were also much more frequent. Symptoms were mostly mild to moderate, clustered around dose increases and eased with time, but about 7% of participants stopped treatment because of side effects.[^2]
+The common side effects come from the gut. In STEP 1, nausea affected about 44% of people on semaglutide and 17% on placebo, and diarrhea, vomiting and constipation were also much more frequent. Symptoms were mostly mild to moderate, clustered around dose increases and eased with time, but about 7% of people on semaglutide stopped treatment because of side effects, compared with 3% on placebo.[^2]
 
 Less common problems are more serious:[^1][^2]
 
@@ -122,9 +122,9 @@ Less common problems are more serious:[^1][^2]
 
 ## What happens when you stop
 
-This is the least advertised finding. When 327 participants from STEP 1 were followed for a year after their last dose, they regained about two-thirds of the weight they had lost, and their blood pressure and blood sugar improvements faded with it.[^6]
+This is the least advertised finding. When 327 participants from STEP 1 were followed for a year after their last dose, they regained about two-thirds of the weight they had lost, and most of the improvements in their heart and metabolic risk markers faded with it.[^6]
 
-Tirzepatide shows the same pattern. In SURMOUNT-4, people who had lost about 21% of their weight over 36 weeks were then switched to placebo or kept on treatment. Over the next year the placebo group regained 14%, while the group that continued lost a further 5.5%.[^7]
+Tirzepatide shows the same pattern. In the 88-week SURMOUNT-4 trial, everyone started on tirzepatide and was then either switched to placebo or kept on treatment for the final year. By the end, those who stayed on it were 25.3% below their starting weight, while those switched to placebo had regained much of what they had lost and were 9.9% below.[^7]
 
 The medicines treat obesity. They do not cure it. That is why doctors increasingly describe them as long-term therapy, like treatment for blood pressure, and why cost and supply matter so much. Our guide to [weight loss that lasts](/articles/weight-loss-that-lasts) explains the biology behind regain.
 
@@ -142,7 +142,7 @@ They are prescription medicines for good reason. The dose is built up gradually 
 
 ## Compounded and counterfeit products
 
-High prices and shortages created a gray market. The US Food and Drug Administration warns that compounded versions of semaglutide and tirzepatide are not FDA-approved, meaning nobody has reviewed their safety, quality or effectiveness. It has received reports of people being hospitalized after measuring the wrong dose from multi-dose vials, has found counterfeit pens in the supply chain, and has flagged products sold online without a prescription or labeled "for research use".[^9]
+High prices and shortages created a gray market. The US Food and Drug Administration warns that compounded versions of semaglutide and tirzepatide are not FDA-approved, meaning the agency has not reviewed their safety, quality or effectiveness. It has received reports of people being hospitalized after measuring the wrong dose from multi-dose vials, has found counterfeit pens in the supply chain, and has flagged products sold online without a prescription or labeled "for research use".[^9]
 
 Only use a product dispensed by a licensed pharmacy on a valid prescription.
 
@@ -152,7 +152,7 @@ Injections are not the end of the story.
 
 - **Oral semaglutide.** A daily tablet produced about 15% weight loss over 68 weeks in a phase 3 trial, similar to the injection.[^10]
 - **Orforglipron.** A different kind of once-daily pill that is not a peptide, so it can be taken without the fasting rules oral semaglutide needs. In a 72-week trial, weight fell by about 11% at the highest dose, compared with about 2% on placebo.[^11]
-- **Retatrutide.** An injection that targets three hormone receptors. In a phase 2 trial, the highest dose produced about 24% weight loss in 48 weeks, and larger trials are under way.[^12]
+- **Retatrutide.** An injection that targets three hormone receptors. In a phase 2 trial, the highest dose produced about 24% weight loss in 48 weeks, and larger phase 3 trials have since started to report results.[^12]
 
 Approvals and availability differ by country and change quickly, so check what is licensed where you live.
 

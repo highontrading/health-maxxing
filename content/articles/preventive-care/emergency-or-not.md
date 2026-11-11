@@ -59,7 +59,7 @@ sources:
     publisher: "NHS"
     url: "https://www.nhs.uk/conditions/cancer/symptoms/"
 related: [first-aid-basics, heart-attack-and-stroke-warning-signs, fever-when-to-worry, how-to-talk-to-your-doctor]
-factCheck: verified
+factCheck: pending
 ---
 
 At two in the morning, with a feverish child or a pain you have never felt before, the hardest question is often not "what is this?" but "where do I go?" Pick too low and you lose time that matters. Pick too high and you spend the night in a waiting room.

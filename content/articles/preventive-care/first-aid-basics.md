@@ -129,7 +129,7 @@ Get emergency care for any burn that is bigger than the person's hand, looks whi
 
 ## Unresponsive but breathing
 
-Someone who is unresponsive but breathing normally should be rolled onto their side with the head tilted gently back, which keeps the airway open. This is the recovery position. Call for help, stay with them and keep watching their breathing. If it stops, start CPR. If you suspect a neck or back injury, keep the head and spine in a straight line as you turn them, ideally while a helper steadies the head and neck.[^6]
+Someone who is unresponsive but breathing normally should be rolled onto their side with the head tilted gently back, which keeps the airway open. This is the recovery position. Call for help, stay with them and keep watching their breathing. If it stops, start CPR. If you suspect a neck or back injury, turn them only if you must to keep the airway open, keeping the head, neck and spine in line, ideally with a helper.[^6]
 
 ## Seizures
 

@@ -234,9 +234,17 @@ Pieces not listed here still need the standard check; they just had no special f
   hormone".
 - `intermittent-fasting-evidence-check`: all trial figures, especially the 65% lean-mass finding
   and the 2025 BMJ pooled analysis; a 2026 Cochrane review may exist.
-- `glp-1-weight-loss-drugs-explained`: **most time-sensitive piece.** Approval status of oral
-  options, recent label changes and the WHO late-2025 GLP-1 guideline were deliberately left out;
-  check them and the lean-mass range (a quarter to 40%).
+- `glp-1-weight-loss-drugs-explained` (**most time-sensitive piece**; checked by search, still
+  pending). Confirmed against the trial records: STEP 1 (1,961 people; 14.9% vs 2.4% at 68 weeks),
+  SURMOUNT-1 (2,539; 15.0%), SURMOUNT-5 (751; 20.2% vs 13.7%), SELECT (17,604; 20% fewer events;
+  39.8 months) and the STEP 1 extension (regained 11.6 of 17.3 points). Not yet confirmed: the
+  retatrutide source link (still a PubMed title search) and its 24% at 48 weeks; SELECT event
+  rates 6.5% vs 8.0%; STEP 1 nausea about 44% vs 17%; SURMOUNT-1 20.9% and 3.1% and the lean-mass
+  range of a quarter to 40% (seen only in review articles); the FDA page details on dosing errors
+  and "research use" products; whether the cited NIDDK page itself states the BMI 30/27 criteria,
+  the thyroid warning and the side-effect list (confirmed on fda.gov instead); the "see a doctor"
+  callout and the surgery advice, which rest on sources that are not listed; trial descriptors
+  (manufacturer funding, counseling for all participants, "without diabetes").
 - `bmi-waist-and-body-composition`: diabetes-equivalent BMIs (24, 27, 27, 28); body-fat ranges;
   IDF waist cut-offs; NICE NG246 as the source for waist-to-height.
 - Least-certain URLs: AHA professional page for the 2026 dyslipidemia guideline, FDA over-the-counter
@@ -313,12 +321,17 @@ Pieces not listed here still need the standard check; they just had no special f
 - `checkups-men-skip`: all USPSTF ages and intervals; CDC adult vaccine items.
 
 ### preventive-care
-- **Checked by search:** `emergency-or-not` (verified). One judgment call: the list on the national
-  NHS "When to call 999" page never came back in search results, so the wording for sudden
-  swelling of the lips, mouth, throat or tongue, and for bleeding that "sprays, pours or forms a
-  puddle", was confirmed on NHS trust and ambulance-service pages that publish the same criteria.
-  Open the national page once to settle it. The "when in doubt, go up a tier" rule is house advice
-  with no listed source.
+- `emergency-or-not` (checked by search twice, still pending). The first check confirmed every
+  figure and link; the second reviewer set it back to pending for one safety question. **Read
+  first:** the page puts a fever of 38 °C under 3 months or 39 °C at 3 to 6 months in "urgent
+  advice the same day", as the NHS "Fever in children" page does, but search results suggest the
+  NHS page "When to get urgent medical help for babies and children under 5" lists the same
+  temperatures as a reason to call 999 or go to A&E. Read both pages and move the line up a tier
+  if so. Also open: bleeding that "sprays, pours or forms a puddle" was confirmed only on NHS trust
+  and ambulance-service pages, not the national "When to call 999" page; the self-harm sentence
+  may be better cited to the 999 page than the NHS 111 page; "a seizure that does not stop" gives
+  no time limit (first-aid-basics says more than 5 minutes); the "go up a tier" rule is house
+  advice with no listed source.
 - `first-aid-basics` (**highest stakes**; checked by search, still pending). Confirmed: the choking
   sequence, CPR rate and depth, hands-only CPR, aspirin and tourniquets, NHS burn first aid, the
   seizure 5-minute rule, the anaphylaxis steps, FAST and the AED facts. Five errors were fixed (the
@@ -331,7 +344,12 @@ Pieces not listed here still need the standard check; they just had no special f
   cited); the CPR cues "straighten your arms" and "take turns"; the bleeding cues ("spurts, pools
   or soaks through clothing", gloves, not lifting the pad, tourniquet above the wound); burns "keep
   the person warm"; heart attack "have the person sit and rest"; the BE FAST sentence (on stroke.org,
-  not the page cited); the course facts (a few hours, a two-year refresh).
+  not the page cited); the course facts (a few hours, a two-year refresh). A second reviewer fixed
+  the recovery-position line for a suspected spinal injury (turn the person only if you must to
+  keep the airway open) and found one conflict to settle: the page says US guidelines suggest
+  cooling a burn for 5 to 20 minutes, while an AHA first-aid page says "at least 10 minutes"
+  (possibly older text). Read the 2024 guideline itself. It also noted that the page never says
+  an untrained bystander should still give chest compressions to a child.
 - `health-screenings-by-age`: USPSTF cervical advice is the 2018 version (a December 2024 draft
   update may now be final); NHS England bowel screening "every two years, ages 50 to 74"; NEI
   dilated-exam interval (every 1 to 2 years over 60); NICE dental recall of 3 months to 2 years.
@@ -406,16 +424,21 @@ Pieces not listed here still need the standard check; they just had no special f
 
 ## Conditions
 
-### heart-circulation, lungs-breathing, kidneys-urinary, mens-reproductive (all pending)
+### heart-circulation, lungs-breathing, kidneys-urinary, mens-reproductive
 - Guideline currency: 2018 ACC/AHA cholesterol guideline, 2019 AHA/ASA stroke guideline, USPSTF
   2018 prostate statement, GINA and GOLD may all have newer editions.
-- `stroke`: 87% ischemic; "up to 80% preventable"; thrombolysis within 4.5 h, thrombectomy 6–24 h.
+- **Checked by search:** `stroke` (verified) and `heart-attack` (verified). Every figure, time
+  window and recommendation was stated in a search result from the cited organization, including
+  the ECG within 10 minutes of first medical contact (2025 ACS guideline). The evidence was
+  search-result text, not full pages, and the planned second review of these two pages did not
+  run, so one more read is worthwhile. The ASA "Stroke Symptoms" link appeared in results only on
+  a mirror hostname with the same path; the public address was kept.
 - `high-cholesterol`: lipid table and mmol/L conversions; FH ~1 in 250; USPSTF 2022 statin
   criteria; "test every 4 to 6 years".
 - `heart-failure`: ejection-fraction cut-offs (40%, 50%); weight-gain thresholds (2–3 lb a day or
   5 lb a week).
-- `heart-attack`, `coronary-artery-disease`, `atrial-fibrillation`: ECG within 10 minutes; USPSTF
-  2022 aspirin advice; AF raises stroke risk fivefold.
+- `coronary-artery-disease`, `atrial-fibrillation`: USPSTF 2022 aspirin advice; AF raises stroke
+  risk fivefold.
 - `iron-deficiency-anemia`: WHO 30% of women and 37% of pregnant women; hemoglobin cut-offs 13 and
   12 g/dL; iron intakes 8, 18 and 27 mg.
 - `sleep-apnea`: 936 million / 425 million; AHI bands; tirzepatide effect size.
@@ -468,8 +491,16 @@ Pieces not listed here still need the standard check; they just had no special f
 - `prediabetes`: "about 1 in 3 US adults, more than 8 in 10 not told" is cited to the USPSTF 2021
   statement (34.5%, 15.3% aware), not CDC; WHO lower limit 110 mg/dL (6.1 mmol/L); NICE HbA1c
   range 42–47 mmol/mol; Diabetes Prevention Program 58% and 31%.
-- `type-2-diabetes`, `type-1-diabetes`: ADA threshold table with mmol conversions; DiRECT
-  remission 46% vs 4%; teplizumab "from age 8"; treating a low with 15–20 g of carbohydrate.
+- `type-2-diabetes` (checked by search, still pending). Confirmed: the WHO figures (more than 95%
+  type 2; 200 million in 1990 to 830 million in 2022), USPSTF 2021 screening for adults aged 35 to
+  70 with overweight or obesity, and DiRECT remission (46% vs 4% at 12 months). Not yet confirmed:
+  the mmol equivalents in the ADA table (48 mmol/mol, 7.0 and 11.1 mmol/L) and the cut-points on
+  an ADA page; ADA testing of all adults from age 35; the addresses of the NIDDK and NHS "Type 2
+  diabetes" pages; three symptoms (slow-healing sores, repeated infections, numbness or tingling);
+  "tends to progress"; DPP-4 inhibitors and tirzepatide by name; the urgent signs; remission
+  "soon after diagnosis"; the prediabetes pointer.
+- `type-1-diabetes`: ADA threshold table with mmol conversions; teplizumab "from age 8"; treating
+  a low with 15–20 g of carbohydrate.
 - `fatty-liver-disease` (most recall-dependent page): prevalence "a quarter to a third of adults";
   weight loss 3–5% for liver fat and 10%+ for scarring; coffee at three or more cups a day;
   resmetirom 2024 US approval and trial result (~26–30% vs 10%); semaglutide is described only by
@@ -527,8 +558,17 @@ Pieces not listed here still need the standard check; they just had no special f
   day cell cycle, 80–90% plaque type; NPF 8 million and 1 in 3 with psoriatic arthritis); rosacea
   (NRS 16 million); hives (1 in 5 lifetime); melanoma (~1% of skin cancers, above 99% localized
   survival, 7 in 10 arising as a new spot).
-- Allergy: NHS "1 in 5 people in the UK" for allergic rhinitis; the NHS five-step anaphylaxis
-  first aid, including a second injector after five minutes.
+- Allergy: NHS "1 in 5 people in the UK" for allergic rhinitis.
+- `anaphylaxis` (checked by search, still pending). Confirmed on the cited organizations' pages:
+  every emergency step and its order, the second injector after 5 minutes, lying on the left side
+  in pregnancy, not standing or walking, hospital care, carrying two in-date injectors, and
+  epinephrine as first-line treatment. Not yet confirmed: several symptom words (tight throat,
+  hoarse voice, trouble swallowing, wheezing, clammy skin, flushing, diarrhea); "a child who
+  becomes floppy, pale or unresponsive"; the mechanism sentence and "hives are common but not
+  always present" (WAO); steroids not replacing epinephrine; aspirin and ibuprofen as the named
+  examples; the specialist and tryptase wording; the final NICE NG258 wording; the avoidance
+  advice cited to ACAAI; "teachers" among the people to train; sting immunotherapy; the written
+  action plan.
 - Women's health: endometriosis (WHO 10% and 190 million; ESHRE 2022 on laparoscopy); fibroids
   (NHS 2 in 3 women, 1 in 3 with symptoms); menopause (NIA seven years, up to 14); yeast infection
   (CDC 75% and 40–45%, 80–90% relief, pregnancy advice); breast cancer (WHO 2.3 million and

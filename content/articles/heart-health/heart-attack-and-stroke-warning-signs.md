@@ -120,7 +120,7 @@ An expanded version, BE-FAST, adds **B**alance (sudden loss of balance or coordi
 ### Why minutes matter
 
 > [!STAT] 1.9 million
-> Brain cells lost every minute that a typical large-vessel ischemic stroke goes untreated.[^8]
+> Estimated brain cells lost every minute that a typical large-vessel ischemic stroke goes untreated.[^8]
 
 The main treatments are tied to the clock. Clot-dissolving medicine works best the sooner it is given, and the standard window is the first 4.5 hours after symptoms start, though brain scans now let doctors treat some people later.[^6][^7] A procedure to pull the clot out, called thrombectomy, can help selected people for longer, in some cases up to 24 hours, but earlier is still better.[^6][^7]
 
@@ -145,7 +145,7 @@ If someone collapses and is not breathing normally:[^11][^12]
 3. **Use the AED as soon as it arrives.** Switch it on and follow its instructions.
 4. **Keep going** until help takes over.
 
-You do not need to give rescue breaths. The American Heart Association recommends hands-only CPR for bystanders who see a teenager or adult collapse, and immediate CPR can double or triple the chance of survival.[^12]
+For a teenager or adult who suddenly collapses, you do not need to give rescue breaths. The American Heart Association recommends hands-only CPR for bystanders in that situation, and immediate CPR can double or triple the chance of survival.[^12]
 
 > [!TIP] Learn it before you need it
 > Find out where the nearest defibrillator is at work, at the gym and near home, and consider a CPR class. Our [first aid basics](/articles/first-aid-basics) guide is a good place to start.
