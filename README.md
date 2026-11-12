@@ -185,7 +185,16 @@ pages are generated from the live database; the first minute after a start is th
 
 Serverless hosts have no permanent disk, so use a hosted libSQL database such as Turso. Set
 `DATABASE_URL`, `DATABASE_AUTH_TOKEN`, `ADMIN_EMAIL` and `ADMIN_PASSWORD` in the project settings,
-then deploy. The build loads the content into that database.
+then deploy. The build loads the content into that database. (Turso's own names,
+`TURSO_DATABASE_URL` and `TURSO_AUTH_TOKEN`, work too.)
+
+### Vercel without a database, as a preview
+
+With no database settings the site still runs on Vercel: the database file made during the build
+is shipped with the server code, and each server works on its own copy in the temporary folder.
+Everything can be tried, but what visitors and admins change is lost when Vercel replaces the
+server, which happens often. Set `ADMIN_EMAIL` and `ADMIN_PASSWORD` to be able to sign in to the
+admin panel: the generated password of a local install is not readable there.
 
 Only the plain Node route (`npm run build`, `npm start`) was run and tested while building this.
 The Docker and Vercel recipes follow each platform's documented behaviour but have not been run.

@@ -8,6 +8,7 @@
  * This module has no Next.js imports so scripts can use it through tsx.
  */
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 import { createClient, type Client, type InArgs, type InStatement, type InValue } from "@libsql/client";
 import { MIGRATIONS } from "./db-schema";
@@ -25,12 +26,44 @@ export function isLocalDatabase(): boolean {
   return databaseUrl().startsWith("file:");
 }
 
+function writableFolder(dir: string): boolean {
+  try {
+    fs.mkdirSync(dir, { recursive: true });
+    fs.accessSync(dir, fs.constants.W_OK);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * A serverless host (Vercel without a hosted database) runs the site from a
+ * read-only folder. The database file made during the build is shipped with
+ * the server code (outputFileTracingIncludes in next.config.ts), and each
+ * server works on its own copy in the temporary folder. Good enough to look
+ * around: what visitors and admins change there is lost when the server is
+ * replaced, and two servers do not see each other's changes.
+ */
+function temporaryCopy(file: string): string {
+  const dir = path.join(os.tmpdir(), "health-maxxing");
+  const copy = path.join(dir, path.basename(file));
+  if (!fs.existsSync(copy)) {
+    fs.mkdirSync(dir, { recursive: true });
+    // The write-ahead log holds whatever the build had not yet written into the main file.
+    for (const suffix of ["", "-wal"]) {
+      if (fs.existsSync(file + suffix)) fs.copyFileSync(file + suffix, copy + suffix);
+    }
+    console.warn(`Health Maxxing: ${path.dirname(file)} is read-only, so the site runs on a temporary copy of its database. Changes will not last. Set DATABASE_URL for a permanent one.`);
+  }
+  return copy;
+}
+
 function client(): Client {
   if (!g.__hmDb) {
-    const url = databaseUrl();
+    let url = databaseUrl();
     if (url.startsWith("file:")) {
-      const file = url.slice("file:".length);
-      fs.mkdirSync(path.dirname(path.resolve(file)), { recursive: true });
+      const file = path.resolve(url.slice("file:".length));
+      if (!writableFolder(path.dirname(file))) url = `file:${temporaryCopy(file)}`;
     }
     g.__hmDb = createClient({
       url,

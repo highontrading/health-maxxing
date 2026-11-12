@@ -13,6 +13,12 @@ const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
   poweredByHeader: false,
+  // Ship the database file made during the build with the server code. A host with a read-only
+  // disk and no DATABASE_URL (Vercel without storage) then runs on a temporary copy of it (src/lib/db.ts).
+  // Only the database: never admin-credentials.txt.
+  outputFileTracingIncludes: {
+    "/**": ["./data/health-maxxing.db", "./data/health-maxxing.db-wal"],
+  },
   experimental: {
     // Image uploads in the admin panel go through a Server Action (4 MB limit plus form overhead).
     serverActions: { bodySizeLimit: "5mb" },

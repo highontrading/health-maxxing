@@ -73,7 +73,9 @@ an API you have not used in this repository.
 ## Data
 
 - `src/lib/db.ts` wraps one libSQL client. Local default: `data/health-maxxing.db`. Hosted: set
-  `DATABASE_URL` and `DATABASE_AUTH_TOKEN`.
+  `DATABASE_URL` and `DATABASE_AUTH_TOKEN`. When the `data/` folder is read-only (Vercel without a
+  database) the server works on a temporary copy of the file made during the build, which
+  `outputFileTracingIncludes` in `next.config.ts` ships with the server code. Changes there do not last.
 - Schema changes: append a new migration string to `MIGRATIONS` in `src/lib/db-schema.ts`. Never
   edit one that has shipped. Migrations run once per process, so restart the server after adding one.
 - Raw SQL with `?` placeholders. Table and column names in dynamic SQL come only from trusted
